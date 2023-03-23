@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{lecture-notes}[2022/10/04 Custom LaTeX class]
 
-\LoadClass[12pt,a4paper]{article}
+\LoadClass[12pt,a4paper]{report}
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[ngerman]{babel}
@@ -21,6 +21,7 @@
 \RequirePackage{xstring}
 \RequirePackage{tcolorbox}
 \RequirePackage{enumitem}
+\RequirePackage{amsthm}
 
 \setlength{\headheight}{34pt}
 \setlength{\parindent}{0pt}
@@ -36,6 +37,13 @@
   \oldtoc
   \setlength{\parskip}{\docparskip}
 }
+
+\newtheorem{theorem}{Satz}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Korollar}
+\newtheorem{example}[theorem]{Beispiel}
+\newtheorem{proposition}[theorem]{Proposition}
+% \newtheorem{example}{Beispiel}
 
 \tcbuselibrary{skins}
 \definecolor{tublue}{HTML}{006699}
@@ -73,13 +81,14 @@
     \end{tcolorbox}
   }
 
+\fancypagestyle{plain}{}
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt}
 \fancyhf{}
-\lhead{\raisebox{-0.3cm}{\includegraphics[height=1cm]{TU_Logo_transparent_72dpi_RGB}}}
-\chead{Aufgabe \@problem}
-\rhead{\@shortauthor}
-\lfoot{106.064 Numerische Mathematik}
+% \lhead{\raisebox{-0.3cm}{\includegraphics[height=1cm]{TU_Logo_transparent_72dpi_RGB}}}
+% \chead{Aufgabe \@problem}
+\rhead{Hornik, Mayr, Zach}
+\lfoot{104.998 Algebra 2023SS}
 \rfoot{Seite \thepage \,\,von \pageref{LastPage}}
 
 \newcommand{\obda}{o. B. d. A.\ }
