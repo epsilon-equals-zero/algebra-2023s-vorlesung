@@ -1,7 +1,230 @@
 \section{Einführung}
 
 \notedate{01.03.2023}
+Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra definiert und es werden weiter einige spezielle Algebren gezeigt.
+
+\begin{definition}\label{def:algebra}
+    Seien $A$ eine beliebige Menge, $\tau = (n_i)_{i \in I}$ eine Familie aus $\mathbb{N}_0$ über eine beliebige Indexmenge $I$ und $(f_i)_{i \in I}$ eine Familie von Funktionen, wobei $f_i: A^{n_i} \to A$ ist. 
+     Das Tupel $\mathfrak{A} = (A, (f_i)_{i \in I})$ heißt dann \emph{(allgemeine) Algebra} vom \emph{Typ} $\tau$. Die einzelnen Funktionen $f_i$ haben die \emph{Stelligkeit} oder \emph{Arität} $n_i$.
+\end{definition}
+
+\begin{remark}
+    Für eine endliche Indexmenge $I = \{1, \ldots, m\}$ wird der Typ auch als $m$-Tupel $\tau = (n_i, \ldots, n_m)$ geschrieben und die Algebra als $\mathfrak{A} = (A, f_1, \ldots, f_n)$.
+\end{remark}
+
+\begin{remark}
+    Eine nullstellige Operation $f_i$ bildet von der Menge $A^0 := \{\emptyset\}$ auf $A$ ab. Es ist also $f_i$ konstant mit $f(\emptyset) = a \in A$. Im Folgenden wird bei $n_i = 0$ nicht zwischen der Operation $f_i$ und dem Element $a$ auf das abgebildet wird unterschieden.
+\end{remark}
 
 \begin{definition}
-    Test
+    Eine Algebra $\mathfrak{A} = (A, +)$ vom Typ $\tau = (2)$ heißt \emph{Halbgruppe}, wenn 
+    \begin{itemize}[topsep=0pt, label={--}]
+        \item $\forall x,y,z \in A: (x + y) + z = x + (y + z)$. \tab (\emph{Assoziativität} von $+$)
+    \end{itemize}
 \end{definition}
+
+\begin{example} $(\mathbb{R}, +), (\mathbb{R}, \cdot), (\mathbb{R}^{2\times 2}, \cdot), (\mathbb{N}, +)$ sind Halbgruppen.
+\end{example}
+
+\begin{definition}
+    Eine Algebra $\mathfrak{A} = (A, +, e)$ vom Typ $\tau = (2,0)$ heißt \emph{Monoid}, wenn
+    \begin{itemize}[topsep=0pt, label={--}]
+        \item $(A, +)$ eine Halbgruppe ist und
+        \item $\forall x \in A: e + x = x + e = x$. \tab ($e$ \emph{neutrales Element} bezüglich $+$)
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    $(\mathbb{R}, +, 0), (\mathbb{R}, \cdot, 1), (\mathbb{R}^{2\times 2}, \cdot, E_2), (\mathbb{N}, \cdot, 1)$ sind Monoide.
+\end{example}
+
+\begin{definition}\label{def:gruppe}
+    Eine Algebra $\mathfrak{A} = (A, +, e, -)$ vom Typ $\tau = (2,0,1)$ heißt \emph{Gruppe}, wenn
+    \begin{itemize}[topsep=0pt, label={--}]
+        \item $(A, +, e)$ ein Monoid ist und
+        \item $\forall x \in A: x + (-x) = (-x) + x = e$. \tab ($-$ bildet ab auf \emph{inverse Elemente})
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    $(\mathbb{R},+, 0, -), (\mathbb{Z}, +, 0, -)$ sind Gruppen.
+\end{example}
+
+\begin{remark}
+    Manchmal werden Gruppen auch als Algebra $\mathfrak{A} = (A, +)$ vom Typ $\tau = (2)$ definiert, für die
+    \begin{itemize}[topsep=0pt, label={--}]
+        \item $\forall x,y,z \in A: (x + y) + z = x + (y + z)$,
+        \item $\exists e \in A \forall x \in A: e + x = x + e = x$ und 
+        \item $\forall x \in A \exists -x \in A: x + (-x) = (-x) + x = e$ gilt.
+    \end{itemize}
+   Bei der Definition von Unterstrukturen macht es allerdings einen Unterschied, welche der Definitionen verwendet wird, weshalb im Folgenden mit Gruppe der Begriff aus \Cref{def:gruppe} gemeint ist.
+\end{remark}
+
+\begin{definition}
+    Eine Halbgruppe / Monoid / Gruppe $\mathfrak{A} = (A, +, \cdots)$ heißt \emph{kommutativ} oder \emph{abelsch}, wenn für die zweistellige Operation $+$ 
+    \begin{itemize}[topsep=0pt, label={--}]
+        \item $\forall x, y \in A: x + y = y + x$ gilt.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    Eine Algebra $\mathfrak{A} = (A, +, 0, \cdot)$ vom Typ $\tau = (2,0,2)$ heißt \emph{Halbring}, wenn
+    \begin{itemize}[topsep=0pt, label={--}]
+        \item $(A, +, 0)$ ein kommutatives Monoid,
+        \item $(A, \cdot)$ eine Halbgruppe ist und
+        \item $\forall x, y, z \in A: (x+y)\cdot z = x \cdot z + y \cdot z$ \tab ($\cdot$ ist \emph{rechtsdistributiv} über $+$)\\
+        \phantom{$\forall x, y, z \in A:$}$ \land \; z\cdot (x+y) = z \cdot x + z \cdot y$. \tab ($\cdot$ ist \emph{linksdistributiv} über $+$)
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    $(\mathbb{N},+, \cdot, 0), (\mathbb{R}^{2\times 2}, +, \cdot, 0\footnote{0 steht hier für $\begin{pmatrix}
+        0 & 0 \\ 0 & 0
+    \end{pmatrix}$})$ sind Halbringe.
+\end{example}
+
+\begin{definition}
+    Eine Algebra $\mathfrak{A} = (A, +, 0, -, \cdot)$ vom Typ $\tau = (2,0,1,2)$ heißt \emph{Ring}, wenn
+    \begin{itemize}[topsep=0pt, label={--}]
+        \item $(A, +, -, 0)$ eine kommutative Gruppe,
+        \item $(A, \cdot)$ eine Halbgruppe ist und
+        \item $\cdot$ ist links- und rechtsdistributiv über $+$.
+    \end{itemize}
+
+    Gibt es eine weitere nullstellige Operation $1$, sodass $(A, \cdot, 1)$ ein (kommutatives) Monoid ist, so spricht man von einem \emph{(kommutativen) Ring mit 1}.
+\end{definition}
+
+\begin{example}
+    $(\mathbb{Z}, +, 0, -. \cdot), (\mathbb{R}[x], +, 0, -, \cdot)$ sind Ringe.
+\end{example}
+
+\begin{definition}
+    Ein kommutativer Ring mit 1 $\mathfrak{A}$ heißt \emph{Körper}, wenn 
+    \begin{itemize}[topsep=0pt, label={--}]
+        \item $\forall x \in A\backslash \{0\} \exists y \in A: x\cdot y = 1$
+    \end{itemize}
+
+    Ist $\cdot$ nicht kommutativ, dann nennen wir $\mathfrak{A}$ \emph{Schiefkörper} oder \emph{Divisionsring}.
+\end{definition}
+
+\begin{remark}
+    Im Vergleich zu allen anderen bis jetzt definierten speziellen Algebren ist ein Körper nicht durch Allaussagen für alle Elemente (Gesetze) und Operationen definiert. 
+\end{remark}
+
+\begin{definition}
+    Seien $\mathfrak{R} = (R, +, 0, -, \cdot)$ ein Ring, $\mathfrak{G} = (G, \widetilde{+}, \widetilde{0}, \widetilde{-})$ eine abelsche Gruppe und $\odot: R \times G \to G, (a, v) \mapsto a \odot v$ und gilt
+    \begin{itemize}[topsep=0pt, label={--}]
+        \item $\forall a,b \in R \forall u \in G: (a \cdot b)\odot u = a \odot (b \odot u)$
+        \item $\forall a,b \in R \forall u \in G: (a + b) \cdot u = (a \cdot u) \;\widetilde{+}\; (b \cdot u)$
+        \item $\forall a \in R \forall u,v \in G: a \odot (u \;\widetilde{+}\; v) = (a \odot u) \;\widetilde{+}\; (a \odot v)$
+    \end{itemize}
+    so heißt $\mathfrak{G}$ mit $\odot$ \emph{Modul über $\mathfrak{R}$} oder \emph{$\mathfrak{R}$-Modul}.
+
+    Ein $\mathfrak{R}$-Modul kann auch als allgemeine Algebra nach \Cref{def:algebra} definiert werden. Wir erhalten die Algebra $\mathfrak{G}^\mathfrak{R} := (G, \widetilde{+}, \widetilde{0}, \widetilde{-}, (m_r)_{r \in \mathfrak{R}})$, wobei $m_r: G \to G, g \mapsto r \odot g$ unäre Operationen sind.
+\end{definition}
+
+\begin{remark}
+    Ein $\mathfrak{R}$-Modul ist ein Vektorraum, wenn $\mathfrak{R}$ ein Körper ist.
+\end{remark}
+
+\begin{example}
+    $(\mathbb{Z}_9, +, 0, -), (\mathbb{Z}_9^{2 \times 2}, +, 0, -)$ sind Moduln über $\mathbb{Z}_9$.
+\end{example}
+
+\begin{definition}
+    Eine Algebra $\mathfrak{A} = (A, \wedge)$ vom Typ $\tau = (2)$ heißt \emph{Halbverband}, wenn
+    \begin{itemize}[topsep=0pt, label={--}]
+        \item $\mathfrak{A}$ eine kommutative Halbgruppe ist,
+        \item $\forall x \in A: x \wedge x = x$. \tab ($\wedge$ ist \emph{idempotent})
+    \end{itemize}
+\end{definition}
+
+\begin{remark}
+    $(\mathbb{Z}, \min), (\mathbb{Z}, \max)$ sind Halbverbände.
+\end{remark}
+
+\begin{definition}
+    Eine Algebra $\mathfrak{A} = (A, \wedge, \vee)$ vom Typ $\tau = (2, 2)$ heißt \emph{Verband}, wenn
+    \begin{itemize}[topsep=0pt, label={--}]
+        \item $(A, \wedge)$ ein Halbverband,
+        \item $(A, \vee)$ ein Halbverband ist, 
+        \item $\forall a,b \in A: a \wedge (a \vee b) = a$ und
+        \item $\forall a,b \in A: a \vee (a \wedge b) = a$
+    \end{itemize}
+    gilt, wobei die letzten zwei Gesetze \emph{Verschmelzungsgesetze} genannt werden.
+
+    \notedate{02.03.2023}
+    Ein Verband heißt \emph{distributiv}, wenn $\wedge$ distributiv\footnote{Es ist ausreichend Rechts- bzw. Linksdistributivität zu fordern, da die jeweilig andere Distributivität aus der Kommutativität folgt.} über $\vee$ und $\vee$ distributiv über $\wedge$ ist.
+
+    Eine Algebra $\mathfrak{A} = (A, \wedge, \vee, 0, 1)$ vom Typ $\tau = (2,2,0,0)$ heißt \emph{beschränkter Verband}, wenn
+    \begin{itemize}[topsep=0pt, label={--}]
+        \item $(A, \wedge, \vee)$ ein Verband ist,
+        \item $\forall a \in A: a \wedge 0 = 0$ und
+        \item $\forall a \in A: a \vee 1 = 1$.
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    Mit einer beliebigen Menge $M$, einen $\mathfrak{K}$-Vektorraum $\mathfrak{V}$ und einer linearen Ordnung $(L, \le)$ sind $(\mathcal{P}(M), \cap, \cup)$, $(\Sub(\mathfrak{V}), \cap, \langle U_1 \cup U_2 \rangle)$, $(L, \min, \max)$ Verbände.
+
+    $(\mathcal{P}(M), \cap, \cup)$ ist sogar ein distributiver Verband.
+
+    \begin{minipage}{0.78\textwidth}
+        Betrachtet man die Abbildung rechts und definiert eine Ordnungsrelation, wobei eine jeweils die höher stehenden Elemente größer als die niedrigeren sind und sei $\wedge, \vee$ das Maximum bzw. Minimum zweier Elemente. Es ist dann $(\{0,1,2,3,4\}, \wedge, \vee)$ ein nicht distributiver Verband, da
+        $$ 1 \wedge (2 \vee 3) = 1 \wedge 4 = 1 \neq 0 = (1 \wedge 2) \vee ( 1 \wedge 3). $$
+    \end{minipage}    
+    \begin{minipage}{0.2\textwidth}
+        \begin{tikzpicture}
+            \filldraw[black] (0,0) circle(2pt) node[above] {4} -- (-1,-1) circle(2pt) node[left] {1} -- (0, -2) circle(2pt) node[below] {0} ;
+            \filldraw[black] (0,0) -- (0,-1) circle(2pt) node[left] {2} -- (0, -2) ;
+            \filldraw[black] (0,0) -- (1,-1) circle(2pt) node[right] {3} -- (0, -2) ;
+        \end{tikzpicture}
+    \end{minipage}
+
+    Es ist $(\mathcal{P}(M), \cap, \cup, \emptyset, M)$ ein beschränkter Verband, $(\mathbb{Q}, \min, \max)$ kann hingegen nicht zu einem beschränkten Verband gemacht werden.
+\end{example}
+
+\begin{lemma}
+    Jeder Verband $\mathfrak{V} = (V, \wedge, \vee)$ mit endlicher Menge $V = \{v_1, \ldots, v_n\}$ kann zu einem beschränkten Verband gemacht werden.
+\end{lemma}
+\begin{proof}
+    Sei $1 := v_1 \vee \ldots \vee v_n$, dann gilt für beliebiges $v_j \in V$, dass $$v_j \vee 1 = v_j \vee v_1 \vee \ldots \vee v_n =  v_1 \vee \ldots \vee v_j \vee v_j \vee \ldots \vee v_n = v_1 \vee \ldots \vee v_n = 1.$$
+    Analoges gilt für $0 := v_1 \vee \ldots \vee v_n$. Damit ist $(V, \wedge, \vee, 0, 1)$ ein beschränkter Verband. 
+\end{proof}
+
+
+\begin{definition}
+    Eine Algebra $\mathfrak{A} = (A, \wedge, \vee, 0, 1, \,')$ vom Typ $\tau = (2,2,0,0,1)$ heißt \emph{Boolsche Algebra}, wenn
+    \begin{itemize}[topsep=0pt, label={--}]
+        \item $(A, \wedge, \vee, 0, 1, \,')$ ein beschränkter distributiver Verband ist,
+        \item $\forall x \in A: x \wedge x' = 0$ und
+        \item $\forall x \in A: x \vee x' = 1$.
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    Für eine Menge $M$ ist $(\mathcal{P}(M), \cap, \cup, \emptyset, M, ')$ mit $'(X) := M \setminus X$ eine boolsche Algebra.
+\end{example}
+
+\begin{remark}
+    Alle boolschen Algebren werden durch den Darstellungssatz von Stone bis auf Isomorphie beschrieben.
+\end{remark}
+
+\begin{definition}
+    Seien $\mathfrak{A} = (A, (f_i^\mathfrak{A})_{i \in I}), \mathfrak{B} = (B, (f_i^\mathfrak{B})_{i \in I})$ zwei Algebren vom selben Typ $\tau = (n_i)_{i \in I}$. Eine Abbildung $\varphi: A \to B$ heißt \emph{Homomorphismus}, wenn
+
+    $$\forall i \in I \forall a_1, \ldots, a_{n_i} \in A: \varphi(f_i^\mathfrak{A}(a_1, \ldots, a_{n_i})) = f_i^\mathfrak{B}(\varphi(a_1), \ldots, \varphi(a_{n_i})). $$
+
+    Wenn $\varphi$ bijektiv ist, dann heißt die Funktion \emph{Isomorphismus}.
+    Ist $\mathfrak{A} = \mathfrak{B}$, dann heißt $\varphi$ \emph{Endomorphismus}. Ein bijektiver Endomorphismus heißt \emph{Automorphismus}.
+\end{definition}
+
+\begin{example}
+    Sei $\mathfrak{A}$ eine Algebra. Definieren wir die Mengen \begin{align*}
+        \End(\mathfrak{A}) &:= \{f: A \to A \;\vert\; f\text{ ist Endomorphismus}\} \text{ und} \\ \Aut(\mathfrak{A}) &:= \{f: A \to A \;\vert\; f\text{ ist Automorphismus}\}.
+    \end{align*}
+
+    Es ist dann $(\End(\mathfrak{A}), \circ, \id_A)$ ein Monoid, das \emph{Endomorphisenmonoid von $\mathfrak{A}$}. Jedes Monoid ist isomorph zu einem Endomorphismenmonoid.
+    
+    $(\Aut(\mathfrak{A}), \circ, \id_A, \cdot^{-1})$ ist eine Gruppe, die \emph{Automorphismengruppe von $\mathfrak{A}$}. Nach dem Satz von Cayley ist jede endliche Gruppe isomorph zu einer Automorphismengruppe.
+\end{example}

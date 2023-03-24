@@ -21,8 +21,12 @@
 \RequirePackage{xstring}
 \RequirePackage{tcolorbox}
 \RequirePackage{enumitem}
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsfonts}
 \RequirePackage{amsthm}
 \RequirePackage{nameref}
+\RequirePackage{cleveref}
 
 \setlength{\headheight}{34pt}
 \setlength{\parindent}{0pt}
@@ -39,12 +43,20 @@
   \setlength{\parskip}{\docparskip}
 }
 
-\newtheorem{theorem}{Satz}[section]
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Korollar}
-\newtheorem{example}[theorem]{Beispiel}
-\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{thm}{}[section] % theorem counter
+
+\theoremstyle{definition}
+\newtheorem{definition}[thm]{Definition}
+
+\theoremstyle{plain}
+\newtheorem{theorem}[thm]{Satz}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{corollary}[thm]{Korollar}
+\newtheorem{proposition}[thm]{Proposition}
+
+\theoremstyle{remark}
+\newtheorem{example}[thm]{Beispiel}
+\newtheorem{remark}[thm]{Bemerkung}
 % \newtheorem{example}{Beispiel}
 
 \tcbuselibrary{skins}
@@ -126,3 +138,5 @@
 \newcommand{\dd}[1]{\frac{\text{d}}{\text{d}#1}}
 \newcommand*\diff{\mathop{}\!\mathrm{d}}
 \newcommand{\tagline}[1][]{\addtocounter{equation}{1}\tag{\theequation}\ifx\relax#1\relax\else\label{#1}\fi}
+
+\let\vec\mathbf
