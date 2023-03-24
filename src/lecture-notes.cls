@@ -39,7 +39,8 @@
   \setlength{\parskip}{\docparskip}
 }
 
-\newtheorem{theorem}{Satz}[chapter]
+\newtheorem{theorem}{Satz}[section]
+\newtheorem{definition}[theorem]{Definition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Korollar}
 \newtheorem{example}[theorem]{Beispiel}
@@ -90,9 +91,9 @@
 \fancyhf{}
 \lhead{\leftmark}
 % \lhead{\raisebox{-0.3cm}{\includegraphics[height=1cm]{TU_Logo_transparent_72dpi_RGB}}}
-% \chead{Aufgabe \@problem}
+\chead{\ifcsname thenotedate\endcsname \thenotedate\fi}
 \rhead{Hornik, Mayr, Zach}
-\lfoot{104.998 Algebra 2023SS}
+\lfoot{104.998 Algebra 2023S}
 \rfoot{Seite \thepage \,\,von \pageref{LastPage}}
 
 %\newcommand\thenotedate{1.1.1970}
