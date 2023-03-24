@@ -1,14 +1,14 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{lecture-notes}[2022/10/04 Custom LaTeX class]
 
-\LoadClass[12pt,a4paper]{report}
+\LoadClass[11pt,a4paper]{report}
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[ngerman]{babel}
 \RequirePackage[
   a4paper,%
-  left=1in,%
-  right=1in,%
+  left=3cm,%
+  right=3cm,%
   top=20mm,%
   bottom=1.5in,%
   footskip=0.8in
@@ -22,6 +22,7 @@
 \RequirePackage{tcolorbox}
 \RequirePackage{enumitem}
 \RequirePackage{amsthm}
+\RequirePackage{nameref}
 
 \setlength{\headheight}{34pt}
 \setlength{\parindent}{0pt}
@@ -81,42 +82,46 @@
     \end{tcolorbox}
   }
 
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+
 \fancypagestyle{plain}{}
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt}
 \fancyhf{}
+\lhead{\leftmark}
 % \lhead{\raisebox{-0.3cm}{\includegraphics[height=1cm]{TU_Logo_transparent_72dpi_RGB}}}
 % \chead{Aufgabe \@problem}
 \rhead{Hornik, Mayr, Zach}
 \lfoot{104.998 Algebra 2023SS}
 \rfoot{Seite \thepage \,\,von \pageref{LastPage}}
 
+%\newcommand\thenotedate{1.1.1970}
+\newcommand{\notedate}[1]{
+  \ifcsname thenotedate\endcsname%
+      \marginnote{
+          \resizebox{\marginparwidth}{!}{
+              \begin{tikzpicture}[align=right]
+                  \draw (0,0) -- (1.8,0);
+                  \draw (1.8,0) -- node[left] {\footnotesize \thenotedate} (1.8,0.6);
+                  \draw (1.8,0) -- node[left] {\footnotesize #1} (1.8,-0.6);
+              \end{tikzpicture}
+          }
+      }[-0.5cm]
+  \renewcommand{\thenotedate}{#1}
+  \else%
+      \newcommand{\thenotedate}{#1}
+      \marginnote{
+          \resizebox{\marginparwidth}{!}{
+              \begin{tikzpicture}[align=right]
+                  \draw (0,0) -- (1.8,0);
+                  \draw (1.8,0) -- node[left] {\footnotesize \thenotedate} (1.8,-0.6);
+              \end{tikzpicture}
+          }
+      }
+  \fi%
+}
+
 \newcommand{\obda}{o. B. d. A.\ }
 \newcommand{\dd}[1]{\frac{\text{d}}{\text{d}#1}}
 \newcommand*\diff{\mathop{}\!\mathrm{d}}
 \newcommand{\tagline}[1][]{\addtocounter{equation}{1}\tag{\theequation}\ifx\relax#1\relax\else\label{#1}\fi}
-
-\newlist{subproblems}{enumerate}{1}
-\setlist[subproblems,1]{
-  label=\textbf{(\alph*)},
-  ref=(\alph*),
-  wide=0pt, 
-  topsep=0pt,
-  listparindent=\parindent,
-  parsep=\parskip
-}
-\newcommand{\subproblem}[2][]{
-  \setcounter{proofstep}{0}
-  \begin{subproblems}[resume={\theproblem_subproblems}]
-    \item #2 \ifx\relax#1\relax\else\label{#1}\fi
-  \end{subproblems}
-}
-
-\newcounter{proofstep}
-\renewcommand{\theproofstep}{Schritt \arabic{proofstep}}
-\newcommand{\step}[1][]{
-  \refstepcounter{proofstep}
-  \par
-  \ifx\relax#1\relax\else\label{#1}\fi
-  \textbf{\theproofstep:}\hspace*{2mm}
-}
