@@ -10,7 +10,8 @@
   fontsize=11pt,
   paper=a4,
   parskip=half-,
-  headsepline
+  headsepline,
+  chapterprefix=true
 }
 \setkomafont{disposition}{\bfseries}
 
@@ -73,7 +74,7 @@
           \draw (1.8,0) -- node[left] {\footnotesize #1} (1.8,-0.6);
         \end{tikzpicture}
       }
-    }[-0.5cm]%
+    }[-1cm]%
     \g@star@or@long\renew@command\@notedate{#1}
   \else%
     \g@star@or@long\new@command\@notedate{#1}
@@ -84,7 +85,7 @@
           \draw (1.8,0) -- node[left] {\footnotesize \@notedate} (1.8,-0.6);
         \end{tikzpicture}
       }
-    }
+    }[-0.5cm]
   \fi%
 }
 

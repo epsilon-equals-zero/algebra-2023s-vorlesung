@@ -169,16 +169,18 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 
     $(\mathcal{P}(M), \cap, \cup)$ ist sogar ein distributiver Verband.
 
-    \begin{minipage}{0.78\textwidth}
+    \begin{minipage}{0.73\textwidth}
         Betrachtet man die Abbildung rechts und definiert eine Ordnungsrelation, wobei eine jeweils die höher stehenden Elemente größer als die niedrigeren sind und sei $\wedge, \vee$ das Supremum bzw. Infimum zweier Elemente. Es ist dann $(\{0,1,2,3,4\}, \wedge, \vee)$ ein nicht distributiver Verband, da
         $$ 1 \wedge (2 \vee 3) = 1 \wedge 4 = 1 \neq 0 = (1 \wedge 2) \vee ( 1 \wedge 3). $$
     \end{minipage}    
-    \begin{minipage}{0.2\textwidth}
-        \begin{tikzpicture}
-            \filldraw[black] (0,0) circle(2pt) node[above] {4} -- (-1,-1) circle(2pt) node[left] {1} -- (0, -2) circle(2pt) node[below] {0} ;
-            \filldraw[black] (0,0) -- (0,-1) circle(2pt) node[left] {2} -- (0, -2) ;
-            \filldraw[black] (0,0) -- (1,-1) circle(2pt) node[right] {3} -- (0, -2) ;
-        \end{tikzpicture}
+    \begin{minipage}{0.25\textwidth}
+        \begin{center}
+            \begin{tikzpicture}
+                \filldraw[black] (0,0) circle(2pt) node[above] {4} -- (-1,-1) circle(2pt) node[left] {1} -- (0, -2) circle(2pt) node[below] {0} ;
+                \filldraw[black] (0,0) -- (0,-1) circle(2pt) node[left] {2} -- (0, -2) ;
+                \filldraw[black] (0,0) -- (1,-1) circle(2pt) node[right] {3} -- (0, -2) ;
+            \end{tikzpicture}
+        \end{center}
     \end{minipage}
 
     Es ist $(\mathcal{P}(M), \cap, \cup, \emptyset, M)$ ein beschränkter Verband, $(\mathbb{Q}, \min, \max)$ kann hingegen nicht zu einem beschränkten Verband gemacht werden.

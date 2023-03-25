@@ -1,7 +1,7 @@
 \section{Terme und Termalgebra}
 
 \begin{definition}
-    Seien $X$ eine beliebige Menge und seien $(f_i)_{i \in I}$ Funktionssymbole mit Aritäten $(n_i)_{i \in I}$. Die Menge $T$ ist rekursiv definiert durch $$T_0 := X ,\quad T_{k+1} := T_k \cup \{f_i(t_1, \ldots t_{n_i}) \;\vert\; i \in I \land t_1, \ldots, t_{n_i} \in T_k\},\quad T := \bigcup_{i \ge 0} T_i.$$ 
+    Sei $X$ eine beliebige Menge und seien $(f_i)_{i \in I}$ Funktionssymbole mit Aritäten $(n_i)_{i \in I}$. Die Menge $T$ ist rekursiv definiert durch $$T_0 := X ,\quad T_{k+1} := T_k \cup \{f_i(t_1, \ldots t_{n_i}) \;\vert\; i \in I \land t_1, \ldots, t_{n_i} \in T_k\},\quad T := \bigcup_{i \ge 0} T_i.$$ 
     
     Ein Element $t \in T$ heißt \emph{Term}, die Elemente aus $X$ \emph{Variablen} und die Menge $T$ beschreibt alle \emph{Terme über $(X, (f_i)_{i \in I})$}.
     Für einen Term $t \in T$ heißt $\lvl(t) := \min\{k \;\vert\; t \in T_k\}$ \emph{Stufe von $t$}. 
