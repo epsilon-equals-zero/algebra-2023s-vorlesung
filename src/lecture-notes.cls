@@ -108,29 +108,31 @@
 \lfoot{104.998 Algebra 2023S}
 \rfoot{Seite \thepage \,\,von \pageref{LastPage}}
 
-%\newcommand\thenotedate{1.1.1970}
+\def\g@star@or@long#1{% 
+  \@ifstar{\let\l@ngrel@x\global#1}{\def\l@ngrel@x{\long\global}#1}}
+
 \newcommand{\notedate}[1]{
   \ifcsname thenotedate\endcsname%
-      \marginnote{
-          \resizebox{\marginparwidth}{!}{
-              \begin{tikzpicture}[align=right]
-                  \draw (0,0) -- (1.8,0);
-                  \draw (1.8,0) -- node[left] {\footnotesize \thenotedate} (1.8,0.6);
-                  \draw (1.8,0) -- node[left] {\footnotesize #1} (1.8,-0.6);
-              \end{tikzpicture}
-          }
-      }[-0.5cm]
-  \renewcommand{\thenotedate}{#1}
-  \else%
-      \newcommand{\thenotedate}{#1}
-      \marginnote{
-          \resizebox{\marginparwidth}{!}{
-              \begin{tikzpicture}[align=right]
-                  \draw (0,0) -- (1.8,0);
-                  \draw (1.8,0) -- node[left] {\footnotesize \thenotedate} (1.8,-0.6);
-              \end{tikzpicture}
-          }
+    \marginnote{
+      \resizebox{\marginparwidth}{!}{
+        \begin{tikzpicture}[align=right]
+          \draw (0,0) -- (1.8,0);
+          \draw (1.8,0) -- node[left] {\footnotesize \thenotedate} (1.8,0.6);
+          \draw (1.8,0) -- node[left] {\footnotesize #1} (1.8,-0.6);
+        \end{tikzpicture}
       }
+    }[-0.5cm]%
+    \g@star@or@long\renew@command\thenotedate{#1}
+  \else%
+    \g@star@or@long\new@command\thenotedate{#1}
+    \marginnote{
+      \resizebox{\marginparwidth}{!}{
+        \begin{tikzpicture}[align=right]
+          \draw (0,0) -- (1.8,0);
+          \draw (1.8,0) -- node[left] {\footnotesize \thenotedate} (1.8,-0.6);
+        \end{tikzpicture}
+      }
+    }
   \fi%
 }
 
