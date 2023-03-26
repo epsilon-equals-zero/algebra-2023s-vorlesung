@@ -1,1 +1,173 @@
 \section{Konstruktion neuer Algebren}
+
+In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus bereits gegebenen Algebren neue Algebren zu gewinnen.
+
+\begin{definition}
+    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $S\subseteq A$. Dann heißt $\mathfrak{S}=(S,(f^\mathfrak{A}_i|_{S^{n_i}})_{i\in I})$\footnote{Zwecks besserer Lesbarkeit werden wir dafür meist $\mathfrak{S}=(S,(f^\mathfrak{S}_i)_{i\in I})$ schreiben.}
+    \emph{Subalgebra} oder \emph{Unteralgebra} von $\mathfrak{A}$, wenn
+    \begin{itemize}[topsep=0pt, label={--}]
+        \item $\forall i\in I\forall a_1,\ldots,a_{n_i}\in S:f^\mathfrak{A}_i(a_1,\ldots,a_{n_i})\in S.$
+    \end{itemize}
+    Wir schreiben in diesem Fall $\mathfrak{S}\le \mathfrak{A}$. Ist $\mathcal{K}$ eine Klasse von Algebren,
+    so definieren wir die Menge $S(\mathcal{K}):=\{\mathfrak{S} \mid \exists \mathfrak{A}\in \mathcal{K}:\mathfrak{S}\le\mathfrak{A}\}$.
+\end{definition}
+
+\begin{example}
+    Sei $\mathfrak{V}=(V,+,0,-,(m_k)_{k\in\mathfrak{K}})$ ein Vektorraum pber einem Körper $\mathfrak{K}$. Dann gilt für
+    jeden Untervektorraum $U:\mathfrak{U}=(U,+,0,-,(m_k)_{k\in\mathfrak{K}})\le \mathfrak{V}$. Weitere
+    Beispiele für Unteralgebren sind $(\mathbb{N},+)\le(\mathbb{Z},+)$ und $(SL_n(K),\cdot)\le (GL_n(K),\cdot)$.
+\end{example}
+
+\begin{proposition}\label{prop:unteralgebra}
+    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra, $s\approx t$ ein Gesetz und $\mathfrak{A}\models s\approx t$.
+    Dann gilt für jede Unteralgebra $\mathfrak{S}$ von $\mathfrak{A}$ auch $\mathfrak{S}\models s\approx t$.
+\end{proposition}
+
+\begin{proof}
+    Laut Definition gilt für alle Variablenbelegungen $\varphi:\var(s)\cup \var(t)\to A:\bar{\varphi}(s)=\bar{\varphi}(t)$.
+    Wegen $S\subseteq A$ ist diese Bedingung isbesondere für $S$ erfüllt, also gilt $\mathfrak{S}\models s\approx t$.
+\end{proof}
+
+\begin{remark}
+    Sei $\mathfrak{V}=(V,+,0,-,(m_k)_{k\in\mathfrak{K}})$ ein Vektorraum über einem Körper $\mathfrak{K}$.
+    Dann ist $x\approx 0$ ein Gesetz, welches in $(\{0\},+,0,-)$ erfüllt ist, jedoch nicht in $\mathfrak{V}$.
+    Wir sehen also, dass die Umkehrung von Proposition \ref{prop:unteralgebra} nicht gilt.
+\end{remark}
+
+\begin{corollary}
+    Varietäten sind abgeschlossen unter der Bildung von Unteralgebren.
+\end{corollary}
+
+\begin{remark}
+    Eine Folgerung ist unmittelbar, dass die Klasse der Körper keine Varietät bilden,
+    denn $(\mathbb{Z},+,-,0,\cdot,1)$ ist eine Unteralgebra von $(\mathbb{Q},+,-,0,\cdot,1)$.
+    Allerdings stellen die Ganzen Zahlen keinen Körper dar.
+\end{remark}
+
+\begin{remark}
+    An dieser Stelle können wir den Unterschied der gegeben Definitionen einer Gruppe feststellen,
+    denn $(\mathbb{N},+)$ ist eine Unteralgebra von $(\mathbb{Z},+)$, jedoch keine Gruppe im Sinne von 
+    \ref{rem:alternativegruppe}. Das bedeutet, dass in der Sprache $+$ die Klasse der Gruppen keine Varietät bildet.
+\end{remark}
+
+\notedate{09.03.2023}
+\begin{proposition}
+    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $(\mathfrak{A}_j)_{j\in J}$ eine Familie von Unteralgebren
+    von $\mathfrak{A}$. Dann ist auch $(\bigcap_{j\in J}U_j,(f^\mathfrak{A}_i\vert_{\bigcap_{j\in J}U_j})_{i\in I})$ eine Unteralgebra von $\mathfrak{A}$.
+\end{proposition}
+
+\begin{proof}
+    Für $S:=\bigcap_{j\in J}U_j$ gilt offensichtlich $S\subseteq A$, also bleibt lediglich die Abgeschlossenheit bezüglich
+    der Funktionen $f^\mathfrak{S}_i$ zu zeigen. Seien $a_1,\ldots,a_{n_i}\in S$ beliebig. Dann gilt für alle
+    $j\in J:a_1,\ldots,a_{n_i}\in U_j$ und da $\mathfrak{U}_j$ eine Unteralgebra von $\mathfrak{A}$ ist auch $f^{\mathfrak{U}_j}_i(a_1,\ldots,a_{n_i})\in U_j$.
+    Das ist genau die Definition von $f^\mathfrak{S}(a_1,\ldots,a_{n_i})\in \bigcap_{j\in J}U_j=S$, also ist $\mathfrak{S}=(S,(f^\mathfrak{S}_i)_{i\in I})$ eine Unteralgebra von $\mathfrak{A}$.
+\end{proof}
+
+\begin{corollary}
+    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $S\subseteq A$. Dann ist die von $S$ erzeugte Unteralgebra von 
+    $\mathfrak{A}$ definiert durch $\langle S\rangle:=\bigcap\{U \mid S\subseteq U\land (U,(f^\mathfrak{A}_i)_{i\in I})\le \mathfrak{A}\}$
+    die kleinste $S$ enthaltende Unteralgebra von $\mathfrak{A}$.
+\end{corollary}
+
+\begin{definition}
+    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $S\subseteq A$. Die Menge $S_\infty$ ist rekursiv
+    definiert durch
+    \[S_0:=S, \quad S_{k+1}:=S_k\cup\{f^\mathfrak{A}_i(a_1,\ldots,a_{n_i} \mid i\in I\land a_1,\ldots a_{n_i}\in S_k)\},\quad S_\infty:=\bigcup_{k\geq 0}S_k.\]
+\end{definition}
+
+\begin{proposition}
+    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $S\subseteq A$. Dann gelten die beiden Identitäten:
+    \begin{enumerate}
+        \item $\langle S\rangle=S_\infty$
+        \item $\langle S\rangle=\{t^\mathfrak{A}(a_1,\ldots,a_n) \mid a_1,\ldots,a_n\in S\land t\in T(X)\}$
+    \end{enumerate}
+\end{proposition}
+\begin{proof} In beiden Behauptungen wird die gegenseitige Inklusion von zwei Mengen gezeigt.
+    \begin{enumerate}
+        \item Da $S_\infty$ eine $S$ enthaltende Unteralgebra von $A$ ist, folgt aus der Definition der
+        erzeugten Unteralgebra, dass $\langle S\rangle\subseteq S_\infty$ gilt.
+        Für die andere Inklusion wird mittels Induktion gezeigt, dass für alle $k\in\mathbb{N}:S_k\subseteq \langle S\rangle$ gilt,
+        woraus schließlich auch $S_\infty=\bigcup_{k\in\mathbb{N}}S_k\subseteq \langle S\rangle$ folgt.
+
+        Induktionsanfang $(k=0)$: Per Definitionem der erzeugten Algebra gilt $S_0=S\subseteq \langle S\rangle$\\
+        Induktionsschritt $(k\to k+1)$: Sei nun $a\in S_{k+1}$ beliebig. Falls $a\in S_k$ ist, so folgt aus
+        der Induktionsvoraussetzung dass $a\in \langle S\rangle$ gilt. Andernfalls exisitiert ein $i\in I$ und
+        es existieren $a_1,\ldots,a_{n_i}\in S_{k}$, sodass $a=f(a_1,\ldots,a_{n_i})$. Auch hier kann die Induktionsvoraussetzung
+        angewandt werden, weshalb $a_1,\ldots,a_{n_i}\in \langle S\rangle$ gilt und da $(\langle S\rangle,(f_i)_{i\in I})$ eine Unteralgebra
+        von $\mathfrak{A}$ ist gilt auch $a=f(a_1\ldots,a_{n_i})\in\langle S\rangle$. Daraus folgt die gewünschte Mengeninklusion
+        $S_{k+1}\subseteq \langle S\rangle$.
+
+        \item Definiere $M:=\{t^\mathfrak{A}(a_1,\ldots,a_n)\vert a_1,\ldots,a_n\in S\land t\in T(X)\}$.
+        Es gilt $S\subseteq M$, da die Projektionen $\pi_j^n:A^n\to A, (a_1,\ldots,a_n)\mapsto a_j$ Termfunktionen sind.
+        Außerdem kann gezeigt werden, dass $(M,(f_i)_{i\in I})$ eine Unteralgebra von $\mathfrak{A}$ ist. Sei $i\in I$ beliebig
+        und seien $b_1,\ldots,b_{n_i}\in M$, dann können diese Elemente als $b_j=t_j^\mathfrak{A}(a_1^{(j)},\ldots,a_{m_j}^{(j)})$
+        mit $a_1^{(j)},\ldots,a_{m_j}^{(j)}\in S$ für $j\in \{1,\ldots,n_i\}$ dargestellt werden. Definiert man nun $a:=f^\mathfrak{A}_i(b_1,\ldots,b_{n_i})$
+        und den Term $t:=f_i^\mathfrak{T}(t_1(x_1^{(1)},\ldots,x_{m_1}^{(1)}),\ldots,t_{n_i}(x_1^{(n_i)},\ldots,x_{m_{n_i}}^{(n_i)}))$,
+        so erhält man eine passende Termfunktion, das heißt es gilt $t^\mathfrak{A}(a_1,\ldots,a_{m_1}^{(1)},\ldots,a_1^{(n_i)},\ldots,a_{m_{n_i}}^{(n_i)})=a$,
+        also insbesondere $a\in M$. Für die andere Mengeninklusion ist erneut eine Induktion nötig.
+        Sei $a=t^\mathfrak{A}(a_1,\ldots,a_n)\in M$ beliebig. Zu zeigen ist, dass $a\in \langle S\rangle$ gilt,
+        wobei dies mittels Induktion nach der Stufe von $t$ gezeit wird.
+
+        Induktionsanfang $(k=0)$: Dann ist der Term $t$ eine Variable $x_j$ und die Termfunktion
+        $t^\mathfrak{A}$ ist eine Projektion $a=t^\mathfrak{A}(a_1,\ldots,a_n)=\pi_j^n(a_1,\ldots,a_n)=a_j\in S\subseteq \langle S\rangle$.\\
+        Induktionsschritt $(m<k\to k)$: Dann ist $t=f^\mathfrak{T}_i(t_1,\ldots,t_{n_i})$ und
+        $a=t^\mathfrak{A}(a_1,\ldots,a_{n_i})=f^\mathfrak{A}_i(t^\mathfrak{A}_1(a_1,\ldots,a_n),\ldots,t^\mathfrak{A}_{n_i}(a_1,\ldots,a_n))\in\langle S\rangle$,
+        da die Terme $t^\mathfrak{A}_j$ für $j\in\{1,\ldots,n_i\}$ kleinere Stufe als $k$ haben. Daher
+        sind die Argumente nach Induktionsvoraussetzung in $\langle S\rangle$ und damit auch
+        der Funktionswert.
+    \end{enumerate}
+\end{proof}
+
+\begin{corollary}
+    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $S=\{s_1,\ldots,s_n\}\subseteq A$.
+    Dann gilt für die von $S$ erzeugte Unteralgebra $\langle S\rangle=\{t^\mathfrak{A}(s_1,\ldots,s_n)\vert t(x_1,\ldots,x_n)\in T(x)\}$.
+\end{corollary}
+
+\begin{proof}
+    Es gilt klarerweise $\langle S\rangle\supseteq \{t^\mathfrak{A}(s_1,\ldots,s_n)\vert t(x_1,\ldots,x_n)\in T(x)\}$.
+    Sei $a\in\langle S\rangle$ beliebig. Dann existiert ein Term $t$ und es existieren $a_1,\ldots,a_\ell\in S$,
+    sodass $a=t^\mathfrak{A}(a_1,\ldots,a_\ell)$. Mit dem Term $\tilde{t}(x_1,\ldots,x_n):=t(y_1,\ldots,y_\ell)$, wobei $y_i:=x_j\leftrightarrow a_i=s_j$
+    erhält man $\tilde{t}^\mathfrak{A}(s_1,\ldots,s_n)=t^\mathfrak{A}(a_1,\ldots,a_\ell)=a\in\{t^\mathfrak{A}(s_1,\ldots,s_n)\vert t(x_1,\ldots,x_n)\in T(x)\}.$
+\end{proof}
+
+\begin{remark}
+    Für eine beliebige Algebra stellt $\Sub(\mathfrak{A}):=\{\mathfrak{U}\vert \mathfrak{U}\le \mathfrak{A}\}$ durch
+    $(Sub(\mathfrak{A}),\subseteq)$ eine Halbordnung dar. Genauer ist durch $(Sub(\mathfrak{A},\land,\lor))$,
+    wobei $U_1\land U_2:=U_1\cap U_2$ und $U_1\lor U_2:=\langle U_1\cup U_2\rangle$, ein Verband gegeben.
+\end{remark}
+
+\begin{definition}
+    Sei $(f_i)_{i\in I}$ eine Signatur und sei $(\mathfrak{A}_j)_{j\in J}$ eine Familie von Algebren in dieser Signatur.
+    Dann heißt $\mathfrak{A}:=\prod_{j\in J}\mathfrak{A_j}=(\prod_{j\in J}A_j,(f^\mathfrak{A}_i)_{i\in I})$ \emph{Produktalgebra},
+    wobei die Funktionssymbole durch $f^\mathfrak{A}_i(g_1,\ldots,g_{n_i})(j):=f^{\mathfrak{A}_j}(g_1(j),\ldots,g_{n_i}(j))$
+    definiert seien. Ist $\mathcal{K}$ eine Klasse von Algebren, so definieren wir die Menge $P(\mathcal{K}):=\{\prod_{j\in J}\mathfrak{A}_j\vert \forall j\in J:\mathfrak{A_j}\in K\}$.
+\end{definition}
+
+\begin{remark}
+    Ist $\mathfrak{A}=\prod_{j\in J}\mathfrak{A}_j$ eine Produktalgebra und ist $j\in J$, so ist durch die Projektionsabbildung
+    $\pi_j:\mathfrak{A}\to \mathfrak{A}_j, g\mapsto g(j)$ ein surjektiver Homomorphismus gegeben.
+\end{remark}
+
+\begin{proposition}
+    Sei $(f_i)_{i\in I}$ eine Signatur, $s\approx t$ ein Gesetz über dieser Sprache, $(\mathfrak{A}_j)_{j\in J}$
+    eine Familie von Algebren in der Signatur und es gelte für alle $j\in J:\mathfrak{A}_j\models s\approx t$.
+    Dann gilt auch $\mathfrak{A}:=\prod_{j\in J}\mathfrak{A}_j\models s\approx t$.
+\end{proposition}
+
+\begin{proof}
+    Es ist hinreichend zu zeigen, dass $s^\mathfrak{A}=t^\mathfrak{A}$ gilt. Seien $g_1\ldots,g_n\in A$ beliebig.
+    Dann gilt laut Voraussetzung für alle $j\in J:s^{\mathfrak{A}_j}(g_1(j),\ldots,g_n(j))\approx t^{\mathfrak{A}_j}(g_1(j),\ldots,g_n(j))$.
+    Daher folgt $j\in J:s^\mathfrak{A}(g_1,\ldots,g_n)(j)=s^{\mathfrak{A}_j}(g_1(j),\ldots,g_n(j))\approx t^{\mathfrak{A}_j}(g_1(j),\ldots,g_n(j))=t^\mathfrak{A}(g_1,\ldots,g_n)(j)$
+    für alle $j\in J$, also insbesondere $s^\mathfrak{A}(g_1,\ldots,g_n)=t^\mathfrak{A}(g_1,\ldots,g_n)$ und $s^\mathfrak{A}=t^\mathfrak{A}.$
+\end{proof}
+
+\begin{corollary}
+    Varietäten sind abgeschlossen unter der Bildung von Produkten.
+\end{corollary}
+
+\begin{remark}
+    Auch an dieser Stelle wird deutlich, dass die Klasse der Körper keine Varietät ist. Für einen Körper $\mathfrak{K}$
+    und den Produktraum $\mathfrak{K}\times \mathfrak{K}$ gilt $(1,0)\cdot (0,1)=(0,0)$. Da Körper immer nullteilerfrei sind,
+    kann dieser Produktraum folglich kein Körper sein.
+
+\end{remark}
