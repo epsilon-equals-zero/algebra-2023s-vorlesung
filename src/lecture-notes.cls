@@ -62,6 +62,9 @@
 \RequirePackage[hypcap=false]{caption}
 \RequirePackage{float}
 
+\usetikzlibrary{shapes,arrows,chains}
+\usetikzlibrary[calc]
+
 %% MARGINNOTES %%
 \def\g@star@or@long#1{% 
   \@ifstar{\let\l@ngrel@x\global#1}{\def\l@ngrel@x{\long\global}#1}}

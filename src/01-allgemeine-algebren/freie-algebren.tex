@@ -1,1 +1,70 @@
 \section{Freie Algebren}
+
+\begin{definition}
+Sei $ \tau = (f_i)_{i \in I}$, $\mathfrak{K}$ eine Klasse von $\tau$-Algebren, $\mathfrak{F} \in K$ und $X \subseteq F$. Dann heißt $\mathfrak{F}$ \emph{frei über} $X$ \emph{in} $\mathfrak{K}$, wenn es für alle $\mathfrak{A} \in \mathfrak{K}$ und alle $\varphi : X \to A$ genau einen Homomorphismus $\overline{\varphi} : F \to A$ mit $\overline{\varphi} \vert_X = \varphi$ gibt.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \node[name=X,shape=ellipse,draw,minimum width=60,minimum height=90] at (-2,0) {};
+        \node at (-3,1.2) {$\mathfrak{F}$};
+
+        \node[name=X,shape=ellipse,draw,minimum width=20,minimum height=30] at (-2,0) {};
+        \node at (-2.5,0.4) {$X$};
+
+        \node[name=X,shape=ellipse,draw,minimum width=60,minimum height=90] at (2,0) {};
+        \node at (3,1.2) {$\mathfrak{A}$};
+
+        \draw [->] (-2,0.2) to [bend left=15] node [midway,above] {$\varphi$} (2,0.2);
+        \draw [->,dashed] (-1.6,1) to [bend left=15] node [midway,above] {$\overline{\varphi}$} (1.6,1);
+
+    \end{tikzpicture}
+    \caption{$\mathfrak{F}$ frei über $X$}
+\end{figure}
+\end{definition}
+
+\begin{example}
+    Sei $\mathfrak{K}$ die Klasse der Vektorräume über den Körper $\mathbb{C}$, $\mathfrak{V} \in \mathfrak{K}$ beliebig und $X \subseteq V$ eine Basis von $\mathfrak{V}$.
+
+    Mit einer Variablenmenge $X$ ist die Termalgebra $(T(X), (f_i)_{i \in I})$ frei über $X$ in der Klasse aller $\tau$-Algebren.
+\end{example}
+
+\begin{example}
+    Sei $\mathfrak{K}$ eine Varietät definiert durch Gesetze $\Sigma$, also $\mathfrak{K} = \{ \mathfrak{A} \mid \mathfrak{A} \models \Sigma \}$. Sei $\mathfrak{B} \in \mathfrak{K}$ so, dass $\Sigma(\mathfrak{B}) = \Sigma$ -- nach dem Beweis des Satzes von Birkhoff wissen wir, dass ein solches $\mathfrak{B}$ existiert! Sei
+    $$ \mathfrak{S} \leq \mathfrak{B}^{B^X}, \quad S := \langle \{ \pi_x \mid x \in X \} \rangle, $$
+    so ist $\mathfrak{S}$ frei über $\{ \pi_x \mid x \in X \}$ in $\mathfrak{K}$.
+\end{example}
+
+\begin{proposition}
+    Sei $\mathfrak{K}$ eine Varietät, $\mathfrak{F}_1, \mathfrak{F}_2 \in \mathfrak{K}$ frei über $X$ in $\mathfrak{K}$, dann ist $\mathfrak{F}_1 \cong \mathfrak{F}_2$.
+\end{proposition}
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \node[name=F1,shape=ellipse,draw,minimum width=100,minimum height=70,rotate=-20] at (-0.7,0) {};
+        \node[name=F2,shape=ellipse,draw,minimum width=100,minimum height=70,rotate=-20] at (0.7,0) {};
+        \node[name=X,shape=circle,draw,minimum size=30] at (0,0) {};
+
+        \node at (-0.6,0.5) {$X$};
+        \node at (-2.6,0.8) {$\mathfrak{F}_1$};
+        \node at (2.3,0.8) {$\mathfrak{F}_2$};
+    \end{tikzpicture}
+    \caption{$\mathfrak{F}_1, \mathfrak{F}_2$ frei über $X$}
+\end{figure}
+
+\begin{proof}
+    Betrachten wir $\id_X : X \to X$, so gibt es eindeutige Homomorphismen $\varphi : F_1 \to F_2, \psi : F_2 \to F_1$ mit $\varphi \vert_X = \id_X, \psi \vert_X = \id_X$. Es ist dann $\psi \circ \varphi : F_1 \to F_1$ ein Homomorphismus mit $(\psi \circ \varphi) \vert_X = \id_X$. Da $\mathfrak{F}_1$ frei über $X$ ist gilt $\phi \circ \varphi = \id_{F_1}$, womit $\psi$ surjektiv und $\varphi$ injektiv ist. Analog folgt, dass $\psi$ injektiv und $\varphi$ surjektiv ist, womit $\varphi, \psi$ Isomorphismen mit $\varphi = \psi^{-1}$ sind.
+\end{proof}
+
+\notedate{22.03.2022}
+
+\begin{proposition}
+    Sei $\mathfrak{K}$ eine Klasse von Algebren mit Signatur $(f_i)_{i \in I} =: \tau$. Sei
+    $$ \mathfrak{S}(\mathfrak{K}) := \{ \mathfrak{A} \mid \exists \mathfrak{B} \in \mathfrak{K}: \mathfrak{A} \leq \mathfrak{B} \} \subseteq \mathfrak{K}, $$
+    was insbesondere der Fall ist, falls $\mathfrak{K}$ eine Varietät ist. Sei $\mathfrak{F}$ in $\mathfrak{K}$ frei über $X \subseteq F$, so ist $\mathfrak{F} = \langle X \rangle$.
+\end{proposition}
+
+\begin{proof}
+    
+\end{proof}
