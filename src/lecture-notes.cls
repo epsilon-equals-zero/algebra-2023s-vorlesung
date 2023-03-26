@@ -59,6 +59,8 @@
 \RequirePackage{tikz}
 \RequirePackage{marginnote}
 \RequirePackage{tabto}
+\RequirePackage[hypcap=false]{caption}
+\RequirePackage{float}
 
 %% MARGINNOTES %%
 \def\g@star@or@long#1{% 
