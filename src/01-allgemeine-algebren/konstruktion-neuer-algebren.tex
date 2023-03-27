@@ -4,7 +4,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
 \begin{definition}
     Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $S\subseteq A$. Dann heißt $\mathfrak{S}=(S,(f^\mathfrak{A}_i|_{S^{n_i}})_{i\in I})$\footnote{Zwecks besserer Lesbarkeit werden wir dafür meist $\mathfrak{S}=(S,(f^\mathfrak{S}_i)_{i\in I})$ schreiben.}
-    \emph{Subalgebra} oder \emph{Unteralgebra} von $\mathfrak{A}$, wenn
+    \emph{Subalgebra}\index{Subalgebra} oder \emph{Unteralgebra}\index{Unteralgebra} von $\mathfrak{A}$, wenn
     \begin{itemize}[topsep=0pt, label={--}]
         \item $\forall i\in I\forall a_1,\ldots,a_{n_i}\in S:f^\mathfrak{A}_i(a_1,\ldots,a_{n_i})\in S.$
     \end{itemize}
@@ -64,7 +64,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \end{proof}
 
 \begin{corollary}
-    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $S\subseteq A$. Dann ist die von $S$ erzeugte Unteralgebra von 
+    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $S\subseteq A$. Dann ist die von $S$ erzeugte Unteralgebra\index{erzeugte Unteralgebra}\index{Unteralgebra!erzeugte} von 
     $\mathfrak{A}$ definiert durch $\langle S\rangle:=\bigcap\{U \mid S\subseteq U\land (U,(f^\mathfrak{A}_i)_{i\in I})\le \mathfrak{A}\}$
     die kleinste $S$ enthaltende Unteralgebra von $\mathfrak{A}$.
 \end{corollary}
@@ -138,7 +138,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
 \begin{definition}
     Sei $(f_i)_{i\in I}$ eine Signatur und sei $(\mathfrak{A}_j)_{j\in J}$ eine Familie von Algebren in dieser Signatur.
-    Dann heißt $\mathfrak{A}:=\prod_{j\in J}\mathfrak{A_j}=(\prod_{j\in J}A_j,(f^\mathfrak{A}_i)_{i\in I})$ \emph{Produktalgebra},
+    Dann heißt $\mathfrak{A}:=\prod_{j\in J}\mathfrak{A_j}=(\prod_{j\in J}A_j,(f^\mathfrak{A}_i)_{i\in I})$ \emph{Produktalgebra}\index{Produktalgebra},
     wobei die Funktionssymbole durch $f^\mathfrak{A}_i(g_1,\ldots,g_{n_i})(j):=f^{\mathfrak{A}_j}(g_1(j),\ldots,g_{n_i}(j))$
     definiert seien. Ist $\mathcal{K}$ eine Klasse von Algebren, so definieren wir die Menge $P(\mathcal{K}):=\{\prod_{j\in J}\mathfrak{A}_j\vert \forall j\in J:\mathfrak{A_j}\in K\}$.
 \end{definition}
