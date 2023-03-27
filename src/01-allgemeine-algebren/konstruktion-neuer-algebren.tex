@@ -9,11 +9,11 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
         \item $\forall i\in I\forall a_1,\ldots,a_{n_i}\in S:f^\mathfrak{A}_i(a_1,\ldots,a_{n_i})\in S.$
     \end{itemize}
     Wir schreiben in diesem Fall $\mathfrak{S}\le \mathfrak{A}$. Ist $\mathcal{K}$ eine Klasse von Algebren,
-    so definieren wir die Menge $S(\mathcal{K}):=\{\mathfrak{S} \mid \exists \mathfrak{A}\in \mathcal{K}:\mathfrak{S}\le\mathfrak{A}\}$.
+    so definieren wir die Klasse $S(\mathcal{K}):=\{\mathfrak{S} \mid \exists \mathfrak{A}\in \mathcal{K}:\mathfrak{S}\le\mathfrak{A}\}$.
 \end{definition}
 
 \begin{example}
-    Sei $\mathfrak{V}=(V,+,0,-,(m_k)_{k\in\mathfrak{K}})$ ein Vektorraum pber einem Körper $\mathfrak{K}$. Dann gilt für
+    Sei $\mathfrak{V}=(V,+,0,-,(m_k)_{k\in\mathfrak{K}})$ ein Vektorraum über einem Körper $\mathfrak{K}$. Dann gilt für
     jeden Untervektorraum $U:\mathfrak{U}=(U,+,0,-,(m_k)_{k\in\mathfrak{K}})\le \mathfrak{V}$. Weitere
     Beispiele für Unteralgebren sind $(\mathbb{N},+)\le(\mathbb{Z},+)$ und $(SL_n(K),\cdot)\le (GL_n(K),\cdot)$.
 \end{example}
@@ -51,6 +51,8 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \end{remark}
 
 \notedate{09.03.2023}
+\vspace*{-\lineskip}1
+
 \begin{proposition}
     Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $(\mathfrak{A}_j)_{j\in J}$ eine Familie von Unteralgebren
     von $\mathfrak{A}$. Dann ist auch $(\bigcap_{j\in J}U_j,(f^\mathfrak{A}_i\vert_{\bigcap_{j\in J}U_j})_{i\in I})$ eine Unteralgebra von $\mathfrak{A}$.
@@ -140,7 +142,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     Sei $(f_i)_{i\in I}$ eine Signatur und sei $(\mathfrak{A}_j)_{j\in J}$ eine Familie von Algebren in dieser Signatur.
     Dann heißt $\mathfrak{A}:=\prod_{j\in J}\mathfrak{A_j}=(\prod_{j\in J}A_j,(f^\mathfrak{A}_i)_{i\in I})$ \emph{Produktalgebra},
     wobei die Funktionssymbole durch $f^\mathfrak{A}_i(g_1,\ldots,g_{n_i})(j):=f^{\mathfrak{A}_j}(g_1(j),\ldots,g_{n_i}(j))$
-    definiert seien. Ist $\mathcal{K}$ eine Klasse von Algebren, so definieren wir die Menge $P(\mathcal{K}):=\{\prod_{j\in J}\mathfrak{A}_j\vert \forall j\in J:\mathfrak{A_j}\in K\}$.
+    definiert seien. Ist $\mathcal{K}$ eine Klasse von Algebren, so definieren wir die Klasse $P(\mathcal{K}):=\{\prod_{j\in J}\mathfrak{A}_j\vert \forall j\in J:\mathfrak{A_j}\in K\}$.
 \end{definition}
 
 \begin{remark}
