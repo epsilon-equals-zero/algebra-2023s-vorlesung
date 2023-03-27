@@ -129,3 +129,5 @@
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\lvl}{lvl}
 \DeclareMathOperator{\var}{var}
+\DeclareMathOperator{\Gl}{Gl}
+\DeclareMathOperator{\Sl}{Sl}

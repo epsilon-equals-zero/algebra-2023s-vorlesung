@@ -3,10 +3,10 @@
 In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus bereits gegebenen Algebren neue Algebren zu gewinnen.
 
 \begin{definition}
-    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $S\subseteq A$. Dann heißt $\mathfrak{S}=(S,(f^\mathfrak{A}_i|_{S^{n_i}})_{i\in I})$\footnote{Zwecks besserer Lesbarkeit werden wir dafür meist $\mathfrak{S}=(S,(f^\mathfrak{S}_i)_{i\in I})$ schreiben.}
+    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $S\subseteq A$. Dann heißt das Tupel $\mathfrak{S}=(S,(f^\mathfrak{A}_i|_{S^{n_i}})_{i\in I})$\footnote{Zwecks besserer Lesbarkeit werden wir dafür meist $\mathfrak{S}=(S,(f^\mathfrak{S}_i)_{i\in I})$ schreiben.}
     \emph{Subalgebra} oder \emph{Unteralgebra} von $\mathfrak{A}$, wenn
     \begin{itemize}[topsep=0pt, label={--}]
-        \item $\forall i\in I\forall a_1,\ldots,a_{n_i}\in S:f^\mathfrak{A}_i(a_1,\ldots,a_{n_i})\in S.$
+        \item $\forall i\in I\forall a_1,\ldots,a_{n_i}\in S:f^\mathfrak{A}_i(a_1,\ldots,a_{n_i})\in S.$\tab ($S$ \emph{ist abgeschlossen gegenüber allen} $f_i$)
     \end{itemize}
     Wir schreiben in diesem Fall $\mathfrak{S}\le \mathfrak{A}$. Ist $\mathcal{K}$ eine Klasse von Algebren,
     so definieren wir die Klasse $S(\mathcal{K}):=\{\mathfrak{S} \mid \exists \mathfrak{A}\in \mathcal{K}:\mathfrak{S}\le\mathfrak{A}\}$.
@@ -15,7 +15,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \begin{example}
     Sei $\mathfrak{V}=(V,+,0,-,(m_k)_{k\in\mathfrak{K}})$ ein Vektorraum über einem Körper $\mathfrak{K}$. Dann gilt für
     jeden Untervektorraum $U:\mathfrak{U}=(U,+,0,-,(m_k)_{k\in\mathfrak{K}})\le \mathfrak{V}$. Weitere
-    Beispiele für Unteralgebren sind $(\mathbb{N},+)\le(\mathbb{Z},+)$ und $(SL_n(K),\cdot)\le (GL_n(K),\cdot)$.
+    Beispiele für Unteralgebren sind $(\mathbb{N},+)\le(\mathbb{Z},+)$ und $(\Sl_n(K),\cdot)\le (\Gl_n(K),\cdot)$.
 \end{example}
 
 \begin{proposition}\label{prop:unteralgebra}
@@ -40,7 +40,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
 \begin{remark}
     Eine Folgerung ist unmittelbar, dass die Klasse der Körper keine Varietät bilden,
-    denn $(\mathbb{Z},+,-,0,\cdot,1)$ ist eine Unteralgebra von $(\mathbb{Q},+,-,0,\cdot,1)$.
+    denn $(\mathbb{Z},+,0,-,\cdot,1)$ ist eine Unteralgebra von $(\mathbb{Q},+,0,-,\cdot,1)$.
     Allerdings stellen die Ganzen Zahlen keinen Körper dar.
 \end{remark}
 
@@ -54,20 +54,20 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \vspace*{-\lineskip}
 
 \begin{proposition}
-    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $(\mathfrak{A}_j)_{j\in J}$ eine Familie von Unteralgebren
-    von $\mathfrak{A}$. Dann ist auch $(\bigcap_{j\in J}U_j,(f^\mathfrak{A}_i\vert_{\bigcap_{j\in J}U_j})_{i\in I})$ eine Unteralgebra von $\mathfrak{A}$.
+    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $(\mathfrak{S}_j = (S_j, (f_i^{\mathfrak{S}_j})_{i \in I}))_{j\in J}$ eine Familie von Unteralgebren
+    von $\mathfrak{A}$. Dann ist auch $\mathfrak{S} = \bigcap_{j \in J} \mathfrak{S}_j := (\bigcap_{j\in J}S_j,(f^\mathfrak{A}_i\vert_{\bigcap_{j\in J}S_j})_{i\in I})$ eine Unteralgebra von $\mathfrak{A}$.
 \end{proposition}
 
 \begin{proof}
-    Für $S:=\bigcap_{j\in J}U_j$ gilt offensichtlich $S\subseteq A$, also bleibt lediglich die Abgeschlossenheit bezüglich
+    Für $S:=\bigcap_{j\in J}S_j$ gilt offensichtlich $S\subseteq A$, also bleibt lediglich die Abgeschlossenheit bezüglich
     der Funktionen $f^\mathfrak{S}_i$ zu zeigen. Seien $a_1,\ldots,a_{n_i}\in S$ beliebig. Dann gilt für alle
-    $j\in J:a_1,\ldots,a_{n_i}\in U_j$ und da $\mathfrak{U}_j$ eine Unteralgebra von $\mathfrak{A}$ ist auch $f^{\mathfrak{U}_j}_i(a_1,\ldots,a_{n_i})\in U_j$.
-    Das ist genau die Definition von $f^\mathfrak{S}(a_1,\ldots,a_{n_i})\in \bigcap_{j\in J}U_j=S$, also ist $\mathfrak{S}=(S,(f^\mathfrak{S}_i)_{i\in I})$ eine Unteralgebra von $\mathfrak{A}$.
+    $j\in J:a_1,\ldots,a_{n_i}\in S_j$ und da $\mathfrak{S}_j$ eine Unteralgebra von $\mathfrak{A}$ ist auch $f^{\mathfrak{S}_j}_i(a_1,\ldots,a_{n_i})\in S_j$.
+    Das ist genau die Definition von $f^\mathfrak{S}(a_1,\ldots,a_{n_i})\in \bigcap_{j\in J}S_j=S$, also ist $\mathfrak{S}=(S,(f^\mathfrak{S}_i)_{i\in I})$ eine Unteralgebra von $\mathfrak{A}$.
 \end{proof}
 
 \begin{corollary}
-    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $S\subseteq A$. Dann ist die von $S$ erzeugte Unteralgebra von 
-    $\mathfrak{A}$ definiert durch $\langle S\rangle:=\bigcap\{U \mid S\subseteq U\land (U,(f^\mathfrak{A}_i)_{i\in I})\le \mathfrak{A}\}$
+    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $S\subseteq A$. Dann ist die von $S$ \emph{erzeugte Unteralgebra} von 
+    $\mathfrak{A}$ definiert durch $\langle S\rangle:=\bigcap\{\mathfrak{U} \mid S\subseteq U\land \mathfrak{U} = (U,(f^\mathfrak{A}_i)_{i\in I})\le \mathfrak{A}\}$
     die kleinste $S$ enthaltende Unteralgebra von $\mathfrak{A}$.
 \end{corollary}
 
@@ -86,7 +86,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \end{proposition}
 \begin{proof} In beiden Behauptungen wird die gegenseitige Inklusion von zwei Mengen gezeigt.
     \begin{enumerate}
-        \item Da $S_\infty$ eine $S$ enthaltende Unteralgebra von $A$ ist, folgt aus der Definition der
+        \item Da $S_\infty$\footnote{Hier wird die Algebra für bessere Lesbarkeit mit der Trägermenge identifiziert} eine $S$ enthaltende Unteralgebra von $A$ ist, folgt aus der Definition der
         erzeugten Unteralgebra, dass $\langle S\rangle\subseteq S_\infty$ gilt.
         Für die andere Inklusion wird mittels Induktion gezeigt, dass für alle $k\in\mathbb{N}:S_k\subseteq \langle S\rangle$ gilt,
         woraus schließlich auch $S_\infty=\bigcup_{k\in\mathbb{N}}S_k\subseteq \langle S\rangle$ folgt.
@@ -100,7 +100,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
         $S_{k+1}\subseteq \langle S\rangle$.
 
         \item Definiere $M:=\{t^\mathfrak{A}(a_1,\ldots,a_n)\vert a_1,\ldots,a_n\in S\land t\in T(X)\}$.
-        Es gilt $S\subseteq M$, da die Projektionen $\pi_j^n:A^n\to A, (a_1,\ldots,a_n)\mapsto a_j$ Termfunktionen sind.
+        Es gilt $S\subseteq M$, da die Projektionen $\pi_j^{(n)}:A^n\to A, (a_1,\ldots,a_n)\mapsto a_j$ Termfunktionen sind.
         Außerdem kann gezeigt werden, dass $(M,(f_i)_{i\in I})$ eine Unteralgebra von $\mathfrak{A}$ ist. Sei $i\in I$ beliebig
         und seien $b_1,\ldots,b_{n_i}\in M$, dann können diese Elemente als $b_j=t_j^\mathfrak{A}(a_1^{(j)},\ldots,a_{m_j}^{(j)})$
         mit $a_1^{(j)},\ldots,a_{m_j}^{(j)}\in S$ für $j\in \{1,\ldots,n_i\}$ dargestellt werden. Definiert man nun $a:=f^\mathfrak{A}_i(b_1,\ldots,b_{n_i})$
@@ -122,27 +122,27 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
 \begin{corollary}
     Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $S=\{s_1,\ldots,s_n\}\subseteq A$.
-    Dann gilt für die von $S$ erzeugte Unteralgebra $\langle S\rangle=\{t^\mathfrak{A}(s_1,\ldots,s_n)\vert t(x_1,\ldots,x_n)\in T(x)\}$.
+    Dann gilt für die von $S$ erzeugte Unteralgebra $\langle S\rangle=\{t^\mathfrak{A}(s_1,\ldots,s_n)\mid t(x_1,\ldots,x_n)\in T(x)\}$.
 \end{corollary}
 
 \begin{proof}
-    Es gilt klarerweise $\langle S\rangle\supseteq \{t^\mathfrak{A}(s_1,\ldots,s_n)\vert t(x_1,\ldots,x_n)\in T(x)\}$.
+    Es gilt klarerweise $\langle S\rangle\supseteq \{t^\mathfrak{A}(s_1,\ldots,s_n)\mid t(x_1,\ldots,x_n)\in T(x)\}$.
     Sei $a\in\langle S\rangle$ beliebig. Dann existiert ein Term $t$ und es existieren $a_1,\ldots,a_\ell\in S$,
     sodass $a=t^\mathfrak{A}(a_1,\ldots,a_\ell)$. Mit dem Term $\tilde{t}(x_1,\ldots,x_n):=t(y_1,\ldots,y_\ell)$, wobei $y_i:=x_j\leftrightarrow a_i=s_j$
-    erhält man $\tilde{t}^\mathfrak{A}(s_1,\ldots,s_n)=t^\mathfrak{A}(a_1,\ldots,a_\ell)=a\in\{t^\mathfrak{A}(s_1,\ldots,s_n)\vert t(x_1,\ldots,x_n)\in T(x)\}.$
+    erhält man $\tilde{t}^\mathfrak{A}(s_1,\ldots,s_n)=t^\mathfrak{A}(a_1,\ldots,a_\ell)=a\in\{t^\mathfrak{A}(s_1,\ldots,s_n)\mid t(x_1,\ldots,x_n)\in T(x)\}.$
 \end{proof}
 
 \begin{remark}
-    Für eine beliebige Algebra stellt $\Sub(\mathfrak{A}):=\{\mathfrak{U}\vert \mathfrak{U}\le \mathfrak{A}\}$ durch
-    $(Sub(\mathfrak{A}),\subseteq)$ eine Halbordnung dar. Genauer ist durch $(Sub(\mathfrak{A},\land,\lor))$,
+    Für eine beliebige Algebra stellt $\Sub(\mathfrak{A}):=\{\mathfrak{U}\mid \mathfrak{U}\le \mathfrak{A}\}$ durch
+    $(\Sub(\mathfrak{A}),\subseteq)$ eine Halbordnung dar. Genauer ist durch $(\Sub(\mathfrak{A},\land,\lor))$,
     wobei $U_1\land U_2:=U_1\cap U_2$ und $U_1\lor U_2:=\langle U_1\cup U_2\rangle$, ein Verband gegeben.
 \end{remark}
 
 \begin{definition}
-    Sei $(f_i)_{i\in I}$ eine Signatur und sei $(\mathfrak{A}_j)_{j\in J}$ eine Familie von Algebren in dieser Signatur.
+    Sei $\tau = (n_i)_{i\in I}$ eine Typ und sei $(\mathfrak{A}_j)_{j\in J}$ eine Familie von Algebren in dieses Typs.
     Dann heißt $\mathfrak{A}:=\prod_{j\in J}\mathfrak{A_j}=(\prod_{j\in J}A_j,(f^\mathfrak{A}_i)_{i\in I})$ \emph{Produktalgebra},
     wobei die Funktionssymbole durch $f^\mathfrak{A}_i(g_1,\ldots,g_{n_i})(j):=f^{\mathfrak{A}_j}(g_1(j),\ldots,g_{n_i}(j))$
-    definiert seien. Ist $\mathcal{K}$ eine Klasse von Algebren, so definieren wir die Klasse $P(\mathcal{K}):=\{\prod_{j\in J}\mathfrak{A}_j\vert \forall j\in J:\mathfrak{A_j}\in K\}$.
+    definiert werden. Ist $\mathcal{K}$ eine Klasse von Algebren, so definieren wir die Klasse $P(\mathcal{K}):=\{\prod_{j\in J}\mathfrak{A}_j\mid \forall j\in J:\mathfrak{A_j}\in K\}$.
 \end{definition}
 
 \begin{remark}
