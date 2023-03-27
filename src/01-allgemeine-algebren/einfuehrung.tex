@@ -190,7 +190,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
     Jeder Verband $\mathfrak{V} = (V, \wedge, \vee)$ mit endlicher Menge $V = \{v_1, \ldots, v_n\}$ kann zu einem beschränkten Verband gemacht werden.
 \end{lemma}
 \begin{proof}
-    Sei $1 := v_1 \vee \ldots \vee v_n$, dann gilt für beliebiges $v_j \in V$, dass $$v_j \vee 1 = v_j \vee v_1 \vee \ldots \vee v_n =  v_1 \vee \ldots \vee v_j \vee v_j \vee \ldots \vee v_n = v_1 \vee \ldots \vee v_n = 1.$$
+    Sei $1 := v_1 \vee \ldots \vee v_n$, dann gilt für beliebiges $j \in \{1, \ldots, n\}$, dass $$v_j \vee 1 = v_j \vee v_1 \vee \ldots \vee v_n =  v_1 \vee \ldots \vee v_j \vee v_j \vee \ldots \vee v_n = v_1 \vee \ldots \vee v_n = 1.$$
     Analoges gilt für $0 := v_1 \vee \ldots \vee v_n$. Damit ist $(V, \wedge, \vee, 0, 1)$ ein beschränkter Verband. 
 \end{proof}
 
@@ -223,7 +223,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 
 \begin{example}
     Sei $\mathfrak{A}$ eine Algebra. Definieren wir die Mengen \begin{align*}
-        \End(\mathfrak{A}) &:= \{f: A \to A \;\vert\; f\text{ ist Endomorphismus}\} \text{ und} \\ \Aut(\mathfrak{A}) &:= \{f: A \to A \;\vert\; f\text{ ist Automorphismus}\}.
+        \End(\mathfrak{A}) &:= \{f: A \to A \mid f\text{ ist Endomorphismus}\} \text{ und} \\ \Aut(\mathfrak{A}) &:= \{f: A \to A \mid f\text{ ist Automorphismus}\}.
     \end{align*}
 
     Es ist dann $(\End(\mathfrak{A}), \circ, \id_A)$ ein Monoid, das \emph{Endomorphisenmonoid von $\mathfrak{A}$}. Jedes Monoid ist isomorph zu einem Endomorphismenmonoid.

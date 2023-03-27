@@ -97,16 +97,23 @@
 
 \theoremstyle{definition}
 \newtheorem{definition}[thm]{Definition}
+\crefname{definition}{Definiton}{Definitionen}
 
 \theoremstyle{plain}
 \newtheorem{theorem}[thm]{Satz}
+\crefname{theorem}{Satz}{Sätze}
 \newtheorem{lemma}[thm]{Lemma}
+\crefname{lemma}{Lemma}{Lemmata}
 \newtheorem{corollary}[thm]{Korollar}
+\crefname{corollary}{Korollar}{Korollare}
 \newtheorem{proposition}[thm]{Proposition}
+\crefname{proposition}{Proposition}{Propositionen}
 
 \theoremstyle{remark}
 \newtheorem{example}[thm]{Beispiel}
+\crefname{example}{Beispiel}{Beispiele}
 \newtheorem{remark}[thm]{Bemerkung}
+\crefname{remark}{Bemerkung}{Bemerkungen}
 
 
 \newcommand{\obda}{o. B. d. A.\ }
