@@ -4,7 +4,7 @@ In diesem Kapitel werden die Begriffe \emph{Varietät} und \emph{Klon} definiert
 \begin{definition}
     Sei $\Sigma$ eine Menge von Gesetzen über eine Sprache $(f_i)_{i \in I}$, dann heist die Klasse
     $$ \mathcal{V}(\Sigma) := \left\{ \mathfrak{A} \mid \mathfrak{A} \;\text{ist Algebra über die Sprache}\; (f_i)_{i \in I} \land \forall t \approx s \in \Sigma: A\models t\approx s \right\} $$
-    \emph{Varietät}. Es handelt sich dabei also um eine durch Gesetze definierte Klasse von Algebren.
+    \emph{Varietät}\index{Varietät}. Es handelt sich dabei also um eine durch Gesetze definierte Klasse von Algebren.
 \end{definition}
 
 \begin{example}
@@ -20,12 +20,12 @@ In diesem Kapitel werden die Begriffe \emph{Varietät} und \emph{Klon} definiert
 \end{example}
 
 \begin{definition}
-    Sei $M$ eine beliebige Menge. Für $1 \le i \le n$ ist die \emph{$n$-dimensionale Projektion auf die $i$-te Komponente} definiert als
+    Sei $M$ eine beliebige Menge. Für $1 \le i \le n$ ist die \emph{$n$-dimensionale Projektion auf die $i$-te Komponente}\index{Projektion} definiert als
     $$ \pi_i^{(n)}: M^n \to M, (x_1, \ldots, x_n) \to x_i. $$
 \end{definition}
 
 \begin{definition}
-    Sei $M$ eine beliebige Menge. Eine Teilmenge von Funktionen $\mathcal{C} \subseteq \bigcup_{n \ge 1} \{f: M^n \to M\}$ heißt \emph{Klon}, wenn 
+    Sei $M$ eine beliebige Menge. Eine Teilmenge von Funktionen $\mathcal{C} \subseteq \bigcup_{n \ge 1} \{f: M^n \to M\}$ heißt \emph{Klon}\index{Klon}, wenn 
     \begin{itemize}[label={--}]
         \item $\mathcal{C}$ alle Projektionen enthält und
         \item $\mathcal{C}$ unter Komposition abgeschlossen ist.
@@ -33,5 +33,5 @@ In diesem Kapitel werden die Begriffe \emph{Varietät} und \emph{Klon} definiert
 \end{definition}
 
 \begin{definition}
-    Sei $\mathfrak{A} = (A, (f_i)_{i \in I})$ eine Algebra und sei die Menge $\mathcal{T}^{(n)}(\mathfrak{A}) := \{f: A^n \to A\mid f\;\text{ist Termfunktion von}\;\mathfrak{A}\}$. Es ist dann $\mathcal{T}(\mathfrak{A}) := \bigcup_{n \ge 1} \mathcal{T}^{(n)}(\mathfrak{A})$ ein Klon und wird \emph{Termklon von $\mathfrak{A}$} genannt.
+    Sei $\mathfrak{A} = (A, (f_i)_{i \in I})$ eine Algebra und sei die Menge $\mathcal{T}^{(n)}(\mathfrak{A}) := \{f: A^n \to A\mid f\;\text{ist Termfunktion von}\;\mathfrak{A}\}$. Es ist dann $\mathcal{T}(\mathfrak{A}) := \bigcup_{n \ge 1} \mathcal{T}^{(n)}(\mathfrak{A})$ ein Klon und wird \emph{Termklon von $\mathfrak{A}$}\index{Termklon} genannt.
 \end{definition}
