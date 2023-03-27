@@ -1,7 +1,7 @@
 \section{Freie Algebren}
 
 \begin{definition}
-Sei $ \tau = (f_i)_{i \in I}$, $\mathfrak{K}$ eine Klasse von $\tau$-Algebren, $\mathfrak{F} \in K$ und $X \subseteq F$. Dann heißt $\mathfrak{F}$ \emph{frei über} $X$ \emph{in} $\mathfrak{K}$, wenn es für alle $\mathfrak{A} \in \mathfrak{K}$ und alle $\varphi : X \to A$ genau einen Homomorphismus $\overline{\varphi} : F \to A$ mit $\overline{\varphi} \vert_X = \varphi$ gibt.
+Sei $ \tau = (f_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\mathfrak{F} \in K$ und $X \subseteq F$. Dann heißt $\mathfrak{F}$ \emph{frei über} $X$ \emph{in} $\mathcal{K}$, wenn es für alle $\mathfrak{A} \in \mathcal{K}$ und alle $\varphi : X \to A$ genau einen Homomorphismus $\overline{\varphi} : F \to A$ mit $\overline{\varphi} \vert_X = \varphi$ gibt.
 
 \begin{figure}[H]
     \centering
@@ -24,19 +24,19 @@ Sei $ \tau = (f_i)_{i \in I}$, $\mathfrak{K}$ eine Klasse von $\tau$-Algebren, $
 \end{definition}
 
 \begin{example}
-    Sei $\mathfrak{K}$ die Klasse der Vektorräume über den Körper $\mathbb{C}$, $\mathfrak{V} \in \mathfrak{K}$ beliebig und $X \subseteq V$ eine Basis von $\mathfrak{V}$.
+    Sei $\mathcal{K}$ die Klasse der Vektorräume über den Körper $\mathbb{C}$, $\mathfrak{V} \in \mathcal{K}$ beliebig und $X \subseteq V$ eine Basis von $\mathfrak{V}$.
 
     Mit einer Variablenmenge $X$ ist die Termalgebra $(T(X), (f_i)_{i \in I})$ frei über $X$ in der Klasse aller $\tau$-Algebren.
 \end{example}
 
 \begin{example}
-    Sei $\mathfrak{K}$ eine Varietät definiert durch Gesetze $\Sigma$, also $\mathfrak{K} = \{ \mathfrak{A} \mid \mathfrak{A} \models \Sigma \}$. Sei $\mathfrak{B} \in \mathfrak{K}$ so, dass $\Sigma(\mathfrak{B}) = \Sigma$ -- nach dem Beweis des Satzes von Birkhoff wissen wir, dass ein solches $\mathfrak{B}$ existiert! Sei
+    Sei $\mathcal{K}$ eine Varietät definiert durch Gesetze $\Sigma$, also $\mathcal{K} = \{ \mathfrak{A} \mid \mathfrak{A} \models \Sigma \}$. Sei $\mathfrak{B} \in \mathcal{K}$ so, dass $\Sigma(\mathfrak{B}) = \Sigma$ -- nach dem Beweis des Satzes von Birkhoff wissen wir, dass ein solches $\mathfrak{B}$ existiert! Sei
     $$ \mathfrak{S} \leq \mathfrak{B}^{B^X}, \quad S := \langle \{ \pi_x \mid x \in X \} \rangle, $$
-    so ist $\mathfrak{S}$ frei über $\{ \pi_x \mid x \in X \}$ in $\mathfrak{K}$.
+    so ist $\mathfrak{S}$ frei über $\{ \pi_x \mid x \in X \}$ in $\mathcal{K}$.
 \end{example}
 
 \begin{proposition}
-    Sei $\mathfrak{K}$ eine Varietät, $\mathfrak{F}_1, \mathfrak{F}_2 \in \mathfrak{K}$ frei über $X$ in $\mathfrak{K}$, dann ist $\mathfrak{F}_1 \cong \mathfrak{F}_2$.
+    Sei $\mathcal{K}$ eine Varietät, $\mathfrak{F}_1, \mathfrak{F}_2 \in \mathcal{K}$ frei über $X$ in $\mathcal{K}$, dann ist $\mathfrak{F}_1 \cong \mathfrak{F}_2$.
 \end{proposition}
 
 \begin{figure}[H]
@@ -60,10 +60,68 @@ Sei $ \tau = (f_i)_{i \in I}$, $\mathfrak{K}$ eine Klasse von $\tau$-Algebren, $
 \notedate{22.03.2022}
 
 \begin{proposition}
-    Sei $\mathfrak{K}$ eine Klasse von Algebren mit Signatur $(f_i)_{i \in I} =: \tau$. Sei
-    $$ \mathfrak{S}(\mathfrak{K}) := \{ \mathfrak{A} \mid \exists \mathfrak{B} \in \mathfrak{K}: \mathfrak{A} \leq \mathfrak{B} \} \subseteq \mathfrak{K}, $$
-    was insbesondere der Fall ist, falls $\mathfrak{K}$ eine Varietät ist. Sei $\mathfrak{F}$ in $\mathfrak{K}$ frei über $X \subseteq F$, so ist $\mathfrak{F} = \langle X \rangle$.
+    Sei $\mathcal{K}$ eine Klasse von Algebren mit Signatur $(f_i)_{i \in I} =: \tau$. Sei
+    $$ \mathcal{S}(\mathcal{K}) := \{ \mathfrak{A} \mid \exists \mathfrak{B} \in \mathcal{K}: \mathfrak{A} \leq \mathfrak{B} \} \subseteq \mathcal{K}, $$
+    was insbesondere der Fall ist, falls $\mathcal{K}$ eine Varietät ist. Sei $\mathfrak{F}$ in $\mathcal{K}$ frei über $X \subseteq F$, so ist $\mathfrak{F} = \langle X \rangle$.
 \end{proposition}
+
+\begin{proof}
+    Zunächst gilt $ \langle X \rangle \leq \mathfrak{F} \in \mathcal{K} $, und damit auch $ \langle X \rangle \in \mathcal{K} $.
+
+    Nun ist $ \langle X \rangle $ frei über $X$ in $\mathcal{K}$. Um dies einzusehen, seien $\mathfrak{A} \in \mathcal{K}, \varphi : X \to A$ beliebig. Zu zeigen ist, dass es eine eindeutigen, $\varphi$ fortsetzenden Homomorphismen $\overline{\varphi} : \langle X \rangle \to A$ gibt mit $\overline{\varphi} \vert_X = \varphi$. Wir wissen es gibt einen eindeutigen Homomorphismus $\overline{\overline{\varphi}} : F \to A$ mit $\overline{\overline{\varphi}} \vert_X = \varphi$. Definiere $\overline{\varphi} := \overline{\overline{\varphi}} \vert_{\langle X \rangle}$, so erfüllt dieser Homomorphismus die geforderte Eigenschaft. Die Eindeutigkeit folgt aus Bemerkung \ref{rem:hom-auf-erzeuger}.
+
+    Betrachte $\id_X : (X \subseteq \langle X \rangle) \to (X \subseteq F)$, so gibt es eindeutige Fortsetzungen
+    $$ \varphi : \langle X \rangle \to F, \quad \varphi \vert_X = \id_X, \quad\quad \psi : F \to \langle X \rangle, \quad \psi \vert_X = \id_X, $$
+    womit auch $\psi \circ \varphi : \langle X \rangle \to \langle X \rangle$ ein Homomorphismus mit $(\psi \circ \varphi) \vert_X = \id_X$ ist. Mit der Eindeutigkeit folgt $\psi \circ \varphi = \id_{\langle X \rangle}$ und analog damit auch $\varphi \circ \psi = \id_F$.
+
+    Nun sind $\varphi, \psi$ bijektiv, also Isomorphismen. Betrachte nochmals $\varphi : \langle X \rangle \to F, \varphi \vert_X = \id_X$ und sei $c \in \langle X \rangle$ beliebig, so gilt $c = t^{\langle X \rangle}(x_1, ..., x_n)$ mit $x_1, ..., x_n \in X$. Es folgt
+    $$ \varphi(c) = \varphi(t^{\langle X \rangle}(x_1, ..., x_n)) = t^{\langle X \rangle}(\varphi(x_1), ..., \varphi(x_n)) = t^{\langle X \rangle}(x_1, ..., x_n) = c, $$
+    also $\varphi = \id_{\langle X \rangle}$. Da $\varphi$ surjektiv ist folgt damit $\langle X \rangle = F$.
+\end{proof}
+
+\begin{remark} \label{rem:hom-auf-erzeuger}
+    Allgemein gilt, dass wenn zwei Homomorphismen auf einem Erzeuger über\-einstimmen, sie überall übereinstimmen. Sind also $\mathfrak{C}, \mathfrak{D}$ Algebren, $C = \langle S \rangle$ und $\varphi, \psi : C \to D$ Homomorphismen mit $\varphi \vert_S = \psi \vert_S$, so folgt $\varphi = \psi$.
+\end{remark}
+
+\begin{remark}
+    Wir wollen die freie Algebra als Faktoralgebra der Termalgebra darstellen. Sei dazu $\tau := (f_i)_{i \in I}$ eine Signatur und $X$ eine Menge, so ist
+    $$ \mathfrak{T}^X := (T(X), (f_i^T)_{i \in I}) $$
+    frei über $X$ in der Klasse der $\tau$-Algebren.
+
+    Sei $\mathcal{K}$ eine Varietät von $\tau$-Algebren, so stellt sich die Frage ob $\mathfrak{T}^X$ frei über $X$ in $\mathcal{K}$ ist. Allgemein ist dies nicht der Fall, da $\mathfrak{T}^X$ nicht in $\mathcal{K}$ enthalten sein muss.
+\end{remark}
+
+\begin{proposition}
+    Sei $\mathcal{K}$ eine Varietät und definiere
+    $$ \Sigma_X := \{ (s, t) \mid s, t \in T(X), \forall \mathfrak{A} \in \mathcal{K}: \mathfrak{A} \models s \approx t \} \subseteq T(X)^2, $$
+    so ist $\Sigma_X$ eine Kongruenzrelation auf $T(X)$.
+\end{proposition}
+
+\begin{proof}
+    $\Sigma_X$ ist Äquivalenzrelation:
+    \begin{itemize}
+        \item reflexiv: Ist $t \in T(X)$ beliebig, so gilt $\forall \mathfrak{A} \in \mathcal{K}: \mathfrak{A} \models t \approx t$.
+        \item symmetrisch: Sind $s, t \in T(X), (s,t) \in \Sigma_X$, so gilt
+        $$ \forall \mathfrak{A} \in \mathcal{K}: \mathfrak{A} \models s \approx t \quad \implies \quad \forall \mathfrak{A} \in \mathcal{K}: \mathfrak{A} \models t \approx s, $$
+        also $(t,s) \in \Sigma_X$.
+        \item transitiv: Sind $s,t,u \in T(X), (s,t), (t,u) \in \Sigma_X$, so gilt
+        $$ (\forall \mathfrak{A} \in \mathcal{K}: \mathfrak{A} \models s \approx t \quad \land \quad \forall \mathfrak{A} \in \mathcal{K}: \mathfrak{A} \models t \approx u) \quad \implies \quad \forall \mathfrak{A} \in \mathcal{K}: \mathfrak{A} \models s \approx u, $$
+        also $(s,u) \in \Sigma_X$.
+    \end{itemize}
+    Um zu sehen, dass $\Sigma_X$ auch eine Kongruenzrelation ist seien $i \in I, (s_1, t_1), ..., (s_{n_i}, t_{n_i}) \in \Sigma_X$. Zu zeigen ist $(f_i(s_1, ..., s_{n_i}), f_i(t_1, ..., t_{n_i})) \in \Sigma_X$. Es gilt
+    $$ \forall \mathfrak{A} \in \mathcal{K}: \mathfrak{A} \models s_1 \approx t_1 \land ... \land s_{n_i} \approx t_{n_i}, $$
+    insbesondere folgt also
+    $$ \forall \mathfrak{A} \in \mathcal{K}: \mathfrak{A} \models f_i(s_1, ..., s_{n_i}) \approx f_i(t_1, ..., t_{n_i}) $$
+    und damit $(f_i(s_1, ..., s_{n_i}), f_i(t_1, ..., t_{n_i})) \in \Sigma_X$.
+\end{proof}
+
+\begin{definition}
+    Wir definieren $ \mathfrak{T}^{X, \Sigma_X} := \mathfrak{T}^X / \Sigma_X$.
+\end{definition}
+
+\begin{theorem}
+    Es ist $\mathfrak{T}^{X, \Sigma_X}$ frei über $X$ in $\mathcal{K}$.
+\end{theorem}
 
 \begin{proof}
     
