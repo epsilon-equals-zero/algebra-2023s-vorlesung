@@ -173,7 +173,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
 \begin{definition}
     Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra, $m\in\mathbb{N}$ und $R\subseteq A^m$ eine $m$-stellige
-    Relation auf $A$. Dann heißt $R$ \emph{invariant unter $\mathfrak{A}$}, wenn
+    Relation auf $A$. Dann heißt $R$ \emph{invariant unter $\mathfrak{A}$}\index{invariante Relation}\index{Relation!invariant}, wenn
     \begin{itemize}[topsep=0pt, label={--}]
         \item $\forall i\in I:\forall r^{(1)},\ldots,r^{(n_i)}\in R:(f_i(r_1^{(1)},\ldots,r_1^{(n_i)}),\ldots,f_i(r_m^{(1)},\ldots,r_m^{(n_i)}))\in R$.
     \end{itemize}
@@ -181,7 +181,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
 \begin{definition}
     Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $\sim\subseteq A^2$ eine Äquivalenzrelation.
-    Wenn $\sim$ invariant unter $\mathfrak{A}$ ist, dann heißt $\sim$ \emph{Kongruenzrelation}. Außerdem wird damit die Menge
+    Wenn $\sim$ invariant unter $\mathfrak{A}$ ist, dann heißt $\sim$ \emph{Kongruenzrelation}\index{Kongruenzrelation}. Außerdem wird damit die Menge
     Con$(\mathfrak{A}):=\{\sim\subseteq A^2\mid \sim \text{ ist Kongruenzrelation auf }\mathfrak{A}\}$ definiert.
 \end{definition}
 
@@ -193,7 +193,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
 \begin{example}
     Für jede beliebige Algebra $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ sind durch die beiden Relationen $\sim_1=A^2$ und $\sim_2=\{(a,a)\mid a\in A\}$
-    Kongruenzrelationen auf $\mathfrak{A}$ gegeben. Diese nennet man daher auch \emph{triviale Kongruenzrelationen}.
+    Kongruenzrelationen auf $\mathfrak{A}$ gegeben. Diese nennet man daher auch \emph{triviale Kongruenzrelationen}\index{Kongruenzrelation!trivial}.
 \end{example}
 
 \begin{remark}
@@ -203,12 +203,12 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \end{remark}
 
 \begin{definition}
-    Eine Algebra $\mathfrak{A}$ heißt \emph{einfach}, wenn es keine nicht-trivialen Kongruenzrelationen gibt.
+    Eine Algebra $\mathfrak{A}$ heißt \emph{einfach}\index{einfache Algebra}\index{allgemeine Algebra!einfach}, wenn es keine nicht-trivialen Kongruenzrelationen gibt.
 \end{definition}
 
 \begin{definition}
     Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und sei $\sim\subseteq A^2$ eine Kongruenzrelation.
-    Dann heißt $\mathfrak{A}/_\sim:=(A/_\sim,(f^{\mathfrak{A}/_\sim}_i)_{i\in I})$ \emph{Faktoralgebra} von $\mathfrak{A}$,
+    Dann heißt $\mathfrak{A}/_\sim:=(A/_\sim,(f^{\mathfrak{A}/_\sim}_i)_{i\in I})$ \emph{Faktoralgebra}\index{Faktoralgebra} von $\mathfrak{A}$,
     wobei $A/_\sim=\{[a]_\sim\mid a\in A\}$ die Menge der Äquivalenzklassen\footnote{Für die Äquivalenzklassen einer Äquivalenzrelation
     wird häufig $[a]$ statt $[a]_\sim$ geschrieben.} ist und die Funktionen definiert\footnote{Dass diese Funktionen tatsächlich wohldefiniert sind,
     folgt direkt aus der Definition der Invaranz einer Kongruenzrelation unter der Algebra.} sind durch
@@ -225,7 +225,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \end{example}
 
 \begin{remark}
-    Sei $\mathfrak{A}$ eine beliebige Faktoralgebra und $\sim$ eine Kongruenzrelation. Dann ist die \emph{kanonische Faktorabbildung}
+    Sei $\mathfrak{A}$ eine beliebige Faktoralgebra und $\sim$ eine Kongruenzrelation. Dann ist die \emph{kanonische Faktorabbildung}\index{kanonische Faktorabbildung}
     $\varphi:A\to A/_\sim, a\mapsto [a]_\sim$ ein surjektiver Homomorphismus, das heißt
     Faktoralgebren sind homomorphe Bilder von Algebren. Der folgende Satz liefert in gewissem Sinn die Umkehrung.
 \end{remark}
@@ -243,7 +243,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     und da es sich offensichtlich um eine Äquivalenzrelation handelt ist $\ker h$ eine Kongruenzrelation auf $\mathfrak{A}$.
 \end{proof}
 
-\begin{theorem}[Homomorphiesatz]
+\begin{theorem}[Homomorphiesatz]\index{Homomorphiesatz}
     Seien $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ und $\mathfrak{B}=(B,(f^\mathfrak{B}_i)_{i\in I})$ zwei Algebren
     in derselben Signatur, $\varphi:A\to A/_{\ker h}$ die kanonische Faktorabbildung und sei $h:A\to B$ ein Homomorphismus.
     Dann existiert genau ein Homomorphismus $\tilde{h}:A\to A/_{\ker h}$ mit $h=\tilde{h}\circ \varphi$. Dieser Homomorphismus
@@ -283,7 +283,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     Varietäten sind abgeschlossen unter der Bildung von Faktoralgebren.
 \end{corollary}
 
-\begin{theorem}[Birkhoff]
+\begin{theorem}[Birkhoff]\index{Satz von Birkhoff}
     Sei $\tau=(f_i)_{i\in I}$ eine Signatur und $\mathcal{K}$ eine Klasse von $\tau$-Algebren. Dann gilt:
     \[\mathcal{K} \text{ ist abgeschlossen unter H,S,P } \Leftrightarrow \mathcal{K} \text{ ist eine Varietät} \]
 \end{theorem}
