@@ -34,7 +34,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     Wir sehen also, dass die Umkehrung von Proposition \ref{prop:unteralgebra} nicht gilt.
 \end{remark}
 
-\begin{corollary}
+\begin{corollary}\label{corollary:sub-varietaeten}
     Varietäten sind abgeschlossen unter der Bildung von Unteralgebren.
 \end{corollary}
 
@@ -161,7 +161,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     für alle $j\in J$, also insbesondere $s^\mathfrak{A}(g_1,\ldots,g_n)=t^\mathfrak{A}(g_1,\ldots,g_n)$ und $s^\mathfrak{A}=t^\mathfrak{A}.$
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}\label{corollary:prod-varietaeten}
     Varietäten sind abgeschlossen unter der Bildung von Produkten.
 \end{corollary}
 
@@ -279,7 +279,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     Inbesondere ist also $\mathfrak{A}/_\sim\models s\approx t$ erfüllt.
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}\label{corollary:fak-varietaeten}
     Varietäten sind abgeschlossen unter der Bildung von Faktoralgebren.
 \end{corollary}
 
@@ -288,3 +288,68 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     \[\mathcal{K} \text{ ist abgeschlossen unter H,S,P } \Leftrightarrow \mathcal{K} \text{ ist eine Varietät} \]
 \end{theorem}
 
+\begin{definition}
+    Für eine Klasse $\mathcal{K}$ von Algebren definiere die Menge aller Gesetze von $\mathcal{K}$ als 
+    $\Sigma(\mathcal{K}):=\{s\approx t\mid \forall \mathfrak{A}\in\mathcal{K}:\mathfrak{A}\models s\approx t\}$.
+    Für eine Menge von Gesetzen $\Sigma$ definiere die Klasse $\mathcal{V}(\Sigma):=\{\mathfrak{A}\mid \forall s\approx t\in\Sigma:\mathfrak{A}\models s\approx t\}$.
+\end{definition}
+
+\begin{proof}
+    Ist $\mathcal{K}$ eine Variation, so ist $\mathcal{K}$ laut \ref{corollary:sub-varietaeten}, \ref{corollary:prod-varietaeten} und
+    \ref{corollary:fak-varietaeten} unter $H,S,P$ abgeschlossen.
+    Es bleibt die anderen Implikation zu zeigen. Dazu definiere $\Sigma:=\Sigma(\mathcal{K})$ und $\mathcal{V}:=\mathcal{V}(\Sigma)$,
+    womit $\mathcal{V}=\mathcal{K}$ zu zeigen ist. Trivialerweise ist $\mathcal{V}\supseteq\mathcal{K}$ erfüllt. Für die andere
+    Inklusion sei $\mathfrak{A}\in\mathcal{V}$ beliebig, aber fest, das heißt es gilt $\mathfrak{A}\in\mathcal{K}$ zu zeigen.
+
+    Für jedes Gesetz $s\approx t$, welches nicht in $\Sigma$ liegt, wähle eine Algebra $\mathfrak{A}_{s\approx t}\in\mathcal{K}$ mit
+    $\mathfrak{A}_{s\approx t}\not\models s\approx t$.
+    Es sei $\mathfrak{B}:=\prod_{s\approx t\not\in\Sigma}\mathfrak{A_{s\approx t}}$, wobei $\mathfrak{A}_{s\approx t}\in K$ mit
+    $\mathfrak{A}_{s\approx t}\not\models s\approx t$. Da $\mathcal{K}$ unter Produktbildung abgeschlossen ist,
+    gilt $\mathfrak{B}\in\mathcal{K}$. Da eine Produktalgebra ein Gesetz genau dann erfüllt, wenn es komponentenweise erfüllt ist,
+    folgt $\Sigma(\mathfrak{B})=\Sigma\subseteq\Sigma(\mathfrak{A})$. Zu zeigen ist nun, dass $\mathfrak{A}\in HSP(\mathfrak{B})$ gilt.
+
+    Bilde die Produktalgebra $\mathfrak{B}^{B^A}=\prod_{i\in B^A}\mathfrak{B}$ und betrachte für alle $a\in A$
+    die Funktion $\pi_a:B^A\to B, \alpha\mapsto \alpha(a)$ sowie die erzeugte Unteralgebra $\mathfrak{S}:=\langle\{\pi_a\mid a\in A\}\rangle\le \mathfrak{B}^{B^A}$.
+    Dann kann ein surjektiver Homomorphismus $\varphi:S\to A$ mit $\varphi(\pi_a)=a$ folgendermaßen definiert werden.
+    Jedes Element aus $S$ besitzt eine Darstellung der Form $t^\mathfrak{S}(\pi_{a_1},\ldots,\pi_{a_n})$ mit $a_1\ldots,a_n\in A$ dargestellt werden.
+    Daher wird $\varphi(t^\mathfrak{S}(\pi_{a_1},\ldots,\pi_{a_n})):=t^\mathfrak{A}(a_1,\ldots,a_n)$ definiert. 
+
+    Wohldefiniertheit: Es ist zu zeigen, dass die Definition von $\varphi$ unabhängig von der Wahl der Darstellung ist.
+    Das heißt wenn $u,v$ Terme sind und $a_1,\ldots,a_n,a_1',\ldots,a_m'\in A$ sind, sodass $u^\mathfrak{S}(\pi_{a_1},\ldots,\pi_{a_n})=v^\mathfrak{S}(\pi_{a_1'},\ldots,\pi_{a_m'})$ gilt,
+    dann soll auch $u^\mathfrak{A}(a_1,\ldots,a_n)=v^\mathfrak{A}(a_1',\ldots,a_m')$ gelten.
+    Dafür werden $x_i:=a_i$ und $x_i':=a_i$ als Variablen eingeführt. Es ist nun hinreichend zu zeigen, dass
+    $\mathfrak{B}\models u(x_1,\ldots,x_n)\approx v(x_1',\ldots,x_m')$ gilt, da dieses Gesetz wegen $\Sigma(\mathfrak{B})\subseteq \Sigma(\mathfrak{A})$
+    dann auch in $\mathfrak{A}$ gilt, was insbesondere $u^\mathfrak{A}(a_1,\ldots,a_n)=v^\mathfrak{A}(a_1',\ldots,a_m')$ bedingen würde.
+    Sind $b_i,b_i'\in B$ beliebige Werte für die Variablen $x_i$ respektive $x_i'$, so muss $u^\mathfrak{B}(b_1,\ldots,b_n)=v^\mathfrak{B}(b_1',\ldots,b_m')$
+    gezeigt werden. Nun kann $\alpha\in B^A$ mit $\alpha(a_i)=b_i$ und $\alpha(a_i')=b_i'$ gewählt werden,
+    da aus $x_ia_i=a_j=x_j$ folgen würde, dass $b_i=b_j$ gelten muss. Das analoge Argument gilt auch in den Fällen
+    $a_i=a_j'$ und $a_i'=a_j'$. Da voraussetzungsgemäß $u^\mathfrak{S}(\pi_{a_1},\ldots,\pi_{a_n})=v^\mathfrak{S}(\pi_{a_1'},\ldots,\pi_{a_m'})$ identisch erfüllt ist,
+    gilt diese Gleichheit insbesondere wenn $\alpha$ als Argument eingesetzt wird. Dies liefert
+    $u^\mathfrak{B}(b_1,\ldots,b_n)=u^\mathfrak{S}(\pi_{a_1},\ldots,\pi_{a_n})(\alpha)=v^\mathfrak{S}(\pi_{a_1'},\ldots,\pi_{a_m'})(\alpha)=v^\mathfrak{B}(b_1',\ldots,b_m')$,
+    also was zu zeigen war.
+
+    Surjektivität: $\varphi$ ist trivialerweise Surjektiv, da für $a\in A$ stets $\pi_a\in S$ gilt und $\varphi(\pi_a)=a$ ist.
+
+    Homomorphismus: Es bleibt noch zu zeigen, dass $\varphi$ ein Homomorphismus ist.
+    Sei $i\in I$ beliebig und seien $g_1,\ldots,g_{n_i}\in S$ beliebig. Zu zeigen ist $\varphi(f^\mathfrak{S}_i(g_1,\ldots,g_{n_i}))=f^\mathfrak{A}_i(\varphi(g_1),\ldots,\varphi(g_{n_i}))$.
+    Für jedes $j\in 1,\ldots,n$ können ein Term $t_j$ sowie $a_1^{(j)},\ldots,a_{m_j}^{(j)}\in A$ gewählt werden,
+    sodass $g_j=t^\mathfrak{S}_j(\pi_{a_1^{(j)}},\ldots,\pi_{a_{m_j}^{(j)}})$ gilt. Nun wird $t:=f^\mathfrak{T}_i(t_1,\ldots,t_{n_i})$ als neuer Term definiert und es folgt
+    \begin{align*}
+        \varphi(f^\mathfrak{S}_i(g_1,\ldots,g_{n_i}))&=\varphi(f^\mathfrak{S}_i(t^\mathfrak{S}_1(\pi_{a_1^{(1)}},\ldots,\pi_{a_{m_1}^{(1)}}),\ldots,t^\mathfrak{S}_{n_i}(\pi_{a_1^{(n_i)}},\ldots,\pi_{a_{m_{n_i}}^{(n_i)}})))=\\
+        &=\varphi(t^\mathfrak{S}(\pi_{a_1^{(1)}},\ldots,\pi_{a_{m_{n_i}}^{(n_i)}}))\stackrel{(*)}{=}t^\mathfrak{A}(a_1^{(1)},\ldots,a_{m_{n_i}}^{(n_i)})=\\
+        &=f^\mathfrak{A}_i(t^\mathfrak{A}_1(a_1^{(1)},\ldots,a_{m_1}^{(1)}),\ldots,t^\mathfrak{A}(a_1^{n_i},\ldots,a_{m_{n_i}}^{(n_i)}))\stackrel{(*)}{=}f^\mathfrak{A}_i(\varphi(g_1),\ldots,\varphi(g_{n_i})).
+    \end{align*}
+    An den Stellen die mit $(*)$ markiert sind, wurde die Definition von $\varphi$ verwendet.
+\end{proof}
+
+\begin{corollary}
+    Sei $\mathcal{K}$ eine Klasse von Algebren und $\mathcal{V}(\mathcal{K})$ die erzeugte Varietät.
+    Dann gilt für alle $\mathfrak{A}\in \mathcal{V}(\mathcal{K}):\mathfrak{A}\in HSP(\mathcal{K})$.
+\end{corollary}
+
+\begin{proof}
+    Es gilt $\mathfrak{A}\in\mathcal{V}(\mathcal{K})\Leftrightarrow \mathfrak{A}\models \Sigma(\mathcal{K})$. Die Implikation von links nach rechts
+    ist trivialerweise erfüllt. Die Implikation von rechts nach links folgt aus der Tatsache, dass man $B\in P(\mathcal{K})$
+    mit $\Sigma(A)\supseteq\Sigma(B)$ finden kann und dann wie im Beweis für den Satz von Birkhoff auf $A\in HSP(\mathfrak{B})\subseteq HSP(\mathcal{K})$
+    schließt.
+\end{proof}
