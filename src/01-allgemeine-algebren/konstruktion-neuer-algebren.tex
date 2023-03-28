@@ -75,6 +75,48 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     \[S_0:=S, \quad S_{k+1}:=S_k\cup\{f^\mathfrak{A}_i(a_1,\ldots,a_{n_i} \mid i\in I\land a_1,\ldots a_{n_i}\in S_k)\},\quad S_\infty:=\bigcup_{k\geq 0}S_k.\]
 \end{definition}
 
+\begin{example}
+    Diese Skizze zeigt die anschauliche Motiviation der vorhergehenden Definition.
+
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \draw (0,0) circle (1.5);
+            \node at (0.85, 0.85) {$S$};
+            
+            \draw (0.3,0.3) ellipse (2.5 and 2); 
+            \node at (2.3, 1.1) {$S_1$};
+            
+            \draw[rotate=40] (0.4,0.2) ellipse (3 and 2.6); 
+            \node at (2, -1.8) {$S_2$};
+            
+            \draw (0,0) circle (3.5);
+            \node at (2.8, -2.8) {$S_\infty$};
+            \node[rotate=38] at (2.25,-2.15) {$\vdots$};
+
+            \node[circle,fill,inner sep=1pt] (p1) at (-0.8, 0.8){};
+            \node[circle,fill,inner sep=1pt] (p2) at (-0.6, 0.95){};
+            \node[circle,fill,inner sep=1pt] (p3) at (-0.4, 1.05){};
+            \draw[orange, rotate=33] (p2) ellipse (0.5 and 0.2);
+
+            \node[circle,fill,inner sep=1pt] (p4) at (-1.8, 0){};
+
+            \draw[->, orange] (-1.01, 0.66) -- node[above, near end] {\scriptsize $f_i$} (p4);
+
+            \node[circle,fill,inner sep=1pt] (p5) at (-1.3, 0){};
+            \node[circle,fill,inner sep=1pt] (p6) at (-1.1, 0){};
+
+            \draw[blue] (-1.45,0) ellipse (0.5 and 0.2);
+
+            \node[circle,fill,inner sep=1pt] (p7) at (-1.45, -1.6){};
+
+            \draw[->, blue] (-1.45, -0.2) -- node[left, near end] {\scriptsize $f_j$} (p7);
+
+        \end{tikzpicture}
+        \caption{Subalgebra von unten}
+    \end{figure}
+\end{example}
+
 \begin{proposition}
     Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $S\subseteq A$. Dann gelten die beiden Identitäten:
     \begin{enumerate}
@@ -142,6 +184,68 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     wobei die Funktionssymbole durch $f^\mathfrak{A}_i(g_1,\ldots,g_{n_i})(j):=f^{\mathfrak{A}_j}(g_1(j),\ldots,g_{n_i}(j))$
     definiert seien. Ist $\mathcal{K}$ eine Klasse von Algebren, so definieren wir die Klasse $P(\mathcal{K}):=\{\prod_{j\in J}\mathfrak{A}_j\vert \forall j\in J:\mathfrak{A_j}\in K\}$.
 \end{definition}
+
+\begin{example}
+    Folgende Abbildung visualisiert die Bildung einer Produktalgebra.
+
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            
+            \draw[blue] (0, 1.8) -- (8, 1.8) node[right, circle,fill, inner sep=1pt, label=right:$a \in \mathfrak{A}$] (a) {};
+            \draw[blue] (0, 1) -- (8, 1) node[right, circle,fill, inner sep=1pt, label=right:$b \in \mathfrak{A}$] (b) {};
+            \draw[blue] (0, 0.2) -- (8, 0.2) node[right, circle,fill, inner sep=1pt, label=right:$c \in \mathfrak{A}$] (c) {};
+            \draw[teal] (0, -1.3) -- (8, -1.3) node[right, circle,fill, inner sep=1pt, label=right:$d \in \mathfrak{A}$] (d) {};
+
+            \draw (0,0) ellipse (0.8 and 2);
+            \node[circle,fill,inner sep=1pt,label=below:$a_1$] (a1) at (0, 1.8){};
+            \node[circle,fill,inner sep=1pt,label=below:$b_1$] (b1) at (0, 1){};
+            \node[circle,fill,inner sep=1pt,label=below:$c_1$] (c1) at (0, 0.2){};
+            \node at (0, -0.6) {$\vdots$};
+            \node[circle,fill,inner sep=1pt,label=below:$d_1$] (d1) at (0, -1.3){};
+            \node at (0, -2.5) {$\mathfrak{A}_1$};
+
+            \node at (1.25, 0) {$\times$};
+
+            \draw (2.5,0) ellipse (0.8 and 2);
+            \node[circle,fill,inner sep=1pt,label=below:$a_2$] (a2) at (2.5, 1.8){};
+            \node[circle,fill,inner sep=1pt,label=below:$b_2$] (b2) at (2.5, 1){};
+            \node[circle,fill,inner sep=1pt,label=below:$c_2$] (c2) at (2.5, 0.2){};
+            \node at (2.5, -0.6) {$\vdots$};
+            \node[circle,fill,inner sep=1pt,label=below:$d_2$] (d2) at (2.5, -1.3){};
+            \node at (2.5, -2.5) {$\mathfrak{A}_2$};
+
+            \node at (3.75, 0) {$\times$};
+
+            \draw (5,0) ellipse (0.8 and 2);
+            \node[circle,fill,inner sep=1pt,label=below:$a_3$] (a3) at (5, 1.8){};
+            \node[circle,fill,inner sep=1pt,label=below:$b_3$] (b3) at (5, 1){};
+            \node[circle,fill,inner sep=1pt,label=below:$c_3$] (c3) at (5, 0.2){};
+            \node at (5, -0.6) {$\vdots$};
+            \node[circle,fill,inner sep=1pt,label=below:$d_3$] (d3) at (5, -1.3){};
+            \node at (5, -2.5) {$\mathfrak{A}_3$};
+
+            \node at (7,0) {$\ldots$};
+
+            \draw[->, orange] (a1) edge [bend right=45] (d1);
+            \draw[->, orange] (b1) edge [bend right=45] (d1);
+            \draw[->, orange] (c1) edge [bend right=45] node[left, near end] {$f_i^{\mathfrak{A}_1}$} (d1);
+
+            \draw[->, orange] (a2) edge [bend right=45] (d2);
+            \draw[->, orange] (b2) edge [bend right=45] (d2);
+            \draw[->, orange] (c2) edge [bend right=45] node[left, near end] {$f_i^{\mathfrak{A}_2}$} (d2);
+
+            \draw[->, orange] (a3) edge [bend right=45] (d3);
+            \draw[->, orange] (b3) edge [bend right=45] (d3);
+            \draw[->, orange] (c3) edge [bend right=45] node[left, near end] {$f_i^{\mathfrak{A}_3}$} (d3);
+
+            \draw[->, orange] (a) edge [bend right=45] (d);
+            \draw[->, orange] (b) edge [bend right=45] (d);
+            \draw[->, orange] (c) edge [bend right=45] node[left, near end] {$f_i^{\mathfrak{A}}$} (d);
+        \end{tikzpicture}
+        \caption{Visualisierung von Produktalgebren}
+    \end{figure}
+\end{example}
 
 \begin{remark}
     Ist $\mathfrak{A}=\prod_{j\in J}\mathfrak{A}_j$ eine Produktalgebra und ist $j\in J$, so ist durch die Projektionsabbildung
