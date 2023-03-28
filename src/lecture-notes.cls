@@ -47,6 +47,7 @@
 %% PACKAGES %%
 \RequirePackage[utf8]{inputenc}
 \RequirePackage[ngerman]{babel}
+\RequirePackage{imakeidx}
 \RequirePackage{hyperref}
 \RequirePackage{graphicx}
 \RequirePackage{amsmath}
@@ -61,6 +62,7 @@
 \RequirePackage{tabto}
 \RequirePackage[hypcap=false]{caption}
 \RequirePackage{float}
+\RequirePackage{xcolor}
 
 \usetikzlibrary{shapes,arrows,chains}
 \usetikzlibrary[calc]
@@ -134,3 +136,7 @@
 \DeclareMathOperator{\var}{var}
 \DeclareMathOperator{\Gl}{Gl}
 \DeclareMathOperator{\Sl}{Sl}
+
+%% OTHER COMMANDS %%
+
+\newcommand{\mailto}[1]{\href{mailto:{#1}}{\texttt{#1}}}
