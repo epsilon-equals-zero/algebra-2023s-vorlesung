@@ -124,5 +124,30 @@ Sei $ \tau = (f_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\
 \end{theorem}
 
 \begin{proof}
+    Sei $\mathfrak{B} \in \mathcal{K}$ mit
+    $$ \Sigma(\mathfrak{B}) := \{ s \approx t \mid \mathfrak{B} \models s \approx t \} = \Sigma(\mathcal{K}) := \{ s \approx t \mid \forall \mathfrak{A} \in \mathcal{K}: \mathfrak{A} \models s \approx t \}, $$
+    wobei wir die Existenz aus dem Beweis des Satzes von Birkhoff wissen.
     
+    Sei $\langle \{ \pi_x \mid x \in X \} \rangle =: \mathfrak{S} \leq \mathfrak{B}^{B^X}$, wobei $\pi_x : B^X \to B, \alpha \mapsto \alpha(x)$ (wie im Beweis des Satzes von Birkhoff), so wissen wir, dass $\mathfrak{S}$ über $\{ \pi_x \mid x \in X \}$ in $\mathcal{K}$.
+
+    Betrachte
+    $$ \varphi: \mathfrak{S} \to \mathfrak{T}^{X, \Sigma_X}, t^\mathfrak{S} (\pi_{x_1}, ..., \pi_{x_n}) \mapsto [t(x_1,...,x_n)]_{\Sigma_X}. $$
+
+    Zunächst ist $\varphi$ wohldefiniert -- seien dazu $u, v \in T(X)$ mit $u^\mathfrak{S} (\pi_{x_1}, ..., \pi_{x_n}) = v^\mathfrak{S}(\pi_{x_1'}, ..., \pi_{x_m'})$, so gilt für alle $\mathfrak{A} \in \mathcal{K}$, dass $\mathfrak{A} \models u(x_1, ..., x_n) \approx v(x_1', ..., x_m')$, womit $(u(x_1, ..., x_n), v(x_1', ..., x_m')) \in \Sigma_X$ und damit $[u(x_1, ..., x_n)]_{\Sigma_X} = [v(x_1', ..., x_m')]_{\Sigma_X}$ folgt.
+
+    Weiters ist $\varphi$ surjektiv, da mit beliebigem $[t(x_1,...,x_n)]_{\Sigma_X} \in \mathfrak{T}^{X, \Sigma_X}$ sofort \\ $t^\mathfrak{S}(\pi_{x_1}, ..., \pi_{x_n}) \overset{\varphi}{\mapsto} [t(x_1,...,x_n)]_{\Sigma_X}$ gilt.
+
+    Um einzusehen, dass $\varphi$ injektiv ist seien $u, v \in T(X)$ mit $[u(x_1, ..., x_n)]_{\Sigma_X} = [v(x_1', ..., x_m')]_{\Sigma_X}$ beliebig, so gilt für alle $\mathfrak{A} \in \mathcal{K}$, dass $\mathfrak{A} \models u(x_1, ..., x_n) \approx v(x_1', ..., x_m')$. Inbesondere gilt $\mathfrak{S} \models u(x_1, ..., x_n) \approx v(x_1', ..., x_m')$ und damit $u^\mathfrak{S}(\pi_{x_1}, ..., \pi_{x_n}) = v^\mathfrak{S}(\pi_{x_1'}, ..., \pi_{x_m'})$.
+
+    Dass $\varphi$ ein Homomorphismus ist verifiziert man unmittelbar in Analogie zum Beweis des Satzes von Birkhoff. Damit ist $\varphi$ insgesamt also ein Isomorphismus, $\mathfrak{S} \cong \mathfrak{T}^{X, \Sigma_X}$, womit $\mathfrak{T}^{X, \Sigma_X}$ frei über $\{ [x]_{\Sigma_X} \mid x \in X \}$ ist.
 \end{proof}
+
+\begin{example}
+    Bezeichne $(\cdot, e, {}^{-1})$ vom Typ $\tau = (2,0,1)$ die Sprache der Gruppen. Sei $X = \{ x_1, x_2, ... \}$ eine Variablenmenge so sind
+    $$ \left. \begin{matrix} x_1, x_2, x_3, ... \\ e, x_1 \cdot x_2, x_2 \cdot x_1, x_1^{-1}, ... \\ e \cdot x_1, x_1 \cdot e, (x_1 \cdot x_2) \cdot x_3, x_1 \cdot (x_2 \cdot x_3), ... \\ \vdots \end{matrix} \quad \right\} \quad \begin{matrix} (T(X), \cdot^T, e^T, {{}^{-1}}^T) \textrm{ ist frei über} \\ X \textrm{ in der Klasse aller $\tau$-Algebren.} \end{matrix} $$
+    Beispiele für Terme respektiver 1., 2. und 3. Stufe. Bezeichne nun
+    $$ \Sigma_X = \{ (e \cdot x_1, x_1), ((x_1 \cdot x_2) \cdot x_3, x_1 \cdot (x_2 \cdot x_3)), (e, x_1 \cdot x_1^{-1}), ... \} $$
+    als die Menge aller Gesetze welche in allen Gruppen gelten. Faktorisieren wir nun nach Term\-äquivalenz, so erhalten wir
+    $$ T(X) / \Sigma_X = \{ [x_1], [x_2], ..., [x_1, x_2], [x_2, x_1], ... \}. $$
+    Jedes Element $t$ von $T(X) / \Sigma_X$ (außer $e$) hat also einen Repräsentanten der Form $a_1 \cdot a_2 \cdot ... \cdot a_n$, wobei $a_i = x_j$ oder $a_i = x_j^{-1}$ für ein $j$, wobei nie $x_j$ und $x_j^{-1}$ aufeinander folgen oder umgekehrt.
+\end{example}
