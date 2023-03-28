@@ -80,6 +80,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
     \begin{figure}[H]
         \centering
+        \resizebox{6cm}{6cm}{
         \begin{tikzpicture}
             \draw (0,0) circle (1.5);
             \node at (0.85, 0.85) {$S$};
@@ -97,22 +98,23 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
             \node[circle,fill,inner sep=1pt] (p1) at (-0.8, 0.8){};
             \node[circle,fill,inner sep=1pt] (p2) at (-0.6, 0.95){};
             \node[circle,fill,inner sep=1pt] (p3) at (-0.4, 1.05){};
-            \draw[orange, rotate=33] (p2) ellipse (0.5 and 0.2);
+            \draw[gray, rotate=33] (p2) ellipse (0.5 and 0.2);
 
             \node[circle,fill,inner sep=1pt] (p4) at (-1.8, 0){};
 
-            \draw[->, orange] (-1.01, 0.66) -- node[above, near end] {\scriptsize $f_i$} (p4);
+            \draw[->, gray] (-1.01, 0.66) -- node[above, near end] {\scriptsize $f_i$} (p4);
 
             \node[circle,fill,inner sep=1pt] (p5) at (-1.3, 0){};
             \node[circle,fill,inner sep=1pt] (p6) at (-1.1, 0){};
 
-            \draw[blue] (-1.45,0) ellipse (0.5 and 0.2);
+            \draw[darkgray] (-1.45,0) ellipse (0.5 and 0.2);
 
             \node[circle,fill,inner sep=1pt] (p7) at (-1.45, -1.6){};
 
-            \draw[->, blue] (-1.45, -0.2) -- node[left, near end] {\scriptsize $f_j$} (p7);
+            \draw[->, darkgray] (-1.45, -0.2) -- node[left, near end] {\scriptsize $f_j$} (p7);
 
         \end{tikzpicture}
+        }
         \caption{Subalgebra von unten}
     \end{figure}
 \end{example}
@@ -192,10 +194,10 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
         \centering
         \begin{tikzpicture}
             
-            \draw[blue] (0, 1.8) -- (8, 1.8) node[right, circle,fill, inner sep=1pt, label=right:$a \in \mathfrak{A}$] (a) {};
-            \draw[blue] (0, 1) -- (8, 1) node[right, circle,fill, inner sep=1pt, label=right:$b \in \mathfrak{A}$] (b) {};
-            \draw[blue] (0, 0.2) -- (8, 0.2) node[right, circle,fill, inner sep=1pt, label=right:$c \in \mathfrak{A}$] (c) {};
-            \draw[teal] (0, -1.3) -- (8, -1.3) node[right, circle,fill, inner sep=1pt, label=right:$d \in \mathfrak{A}$] (d) {};
+            \draw[darkgray] (0, 1.8) -- (8, 1.8) node[right, circle,fill, inner sep=1pt, label=right:$a \in \mathfrak{A}$] (a) {};
+            \draw[darkgray] (0, 1) -- (8, 1) node[right, circle,fill, inner sep=1pt, label=right:$b \in \mathfrak{A}$] (b) {};
+            \draw[darkgray] (0, 0.2) -- (8, 0.2) node[right, circle,fill, inner sep=1pt, label=right:$c \in \mathfrak{A}$] (c) {};
+            \draw[darkgray] (0, -1.3) -- (8, -1.3) node[right, circle,fill, inner sep=1pt, label=right:$d \in \mathfrak{A}$] (d) {};
 
             \draw (0,0) ellipse (0.8 and 2);
             \node[circle,fill,inner sep=1pt,label=below:$a_1$] (a1) at (0, 1.8){};
@@ -227,21 +229,21 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
             \node at (7,0) {$\ldots$};
 
-            \draw[->, orange] (a1) edge [bend right=45] (d1);
-            \draw[->, orange] (b1) edge [bend right=45] (d1);
-            \draw[->, orange] (c1) edge [bend right=45] node[left, near end] {$f_i^{\mathfrak{A}_1}$} (d1);
+            \draw[->, gray] (a1) edge [bend right=45] (d1);
+            \draw[->, gray] (b1) edge [bend right=45] (d1);
+            \draw[->, gray] (c1) edge [bend right=45] node[left, near end] {$f_i^{\mathfrak{A}_1}$} (d1);
 
-            \draw[->, orange] (a2) edge [bend right=45] (d2);
-            \draw[->, orange] (b2) edge [bend right=45] (d2);
-            \draw[->, orange] (c2) edge [bend right=45] node[left, near end] {$f_i^{\mathfrak{A}_2}$} (d2);
+            \draw[->, gray] (a2) edge [bend right=45] (d2);
+            \draw[->, gray] (b2) edge [bend right=45] (d2);
+            \draw[->, gray] (c2) edge [bend right=45] node[left, near end] {$f_i^{\mathfrak{A}_2}$} (d2);
 
-            \draw[->, orange] (a3) edge [bend right=45] (d3);
-            \draw[->, orange] (b3) edge [bend right=45] (d3);
-            \draw[->, orange] (c3) edge [bend right=45] node[left, near end] {$f_i^{\mathfrak{A}_3}$} (d3);
+            \draw[->, gray] (a3) edge [bend right=45] (d3);
+            \draw[->, gray] (b3) edge [bend right=45] (d3);
+            \draw[->, gray] (c3) edge [bend right=45] node[left, near end] {$f_i^{\mathfrak{A}_3}$} (d3);
 
-            \draw[->, orange] (a) edge [bend right=45] (d);
-            \draw[->, orange] (b) edge [bend right=45] (d);
-            \draw[->, orange] (c) edge [bend right=45] node[left, near end] {$f_i^{\mathfrak{A}}$} (d);
+            \draw[->, gray] (a) edge [bend right=45] (d);
+            \draw[->, gray] (b) edge [bend right=45] (d);
+            \draw[->, gray] (c) edge [bend right=45] node[left, near end] {$f_i^{\mathfrak{A}}$} (d);
         \end{tikzpicture}
         \caption{Visualisierung von Produktalgebren}
     \end{figure}
@@ -274,6 +276,8 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     und den Produktraum $\mathfrak{K}\times \mathfrak{K}$ gilt $(1,0)\cdot (0,1)=(0,0)$. Da Körper immer nullteilerfrei sind,
     kann dieser Produktraum folglich kein Körper sein.
 \end{remark}
+
+\notedate{15.03.2023}
 
 \begin{definition}
     Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra, $m\in\mathbb{N}$ und $R\subseteq A^m$ eine $m$-stellige
@@ -324,7 +328,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     Betrachten wir die Algebra $(\mathbb{Z},+,\cdot)$ und definieren darauf die Kongruenzrelation
     $a\sim b:\leftrightarrow \exists k\in\mathbb{Z}(a-b=k\cdot m)$, so stellt $(\mathbb{Z}_m,+,\cdot)=(\mathbb{Z},+,\cdot)/_\sim$
     eine Faktoralgebra dar. Man bemerke außerdem, dass in $(\mathbb{Z}_m,+,\cdot)$ beispielsweise das Gesetz
-    $\forall x(\overbrace{x +\ldots+ x=x}^{m+1})$ gilt, während dieses in $(\mathbb{Z},+,\cdot)$ nicht gilt. Es können also in Faktoralgebra
+    $\forall x(\overbrace{x +\ldots + x}^{m+1}=x)$ gilt, während dieses in $(\mathbb{Z},+,\cdot)$ nicht gilt. Es können also in Faktoralgebra
     möglicherweise mehr Gesetze erfüllt sein, als in der ursprünglichen Algebra.
 \end{example}
 
@@ -387,9 +391,11 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     Varietäten sind abgeschlossen unter der Bildung von Faktoralgebren.
 \end{corollary}
 
-\begin{theorem}[Birkhoff]\index{Satz von Birkhoff}
+\notedate{16.03.2023}
+
+\begin{theorem}[Birkhoff]\index{Satz!von Birkhoff}
     Sei $\tau=(f_i)_{i\in I}$ eine Signatur und $\mathcal{K}$ eine Klasse von $\tau$-Algebren. Dann gilt:
-    \[\mathcal{K} \text{ ist abgeschlossen unter H,S,P } \Leftrightarrow \mathcal{K} \text{ ist eine Varietät} \]
+    \[\mathcal{K} \text{ ist abgeschlossen unter H,S,P} \quad \Leftrightarrow \quad \mathcal{K} \text{ ist eine Varietät} \]
 \end{theorem}
 
 \begin{definition}
@@ -401,7 +407,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \begin{proof}
     Ist $\mathcal{K}$ eine Variation, so ist $\mathcal{K}$ laut \ref{corollary:sub-varietaeten}, \ref{corollary:prod-varietaeten} und
     \ref{corollary:fak-varietaeten} unter $H,S,P$ abgeschlossen.
-    Es bleibt die anderen Implikation zu zeigen. Dazu definiere $\Sigma:=\Sigma(\mathcal{K})$ und $\mathcal{V}:=\mathcal{V}(\Sigma)$,
+    Es bleibt die andere Implikation zu zeigen. Dazu definiere $\Sigma:=\Sigma(\mathcal{K})$ und $\mathcal{V}:=\mathcal{V}(\Sigma)$,
     womit $\mathcal{V}=\mathcal{K}$ zu zeigen ist. Trivialerweise ist $\mathcal{V}\supseteq\mathcal{K}$ erfüllt. Für die andere
     Inklusion sei $\mathfrak{A}\in\mathcal{V}$ beliebig, aber fest, das heißt es gilt $\mathfrak{A}\in\mathcal{K}$ zu zeigen.
 
