@@ -1,7 +1,7 @@
 \section{Freie Algebren}
 
 \begin{definition}
-Sei $ \tau = (f_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\mathfrak{F} \in K$ und $X \subseteq F$. Dann heißt $\mathfrak{F}$ \emph{frei über} $X$ \emph{in} $\mathcal{K}$, wenn es für alle $\mathfrak{A} \in \mathcal{K}$ und alle $\varphi : X \to A$ genau einen Homomorphismus $\overline{\varphi} : F \to A$ mit $\overline{\varphi} \vert_X = \varphi$ gibt.
+Sei $ \tau = (n_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\mathfrak{F} \in K$ und $X \subseteq F$. Dann heißt $\mathfrak{F}$ \emph{frei über} $X$ \emph{in} $\mathcal{K}$\index{Algebra!frei}\index{freie Algebra}, wenn es für alle $\mathfrak{A} \in \mathcal{K}$ und alle $\varphi : X \to A$ genau einen Homomorphismus $\overline{\varphi} : F \to A$ mit $\overline{\varphi} \vert_X = \varphi$ gibt.
 
 \begin{figure}[H]
     \centering
@@ -26,7 +26,7 @@ Sei $ \tau = (f_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\
 \begin{example}
     Sei $\mathcal{K}$ die Klasse der Vektorräume über den Körper $\mathbb{C}$, $\mathfrak{V} \in \mathcal{K}$ beliebig und $X \subseteq V$ eine Basis von $\mathfrak{V}$.
 
-    Mit einer Variablenmenge $X$ ist die Termalgebra $(T(X), (f_i)_{i \in I})$ frei über $X$ in der Klasse aller $\tau$-Algebren.
+    Mit einer Variablenmenge $X$ ist die Termalgebra $\mathfrak{T}(X, (f_i)_{i \in I})$ frei über $X$ in der Klasse aller $\tau$-Algebren.
 \end{example}
 
 \begin{example}
@@ -60,7 +60,7 @@ Sei $ \tau = (f_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\
 \notedate{22.03.2022}
 
 \begin{proposition}
-    Sei $\mathcal{K}$ eine Klasse von Algebren mit Signatur $(f_i)_{i \in I} =: \tau$. Sei
+    Sei $\mathcal{K}$ eine Klasse von Algebren mit Typ $(n_i)_{i \in I} =: \tau$. Sei
     $$ \mathcal{S}(\mathcal{K}) := \{ \mathfrak{A} \mid \exists \mathfrak{B} \in \mathcal{K}: \mathfrak{A} \leq \mathfrak{B} \} \subseteq \mathcal{K}, $$
     was insbesondere der Fall ist, falls $\mathcal{K}$ eine Varietät ist. Sei $\mathfrak{F}$ in $\mathcal{K}$ frei über $X \subseteq F$, so ist $\mathfrak{F} = \langle X \rangle$.
 \end{proposition}
@@ -84,8 +84,8 @@ Sei $ \tau = (f_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\
 \end{remark}
 
 \begin{remark}
-    Wir wollen die freie Algebra als Faktoralgebra der Termalgebra darstellen. Sei dazu $\tau := (f_i)_{i \in I}$ eine Signatur und $X$ eine Menge, so ist
-    $$ \mathfrak{T}^X := (T(X), (f_i^T)_{i \in I}) $$
+    Wir wollen die freie Algebra als Faktoralgebra der Termalgebra darstellen. Sei dazu $\tau := (n_i)_{i \in I}$ eine Signatur und $X$ eine Menge, so ist
+    $$ \mathfrak{T}^X := \mathfrak{T}(X, (f_i^\mathfrak{T})_{i \in I}) $$
     frei über $X$ in der Klasse der $\tau$-Algebren.
 
     Sei $\mathcal{K}$ eine Varietät von $\tau$-Algebren, so stellt sich die Frage ob $\mathfrak{T}^X$ frei über $X$ in $\mathcal{K}$ ist. Allgemein ist dies nicht der Fall, da $\mathfrak{T}^X$ nicht in $\mathcal{K}$ enthalten sein muss.
@@ -108,7 +108,7 @@ Sei $ \tau = (f_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\
         $$ (\forall \mathfrak{A} \in \mathcal{K}: \mathfrak{A} \models s \approx t \quad \land \quad \forall \mathfrak{A} \in \mathcal{K}: \mathfrak{A} \models t \approx u) \quad \implies \quad \forall \mathfrak{A} \in \mathcal{K}: \mathfrak{A} \models s \approx u, $$
         also $(s,u) \in \Sigma_X$.
     \end{itemize}
-    Um zu sehen, dass $\Sigma_X$ auch eine Kongruenzrelation ist seien $i \in I, (s_1, t_1), ..., (s_{n_i}, t_{n_i}) \in \Sigma_X$. Zu zeigen ist $(f_i(s_1, ..., s_{n_i}), f_i(t_1, ..., t_{n_i})) \in \Sigma_X$. Es gilt
+    Um zu sehen, dass $\Sigma_X$ auch eine Kongruenzrelation ist, seien $i \in I, (s_1, t_1), ..., (s_{n_i}, t_{n_i}) \in \Sigma_X$. Zu zeigen ist $(f_i(s_1, ..., s_{n_i}), f_i(t_1, ..., t_{n_i})) \in \Sigma_X$. Es gilt
     $$ \forall \mathfrak{A} \in \mathcal{K}: \mathfrak{A} \models s_1 \approx t_1 \land ... \land s_{n_i} \approx t_{n_i}, $$
     insbesondere folgt also
     $$ \forall \mathfrak{A} \in \mathcal{K}: \mathfrak{A} \models f_i(s_1, ..., s_{n_i}) \approx f_i(t_1, ..., t_{n_i}) $$
@@ -116,7 +116,7 @@ Sei $ \tau = (f_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\
 \end{proof}
 
 \begin{definition}
-    Wir definieren $ \mathfrak{T}^{X, \Sigma_X} := \mathfrak{T}^X / \Sigma_X$.
+    Wir definieren $ \mathfrak{T}^{X, \Sigma_X} := \mathfrak{T}^X /_{\Sigma_X}$.
 \end{definition}
 
 \begin{theorem}
@@ -128,7 +128,7 @@ Sei $ \tau = (f_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\
     $$ \Sigma(\mathfrak{B}) := \{ s \approx t \mid \mathfrak{B} \models s \approx t \} = \Sigma(\mathcal{K}) := \{ s \approx t \mid \forall \mathfrak{A} \in \mathcal{K}: \mathfrak{A} \models s \approx t \}, $$
     wobei wir die Existenz aus dem Beweis des Satzes von Birkhoff wissen.
     
-    Sei $\langle \{ \pi_x \mid x \in X \} \rangle =: \mathfrak{S} \leq \mathfrak{B}^{B^X}$, wobei $\pi_x : B^X \to B, \alpha \mapsto \alpha(x)$ (wie im Beweis des Satzes von Birkhoff), so wissen wir, dass $\mathfrak{S}$ über $\{ \pi_x \mid x \in X \}$ in $\mathcal{K}$.
+    Sei $\langle \{ \pi_x \mid x \in X \} \rangle =: \mathfrak{S} \leq \mathfrak{B}^{B^X}$, wobei $\pi_x : B^X \to B, \alpha \mapsto \alpha(x)$ (wie im Beweis des Satzes von Birkhoff), so wissen wir, dass $\mathfrak{S}$ frei über $\{ \pi_x \mid x \in X \}$ in $\mathcal{K}$.
 
     Betrachte
     $$ \varphi: \mathfrak{S} \to \mathfrak{T}^{X, \Sigma_X}, t^\mathfrak{S} (\pi_{x_1}, ..., \pi_{x_n}) \mapsto [t(x_1,...,x_n)]_{\Sigma_X}. $$
@@ -144,10 +144,10 @@ Sei $ \tau = (f_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\
 
 \begin{example}
     Bezeichne $(\cdot, e, {}^{-1})$ vom Typ $\tau = (2,0,1)$ die Sprache der Gruppen. Sei $X = \{ x_1, x_2, ... \}$ eine Variablenmenge so sind
-    $$ \left. \begin{matrix} x_1, x_2, x_3, ... \\ e, x_1 \cdot x_2, x_2 \cdot x_1, x_1^{-1}, ... \\ e \cdot x_1, x_1 \cdot e, (x_1 \cdot x_2) \cdot x_3, x_1 \cdot (x_2 \cdot x_3), ... \\ \vdots \end{matrix} \quad \right\} \quad \begin{matrix} (T(X), \cdot^T, e^T, {{}^{-1}}^T) \textrm{ ist frei über} \\ X \textrm{ in der Klasse aller $\tau$-Algebren.} \end{matrix} $$
+    $$ \left. \begin{matrix} x_1, x_2, x_3, ... \\ e, x_1 \cdot x_2, x_2 \cdot x_1, x_1^{-1}, ... \\ e \cdot x_1, x_1 \cdot e, (x_1 \cdot x_2) \cdot x_3, x_1 \cdot (x_2 \cdot x_3), ... \\ \vdots \end{matrix} \quad \right\} \quad \begin{matrix} (T(X), \cdot^\mathfrak{T}, e^\mathfrak{T}, {{}^{-1}}^\mathfrak{T}) \textrm{ ist frei über} \\ X \textrm{ in der Klasse aller $\tau$-Algebren.} \end{matrix} $$
     Beispiele für Terme respektiver 1., 2. und 3. Stufe. Bezeichne nun
     $$ \Sigma_X = \{ (e \cdot x_1, x_1), ((x_1 \cdot x_2) \cdot x_3, x_1 \cdot (x_2 \cdot x_3)), (e, x_1 \cdot x_1^{-1}), ... \} $$
     als die Menge aller Gesetze welche in allen Gruppen gelten. Faktorisieren wir nun nach Term\-äquivalenz, so erhalten wir
-    $$ T(X) / \Sigma_X = \{ [x_1], [x_2], ..., [x_1, x_2], [x_2, x_1], ... \}. $$
-    Jedes Element $t$ von $T(X) / \Sigma_X$ (außer $e$) hat also einen Repräsentanten der Form $a_1 \cdot a_2 \cdot ... \cdot a_n$, wobei $a_i = x_j$ oder $a_i = x_j^{-1}$ für ein $j$, wobei nie $x_j$ und $x_j^{-1}$ aufeinander folgen oder umgekehrt.
+    $$ T(X) /_{\Sigma_X} = \{ [x_1], [x_2], ..., [x_1, x_2], [x_2, x_1], ... \}. $$
+    Jedes Element $t$ von $T(X) /_{\Sigma_X}$ (außer $e$) hat also einen Repräsentanten der Form $a_1 \cdot a_2 \cdot ... \cdot a_n$, wobei $a_i = x_j$ oder $a_i = x_j^{-1}$ für ein $j$, wobei nie $x_j$ und $x_j^{-1}$ aufeinander folgen oder umgekehrt.
 \end{example}
