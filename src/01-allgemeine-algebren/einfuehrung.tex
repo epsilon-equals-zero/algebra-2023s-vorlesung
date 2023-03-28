@@ -5,7 +5,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 
 \begin{definition}\label{def:algebra}
     Seien $A$ eine beliebige Menge, $\tau = (n_i)_{i \in I}$ eine Familie aus $\mathbb{N}_0$ über eine beliebige Indexmenge $I$ und $(f_i)_{i \in I}$ eine Familie von Funktionen, wobei $f_i: A^{n_i} \to A$ ist. 
-     Das Tupel $\mathfrak{A} = (A, (f_i)_{i \in I})$ heißt dann \emph{(allgemeine) Algebra} vom \emph{Typ} $\tau$. Die einzelnen Funktionen $f_i$ haben die \emph{Stelligkeit} oder \emph{Arität} $n_i$.
+     Das Tupel $\mathfrak{A} = (A, (f_i)_{i \in I})$ heißt dann \emph{(allgemeine) Algebra}\index{allgemeine Algebra} vom \emph{Typ}\index{allgemeine Algebra!Typ} $\tau$. Die einzelnen Funktionen $f_i$ haben die \emph{Stelligkeit}\index{Stelligkeit} oder \emph{Arität}\index{Arität} $n_i$.
 \end{definition}
 
 \begin{remark}
@@ -17,9 +17,9 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 \end{remark}
 
 \begin{definition}
-    Eine Algebra $\mathfrak{A} = (A, +)$ vom Typ $\tau = (2)$ heißt \emph{Halbgruppe}, wenn 
+    Eine Algebra $\mathfrak{A} = (A, +)$ vom Typ $\tau = (2)$ heißt \emph{Halbgruppe}\index{Halbgruppe}, wenn 
     \begin{itemize}[topsep=0pt, label={--}]
-        \item $\forall x,y,z \in A: (x + y) + z = x + (y + z)$. \tab (\emph{Assoziativität} von $+$)
+        \item $\forall x,y,z \in A: (x + y) + z = x + (y + z)$. \tab (\emph{Assoziativität}\index{Assoziativität} von $+$)
     \end{itemize}
 \end{definition}
 
@@ -27,10 +27,10 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 \end{example}
 
 \begin{definition}
-    Eine Algebra $\mathfrak{A} = (A, +, e)$ vom Typ $\tau = (2,0)$ heißt \emph{Monoid}, wenn
+    Eine Algebra $\mathfrak{A} = (A, +, e)$ vom Typ $\tau = (2,0)$ heißt \emph{Monoid}\index{Monoid}, wenn
     \begin{itemize}[topsep=0pt, label={--}]
         \item $(A, +)$ eine Halbgruppe ist und
-        \item $\forall x \in A: e + x = x + e = x$. \tab ($e$ \emph{neutrales Element} bezüglich $+$)
+        \item $\forall x \in A: e + x = x + e = x$. \tab ($e$ \emph{neutrales Element}\index{neutrales Element} bezüglich $+$)
     \end{itemize}
 \end{definition}
 
@@ -39,10 +39,10 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 \end{example}
 
 \begin{definition}\label{def:gruppe}
-    Eine Algebra $\mathfrak{A} = (A, +, e, -)$ vom Typ $\tau = (2,0,1)$ heißt \emph{Gruppe}, wenn
+    Eine Algebra $\mathfrak{A} = (A, +, e, -)$ vom Typ $\tau = (2,0,1)$ heißt \emph{Gruppe}\index{Gruppe}, wenn
     \begin{itemize}[topsep=0pt, label={--}]
         \item $(A, +, e)$ ein Monoid ist und
-        \item $\forall x \in A: x + (-x) = (-x) + x = e$. \tab ($-$ bildet ab auf \emph{inverse Elemente})
+        \item $\forall x \in A: x + (-x) = (-x) + x = e$. \tab ($-$ bildet ab auf \emph{inverse Elemente}\index{inveses Element})
     \end{itemize}
 \end{definition}
 
@@ -61,19 +61,19 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 \end{remark}
 
 \begin{definition}
-    Eine Halbgruppe / Monoid / Gruppe $\mathfrak{A} = (A, +, \cdots)$ heißt \emph{kommutativ} oder \emph{abelsch}, wenn für die zweistellige Operation $+$ 
+    Eine Halbgruppe / Monoid / Gruppe $\mathfrak{A} = (A, +, \cdots)$ heißt \emph{kommutativ}\index{kommutativ}\index{Gruppe!kommutativ} oder \emph{abelsch}\index{abelsch}\index{Gruppe!abelsch}, wenn für die zweistellige Operation $+$ 
     \begin{itemize}[topsep=0pt, label={--}]
         \item $\forall x, y \in A: x + y = y + x$ gilt.
     \end{itemize}
 \end{definition}
 
 \begin{definition}
-    Eine Algebra $\mathfrak{A} = (A, +, 0, \cdot)$ vom Typ $\tau = (2,0,2)$ heißt \emph{Halbring}, wenn
+    Eine Algebra $\mathfrak{A} = (A, +, 0, \cdot)$ vom Typ $\tau = (2,0,2)$ heißt \emph{Halbring}\index{Halbring}, wenn
     \begin{itemize}[topsep=0pt, label={--}]
         \item $(A, +, 0)$ ein kommutatives Monoid,
         \item $(A, \cdot)$ eine Halbgruppe ist und
-        \item $\forall x, y, z \in A: (x+y)\cdot z = x \cdot z + y \cdot z$ \tab ($\cdot$ ist \emph{rechtsdistributiv} über $+$)\\
-        \phantom{$\forall x, y, z \in A:$}$ \land \; z\cdot (x+y) = z \cdot x + z \cdot y$. \tab ($\cdot$ ist \emph{linksdistributiv} über $+$)
+        \item $\forall x, y, z \in A: (x+y)\cdot z = x \cdot z + y \cdot z$ \tab ($\cdot$ ist \emph{rechtsdistributiv}\index{distributiv!rechts-} über $+$)\\
+        \phantom{$\forall x, y, z \in A:$}$ \land \; z\cdot (x+y) = z \cdot x + z \cdot y$. \tab ($\cdot$ ist \emph{linksdistributiv}\index{distributiv!links-} über $+$)
     \end{itemize}
 \end{definition}
 
@@ -84,14 +84,14 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 \end{example}
 
 \begin{definition}
-    Eine Algebra $\mathfrak{A} = (A, +, 0, -, \cdot)$ vom Typ $\tau = (2,0,1,2)$ heißt \emph{Ring}, wenn
+    Eine Algebra $\mathfrak{A} = (A, +, 0, -, \cdot)$ vom Typ $\tau = (2,0,1,2)$ heißt \emph{Ring}\index{Ring}, wenn
     \begin{itemize}[topsep=0pt, label={--}]
         \item $(A, +, -, 0)$ eine kommutative Gruppe,
         \item $(A, \cdot)$ eine Halbgruppe ist und
         \item $\cdot$ ist links- und rechtsdistributiv über $+$.
     \end{itemize}
 
-    Gibt es eine weitere nullstellige Operation $1$, sodass $(A, \cdot, 1)$ ein (kommutatives) Monoid ist, so spricht man von einem \emph{(kommutativen) Ring mit 1}.
+    Gibt es eine weitere nullstellige Operation $1$, sodass $(A, \cdot, 1)$ ein (kommutatives) Monoid ist, so spricht man von einem \emph{(kommutativen) Ring mit 1}\index{Ring!mit 1}.
 \end{definition}
 
 \begin{example}
@@ -99,12 +99,12 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 \end{example}
 
 \begin{definition}
-    Ein kommutativer Ring mit 1 $\mathfrak{A}$ heißt \emph{Körper}, wenn 
+    Ein kommutativer Ring mit 1 $\mathfrak{A}$ heißt \emph{Körper}\index{Körper}, wenn 
     \begin{itemize}[topsep=0pt, label={--}]
         \item $\forall x \in A\backslash \{0\} \exists y \in A: x\cdot y = 1$
     \end{itemize}
 
-    Ist $\cdot$ nicht kommutativ, dann nennen wir $\mathfrak{A}$ \emph{Schiefkörper} oder \emph{Divisionsring}.
+    Ist $\cdot$ nicht kommutativ, dann nennen wir $\mathfrak{A}$ \emph{Schiefkörper}\index{Schiefkörper} oder \emph{Divisionsring}\index{Divisonsring}.
 \end{definition}
 
 \begin{remark}
@@ -118,7 +118,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
         \item $\forall a,b \in R \forall u \in G: (a + b) \cdot u = (a \cdot u) \;\widetilde{+}\; (b \cdot u)$
         \item $\forall a \in R \forall u,v \in G: a \odot (u \;\widetilde{+}\; v) = (a \odot u) \;\widetilde{+}\; (a \odot v)$
     \end{itemize}
-    so heißt $\mathfrak{G}$ mit $\odot$ \emph{Modul über $\mathfrak{R}$} oder \emph{$\mathfrak{R}$-Modul}.
+    so heißt $\mathfrak{G}$ mit $\odot$ \emph{Modul über $\mathfrak{R}$}\index{Modul} oder \emph{$\mathfrak{R}$-Modul}.
 
     Ein $\mathfrak{R}$-Modul kann auch als allgemeine Algebra nach \Cref{def:algebra} definiert werden. Wir erhalten die Algebra $\mathfrak{G}^\mathfrak{R} := (G, \widetilde{+}, \widetilde{0}, \widetilde{-}, (m_r)_{r \in \mathfrak{R}})$, wobei $m_r: G \to G, g \mapsto r \odot g$ unäre Operationen sind.
 \end{definition}
@@ -132,10 +132,10 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 \end{example}
 
 \begin{definition}
-    Eine Algebra $\mathfrak{A} = (A, \wedge)$ vom Typ $\tau = (2)$ heißt \emph{Halbverband}, wenn
+    Eine Algebra $\mathfrak{A} = (A, \wedge)$ vom Typ $\tau = (2)$ heißt \emph{Halbverband}\index{Halbverband}, wenn
     \begin{itemize}[topsep=0pt, label={--}]
         \item $\mathfrak{A}$ eine kommutative Halbgruppe ist,
-        \item $\forall x \in A: x \wedge x = x$. \tab ($\wedge$ ist \emph{idempotent})
+        \item $\forall x \in A: x \wedge x = x$. \tab ($\wedge$ ist \emph{idempotent}\index{idempotent})
     \end{itemize}
 \end{definition}
 
@@ -144,18 +144,18 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 \end{remark}
 
 \begin{definition}
-    Eine Algebra $\mathfrak{A} = (A, \wedge, \vee)$ vom Typ $\tau = (2, 2)$ heißt \emph{Verband}, wenn
+    Eine Algebra $\mathfrak{A} = (A, \wedge, \vee)$ vom Typ $\tau = (2, 2)$ heißt \emph{Verband}\index{Verband}, wenn
     \begin{itemize}[topsep=0pt, label={--}]
         \item $(A, \wedge)$, $(A, \vee)$ Halbverbände sind, 
         \item $\forall a,b \in A: a \wedge (a \vee b) = a$ und
         \item $\forall a,b \in A: a \vee (a \wedge b) = a$
     \end{itemize}
-    gilt, wobei die letzten zwei Gesetze \emph{Verschmelzungsgesetze} genannt werden.
+    gilt, wobei die letzten zwei Gesetze \emph{Verschmelzungsgesetze}\index{Verschmelzungsgesetzte} genannt werden.
 
     \notedate{02.03.2023}
     Ein Verband heißt \emph{distributiv}, wenn $\wedge$ distributiv\footnote{Es ist ausreichend Rechts- bzw. Linksdistributivität zu fordern, da die jeweilig andere Distributivität aus der Kommutativität folgt.} über $\vee$ und $\vee$ distributiv über $\wedge$ ist.
 
-    Eine Algebra $\mathfrak{A} = (A, \wedge, \vee, 0, 1)$ vom Typ $\tau = (2,2,0,0)$ heißt \emph{beschränkter Verband}, wenn
+    Eine Algebra $\mathfrak{A} = (A, \wedge, \vee, 0, 1)$ vom Typ $\tau = (2,2,0,0)$ heißt \emph{beschränkter Verband}\index{Verband!beschränkt}, wenn
     \begin{itemize}[topsep=0pt, label={--}]
         \item $(A, \wedge, \vee)$ ein Verband ist,
         \item $\forall a \in A: a \wedge 0 = 0$ und
@@ -190,13 +190,13 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
     Jeder Verband $\mathfrak{V} = (V, \wedge, \vee)$ mit endlicher Menge $V = \{v_1, \ldots, v_n\}$ kann zu einem beschränkten Verband gemacht werden.
 \end{lemma}
 \begin{proof}
-    Sei $1 := v_1 \vee \ldots \vee v_n$, dann gilt für beliebiges $v_j \in V$, dass $$v_j \vee 1 = v_j \vee v_1 \vee \ldots \vee v_n =  v_1 \vee \ldots \vee v_j \vee v_j \vee \ldots \vee v_n = v_1 \vee \ldots \vee v_n = 1.$$
+    Sei $1 := v_1 \vee \ldots \vee v_n$, dann gilt für beliebiges $j \in \{1, \ldots, n\}$, dass $$v_j \vee 1 = v_j \vee v_1 \vee \ldots \vee v_n =  v_1 \vee \ldots \vee v_j \vee v_j \vee \ldots \vee v_n = v_1 \vee \ldots \vee v_n = 1.$$
     Analoges gilt für $0 := v_1 \vee \ldots \vee v_n$. Damit ist $(V, \wedge, \vee, 0, 1)$ ein beschränkter Verband. 
 \end{proof}
 
 
 \begin{definition}
-    Eine Algebra $\mathfrak{A} = (A, \wedge, \vee, 0, 1, \,')$ vom Typ $\tau = (2,2,0,0,1)$ heißt \emph{Boolsche Algebra}, wenn
+    Eine Algebra $\mathfrak{A} = (A, \wedge, \vee, 0, 1, \,')$ vom Typ $\tau = (2,2,0,0,1)$ heißt \emph{Boolsche Algebra}\index{Boolsche Algebra}, wenn
     \begin{itemize}[topsep=0pt, label={--}]
         \item $(A, \wedge, \vee, 0, 1, \,')$ ein beschränkter distributiver Verband ist,
         \item $\forall x \in A: x \wedge x' = 0$ und
@@ -213,20 +213,20 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 \end{remark}
 
 \begin{definition}
-    Seien $\mathfrak{A} = (A, (f_i^\mathfrak{A})_{i \in I}), \mathfrak{B} = (B, (f_i^\mathfrak{B})_{i \in I})$ zwei Algebren vom selben Typ $\tau = (n_i)_{i \in I}$. Eine Abbildung $\varphi: A \to B$ heißt \emph{Homomorphismus}, wenn
+    Seien $\mathfrak{A} = (A, (f_i^\mathfrak{A})_{i \in I}), \mathfrak{B} = (B, (f_i^\mathfrak{B})_{i \in I})$ zwei Algebren vom selben Typ $\tau = (n_i)_{i \in I}$. Eine Abbildung $\varphi: A \to B$ heißt \emph{Homomorphismus}\index{Homomorphismus}, wenn
 
     $$\forall i \in I \forall a_1, \ldots, a_{n_i} \in A: \varphi(f_i^\mathfrak{A}(a_1, \ldots, a_{n_i})) = f_i^\mathfrak{B}(\varphi(a_1), \ldots, \varphi(a_{n_i})). $$
 
-    Wenn $\varphi$ bijektiv ist, dann heißt die Funktion \emph{Isomorphismus}.
-    Ist $\mathfrak{A} = \mathfrak{B}$, dann heißt $\varphi$ \emph{Endomorphismus}. Ein bijektiver Endomorphismus heißt \emph{Automorphismus}.
+    Wenn $\varphi$ bijektiv ist, dann heißt die Funktion \emph{Isomorphismus}\index{Isomorphismus}.
+    Ist $\mathfrak{A} = \mathfrak{B}$, dann heißt $\varphi$ \emph{Endomorphismus}\index{Endomorphismus}. Ein bijektiver Endomorphismus heißt \emph{Automorphismus}\index{Automorphismus}.
 \end{definition}
 
 \begin{example}
     Sei $\mathfrak{A}$ eine Algebra. Definieren wir die Mengen \begin{align*}
-        \End(\mathfrak{A}) &:= \{f: A \to A \;\vert\; f\text{ ist Endomorphismus}\} \text{ und} \\ \Aut(\mathfrak{A}) &:= \{f: A \to A \;\vert\; f\text{ ist Automorphismus}\}.
+        \End(\mathfrak{A}) &:= \{f: A \to A \mid f\text{ ist Endomorphismus}\} \text{ und} \\ \Aut(\mathfrak{A}) &:= \{f: A \to A \mid f\text{ ist Automorphismus}\}.
     \end{align*}
 
-    Es ist dann $(\End(\mathfrak{A}), \circ, \id_A)$ ein Monoid, das \emph{Endomorphisenmonoid von $\mathfrak{A}$}. Jedes Monoid ist isomorph zu einem Endomorphismenmonoid.
+    Es ist dann $(\End(\mathfrak{A}), \circ, \id_A)$ ein Monoid, das \emph{Endomorphismenmonoid von $\mathfrak{A}$}\index{Endomorphismenmonoid}. Jedes Monoid ist isomorph zu einem Endomorphismenmonoid.
     
-    $(\Aut(\mathfrak{A}), \circ, \id_A, \cdot^{-1})$ ist eine Gruppe, die \emph{Automorphismengruppe von $\mathfrak{A}$}. Nach dem Satz von Cayley ist jede endliche Gruppe isomorph zu einer Automorphismengruppe.
+    $(\Aut(\mathfrak{A}), \circ, \id_A, \cdot^{-1})$ ist eine Gruppe, die \emph{Automorphismengruppe von $\mathfrak{A}$}\index{Automorphismengruppe}. Nach dem Satz von Cayley ist jede endliche Gruppe isomorph zu einer Automorphismengruppe.
 \end{example}

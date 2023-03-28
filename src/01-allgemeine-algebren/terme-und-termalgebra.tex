@@ -1,12 +1,12 @@
 \section{Terme und Termalgebra}
 
 \begin{definition}
-    Sei $X$ eine beliebige Menge und seien $(f_i)_{i \in I}$ Funktionssymbole mit Aritäten $(n_i)_{i \in I}$. Die Menge $T$ ist rekursiv definiert durch $$T_0 := X ,\quad T_{k+1} := T_k \cup \{f_i(t_1, \ldots t_{n_i}) \;\vert\; i \in I \land t_1, \ldots, t_{n_i} \in T_k\},\quad T := \bigcup_{i \ge 0} T_i.$$ 
+    Sei $X$ eine beliebige Menge und seien $(f_i)_{i \in I}$ Funktionssymbole mit Aritäten $(n_i)_{i \in I}$. Die Menge $T$ ist rekursiv definiert durch $$T_0 := X ,\quad T_{k+1} := T_k \cup \{f_i(t_1, \ldots t_{n_i}) \mid i \in I \land t_1, \ldots, t_{n_i} \in T_k\},\quad T := \bigcup_{i \ge 0} T_i.$$ 
     
-    Ein Element $t \in T$ heißt \emph{Term}, die Elemente aus $X$ \emph{Variablen} und die Menge $T$ beschreibt alle \emph{Terme über $(X, (f_i)_{i \in I})$}.
-    Für einen Term $t \in T$ heißt $\lvl(t) := \min\{k \;\vert\; t \in T_k\}$ \emph{Stufe von $t$}. 
+    Ein Element $t \in T$ heißt \emph{Term}\index{Term}, die Elemente aus $X$ \emph{Variablen}\index{Variable}, $(f_i)_{i \in I}$ \emph{Sprache}\index{Sprache} und die Menge $T$ beschreibt alle \emph{Terme über $(X, (f_i)_{i \in I})$}.
+    Für einen Term $t \in T$ heißt $\lvl(t) := \min\{k \mid t \in T_k\}$ \emph{Stufe von $t$}\index{Term!Stufe}. 
     
-    Weiter werden die \emph{Variablen} eines Terms rekursiv definiert. Für $x \in X$ ist $\var(x) := \{x\}$ und für $t = f_i(t_1, \ldots, t_n)$ weiter $\var(t) := \bigcup_{j \in \{1, \ldots, n_i\}} \var(t_j)$.
+    Weiter werden die \emph{Variablen eines Terms}\index{Term!Variablen} rekursiv definiert. Für $x \in X$ ist $\var(x) := \{x\}$ und für $t = f_i(t_1, \ldots, t_n)$ weiter $\var(t) := \bigcup_{j \in \{1, \ldots, n_i\}} \var(t_j)$.
 \end{definition}
 
 \begin{example}
@@ -14,7 +14,7 @@
 \end{example}
 
 \begin{definition}
-    Sei $T$ die Menge aller Terme über $(X, (f_i)_{i \in I})$. Es ist dann die \emph{(erzeugte) Termalgebra} $\mathfrak{T}(X, (f_i)_{i \in I}) := (T, (f_i^\mathfrak{T}))$, wobei $f_i^\mathfrak{T}: T^{n_i} \to T, (t_1, \ldots, t_{n_i}) \mapsto f_i(t_1, \ldots, t_n)$, eine Algebra vom Typ $\tau = (n_i)_{i \in I}$.
+    Sei $T$ die Menge aller Terme über $(X, (f_i)_{i \in I})$. Es ist dann die \emph{(erzeugte) Termalgebra}\index{Termalgebra} $\mathfrak{T}(X, (f_i)_{i \in I}) := (T, (f_i^\mathfrak{T}))$, wobei $f_i^\mathfrak{T}: T^{n_i} \to T, (t_1, \ldots, t_{n_i}) \mapsto f_i(t_1, \ldots, t_n)$, eine Algebra vom Typ $\tau = (n_i)_{i \in I}$.
 \end{definition}
 
 \begin{theorem}\label{theorem:variablenmenge_frei}
@@ -36,9 +36,9 @@
 \vspace*{-\lineskip}
 
 \begin{definition}
-    Seien $X^{(k)} = \{x_1, \ldots, x_k\} \subseteq X$ eine Teilmenge der Variablenmenge, $\mathfrak{T}^{(k)} = \mathfrak{T}(X^{(k)}, (f_i)_{i \in I}) = (T^{(k)}, (f_i^\mathfrak{T})_{i \in I})$ die erzeugte Termalgebra und $\mathfrak{A} = (A, (f_i^\mathfrak{A})_{i \in I})$ eine Algebra vom selben Typ. Für $a_1, \ldots, a_k$ heißt $\alpha_{a_1, \ldots, a_k}: X^{(k)} \to A, x_j \mapsto a_j$ eine \emph{Variablenbelegung}. Nach \Cref{theorem:variablenmenge_frei} kann diese nun zum \emph{Einsetzungshomomorphismus} $\overline{\alpha}_{a_1, \ldots, a_k}: T^{(k)} \to A$ fortgesetzt werden.
+    Seien $X^{(k)} = \{x_1, \ldots, x_k\} \subseteq X$ eine Teilmenge der Variablenmenge, $\mathfrak{T}^{(k)} = \mathfrak{T}(X^{(k)}, (f_i)_{i \in I}) = (T^{(k)}, (f_i^\mathfrak{T})_{i \in I})$ die erzeugte Termalgebra und $\mathfrak{A} = (A, (f_i^\mathfrak{A})_{i \in I})$ eine Algebra vom selben Typ. Für $a_1, \ldots, a_k$ heißt $\alpha_{a_1, \ldots, a_k}: X^{(k)} \to A, x_j \mapsto a_j$ eine \emph{Variablenbelegung}\index{Variablenbelegung}. Nach \Cref{theorem:variablenmenge_frei} kann diese nun zum \emph{Einsetzungshomomorphismus}\index{Einsetzungshomomorphismus} $\overline{\alpha}_{a_1, \ldots, a_k}: T^{(k)} \to A$ fortgesetzt werden.
 
-    Für einen beliebigen Term $t \in T^{(k)}$ ist die \emph{durch $t$ in $\mathfrak{A}$ induzierte Termoperation} als $t^\mathfrak{A}: A^k \to A, (a_1, \ldots, a_k) \mapsto \overline{\alpha}_{a_1, \ldots a_k}(t)$ definiert. Damit wird aus einem abstrakten Term eine Funktion auf $A$.
+    Für einen beliebigen Term $t \in T^{(k)}$ ist die \emph{durch $t$ in $\mathfrak{A}$ induzierte Termoperation}\index{Termoperation } als $t^\mathfrak{A}: A^k \to A, (a_1, \ldots, a_k) \mapsto \overline{\alpha}_{a_1, \ldots a_k}(t)$ definiert. Damit wird aus einem abstrakten Term eine Funktion auf $A$.
 \end{definition}
 
 \begin{example}
@@ -52,3 +52,11 @@
 \begin{example}
     Sei $\mathfrak{V} = (V, +, 0, -, (m_k)_{k \in \mathfrak{K}})$ ein Vektorraum über einem Körper $\mathfrak{K}$. Betrachtet man Terme über die Sprache $(+, -, (m_k)_{k \in \mathfrak{K}})$, also z.B. $x_1 + x_2, m_2(x_1 + x_2), x_1 + m_4(x_2)$. Die davon induzierten Termfunktionen stellen Linearkombinationen dar.
 \end{example}
+
+\begin{definition}
+    Sei $t, s \in T$ Terme über eine Sprache $(f_i)_{i \in I}$, dann heißt $t \approx s$ \emph{Gesetz}\index{Gesetz}.
+
+    Sei $\mathfrak{A} = (A, (f_i^\mathfrak{A})_{i \in I})$ eine Algebra über dieselbe Sprache, dann sagt man \emph{$\mathfrak{A}$ erfüllt das Gesetz $t \approx s$} oder kurz \emph{$\mathfrak{A} \models t \approx s$}, wenn 
+    $$ \forall \alpha: \var(t) \cup \var(s) \to A: \overline{\alpha}(t) = \overline{\alpha}(s), $$
+    oder anders formuliert, wenn die Termfunktionen $t^\mathfrak{A}, s^\mathfrak{A}$ übereinstimmen.
+\end{definition}
