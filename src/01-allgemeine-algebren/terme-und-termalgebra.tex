@@ -1,12 +1,12 @@
 \section{Terme und Termalgebra}
 
 \begin{definition}
-    Sei $X$ eine beliebige Menge und seien $(f_i)_{i \in I}$ Funktionssymbole mit Aritäten $(n_i)_{i \in I}$. Die Menge $T$ ist rekursiv definiert durch $$T_0 := X ,\quad T_{k+1} := T_k \cup \{f_i(t_1, \ldots t_{n_i}) \;\vert\; i \in I \land t_1, \ldots, t_{n_i} \in T_k\},\quad T := \bigcup_{i \ge 0} T_i.$$ 
+    Sei $X$ eine beliebige Menge und seien $(f_i)_{i \in I}$ Funktionssymbole mit Aritäten $(n_i)_{i \in I}$. Die Menge $T$ ist rekursiv definiert durch $$T_0 := X ,\quad T_{k+1} := T_k \cup \{f_i(t_1, \ldots t_{n_i}) \mid i \in I \land t_1, \ldots, t_{n_i} \in T_k\},\quad T := \bigcup_{i \ge 0} T_i.$$ 
     
-    Ein Element $t \in T$ heißt \emph{Term}\index{Term}, die Elemente aus $X$ \emph{Variablen}\index{Variablen} und die Menge $T$ beschreibt alle \emph{Terme über $(X, (f_i)_{i \in I})$}.
-    Für einen Term $t \in T$ heißt $\lvl(t) := \min\{k \;\vert\; t \in T_k\}$ \emph{Stufe von $t$}\index{Term!Stufe}. 
+    Ein Element $t \in T$ heißt \emph{Term}\index{Term}, die Elemente aus $X$ \emph{Variablen}\index{Variable}, $(f_i)_{i \in I}$ \emph{Sprache}\index{Sprache} und die Menge $T$ beschreibt alle \emph{Terme über $(X, (f_i)_{i \in I})$}.
+    Für einen Term $t \in T$ heißt $\lvl(t) := \min\{k \mid t \in T_k\}$ \emph{Stufe von $t$}\index{Term!Stufe}. 
     
-    Weiter werden die \emph{Variablen eines Terms} rekursiv definiert. Für $x \in X$ ist $\var(x) := \{x\}$ und für $t = f_i(t_1, \ldots, t_n)$ weiter $\var(t) := \bigcup_{j \in \{1, \ldots, n_i\}} \var(t_j)$.
+    Weiter werden die \emph{Variablen eines Terms}\index{Term!Variablen} rekursiv definiert. Für $x \in X$ ist $\var(x) := \{x\}$ und für $t = f_i(t_1, \ldots, t_n)$ weiter $\var(t) := \bigcup_{j \in \{1, \ldots, n_i\}} \var(t_j)$.
 \end{definition}
 
 \begin{example}
@@ -52,3 +52,11 @@
 \begin{example}
     Sei $\mathfrak{V} = (V, +, 0, -, (m_k)_{k \in \mathfrak{K}})$ ein Vektorraum über einem Körper $\mathfrak{K}$. Betrachtet man Terme über die Sprache $(+, -, (m_k)_{k \in \mathfrak{K}})$, also z.B. $x_1 + x_2, m_2(x_1 + x_2), x_1 + m_4(x_2)$. Die davon induzierten Termfunktionen stellen Linearkombinationen dar.
 \end{example}
+
+\begin{definition}
+    Sei $t, s \in T$ Terme über eine Sprache $(f_i)_{i \in I}$, dann heißt $t \approx s$ \emph{Gesetz}\index{Gesetz}.
+
+    Sei $\mathfrak{A} = (A, (f_i^\mathfrak{A})_{i \in I})$ eine Algebra über dieselbe Sprache, dann sagt man \emph{$\mathfrak{A}$ erfüllt das Gesetz $t \approx s$} oder kurz \emph{$\mathfrak{A} \models t \approx s$}, wenn 
+    $$ \forall \alpha: \var(t) \cup \var(s) \to A: \overline{\alpha}(t) = \overline{\alpha}(s), $$
+    oder anders formuliert, wenn die Termfunktionen $t^\mathfrak{A}, s^\mathfrak{A}$ übereinstimmen.
+\end{definition}
