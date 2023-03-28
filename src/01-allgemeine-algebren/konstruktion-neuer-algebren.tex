@@ -34,7 +34,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     Wir sehen also, dass die Umkehrung von Proposition \ref{prop:unteralgebra} nicht gilt.
 \end{remark}
 
-\begin{corollary}
+\begin{corollary}\label{corollary:sub-varietaeten}
     Varietäten sind abgeschlossen unter der Bildung von Unteralgebren.
 \end{corollary}
 
@@ -76,6 +76,50 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     definiert durch
     \[S_0:=S, \quad S_{k+1}:=S_k\cup\{f^\mathfrak{A}_i(a_1,\ldots,a_{n_i} \mid i\in I\land a_1,\ldots a_{n_i}\in S_k)\},\quad S_\infty:=\bigcup_{k\geq 0}S_k.\]
 \end{definition}
+
+\begin{example}
+    Diese Skizze zeigt die anschauliche Motiviation der vorhergehenden Definition.
+
+    \begin{figure}[H]
+        \centering
+        \resizebox{6cm}{6cm}{
+        \begin{tikzpicture}
+            \draw (0,0) circle (1.5);
+            \node at (0.85, 0.85) {$S$};
+            
+            \draw (0.3,0.3) ellipse (2.5 and 2); 
+            \node at (2.3, 1.1) {$S_1$};
+            
+            \draw[rotate=40] (0.4,0.2) ellipse (3 and 2.6); 
+            \node at (2, -1.8) {$S_2$};
+            
+            \draw (0,0) circle (3.5);
+            \node at (2.8, -2.8) {$S_\infty$};
+            \node[rotate=38] at (2.25,-2.15) {$\vdots$};
+
+            \node[circle,fill,inner sep=1pt] (p1) at (-0.8, 0.8){};
+            \node[circle,fill,inner sep=1pt] (p2) at (-0.6, 0.95){};
+            \node[circle,fill,inner sep=1pt] (p3) at (-0.4, 1.05){};
+            \draw[gray, rotate=33] (p2) ellipse (0.5 and 0.2);
+
+            \node[circle,fill,inner sep=1pt] (p4) at (-1.8, 0){};
+
+            \draw[->, gray] (-1.01, 0.66) -- node[above, near end] {\scriptsize $f_i$} (p4);
+
+            \node[circle,fill,inner sep=1pt] (p5) at (-1.3, 0){};
+            \node[circle,fill,inner sep=1pt] (p6) at (-1.1, 0){};
+
+            \draw[darkgray] (-1.45,0) ellipse (0.5 and 0.2);
+
+            \node[circle,fill,inner sep=1pt] (p7) at (-1.45, -1.6){};
+
+            \draw[->, darkgray] (-1.45, -0.2) -- node[left, near end] {\scriptsize $f_j$} (p7);
+
+        \end{tikzpicture}
+        }
+        \caption{Subalgebra von unten}
+    \end{figure}
+\end{example}
 
 \begin{proposition}
     Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $S\subseteq A$. Dann gelten die beiden Identitäten:
@@ -145,6 +189,68 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     definiert werden. Ist $\mathcal{K}$ eine Klasse von Algebren, so definieren wir die Klasse $P(\mathcal{K}):=\{\prod_{j\in J}\mathfrak{A}_j\mid \forall j\in J:\mathfrak{A_j}\in K\}$.
 \end{definition}
 
+\begin{example}
+    Folgende Abbildung visualisiert die Bildung einer Produktalgebra.
+
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            
+            \draw[darkgray] (0, 1.8) -- (8, 1.8) node[right, circle,fill, inner sep=1pt, label=right:$a \in \mathfrak{A}$] (a) {};
+            \draw[darkgray] (0, 1) -- (8, 1) node[right, circle,fill, inner sep=1pt, label=right:$b \in \mathfrak{A}$] (b) {};
+            \draw[darkgray] (0, 0.2) -- (8, 0.2) node[right, circle,fill, inner sep=1pt, label=right:$c \in \mathfrak{A}$] (c) {};
+            \draw[darkgray] (0, -1.3) -- (8, -1.3) node[right, circle,fill, inner sep=1pt, label=right:$d \in \mathfrak{A}$] (d) {};
+
+            \draw (0,0) ellipse (0.8 and 2);
+            \node[circle,fill,inner sep=1pt,label=below:$a_1$] (a1) at (0, 1.8){};
+            \node[circle,fill,inner sep=1pt,label=below:$b_1$] (b1) at (0, 1){};
+            \node[circle,fill,inner sep=1pt,label=below:$c_1$] (c1) at (0, 0.2){};
+            \node at (0, -0.6) {$\vdots$};
+            \node[circle,fill,inner sep=1pt,label=below:$d_1$] (d1) at (0, -1.3){};
+            \node at (0, -2.5) {$\mathfrak{A}_1$};
+
+            \node at (1.25, 0) {$\times$};
+
+            \draw (2.5,0) ellipse (0.8 and 2);
+            \node[circle,fill,inner sep=1pt,label=below:$a_2$] (a2) at (2.5, 1.8){};
+            \node[circle,fill,inner sep=1pt,label=below:$b_2$] (b2) at (2.5, 1){};
+            \node[circle,fill,inner sep=1pt,label=below:$c_2$] (c2) at (2.5, 0.2){};
+            \node at (2.5, -0.6) {$\vdots$};
+            \node[circle,fill,inner sep=1pt,label=below:$d_2$] (d2) at (2.5, -1.3){};
+            \node at (2.5, -2.5) {$\mathfrak{A}_2$};
+
+            \node at (3.75, 0) {$\times$};
+
+            \draw (5,0) ellipse (0.8 and 2);
+            \node[circle,fill,inner sep=1pt,label=below:$a_3$] (a3) at (5, 1.8){};
+            \node[circle,fill,inner sep=1pt,label=below:$b_3$] (b3) at (5, 1){};
+            \node[circle,fill,inner sep=1pt,label=below:$c_3$] (c3) at (5, 0.2){};
+            \node at (5, -0.6) {$\vdots$};
+            \node[circle,fill,inner sep=1pt,label=below:$d_3$] (d3) at (5, -1.3){};
+            \node at (5, -2.5) {$\mathfrak{A}_3$};
+
+            \node at (7,0) {$\ldots$};
+
+            \draw[->, gray] (a1) edge [bend right=45] (d1);
+            \draw[->, gray] (b1) edge [bend right=45] (d1);
+            \draw[->, gray] (c1) edge [bend right=45] node[left, near end] {$f_i^{\mathfrak{A}_1}$} (d1);
+
+            \draw[->, gray] (a2) edge [bend right=45] (d2);
+            \draw[->, gray] (b2) edge [bend right=45] (d2);
+            \draw[->, gray] (c2) edge [bend right=45] node[left, near end] {$f_i^{\mathfrak{A}_2}$} (d2);
+
+            \draw[->, gray] (a3) edge [bend right=45] (d3);
+            \draw[->, gray] (b3) edge [bend right=45] (d3);
+            \draw[->, gray] (c3) edge [bend right=45] node[left, near end] {$f_i^{\mathfrak{A}_3}$} (d3);
+
+            \draw[->, gray] (a) edge [bend right=45] (d);
+            \draw[->, gray] (b) edge [bend right=45] (d);
+            \draw[->, gray] (c) edge [bend right=45] node[left, near end] {$f_i^{\mathfrak{A}}$} (d);
+        \end{tikzpicture}
+        \caption{Visualisierung von Produktalgebren}
+    \end{figure}
+\end{example}
+
 \begin{remark}
     Ist $\mathfrak{A}=\prod_{j\in J}\mathfrak{A}_j$ eine Produktalgebra und ist $j\in J$, so ist durch die Projektionsabbildung
     $\pi_j:\mathfrak{A}\to \mathfrak{A}_j, g\mapsto g(j)$ ein surjektiver Homomorphismus gegeben.
@@ -163,7 +269,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     für alle $j\in J$, also insbesondere $s^\mathfrak{A}(g_1,\ldots,g_n)=t^\mathfrak{A}(g_1,\ldots,g_n)$ und $s^\mathfrak{A}=t^\mathfrak{A}.$
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}\label{corollary:prod-varietaeten}
     Varietäten sind abgeschlossen unter der Bildung von Produkten.
 \end{corollary}
 
@@ -171,5 +277,191 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     Auch an dieser Stelle wird deutlich, dass die Klasse der Körper keine Varietät ist. Für einen Körper $\mathfrak{K}$
     und den Produktraum $\mathfrak{K}\times \mathfrak{K}$ gilt $(1,0)\cdot (0,1)=(0,0)$. Da Körper immer nullteilerfrei sind,
     kann dieser Produktraum folglich kein Körper sein.
-
 \end{remark}
+
+\notedate{15.03.2023}
+
+\begin{definition}
+    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra, $m\in\mathbb{N}$ und $R\subseteq A^m$ eine $m$-stellige
+    Relation auf $A$. Dann heißt $R$ \emph{invariant unter $\mathfrak{A}$}\index{invariante Relation}\index{Relation!invariant}, wenn
+    \begin{itemize}[topsep=0pt, label={--}]
+        \item $\forall i\in I:\forall r^{(1)},\ldots,r^{(n_i)}\in R:(f_i(r_1^{(1)},\ldots,r_1^{(n_i)}),\ldots,f_i(r_m^{(1)},\ldots,r_m^{(n_i)}))\in R$.
+    \end{itemize}
+\end{definition}
+
+\begin{definition}
+    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $\sim\subseteq A^2$ eine Äquivalenzrelation.
+    Wenn $\sim$ invariant unter $\mathfrak{A}$ ist, dann heißt $\sim$ \emph{Kongruenzrelation}\index{Kongruenzrelation}. Außerdem wird damit die Menge
+    Con$(\mathfrak{A}):=\{\sim\subseteq A^2\mid \sim \text{ ist Kongruenzrelation auf }\mathfrak{A}\}$ definiert.
+\end{definition}
+
+\begin{example}
+    Sei $X$ eine Menge, $(f_i)_{i\in I}$ eine Signatur und $\mathfrak{T}=(T,(f^\mathfrak{T}_i)_{i\in I})$ die Termalgebra über $X$.
+    Sei außerdem $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra in der selben Signatur. Dann ist durch
+    $t\sim s:\leftrightarrow t^\mathfrak{A}=s^\mathfrak{A}$ auf $\mathfrak{T}$ eine Kongruenzrelation gegeben.
+\end{example}
+
+\begin{example}
+    Für jede beliebige Algebra $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ sind durch die beiden Relationen $\sim_1=A^2$ und $\sim_2=\{(a,a)\mid a\in A\}$
+    Kongruenzrelationen auf $\mathfrak{A}$ gegeben. Diese nennet man daher auch \emph{triviale Kongruenzrelationen}\index{Kongruenzrelation!trivial}.
+\end{example}
+
+\begin{remark}
+    Für eine beliebige Algebra $\mathfrak{A}$ ist durch $(\text{Con}(A),\subseteq)$ eine Halbordnung gegeben.
+    Da es zu zwei Kongruenzrelationen bezüglich der Mengeninklusion immer ein Supremum und Infimum gibt,
+    entsteht sogar ein Verband.
+\end{remark}
+
+\begin{definition}
+    Eine Algebra $\mathfrak{A}$ heißt \emph{einfach}\index{einfache Algebra}\index{allgemeine Algebra!einfach}, wenn es keine nicht-trivialen Kongruenzrelationen gibt.
+\end{definition}
+
+\begin{definition}
+    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und sei $\sim\subseteq A^2$ eine Kongruenzrelation.
+    Dann heißt $\mathfrak{A}/_\sim:=(A/_\sim,(f^{\mathfrak{A}/_\sim}_i)_{i\in I})$ \emph{Faktoralgebra}\index{Faktoralgebra} von $\mathfrak{A}$,
+    wobei $A/_\sim=\{[a]_\sim\mid a\in A\}$ die Menge der Äquivalenzklassen\footnote{Für die Äquivalenzklassen einer Äquivalenzrelation
+    wird häufig $[a]$ statt $[a]_\sim$ geschrieben.} ist und die Funktionen definiert\footnote{Dass diese Funktionen tatsächlich wohldefiniert sind,
+    folgt direkt aus der Definition der Invaranz einer Kongruenzrelation unter der Algebra.} sind durch
+    $f^{\mathfrak{A}/_\sim}([a_1]_\sim,\ldots,[a_{n_i}]_\sim):=[f_i(a_1,\ldots,a_{n_i})]_\sim.$
+    Für eine Klasse $\mathcal{K}$ von Algebren wird die Klasse der Faktoralgebren definiert $H(\mathcal{K}):=\{\mathfrak{A}/_\sim\mid \mathfrak{A}\in K \land \sim\in\text{Con}(\mathfrak{A})\}$.
+\end{definition}
+
+\begin{example}
+    Betrachten wir die Algebra $(\mathbb{Z},+,\cdot)$ und definieren darauf die Kongruenzrelation
+    $a\sim b:\leftrightarrow \exists k\in\mathbb{Z}(a-b=k\cdot m)$, so stellt $(\mathbb{Z}_m,+,\cdot)=(\mathbb{Z},+,\cdot)/_\sim$
+    eine Faktoralgebra dar. Man bemerke außerdem, dass in $(\mathbb{Z}_m,+,\cdot)$ beispielsweise das Gesetz
+    $\forall x(\overbrace{x +\ldots + x}^{m+1}=x)$ gilt, während dieses in $(\mathbb{Z},+,\cdot)$ nicht gilt. Es können also in Faktoralgebra
+    möglicherweise mehr Gesetze erfüllt sein, als in der ursprünglichen Algebra.
+\end{example}
+
+\begin{remark}
+    Sei $\mathfrak{A}$ eine beliebige Faktoralgebra und $\sim$ eine Kongruenzrelation. Dann ist die \emph{kanonische Faktorabbildung}\index{kanonische Faktorabbildung}
+    $\varphi:A\to A/_\sim, a\mapsto [a]_\sim$ ein surjektiver Homomorphismus, das heißt
+    Faktoralgebren sind homomorphe Bilder von Algebren. Der folgende Satz liefert in gewissem Sinn die Umkehrung.
+\end{remark}
+
+\begin{lemma}
+    Seien $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ und $\mathfrak{B}=(B,(f^\mathfrak{B}_i)_{i\in I})$ Algebren vom selben Typ
+    und sei $h:A\to B$ ein Homomorphismus. Dann ist $\ker h:=\{(a,b)\in A^2\mid h(a)=h(b)\}$ eine Kongruenzrelation auf $\mathfrak{A}$.
+\end{lemma}
+
+\begin{proof}
+    Es sei $i\in I$ beliebig und $a_1\ldots,a_{n_i},b_1\ldots,b_{n_i}\in A$ mit $(a_j,b_j)\in \ker h$ für alle $j\in \{1,\ldots,n_i\}$.
+    Laut Definition gilt also $h(a_j)=h(b_j)$ für alle $j\in\{1,\ldots,n_i\}$ und daher auch
+    $h(f^\mathfrak{A}_i(a_1,\ldots,a_{n_i}))=f^\mathfrak{B}_i(h(a_1),\ldots,h(a_{n_i}))=f^\mathfrak{B}_i(h(b_1),\ldots,h(b_{n_i}))=h(f^\mathfrak{A}_i(b_1,\ldots,b_{n_i}))$,
+    also genau die Definition von $(f^\mathfrak{A}_i(a_1,\ldots,a_{n_i}),f^\mathfrak{A}_i(b_1,\ldots,b_{n_i}))\in\ker h$. Damit ist $\ker h$ invariant unter $\mathfrak{A}$
+    und da es sich offensichtlich um eine Äquivalenzrelation handelt ist $\ker h$ eine Kongruenzrelation auf $\mathfrak{A}$.
+\end{proof}
+
+\begin{theorem}[Homomorphiesatz]\index{Homomorphiesatz}
+    Seien $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ und $\mathfrak{B}=(B,(f^\mathfrak{B}_i)_{i\in I})$ zwei Algebren
+    in derselben Signatur, $\varphi:A\to A/_{\ker h}$ die kanonische Faktorabbildung und sei $h:A\to B$ ein Homomorphismus.
+    Dann existiert genau ein Homomorphismus $\tilde{h}:A\to A/_{\ker h}$ mit $h=\tilde{h}\circ \varphi$. Dieser Homomorphismus
+    ist injektiv und, falls $h$ surjektiv ist, auch surjektiv.
+\end{theorem}
+
+\begin{proof}
+    Für die Surjektivität von $\tilde{h}$ ist nichts zu zeigen. Der übrige Beweis ist in vier Schritte gegliedert.
+
+    Eindeutigkeit: Seien $\tilde{h}$ und $\hat{h}$ zwei Homomorphismen von $A/_{\ker h}$ nach $B$ mit den geforderten Eigenschaften.
+    Dann gilt für $a\in A$ beliebig $\hat{h}([a])=h(a)=\tilde{h}([a])$, also $\hat{h}=\tilde{h}$.
+
+    Existenz: Sei $[a]\in A/_{\ker h}$ beliebig und definiere $\tilde{h}([a]):=h(a)$. Diese Abbildung ist wohldefiniert,
+    da aus $[a]=[b]$ laut Definition $h(a)=h(b)$ folgt, das heißt die Definition ist unabhängig von der Wahl des Repräsentanten.
+
+    Homomorphismus: Sei $i\in I$ und seien $[a_1],\ldots,[a_{n_i}]\in A/_{\ker h}$ beliebig. Dann gilt laut Definition
+    $\tilde{h}(f^{\mathfrak{A}/_{\ker h}}_i([a_1],\ldots,[a_{n_i}]))=\tilde{h}([f^\mathfrak{A}_i(a_1,\ldots,a_{n_i})])=h(f^\mathfrak{A}_i(a_1,\ldots,a_{n_i}))=f^\mathfrak{B}_i(h(a_1),\ldots,h(a_{n_i}))=f^\mathfrak{B}_i(\tilde{h}([a_1]),\ldots,\tilde{h}([a_{n_i}]))$,
+    also ist $\tilde{h}$ ein Homomorphismus.
+
+    Injektivität: Seien $[a],[b]\in A/_{\ker h}$ beliebig mit $\tilde{h}([a])=\tilde{h}([b])$. Dann folgt laut Definition
+    $h(a)=h(b)$, also $(a,b)\in\ker h$ und damit $[a]=[b]$.
+\end{proof}
+
+\begin{proposition}
+    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra, $s\approx t$ ein Gesetz und $\mathfrak{A}\models s\approx t$.
+    Dann gilt für jede Faktoralgebra $\mathfrak{A}/_\sim\models s\approx t$.
+\end{proposition}
+
+\begin{proof}
+    Seien $x_1,\ldots,x_n$ Variablen mit $\var(s)\cup\var(t)\subseteq\{x_1,\ldots,x_n\}$ und seien
+    $[a_1],\ldots,[a_n]$ beliebige Werte aus $A/_\sim$ der Variablen. Laut Voraussetzung gilt $s^\mathfrak{A}(a_1,\ldots,a_n)=t^\mathfrak{A}(a_1,\ldots,a_n)$, woraus
+    $s^{\mathfrak{A}/_\sim}([a_1],\ldots,[a_n])=[s^\mathfrak{A}(a_1,\ldots,a_n)]=[t^\mathfrak{A}(a_,1\ldots,a_n)]=t{\mathfrak{A}/_\sim}([a_1],\ldots,[a_n])$ folgt.
+    Inbesondere ist also $\mathfrak{A}/_\sim\models s\approx t$ erfüllt.
+\end{proof}
+
+\begin{corollary}\label{corollary:fak-varietaeten}
+    Varietäten sind abgeschlossen unter der Bildung von Faktoralgebren.
+\end{corollary}
+
+\notedate{16.03.2023}
+
+\begin{theorem}[Birkhoff]\index{Satz!von Birkhoff}
+    Sei $\tau=(f_i)_{i\in I}$ eine Signatur und $\mathcal{K}$ eine Klasse von $\tau$-Algebren. Dann gilt:
+    \[\mathcal{K} \text{ ist abgeschlossen unter H,S,P} \quad \Leftrightarrow \quad \mathcal{K} \text{ ist eine Varietät} \]
+\end{theorem}
+
+\begin{definition}
+    Für eine Klasse $\mathcal{K}$ von Algebren definiere die Menge aller Gesetze von $\mathcal{K}$ als 
+    $\Sigma(\mathcal{K}):=\{s\approx t\mid \forall \mathfrak{A}\in\mathcal{K}:\mathfrak{A}\models s\approx t\}$.
+    Für eine Menge von Gesetzen $\Sigma$ definiere die Klasse $\mathcal{V}(\Sigma):=\{\mathfrak{A}\mid \forall s\approx t\in\Sigma:\mathfrak{A}\models s\approx t\}$.
+\end{definition}
+
+\begin{proof}
+    Ist $\mathcal{K}$ eine Variation, so ist $\mathcal{K}$ laut \ref{corollary:sub-varietaeten}, \ref{corollary:prod-varietaeten} und
+    \ref{corollary:fak-varietaeten} unter $H,S,P$ abgeschlossen.
+    Es bleibt die andere Implikation zu zeigen. Dazu definiere $\Sigma:=\Sigma(\mathcal{K})$ und $\mathcal{V}:=\mathcal{V}(\Sigma)$,
+    womit $\mathcal{V}=\mathcal{K}$ zu zeigen ist. Trivialerweise ist $\mathcal{V}\supseteq\mathcal{K}$ erfüllt. Für die andere
+    Inklusion sei $\mathfrak{A}\in\mathcal{V}$ beliebig, aber fest, das heißt es gilt $\mathfrak{A}\in\mathcal{K}$ zu zeigen.
+
+    Für jedes Gesetz $s\approx t$, welches nicht in $\Sigma$ liegt, wähle eine Algebra $\mathfrak{A}_{s\approx t}\in\mathcal{K}$ mit
+    $\mathfrak{A}_{s\approx t}\not\models s\approx t$.
+    Es sei $\mathfrak{B}:=\prod_{s\approx t\not\in\Sigma}\mathfrak{A_{s\approx t}}$, wobei $\mathfrak{A}_{s\approx t}\in K$ mit
+    $\mathfrak{A}_{s\approx t}\not\models s\approx t$. Da $\mathcal{K}$ unter Produktbildung abgeschlossen ist,
+    gilt $\mathfrak{B}\in\mathcal{K}$. Da eine Produktalgebra ein Gesetz genau dann erfüllt, wenn es komponentenweise erfüllt ist,
+    folgt $\Sigma(\mathfrak{B})=\Sigma\subseteq\Sigma(\mathfrak{A})$. Zu zeigen ist nun, dass $\mathfrak{A}\in HSP(\mathfrak{B})$ gilt.
+
+    Bilde die Produktalgebra $\mathfrak{B}^{B^A}=\prod_{i\in B^A}\mathfrak{B}$ und betrachte für alle $a\in A$
+    die Funktion $\pi_a:B^A\to B, \alpha\mapsto \alpha(a)$ sowie die erzeugte Unteralgebra $\mathfrak{S}:=\langle\{\pi_a\mid a\in A\}\rangle\le \mathfrak{B}^{B^A}$.
+    Dann kann ein surjektiver Homomorphismus $\varphi:S\to A$ mit $\varphi(\pi_a)=a$ folgendermaßen definiert werden.
+    Jedes Element aus $S$ besitzt eine Darstellung der Form $t^\mathfrak{S}(\pi_{a_1},\ldots,\pi_{a_n})$ mit $a_1\ldots,a_n\in A$ dargestellt werden.
+    Daher wird $\varphi(t^\mathfrak{S}(\pi_{a_1},\ldots,\pi_{a_n})):=t^\mathfrak{A}(a_1,\ldots,a_n)$ definiert. 
+
+    Wohldefiniertheit: Es ist zu zeigen, dass die Definition von $\varphi$ unabhängig von der Wahl der Darstellung ist.
+    Das heißt wenn $u,v$ Terme sind und $a_1,\ldots,a_n,a_1',\ldots,a_m'\in A$ sind, sodass $u^\mathfrak{S}(\pi_{a_1},\ldots,\pi_{a_n})=v^\mathfrak{S}(\pi_{a_1'},\ldots,\pi_{a_m'})$ gilt,
+    dann soll auch $u^\mathfrak{A}(a_1,\ldots,a_n)=v^\mathfrak{A}(a_1',\ldots,a_m')$ gelten.
+    Dafür werden $x_i:=a_i$ und $x_i':=a_i$ als Variablen eingeführt. Es ist nun hinreichend zu zeigen, dass
+    $\mathfrak{B}\models u(x_1,\ldots,x_n)\approx v(x_1',\ldots,x_m')$ gilt, da dieses Gesetz wegen $\Sigma(\mathfrak{B})\subseteq \Sigma(\mathfrak{A})$
+    dann auch in $\mathfrak{A}$ gilt, was insbesondere $u^\mathfrak{A}(a_1,\ldots,a_n)=v^\mathfrak{A}(a_1',\ldots,a_m')$ bedingen würde.
+    Sind $b_i,b_i'\in B$ beliebige Werte für die Variablen $x_i$ respektive $x_i'$, so muss $u^\mathfrak{B}(b_1,\ldots,b_n)=v^\mathfrak{B}(b_1',\ldots,b_m')$
+    gezeigt werden. Nun kann $\alpha\in B^A$ mit $\alpha(a_i)=b_i$ und $\alpha(a_i')=b_i'$ gewählt werden,
+    da aus $x_ia_i=a_j=x_j$ folgen würde, dass $b_i=b_j$ gelten muss. Das analoge Argument gilt auch in den Fällen
+    $a_i=a_j'$ und $a_i'=a_j'$. Da voraussetzungsgemäß $u^\mathfrak{S}(\pi_{a_1},\ldots,\pi_{a_n})=v^\mathfrak{S}(\pi_{a_1'},\ldots,\pi_{a_m'})$ identisch erfüllt ist,
+    gilt diese Gleichheit insbesondere wenn $\alpha$ als Argument eingesetzt wird. Dies liefert
+    $u^\mathfrak{B}(b_1,\ldots,b_n)=u^\mathfrak{S}(\pi_{a_1},\ldots,\pi_{a_n})(\alpha)=v^\mathfrak{S}(\pi_{a_1'},\ldots,\pi_{a_m'})(\alpha)=v^\mathfrak{B}(b_1',\ldots,b_m')$,
+    also was zu zeigen war.
+
+    Surjektivität: $\varphi$ ist trivialerweise Surjektiv, da für $a\in A$ stets $\pi_a\in S$ gilt und $\varphi(\pi_a)=a$ ist.
+
+    Homomorphismus: Es bleibt noch zu zeigen, dass $\varphi$ ein Homomorphismus ist.
+    Sei $i\in I$ beliebig und seien $g_1,\ldots,g_{n_i}\in S$ beliebig. Zu zeigen ist $\varphi(f^\mathfrak{S}_i(g_1,\ldots,g_{n_i}))=f^\mathfrak{A}_i(\varphi(g_1),\ldots,\varphi(g_{n_i}))$.
+    Für jedes $j\in 1,\ldots,n$ können ein Term $t_j$ sowie $a_1^{(j)},\ldots,a_{m_j}^{(j)}\in A$ gewählt werden,
+    sodass $g_j=t^\mathfrak{S}_j(\pi_{a_1^{(j)}},\ldots,\pi_{a_{m_j}^{(j)}})$ gilt. Nun wird $t:=f^\mathfrak{T}_i(t_1,\ldots,t_{n_i})$ als neuer Term definiert und es folgt
+    \begin{align*}
+        \varphi(f^\mathfrak{S}_i(g_1,\ldots,g_{n_i}))&=\varphi(f^\mathfrak{S}_i(t^\mathfrak{S}_1(\pi_{a_1^{(1)}},\ldots,\pi_{a_{m_1}^{(1)}}),\ldots,t^\mathfrak{S}_{n_i}(\pi_{a_1^{(n_i)}},\ldots,\pi_{a_{m_{n_i}}^{(n_i)}})))=\\
+        &=\varphi(t^\mathfrak{S}(\pi_{a_1^{(1)}},\ldots,\pi_{a_{m_{n_i}}^{(n_i)}}))\stackrel{(*)}{=}t^\mathfrak{A}(a_1^{(1)},\ldots,a_{m_{n_i}}^{(n_i)})=\\
+        &=f^\mathfrak{A}_i(t^\mathfrak{A}_1(a_1^{(1)},\ldots,a_{m_1}^{(1)}),\ldots,t^\mathfrak{A}(a_1^{n_i},\ldots,a_{m_{n_i}}^{(n_i)}))\stackrel{(*)}{=}f^\mathfrak{A}_i(\varphi(g_1),\ldots,\varphi(g_{n_i})).
+    \end{align*}
+    An den Stellen die mit $(*)$ markiert sind, wurde die Definition von $\varphi$ verwendet.
+\end{proof}
+
+\begin{corollary}
+    Sei $\mathcal{K}$ eine Klasse von Algebren und $\mathcal{V}(\mathcal{K})$ die erzeugte Varietät.
+    Dann gilt für alle $\mathfrak{A}\in \mathcal{V}(\mathcal{K}):\mathfrak{A}\in HSP(\mathcal{K})$.
+\end{corollary}
+
+\begin{proof}
+    Es gilt $\mathfrak{A}\in\mathcal{V}(\mathcal{K})\Leftrightarrow \mathfrak{A}\models \Sigma(\mathcal{K})$. Die Implikation von links nach rechts
+    ist trivialerweise erfüllt. Die Implikation von rechts nach links folgt aus der Tatsache, dass man $B\in P(\mathcal{K})$
+    mit $\Sigma(A)\supseteq\Sigma(B)$ finden kann und dann wie im Beweis für den Satz von Birkhoff auf $A\in HSP(\mathfrak{B})\subseteq HSP(\mathcal{K})$
+    schließt.
+\end{proof}

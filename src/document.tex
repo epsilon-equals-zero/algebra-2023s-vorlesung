@@ -1,7 +1,7 @@
 \documentclass{lecture-notes}
 
 \usepackage{imakeidx}
-
+\usepackage{xcolor}
 
 \title{Algebra Vorlesungsmitschrift}
 \subtitle{nach der 2023S Vorlesung von Michael Pinsker}
@@ -12,12 +12,15 @@
 \makeindex[intoc, columns=2]
 
 \begin{document}
-
     \maketitle
     \tableofcontents
 
     \input{01-allgemeine-algebren/index}
-
     \cleardoublepage
+
     \printindex
+    \cleardoublepage
+
+    \addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+    \listoffigures
 \end{document}
