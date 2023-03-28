@@ -4,29 +4,29 @@
     Sei $X$ eine beliebige Menge und seien $(f_i)_{i \in I}$ Funktionssymbole mit Aritäten $(n_i)_{i \in I}$. Die Menge $T(X) := T$ ist rekursiv definiert durch $$T_0 := X ,\quad T_{k+1} := T_k \cup \{f_i(t_1, \ldots t_{n_i}) \mid i \in I \land t_1, \ldots, t_{n_i} \in T_k\},\quad T := \bigcup_{i \ge 0} T_i.$$ 
     
     Ein Element $t \in T$ heißt \emph{Term}\index{Term}, die Elemente aus $X$ \emph{Variablen}\index{Variable}, $(f_i)_{i \in I}$ \emph{Sprache}\index{Sprache} und die Menge $T$ beschreibt alle \emph{Terme über $(X, (f_i)_{i \in I})$}.
-    Für einen Term $t \in T$ heißt $\lvl(t) := \min\{k \mid t \in T_k\}$ \emph{Stufe von $t$}\index{Term!Stufe}. 
+    Für einen Term $t \in T$ heißt $\lvl(t) := \min\{k \mid t \in T_k\}$ die \emph{Stufe von $t$}\index{Term!Stufe}. 
     
-    Weiter werden die \emph{Variablen eines Terms}\index{Term!Variablen} rekursiv definiert. Für $x \in X$ ist $\var(x) := \{x\}$ und für $t = f_i(t_1, \ldots, t_n)$ weiter $\var(t) := \bigcup_{j \in \{1, \ldots, n_i\}} \var(t_j)$.
+    Weiter werden die \emph{Variablen eines Terms}\index{Term!Variablen} rekursiv definiert. Für $x \in X$ ist $\var(x) := \{x\}$ und für $t = f_i(t_1, \ldots, t_n)$ ist $\var(t) := \bigcup_{j \in \{1, \ldots, n_i\}} \var(t_j)$.
 \end{definition}
 
 \begin{example}
-    Seien $X = \{x,y,z\}$ und $(f_1, f_2, f_3) = (+, \cdot, -)$ mit Aritäten $(2,2,1)$. Damit erhälten man die Terme 0-ter Stufe: $x, y, z$, Terme 1-ter Stufe: $-x, x+x, x\cdot z, z + x, \ldots$, Terme 2-ter Stufe: $(-x) + y, (x \cdot z) - y, \ldots$.
+    Seien $X = \{x,y,z\}$ und $(f_1, f_2, f_3) = (+, \cdot, -)$ mit Aritäten $(2,2,1)$. Damit erhält $x,y,z$ als Terme 0-ter Stufe, $-x, x+x, x\cdot z, z + x, \ldots$ als Terme 1-ter Stufe, $(-x) + y, (x \cdot z) - y, \ldots$ als Terme 2-ter Stufe etc.
 \end{example}
 
 \begin{definition}
-    Sei $T$ die Menge aller Terme über $(X, (f_i)_{i \in I})$. Es ist dann die \emph{(erzeugte) Termalgebra}\index{Termalgebra} $\mathfrak{T}(X, (f_i)_{i \in I}) := (T, (f_i^\mathfrak{T}))$, wobei $f_i^\mathfrak{T}: T^{n_i} \to T, (t_1, \ldots, t_{n_i}) \mapsto f_i(t_1, \ldots, t_n)$, eine Algebra vom Typ $\tau = (n_i)_{i \in I}$.
+    Sei $T$ die Menge aller Terme über $(X, (f_i)_{i \in I})$. Es ist dann $\mathfrak{T}(X, (f_i)_{i \in I}) := (T, (f_i^\mathfrak{T}))$ die \emph{(erzeugte) Termalgebra}\index{Termalgebra} eine Algebra vom Typ $\tau = (n_i)_{i \in I}$, wobei $f_i^\mathfrak{T}: T^{n_i} \to T, (t_1, \ldots, t_{n_i}) \mapsto f_i(t_1, \ldots, t_n)$.
 \end{definition}
 
 \begin{theorem}\label{theorem:variablenmenge_frei}
-    Seien $X$ eine Variablenmenge, $(f_i)_{i \in I}$ Funktionssymbole mit Aritäten $\tau = (n_i)_{i \in I}$, $\mathfrak{T} := \mathfrak{T(X, (f_i)_{i \in I})}$ die induzierte Termalgebra und $\mathfrak{A} = (A, (f_i^\mathfrak{A})_{i \in I})$ eine beliebige Algebra vom Typ $\tau$.
-    Es kann jede Abbildung $\varphi: X \to A$ eindeutig zu einem Homomorphismus $\overline{\varphi}: T \to A$ fortgesetzt werden. Es ist also  $\overline{\varphi}$ ein Homomorphismus von $\mathfrak{T}$ nach $\mathfrak{A}$ ist und $\overline{\varphi}\vert_X = \varphi$.
+    Seien $X$ eine Variablenmenge, $(f_i)_{i \in I}$ Funktionssymbole mit Aritäten $\tau = (n_i)_{i \in I}$, $\mathfrak{T} := \mathfrak{T}(X, (f_i)_{i \in I})$ die induzierte Termalgebra und $\mathfrak{A} = (A, (f_i^\mathfrak{A})_{i \in I})$ eine beliebige Algebra vom Typ $\tau$.
+    Dann kann jede Abbildung $\varphi: X \to A$ eindeutig zu einem Homomorphismus $\overline{\varphi}: T \to A$ fortgesetzt werden. $\overline{\varphi}$ ist also ein Homomorphismus von $\mathfrak{T}$ nach $\mathfrak{A}$ mit $\overline{\varphi}\vert_X = \varphi$.
 \end{theorem}
 \begin{proof}
-    Sei $\varphi: X \to A$ beliebig. Es wird dazu $\overline{\varphi}: T \to A$ rekursiv nach der Stufe von Termen definiert. Für $t \in X$ wird $\overline{\varphi}(t) := \varphi(t)$ gewählt und für $t = f_i(t_1, \ldots, t_{n_i}) \in T$ definiere $\overline{\varphi}(t) := f_i^\mathfrak{A}(\overline{\varphi}(t_1), \ldots, \overline{\varphi}(t_{n_i}))$. Diese Definition ergibt Sinn, da für einen Term $t$, der als $t = f_i(t_1, \ldots, t_{n_1})$ geschrieben werden kann, die Terme $t_1, \ldots, t_{n_i}$ von niedrigerer Stufe als $t$ sind.
+    Sei $\varphi: X \to A$ beliebig. Es wird dazu $\overline{\varphi}: T \to A$ rekursiv nach der Stufe von Termen definiert. Für $t \in X$ wird $\overline{\varphi}(t) := \varphi(t)$ gewählt und für $t = f_i(t_1, \ldots, t_{n_i}) \in T$ definiere $\overline{\varphi}(t) := f_i^\mathfrak{A}(\overline{\varphi}(t_1), \ldots, \overline{\varphi}(t_{n_i}))$. Diese Definition ergibt Sinn, da für einen Term $t$, der als $t = f_i(t_1, \ldots, t_{n_i})$ geschrieben werden kann, die Terme $t_1, \ldots, t_{n_i}$ von niedrigerer Stufe als $t$ sind.
 
-    Aus dieser Definition ist klar, dass $\overline{\varphi} \vert_X = \varphi$, es muss die Verträglichkeit von $\overline{\varphi}$ mit den Operationen gezeigt werden. Für $i \in I$ und $t_1, \ldots, t_{n_i} \in T$ gilt $\overline{\varphi}(f_i^\mathfrak{T}(t_1, \ldots, t_{n_i})) = \overline{\varphi}(f_i(t_1, \ldots, f_{n_i})) \overset{\text{Def.}}{=} f_i^\mathfrak{A}(\overline{\varphi}(t_1), \ldots, \overline{\varphi}(t_{n_i}))$. 
+    Aus dieser Definition ist klar, dass $\overline{\varphi} \vert_X = \varphi$. Für $i \in I$ und $t_1, \ldots, t_{n_i} \in T$ gilt $\overline{\varphi}(f_i^\mathfrak{T}(t_1, \ldots, t_{n_i})) = \overline{\varphi}(f_i(t_1, \ldots, f_{n_i})) \overset{\text{Def.}}{=} f_i^\mathfrak{A}(\overline{\varphi}(t_1), \ldots, \overline{\varphi}(t_{n_i}))$, also $\overline{\varphi} : \mathfrak{T} \to \mathfrak{A}$.
 
-    Es bleibt noch die Eindeutigkeit zu zeigen. Sei $\widetilde{\varphi}: T \to A$ ein beliebiger Homomorphismus mit $\widetilde{\varphi}\vert_X = \varphi$, so zeigt man vermöge vollständiger Induktion nach Termstufe $m$, dass $\widetilde{\varphi} = \overline{\varphi}$. 
+    Es bleibt noch die Eindeutigkeit zu zeigen. Sei $\widetilde{\varphi}: T \to A$ ein beliebiger Homomorphismus mit $\widetilde{\varphi}\vert_X = \varphi$, so zeigen wir vermöge vollständiger Induktion nach Termstufe $m$, dass $\widetilde{\varphi} = \overline{\varphi}$:
     
     Induktionsanfang ($m=0$): Für $t \in T_{0} = X$ gilt klarerweise $\widetilde{\varphi}(t) = \varphi(t) = \overline{\varphi}(t)$.\\
     Induktionsschritt ($m \to m+1$): Sei nun $t = f_i(t_{1}, \ldots, t_{n_i}) \in T_{m+1}$ mit $t_1, \ldots, t_{n_i} \in T_{m}$, dann gilt $\widetilde{\varphi}(t) = \widetilde{\varphi}(f_i(t_1, \ldots, t_{n_i})) = \widetilde{\varphi}(f_i^\mathfrak{T}(t_1, \ldots, t_{n_i})) = f_i^\mathfrak{A}(\widetilde{\varphi}(t_1), \ldots, \widetilde{\varphi}(t_{n_i})) \overset{\text{I.V.}}{=} f_i^\mathfrak{A}(\overline{\varphi}(t_1), \ldots, \overline{\varphi}(t_{n_i})) = \overline{\varphi}(t) $.
@@ -42,21 +42,21 @@
 \end{definition}
 
 \begin{example}
-    Sei $+$ ein binäres Funktionssymbol und $X = \{x_1, x_2, \ldots \}$. Damit erhält man u.a. die abstrakten Terme $t = x_1 + (x_2 + x_3), s = (x_1 + x_2) + x_3 \in T$.
+    Sei $+$ ein binäres Funktionssymbol und $X = \{x_1, x_2, \ldots \}$. Damit erhält man u. a. die abstrakten Terme $t = x_1 + (x_2 + x_3), s = (x_1 + x_2) + x_3 \in T$.
 
     Betrachtet man die Algebra $\mathfrak{R} = (\mathbb{R}, +_\mathbb{R})$, so erhält man die induzierten Termfunktionen $$t^\mathfrak{R}: \mathbb{R}^3 \to \mathbb{R}, (a_1, a_2, a_3) \mapsto a_1 + (a_2 + a_3) \quad \text{und} \quad s^\mathfrak{R}: \mathbb{R}^3 \to \mathbb{R}, (a_1, a_2, a_3) \mapsto (a_1 + a_2) + a_3.$$
 
-    Da $+_\mathbb{R}$ assoziativ ist, gilt $t^\mathfrak{R} = s^\mathfrak{R}$, obwohl im Allgemeinen $t \neq s$.
+    Da $+_\mathbb{R}$ assoziativ ist, gilt $t^\mathfrak{R} = s^\mathfrak{R}$, obwohl $t \neq s$.
 \end{example}
 
 \begin{example}
-    Sei $\mathfrak{V} = (V, +, 0, -, (m_k)_{k \in \mathfrak{K}})$ ein Vektorraum über einem Körper $\mathfrak{K}$. Betrachtet man Terme über die Sprache $(+, -, (m_k)_{k \in \mathfrak{K}})$, also z.B. $x_1 + x_2, m_2(x_1 + x_2), x_1 + m_4(x_2)$. Die davon induzierten Termfunktionen stellen Linearkombinationen dar.
+    Sei $\mathfrak{V} = (V, +, 0, -, (m_k)_{k \in \mathfrak{K}})$ ein Vektorraum über einem Körper $\mathfrak{K}$. Betrachtet man Terme über der Sprache $(+, -, (m_k)_{k \in \mathfrak{K}})$, also z. B. $x_1 + x_2, m_2(x_1 + x_2), x_1 + m_4(x_2)$, so stellen die davon induzierten Termfunktionen Linearkombinationen dar.
 \end{example}
 
 \begin{definition}
-    Sei $t, s \in T$ Terme über eine Sprache $(f_i)_{i \in I}$, dann heißt $t \approx s$ \emph{Gesetz}\index{Gesetz}. Ein Gesetz kann auch als Paar $(t, s)$ von zwei Termen gesehen werden.
+    Seien $t, s \in T$ Terme über einer Sprache $(f_i)_{i \in I}$, dann heißt $t \approx s$ \emph{Gesetz}\index{Gesetz}. Ein Gesetz kann auch als Paar $(t, s)$ von zwei Termen gesehen werden.
 
-    Sei $\mathfrak{A} = (A, (f_i^\mathfrak{A})_{i \in I})$ eine Algebra über dieselbe Sprache, dann sagt man \emph{$\mathfrak{A}$ erfüllt das Gesetz $t \approx s$} oder kurz \emph{$\mathfrak{A} \models t \approx s$}, wenn 
-    $$ \forall \alpha: \var(t) \cup \var(s) \to A: \overline{\alpha}(t) = \overline{\alpha}(s), $$
-    oder anders formuliert, wenn die Termfunktionen $t^\mathfrak{A}, s^\mathfrak{A}$ übereinstimmen.
+    Sei $\mathfrak{A} = (A, (f_i^\mathfrak{A})_{i \in I})$ eine Algebra über derselben Sprache, dann erfüllt \emph{$\mathfrak{A}$ das Gesetz $t \approx s$} oder kurz \emph{$\mathfrak{A} \models t \approx s$}, wenn 
+    $$ \forall (\alpha: \var(t) \cup \var(s) \to A): \overline{\alpha}(t) = \overline{\alpha}(s), $$
+    oder anders formuliert, wenn die Termfunktionen $t^\mathfrak{A}$ und $s^\mathfrak{A}$ übereinstimmen.
 \end{definition}

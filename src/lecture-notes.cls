@@ -26,6 +26,13 @@
   marginpar=1.9cm
 }
 
+\AtBeginDocument {
+  \hypersetup{
+    pdftitle = {\@title}
+    pdfauthor = {\@author}
+  }
+}
+
 %% HEADINGS AND FOOTER %%
 \RequirePackage{scrlayer-scrpage}
 \RequirePackage{lastpage}
@@ -38,8 +45,8 @@
 \pagestyle{scrheadings}
 \clearpairofpagestyles
 \ihead{\leftmark}
-\chead*{\ifcsname @notedate\endcsname \@notedate\fi}
-\ohead*{\@shortauthor}
+\chead*{}
+\ohead*{\ifcsname @notedate\endcsname \@notedate\fi}
 \ifoot*{104.998 Algebra 2023S}
 \ofoot*{Seite \thepage \,\,von \pageref*{LastPage}}
 
@@ -102,7 +109,7 @@
 
 \theoremstyle{definition}
 \newtheorem{definition}[thm]{Definition}
-\crefname{definition}{Definiton}{Definitionen}
+\crefname{definition}{Definition}{Definitionen}
 
 \theoremstyle{plain}
 \newtheorem{theorem}[thm]{Satz}
