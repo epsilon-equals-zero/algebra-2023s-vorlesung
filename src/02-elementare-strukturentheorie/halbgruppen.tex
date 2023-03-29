@@ -1,0 +1,116 @@
+\section{Halbgruppen}
+
+\begin{theorem}[Fundamentalsatz der Arithmetik]
+
+\end{theorem}
+
+\begin{proof}
+    ..
+    \begin{itemize}
+        \notedate{29.03.2023}
+        \item Injektivität: Zu zeigen ist, dass es für alle $n \mathbb{N}_{\geq 1}$ höchstens eine Primfaktorenzerlegung gibt. Wir wenden Induktion nach $n$ an:
+        
+        Induktionsanfang ($n=1$):
+
+        Induktionsschritt ($k<n \implies n$): Sei indirekt angenommen $n$ hätte zwei Zerlegungen $n = p_1 \cdot ... \cdot p_e = q_1 \cdot ... \cdot q_m$, wobei $p_i, q_i \in \mathbb{P}$. Gibt es nun $i,j$ mit $p_i = q_j$, so betrachten wir
+        $$ \frac{n}{p_i} = p_1 \cdot ... \cdot p_{i-1} \cdot p_{i+1} \cdot ... \cdot p_e = q_1 \cdot ... \cdot q_{j-1} \cdot q_{j+1} \cdot ... \cdot q_m, $$
+        womit folgt, dass die Zerlegungen bereits gleich sind (bis auf Reihenfolge). Damit können wir von nun an annehmen, dass für alle $i, j$ $p_i \neq q_j$, \obda $p_1 < q_1$ gilt. Wir betrachten
+        $$ n' := q_1 \cdot ... \cdot q_m - p_1 \cdot q_2 \cdot ... \cdot q_m < n, $$
+        so gilt insbesondere
+        $$ n' = p_1 \cdot ... \cdot p_e - p_1 \cdot q_2 \cdot ... \cdot q_m $$
+        und damit $p_1 \mid n'$. Jedoch gilt $p_1 \nmid q_1 - p_1$, da $q_1 \in \mathbb{P}$. Zerlegen wir nun
+        $$ q_1 - p_1 = r_1 \cdot ... \cdot r_s $$
+        in Primfaktoren, so erhalten wir
+        $$ n' = (q_1 - p_1) \cdot q_2 \cdot ... \cdot q_m = r_1 \cdot ... \cdot r_s \cdot q_2 \cdot ... \cdot q_m $$
+        eine Primfaktorenzerlegung von $n'$, wobei für alle $i$ $r_i \neq p_1, q_i \neq p_1$. Damit haben wir zwei verschiedene Primfaktorenzerlegungen von $n' < n$, im Widerspruch zu unserer Induktionsvoraussetzung.
+    \end{itemize}
+\end{proof}
+
+\begin{remark}
+    Wir betrachten $(\mathbb{N} \setminus \{ 0 \}, \mid)$, wobei
+    $$ n \mid k :\Leftrightarrow \exists s \in \mathbb{N}: n \cdot s = K, $$
+    was eine Halbordnung bildet. Wir beobachten nun, dass für alle $f,g \in \mathfrak{S}$ $f \leq g \Leftrightarrow \varphi(f) \mid \varphi(g)$ gilt. Damit ist $\varphi$ ein \emph{Ordnungsisomorphismus}.
+\end{remark}
+
+\begin{corollary}
+    $(\mathbb{N}, \mid)$ ist ein Verband.
+\end{corollary}
+
+\begin{proof}
+    Seien $n,m \in \mathbb{N} \setminus \{0\}$ und definiere
+    $$ n \vee m := \varphi(\varphi^{-1}(n) \vee \varphi^{-1}(m)) = \textrm{kgV}(n,m) $$
+    $$ n \wedge m := \varphi(\varphi^{-1}(n) \wedge \varphi^{-1}(m)) = \textrm{ggT}(n,m). $$
+\end{proof}
+
+\begin{remark}
+    In einer Gruppe gilt für $a, b, b'$
+    $$ a \cdot b = a \cdot b' \implies b = b'. $$
+    Wir sagen, dass $a$ \emph{linkskürzbar} ist. Entsprechend definieren wir, dass $a$ \emph{rechtskürzbar} ist.
+
+    Notwendig für Einbettbarkeit von einem Monoid $\mathfrak{H} = (H, \cdot, e)$ in eine Gruppe ist also dass für alle $a \in H$ $a$ sowohl links- als auch rechtskürzbar ist.
+
+    Hinreichend hingegen ist die obige Kürzbarkeit mit der zusätzlichen Forderung das $\mathfrak{H}$ kommutativ ist. Es sei angemerkt, dass, obwohl dies hinreichend ist, die Kommutativität im Allgemeinen nicht notwenig ist.
+\end{remark}
+
+\begin{example}
+    Betrachte $\Gl_2(\mathbb{R})$ und das (nicht kommutative) Untermonoid $\mathfrak{H} := \Gl_2(\mathbb{R}) \cap \mathbb{Z}^{2 \times 2}$.
+
+    Betrachte die freie Gruppe über $\{x,y\}$, so erhalten wir Wörter wie $x^{n_1} y^{m_1} \cdot ... \cdot x^{n_l} y^{m_l}$ ($n_i, m_i \geq 0$).
+\end{example}
+
+\begin{theorem}
+    Sei $\mathfrak{H} = (H, \cdot, e)$ ein kommutatives Monoid und jedes $a \in H$ kürzbar. Dann gilt
+    \begin{enumerate}
+        \item $\sim\; \subseteq (H^2)^2$
+        $$ (a,b) \sim (c,d) :\Leftrightarrow a \cdot d = b \cdot c $$
+        ist eine Kongruenzrelation auf $\mathfrak{H}^2$.
+        \item $\mathfrak{H}^2 / \sim$ ist eine Gruppe.
+        \item Die Abbildung
+        \begin{align*}
+            \varphi :\;& \mathfrak{H} \to \mathfrak{H}^2 / \sim \\
+            & a \mapsto [(a,e)]_\sim
+        \end{align*}
+        ist eine \emph{Einbettung}, also ein injektiver Homomorphismus.
+        \item Sei $\mathfrak{G}$ eine Gruppe, so gibt es für alle $\psi : \mathfrak{H} \to \mathfrak{G}$ einen injektiven Homomorphismus $\overline{\psi} : \mathfrak{H}^2 / \sim \to \mathfrak{G}$ mit $\overline{\psi} \circ \varphi = \psi$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof} .
+    \begin{enumerate}
+        \item Prüfen wir zunächst, dass $\sim$ eine Äquivalenzrelation ist.
+        \begin{enumerate}
+            \item reflexiv: Es gilt $(a, b) \sim (a, b)$, da $a b = a b$.
+            \item symmterisch: Es gilt
+            $$ (a, b) \sim (c, d) \Leftrightarrow a d = b c \Leftrightarrow b c = a d \Leftrightarrow (c, d) \sim (a, b). $$
+            \item transitiv: Seien $(a, b) \sim (c, d) \sim (u, v)$, es gilt also $ad = bc$ und $cv = du$. Dann folgt
+            $$ (av)(cd) = addu = bcdu = (bu)(cd) $$
+            und damit $av = bu$ und $(a, b) \sim (a, v)$ aus der Kürzbarkeit.
+        \end{enumerate}
+        Seien $(a_1, b_1) \sim (c_1, d_1), (a_2, b_2) \sim (c_2, d_2)$, also $a_1 d_1 = c_1 b_1$ und $a_2 d_2 = c_2 b_2$ und damit $a_1 a_2 d_1 d_2 = c_1 c_2 b_1 b_2$, also $(a_1 a_2, b_1 b_2) \sim (c_1 c_2, d_1, d_2)$, womit $\sim$ auch eine Kongruenzrelation ist.
+
+        \item Wir bemerken zunächst, dass $(a, b) \sim (e, e) \Leftrightarrow ae = be \Leftrightarrow a = b$, also ist $[(e,e)]_\sim = \{ (a, a) \mid a \in H \}$ unser neutrales Element in $\mathfrak{H}^2 / \sim$.
+        
+        Wegen
+        $$ [(a,b)]_\sim \cdot [(b,a)]_\sim = [(ab, ab)]_\sim = [(e,e)]_\sim $$
+        ist $[(b,a)]_\sim$ invers zu $[(a,b)]_\sim$, womit $\mathfrak{H}^2 / \sim$ eine Gruppe ist.
+
+        \item Es gilt
+        $$ \varphi(e) = [(e,e)]_\sim \quad \textrm{neutral in } \mathfrak{H}^2 / \sim, $$
+        sowie für $a, b \in H$
+        $$ \varphi(ab) = [(ab, e)]_\sim = [(a,e)]_\sim \cdot [(b,e)]_\sim = \varphi(a) \cdot \varphi(b), $$
+        womit $\varphi$ eine Homomorphismus ist.
+
+        Seien nun $a,b \in H$ mit $\varphi(a) = \varphi(b)$, also $[(a,e)]_\sim = [(b,e)]_\sim$, so folgt $a = ae = eb = b$, womit $\varphi$ injektiv ist.
+
+        \item Sei \obda $\psi = \id_H$ und definiere
+        \begin{align*}
+            \overline{\psi} :\;& \mathfrak{H}^2 / \sim \to \mathfrak{G} \\
+            & [(a,b)]_\sim \mapsto a \cdot b^{-1}.
+        \end{align*}
+        Seien $a,b,c,d \in H$ beliebig mit $a b^{-1} = c d^{-1}$, so folgt $ad = bc$, also $[(a,b)]_\sim = [(c,d)]_\sim$, womit $\overline{\psi}$ injektiv ist.
+
+        Weiters ist
+        $$ \overline{\psi}([(a,b)]_\sim \cdot [(c,d)]_\sim) = \overline{\psi}([(ac,bd)]_\sim) = ac (bd)^{-1} = ab^{-1} \cdot cd^{-1} = \overline{\psi}([(a,b)]_\sim) \cdot \overline{\psi}([(c,d)]_\sim), $$
+        womit $\overline{\psi}$ ein Homomorphismus ist.
+    \end{enumerate}
+\end{proof}
