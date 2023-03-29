@@ -145,6 +145,7 @@
 \DeclareMathOperator{\var}{var}
 \DeclareMathOperator{\Gl}{Gl}
 \DeclareMathOperator{\Sl}{Sl}
+\DeclareMathOperator{\ord}{ord}
 
 %% OTHER COMMANDS %%
 
