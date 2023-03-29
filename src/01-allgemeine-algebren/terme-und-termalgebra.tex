@@ -10,7 +10,7 @@
 \end{definition}
 
 \begin{example}
-    Seien $X = \{x,y,z\}$ und $(f_1, f_2, f_3) = (+, \cdot, -)$ mit Aritäten $(2,2,1)$. Damit erhält $x,y,z$ als Terme 0-ter Stufe, $-x, x+x, x\cdot z, z + x, \ldots$ als Terme 1-ter Stufe, $(-x) + y, (x \cdot z) - y, \ldots$ als Terme 2-ter Stufe etc.
+    Seien $X = \{x,y,z\}$ und $(f_1, f_2, f_3) = (+, \cdot, -)$ mit Aritäten $(2,2,1)$. Damit erhält man $x,y,z$ als Terme 0-ter Stufe, $-x, x+x, x\cdot z, z + x, \ldots$ als Terme 1-ter Stufe, $(-x) + y, (x \cdot z) - y, \ldots$ als Terme 2-ter Stufe etc.
 \end{example}
 
 \begin{definition}
@@ -54,9 +54,9 @@
 \end{example}
 
 \begin{definition}
-    Seien $t, s \in T$ Terme über einer Sprache $(f_i)_{i \in I}$, dann heißt $t \approx s$ \emph{Gesetz}\index{Gesetz}. Ein Gesetz kann auch als Paar $(t, s)$ von zwei Termen gesehen werden.
+    Seien $s, t \in T$ Terme über einer Sprache $(f_i)_{i \in I}$, dann heißt $s \approx t$ \emph{Gesetz}\index{Gesetz}. Ein Gesetz kann auch als Paar $(s, t)$ von zwei Termen gesehen werden.
 
-    Sei $\mathfrak{A} = (A, (f_i^\mathfrak{A})_{i \in I})$ eine Algebra über derselben Sprache, dann erfüllt \emph{$\mathfrak{A}$ das Gesetz $t \approx s$} oder kurz \emph{$\mathfrak{A} \models t \approx s$}, wenn 
-    $$ \forall (\alpha: \var(t) \cup \var(s) \to A): \overline{\alpha}(t) = \overline{\alpha}(s), $$
-    oder anders formuliert, wenn die Termfunktionen $t^\mathfrak{A}$ und $s^\mathfrak{A}$ übereinstimmen.
+    Sei $\mathfrak{A} = (A, (f_i^\mathfrak{A})_{i \in I})$ eine Algebra über derselben Sprache, dann erfüllt \emph{$\mathfrak{A}$ das Gesetz $s \approx t$} oder kurz \emph{$\mathfrak{A} \models s \approx t$}, wenn 
+    $$ \forall (\alpha: \var(s) \cup \var(t) \to A): \overline{\alpha}(s) = \overline{\alpha}(t), $$
+    oder anders formuliert, wenn die Termfunktionen $s^\mathfrak{A}$ und $t^\mathfrak{A}$ übereinstimmen.
 \end{definition}

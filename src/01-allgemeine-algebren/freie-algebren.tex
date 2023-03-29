@@ -1,7 +1,7 @@
 \section{Freie Algebren}
 
 \begin{definition}
-Sei $ \tau = (n_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\mathfrak{F} \in K$ und $X \subseteq F$. Dann heißt $\mathfrak{F}$ \emph{frei über} $X$ \emph{in} $\mathcal{K}$\index{Algebra!freie}, wenn es für alle $\mathfrak{A} \in \mathcal{K}$ und alle $\varphi : X \to A$ genau einen Homomorphismus $\overline{\varphi} : F \to A$ mit $\overline{\varphi} \vert_X = \varphi$ gibt.
+Sei $ \tau = (n_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\mathfrak{F} \in K$ und $X \subseteq F$. Dann heißt $\mathfrak{F}$ \emph{frei über} $X$ \emph{in} $\mathcal{K}$\index{Algebra!freie}, wenn es für alle $\mathfrak{A} \in \mathcal{K}$ und alle $\varphi : X \to A$ genau einen Homomorphismus $\overline{\varphi} : \mathfrak{F} \to \mathfrak{A}$ mit $\overline{\varphi} \vert_X = \varphi$ gibt.
 
 \begin{figure}[H]
     \centering
@@ -24,7 +24,7 @@ Sei $ \tau = (n_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\
 \end{definition}
 
 \begin{example}
-    Sei $\mathcal{K}$ die Klasse der Vektorräume über den Körper $\mathbb{C}$, $\mathfrak{V} \in \mathcal{K}$ beliebig und $X \subseteq V$ eine Basis von $\mathfrak{V}$.
+    Sei $\mathcal{K}$ die Klasse der Vektorräume über den Körper $\mathbb{C}$, $\mathfrak{V} \in \mathcal{K}$ beliebig und $X \subseteq V$ eine Basis von $\mathfrak{V}$, d. h. $\mathfrak{B}$ ist frei über $X$ in $\mathcal{K}$.
 
     Mit einer Variablenmenge $X$ ist die Termalgebra $\mathfrak{T}(X, (f_i)_{i \in I})$ frei über $X$ in der Klasse aller $\tau$-Algebren.
 \end{example}
@@ -54,7 +54,7 @@ Sei $ \tau = (n_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\
 \end{figure}
 
 \begin{proof}
-    Betrachten wir $\id_X : X \to X$, so gibt es eindeutige Homomorphismen $\varphi : F_1 \to F_2, \psi : F_2 \to F_1$ mit $\varphi \vert_X = \id_X, \psi \vert_X = \id_X$. Es ist dann $\psi \circ \varphi : F_1 \to F_1$ ein Homomorphismus mit $(\psi \circ \varphi) \vert_X = \id_X$. Da $\mathfrak{F}_1$ frei über $X$ ist gilt $\phi \circ \varphi = \id_{F_1}$, womit $\psi$ surjektiv und $\varphi$ injektiv ist. Analog folgt, dass $\psi$ injektiv und $\varphi$ surjektiv ist, womit $\varphi, \psi$ Isomorphismen mit $\varphi = \psi^{-1}$ sind.
+    Betrachten wir $\id_X : X \to X$, so gibt es eindeutige Homomorphismen $\varphi : \mathfrak{F}_1 \to \mathfrak{F}_2, \psi : \mathfrak{F}_2 \to \mathfrak{F}_1$ mit $\varphi \vert_X = \id_X, \psi \vert_X = \id_X$. Es ist dann $\psi \circ \varphi : \mathfrak{F}_1 \to \mathfrak{F}_1$ ein Homomorphismus mit $(\psi \circ \varphi) \vert_X = \id_X$. Da $\mathfrak{F}_1$ frei über $X$ ist gilt $\phi \circ \varphi = \id_{F_1}$, womit $\psi$ surjektiv und $\varphi$ injektiv ist. Analog folgt, dass $\psi$ injektiv und $\varphi$ surjektiv ist, womit $\varphi, \psi$ Isomorphismen mit $\varphi = \psi^{-1}$ sind.
 \end{proof}
 
 \notedate{22.03.2022}
@@ -68,10 +68,10 @@ Sei $ \tau = (n_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\
 \begin{proof}
     Zunächst gilt $ \langle X \rangle \leq \mathfrak{F} \in \mathcal{K} $, und damit auch $ \langle X \rangle \in \mathcal{K} $.
 
-    Nun ist $ \langle X \rangle $ frei über $X$ in $\mathcal{K}$. Um dies einzusehen, seien $\mathfrak{A} \in \mathcal{K}, \varphi : X \to A$ beliebig. Zu zeigen ist, dass es eine eindeutigen, $\varphi$ fortsetzenden Homomorphismen $\overline{\varphi} : \langle X \rangle \to A$ gibt mit $\overline{\varphi} \vert_X = \varphi$. Wir wissen es gibt einen eindeutigen Homomorphismus $\overline{\overline{\varphi}} : F \to A$ mit $\overline{\overline{\varphi}} \vert_X = \varphi$. Definiere $\overline{\varphi} := \overline{\overline{\varphi}} \vert_{\langle X \rangle}$, so erfüllt dieser Homomorphismus die geforderte Eigenschaft. Die Eindeutigkeit folgt aus Bemerkung \ref{rem:hom-auf-erzeuger}.
+    Nun ist $ \langle X \rangle $ frei über $X$ in $\mathcal{K}$. Um dies einzusehen, seien $\mathfrak{A} \in \mathcal{K}, \varphi : X \to A$ beliebig. Zu zeigen ist, dass es eine eindeutigen, $\varphi$ fortsetzenden Homomorphismen $\overline{\varphi} : \langle X \rangle \to \mathfrak{A}$ gibt mit $\overline{\varphi} \vert_X = \varphi$. Wir wissen es gibt einen eindeutigen Homomorphismus $\overline{\overline{\varphi}} : F \to A$ mit $\overline{\overline{\varphi}} \vert_X = \varphi$. Definiere $\overline{\varphi} := \overline{\overline{\varphi}} \vert_{\langle X \rangle}$, so erfüllt dieser Homomorphismus die geforderte Eigenschaft. Die Eindeutigkeit folgt aus Bemerkung \ref{rem:hom-auf-erzeuger}.
 
     Betrachte $\id_X : (X \subseteq \langle X \rangle) \to (X \subseteq F)$, so gibt es eindeutige Fortsetzungen
-    $$ \varphi : \langle X \rangle \to F, \quad \varphi \vert_X = \id_X, \quad\quad \psi : F \to \langle X \rangle, \quad \psi \vert_X = \id_X, $$
+    $$ \varphi : \langle X \rangle \to \mathfrak{F}, \quad \varphi \vert_X = \id_X, \quad\quad \psi : \mathfrak{F} \to \langle X \rangle, \quad \psi \vert_X = \id_X, $$
     womit auch $\psi \circ \varphi : \langle X \rangle \to \langle X \rangle$ ein Homomorphismus mit $(\psi \circ \varphi) \vert_X = \id_X$ ist. Mit der Eindeutigkeit folgt $\psi \circ \varphi = \id_{\langle X \rangle}$ und analog damit auch $\varphi \circ \psi = \id_F$.
 
     Nun sind $\varphi, \psi$ bijektiv, also Isomorphismen. Betrachte nochmals $\varphi : \langle X \rangle \to F, \varphi \vert_X = \id_X$ und sei $c \in \langle X \rangle$ beliebig, so gilt $c = t^{\langle X \rangle}(x_1, ..., x_n)$ mit $x_1, ..., x_n \in X$. Es folgt
@@ -80,7 +80,7 @@ Sei $ \tau = (n_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\
 \end{proof}
 
 \begin{remark} \label{rem:hom-auf-erzeuger}
-    Allgemein gilt, dass wenn zwei Homomorphismen auf einem Erzeuger über\-einstimmen, sie überall übereinstimmen. Sind also $\mathfrak{C}, \mathfrak{D}$ Algebren, $C = \langle S \rangle$ und $\varphi, \psi : C \to D$ Homomorphismen mit $\varphi \vert_S = \psi \vert_S$, so folgt $\varphi = \psi$.
+    Allgemein gilt, dass zwei Homomorphismen übereinstimmen, wenn sie das auf einem Erzeuger tun. Sind also $\mathfrak{C}, \mathfrak{D}$ Algebren, $C = \langle S \rangle$ und $\varphi, \psi : \mathfrak{C} \to \mathfrak{D}$ Homomorphismen mit $\varphi \vert_S = \psi \vert_S$, so folgt $\varphi = \psi$.
 \end{remark}
 
 \begin{remark}
@@ -120,7 +120,7 @@ Sei $ \tau = (n_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\
 \end{definition}
 
 \begin{theorem}
-    Es ist $\mathfrak{T}^{X, \Sigma_X}$ frei über $X$ in $\mathcal{K}$.
+    $\mathfrak{T}^{X, \Sigma_X}$ ist frei über $X$ in $\mathcal{K}$.
 \end{theorem}
 
 \begin{proof}
@@ -133,7 +133,7 @@ Sei $ \tau = (n_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\
     Betrachte
     $$ \varphi: \mathfrak{S} \to \mathfrak{T}^{X, \Sigma_X}, t^\mathfrak{S} (\pi_{x_1}, ..., \pi_{x_n}) \mapsto [t(x_1,...,x_n)]_{\Sigma_X}. $$
 
-    Zunächst ist $\varphi$ wohldefiniert -- seien dazu $u, v \in T(X)$ mit $u^\mathfrak{S} (\pi_{x_1}, ..., \pi_{x_n}) = v^\mathfrak{S}(\pi_{x_1'}, ..., \pi_{x_m'})$, so gilt für alle $\mathfrak{A} \in \mathcal{K}$, dass $\mathfrak{A} \models u(x_1, ..., x_n) \approx v(x_1', ..., x_m')$, womit $(u(x_1, ..., x_n), v(x_1', ..., x_m')) \in \Sigma_X$ und damit $[u(x_1, ..., x_n)]_{\Sigma_X} = [v(x_1', ..., x_m')]_{\Sigma_X}$ folgt.
+    Zunächst ist $\varphi$ wohldefiniert: Seien dazu $u, v \in T(X)$ mit $u^\mathfrak{S} (\pi_{x_1}, ..., \pi_{x_n}) = v^\mathfrak{S}(\pi_{x_1'}, ..., \pi_{x_m'})$, so gilt für alle $\mathfrak{A} \in \mathcal{K}$, dass $\mathfrak{A} \models u(x_1, ..., x_n) \approx v(x_1', ..., x_m')$, womit $(u(x_1, ..., x_n), v(x_1', ..., x_m')) \in \Sigma_X$ und damit $[u(x_1, ..., x_n)]_{\Sigma_X} = [v(x_1', ..., x_m')]_{\Sigma_X}$ folgt.
 
     Weiters ist $\varphi$ surjektiv, da mit beliebigem $[t(x_1,...,x_n)]_{\Sigma_X} \in \mathfrak{T}^{X, \Sigma_X}$ sofort \\ $t^\mathfrak{S}(\pi_{x_1}, ..., \pi_{x_n}) \overset{\varphi}{\mapsto} [t(x_1,...,x_n)]_{\Sigma_X}$ gilt.
 
@@ -149,5 +149,5 @@ Sei $ \tau = (n_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\
     $$ \Sigma_X = \{ (e \cdot x_1, x_1), ((x_1 \cdot x_2) \cdot x_3, x_1 \cdot (x_2 \cdot x_3)), (e, x_1 \cdot x_1^{-1}), ... \} $$
     als die Menge aller Gesetze welche in allen Gruppen gelten. Faktorisieren wir nun nach Term\-äquivalenz, so erhalten wir
     $$ T(X) /_{\Sigma_X} = \{ [x_1], [x_2], ..., [x_1, x_2], [x_2, x_1], ... \}. $$
-    Jedes Element $t$ von $T(X) /_{\Sigma_X}$ (außer $e$) hat also einen Repräsentanten der Form $a_1 \cdot a_2 \cdot ... \cdot a_n$, wobei $a_i = x_j$ oder $a_i = x_j^{-1}$ für ein $j$, wobei nie $x_j$ und $x_j^{-1}$ aufeinander folgen oder umgekehrt.
+    Jedes Element $t$ von $T(X) /_{\Sigma_X}$ (außer $e$) hat also einen Repräsentanten der Form $a_1 \cdot a_2 \cdot ... \cdot a_n$, wobei $a_i = x_j$ oder $a_i = x_j^{-1}$ für ein $j$, aber nie $x_j$ und $x_j^{-1}$ aufeinanderfolgen oder umgekehrt.
 \end{example}

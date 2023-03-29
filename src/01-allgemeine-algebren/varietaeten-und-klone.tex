@@ -2,13 +2,13 @@
 In diesem Kapitel werden die Begriffe \emph{Varietät} und \emph{Klon} definiert und es werden Beispiel dazu gegeben. Aussagen darüber folgen in den nächsten Kapiteln.
 
 \begin{definition}
-    Sei $\Sigma$ eine Menge von Gesetzen über eine Sprache $(f_i)_{i \in I}$, dann heist die Klasse
-    $$ \mathcal{V}(\Sigma) := \left\{ \mathfrak{A} \mid \mathfrak{A} \;\text{ist Algebra über die Sprache}\; (f_i)_{i \in I} \land \forall t \approx s \in \Sigma: A\models t\approx s \right\} $$
+    Sei $\Sigma$ eine Menge von Gesetzen über eine Sprache $(f_i)_{i \in I}$, dann heißt die Klasse
+    $$ \mathcal{V}(\Sigma) := \left\{ \mathfrak{A} \mid \mathfrak{A} \;\text{ist Algebra über der Sprache}\; (f_i)_{i \in I} \land \forall s \approx t \in \Sigma: A\models s\approx t \right\} $$
     \emph{Varietät}\index{Varietät}. Es handelt sich dabei also um eine durch Gesetze definierte Klasse von Algebren.
 \end{definition}
 
 \begin{example}
-    Betrachtet man die Sprache $(+, 0, -)$ mit Stelligkeiten $(2, 0, 1)$ und definiert die Gesetze (mit Variablenmenge $X = \{x,y,z\}$) $\Sigma = \{$
+    Betrachtet man die Sprache $(+, 0, -)$ mit Stelligkeiten $(2, 0, 1)$ und definiert die Gesetzesmenge (mit Variablenmenge $X = \{x,y,z\}$) $\Sigma = \{$
     \begin{itemize}[label={}]
         \item $(x + y) + z \approx x + (y + z)$,
         \item $0 + x \approx x$, $x + 0 \approx x$,
@@ -16,7 +16,7 @@ In diesem Kapitel werden die Begriffe \emph{Varietät} und \emph{Klon} definiert
     \end{itemize}
     $\}$, so ist die Varietät $\mathcal{V}(\Sigma)$ die Klasse aller Gruppen.
     
-    Betrachtet man hingegen Gruppen über die Sprache $(+)$ wie in \Cref{rem:alternativegruppe}, so kann man die Gruppenaxiome nicht über Gesetze definieren.
+    Betrachtet man hingegen Gruppen über der Sprache $(+)$ wie in \Cref{rem:alternativegruppe}, so kann man die Gruppenaxiome nicht über Gesetze definieren.
 \end{example}
 
 \begin{definition}
@@ -30,8 +30,11 @@ In diesem Kapitel werden die Begriffe \emph{Varietät} und \emph{Klon} definiert
         \item $\mathcal{C}$ alle Projektionen enthält und
         \item $\mathcal{C}$ unter Komposition abgeschlossen ist.
     \end{itemize}
+
+    Die Komposition von $f: M^n \to M$ und $g_1, \ldots, g_n: M^k \to M$ definieren wir hier als 
+    $$ f \circ (g_1, \ldots, g_n): M^k \to M, (x_1, \ldots, x_k) \mapsto f(g_1(x_1, \ldots, x_k), \ldots, g_n(x_1, \ldots, x_k)).$$
 \end{definition}
 
 \begin{definition}
-    Sei $\mathfrak{A} = (A, (f_i)_{i \in I})$ eine Algebra und sei die Menge $\mathcal{T}^{(n)}(\mathfrak{A}) := \{f: A^n \to A\mid f\;\text{ist Termfunktion von}\;\mathfrak{A}\}$. Es ist dann $\mathcal{T}(\mathfrak{A}) := \bigcup_{n \ge 1} \mathcal{T}^{(n)}(\mathfrak{A})$ ein Klon und wird \emph{Termklon von $\mathfrak{A}$}\index{Termklon} genannt.
+    Sei $\mathfrak{A} = (A, (f_i)_{i \in I})$ eine Algebra und sei die Menge $\mathcal{T}^{(n)}(\mathfrak{A}) := \{f: A^n \to A\mid f\;\text{ist Termfunktion von}\;\mathfrak{A}\}$. Dann ist $\mathcal{T}(\mathfrak{A}) := \bigcup_{n \ge 1} \mathcal{T}^{(n)}(\mathfrak{A})$ ein Klon und wird \emph{Termklon von $\mathfrak{A}$}\index{Termklon} genannt.
 \end{definition}

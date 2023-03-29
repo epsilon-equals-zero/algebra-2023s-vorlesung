@@ -53,7 +53,6 @@
 
 %% PACKAGES %%
 \RequirePackage[utf8]{inputenc}
-\RequirePackage[ngerman]{babel}
 \RequirePackage{imakeidx}
 \RequirePackage{hyperref}
 \RequirePackage{graphicx}
@@ -70,9 +69,12 @@
 \RequirePackage[hypcap=false]{caption}
 \RequirePackage{float}
 \RequirePackage{xcolor}
+\RequirePackage[ngerman]{babel}
 
 \usetikzlibrary{shapes,arrows,chains}
 \usetikzlibrary[calc]
+
+\crefname{figure}{Abbildung}{Abbildungen}
 
 %% MARGINNOTES %%
 \def\g@star@or@long#1{% 
