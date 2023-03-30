@@ -356,8 +356,21 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \begin{theorem}[Homomorphiesatz]\index{Homomorphiesatz}
     Seien $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ und $\mathfrak{B}=(B,(f^\mathfrak{B}_i)_{i\in I})$ zwei Algebren
     in derselben Signatur, $\varphi:\mathfrak{A}\to \mathfrak{A}/_{\ker h}$ die kanonische Faktorabbildung und sei $h:\mathfrak{A}\to \mathfrak{B}$ ein Homomorphismus.
-    Dann existiert genau ein Homomorphismus $\tilde{h}:\mathfrak{A}\to \mathfrak{A}/_{\ker h}$ mit $h=\tilde{h}\circ \varphi$. Dieser Homomorphismus
+    Dann existiert genau ein Homomorphismus $\tilde{h}:\mathfrak{A}/_{\ker h}\to \mathfrak{B}$ mit $h=\tilde{h}\circ \varphi$. Dieser Homomorphismus
     ist injektiv und, falls $h$ surjektiv ist, auch surjektiv.
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \node (a) at (0,0) {$\mathfrak{A}$};
+            \node (a_fak) at (0,-1.5) {$\mathfrak{A}/_{\ker h}$};
+            \node (b) at (1.5,0) {$\mathfrak{B}$};
+
+            \draw[->] (a) -- node[left] {\scriptsize $\varphi$} (a_fak);
+            \draw[->] (a) -- node[above] {\scriptsize $h$} (b);
+            \draw[dashed,->] (a_fak) -- node[right=5pt] {\scriptsize $\tilde{h}$} (b);
+        \end{tikzpicture}
+        \caption{Visualisierung der Aussage des Homomorphiesatzes}
+    \end{figure}
 \end{theorem}
 
 \begin{proof}
