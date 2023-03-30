@@ -182,6 +182,14 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     wobei $U_1\land U_2:=U_1\cap U_2$ und $U_1\lor U_2:=\langle U_1\cup U_2\rangle$, ein Verband.
 \end{remark}
 
+\begin{remark}
+    Das kartesische Produkt von Mengen $(M_i)_{i \in I}$ ist definiert als 
+    $$ \prod_{i \in I} M_i := \left\{f: I \to \bigcup_{i \in I} M_i \mid \forall i \in I: f(i) \in M_i \right\}. $$
+
+    Genau genommen sind die Elemente von Produktmengen also Funktionen. Im Folgenden werden statt Funktionsnotation oft Familien (welche nur eine andere Notation für Funktionen sind) und bei endlicher Indexmenge $I$ auch Tupel geschrieben.
+    
+\end{remark}
+
 \begin{definition}
     Sei $\tau = (n_i)_{i\in I}$ eine Typ und sei $(\mathfrak{A}_j)_{j\in J}$ eine Familie von Algebren dieses Typs.
     Dann heißt $\mathfrak{A}:=\prod_{j\in J}\mathfrak{A}_j=(\prod_{j\in J}A_j,(f^\mathfrak{A}_i)_{i\in I})$ \emph{Produktalgebra}\index{Produktalgebra},
@@ -254,7 +262,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
 \begin{remark}
     Ist $\mathfrak{A}=\prod_{j\in J}\mathfrak{A}_j$ eine Produktalgebra und $j\in J$, so ist durch die Projektionsabbildung
-    $\pi_j:\mathfrak{A}\to \mathfrak{A}_j, g\mapsto g(j)$ ein surjektiver Homomorphismus gegeben.
+    $\pi_j:\mathfrak{A}\to \mathfrak{A}_j, (a_j)_{j \in J}\mapsto a_j$ ein surjektiver Homomorphismus gegeben.
 \end{remark}
 
 \begin{proposition}
@@ -264,10 +272,10 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \end{proposition}
 
 \begin{proof}
-    Es ist hinreichend zu zeigen, dass $s^\mathfrak{A}=t^\mathfrak{A}$ gilt. Seien $g_1\ldots,g_n\in A$ beliebig.
-    Dann gilt laut Voraussetzung für alle $j\in J:s^{\mathfrak{A}_j}(g_1(j),\ldots,g_n(j)) = t^{\mathfrak{A}_j}(g_1(j),\ldots,g_n(j))$.
-    Daher folgt $j\in J:s^\mathfrak{A}(g_1,\ldots,g_n)(j)=s^{\mathfrak{A}_j}(g_1(j),\ldots,g_n(j))= t^{\mathfrak{A}_j}(g_1(j),\ldots,g_n(j))=t^\mathfrak{A}(g_1,\ldots,g_n)(j)$
-    für alle $j\in J$, also insbesondere $s^\mathfrak{A}(g_1,\ldots,g_n)=t^\mathfrak{A}(g_1,\ldots,g_n)$ und $s^\mathfrak{A}=t^\mathfrak{A}.$
+    Es ist hinreichend zu zeigen, dass $s^\mathfrak{A}=t^\mathfrak{A}$ gilt. Seien $\vec a^{(1)} = (a_j^{(1)})_{j \in J}, \ldots,\vec a^{(n)}\in A$ beliebig.
+    Dann gilt laut Voraussetzung für alle $j\in J:s^{\mathfrak{A}_j}(a^{(1)}_j,\ldots,a^{(n)}_j)) = t^{\mathfrak{A}_j}(a^{(1)}_j,\ldots,a^{(n)}_j))$.
+    Daher folgt $s^\mathfrak{A}(\vec a^{(1)},\ldots,\vec a^{(n)})_j=s^{\mathfrak{A}_j}(a^{(1)}_j,\ldots,a^{(n)}_j)) = t^{\mathfrak{A}_j}(a^{(1)}_j,\ldots,a^{(n)}_j))=t^\mathfrak{A}(\vec a^{(1)},\ldots,\vec a^{(n)})_j$
+    für alle $j\in J$, also insbesondere $s^\mathfrak{A}(\vec a^{(1)},\ldots,\vec a^{(n)})=t^\mathfrak{A}(\vec a^{(1)},\ldots,\vec a^{(n)})$ und damit $s^\mathfrak{A}=t^\mathfrak{A}.$
 \end{proof}
 
 \begin{corollary}\label{corollary:prod-varietaeten}
