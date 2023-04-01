@@ -76,16 +76,16 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
         Induktionsschritt ($k<n \implies n$): Ist $n \in \mathbb{P}$, so kann $\vec{s} = (\delta_{n,p})_{p \in \mathbb{P}}$ gewählt werden und damit ist $\varphi(\vec{s}) = p$. Betrachten wir nun noch den Fall $p \not\in \mathbb{P}$. Wir wissen, dass es $i, j \le n$ gibt, sodass $i \cdot j = n$. Nach der Induktionsvoraussetzung existieren $\vec s^{(i)}, \vec s^{(j)} \in S$ mit $\varphi(\vec s^{(i)}) = i$ und $\varphi(\vec s^{(j)}) = j$. Sei $\vec s := \vec s^{(i)} + \vec s^{(j)}$, dann gilt $\varphi(\vec s) = \varphi(\vec s^{(i)} + \vec s^{(j)}) = \varphi(\vec s^{(i)}) \cdot \varphi(\vec s^{(j)}) = i \cdot j = n$, weil $\varphi$ ein Homomorphismus ist.
 
         \notedate{29.03.2023}
-        \item Injektivität: Zu zeigen ist, dass es für alle $n \in \mathbb{N}_{\geq 1}$ höchstens eine Primfaktorenzerlegung gibt. Wir wenden Induktion nach $n$ an:
+        \item Injektivität: Zu zeigen ist, dass es für alle $n \in \mathbb{N} \setminus \{0\}$ höchstens eine Primfaktorenzerlegung gibt. Wir wenden Induktion nach $n$ an:
         
-        Induktionsanfang ($n=1$):
+        Induktionsanfang ($n=1$): Klarerweise hat $1$ nur die ``triviale'' Primfaktorenzerlegung, nämlich $0 \in S$, da jedes andere Produkt echt größer als $1$ ist.
 
         Induktionsschritt ($k<n \implies n$): Sei indirekt angenommen $n$ hätte zwei Zerlegungen $n = p_1 \cdot ... \cdot p_e = q_1 \cdot ... \cdot q_m$, wobei $p_i, q_i \in \mathbb{P}$. Gibt es nun $i,j$ mit $p_i = q_j$, so betrachten wir
-        $$ \frac{n}{p_i} = p_1 \cdot ... \cdot p_{i-1} \cdot p_{i+1} \cdot ... \cdot p_e = q_1 \cdot ... \cdot q_{j-1} \cdot q_{j+1} \cdot ... \cdot q_m, $$
+        $$ \frac{n}{p_i} = p_1 \cdot ... \cdot p_{i-1} \cdot p_{i+1} \cdot ... \cdot p_\ell = q_1 \cdot ... \cdot q_{j-1} \cdot q_{j+1} \cdot ... \cdot q_m, $$
         womit folgt, dass die Zerlegungen bereits gleich sind (bis auf Reihenfolge). Damit können wir von nun an annehmen, dass für alle $i, j$ $p_i \neq q_j$, \obda $p_1 < q_1$ gilt. Wir betrachten
         $$ n' := q_1 \cdot ... \cdot q_m - p_1 \cdot q_2 \cdot ... \cdot q_m < n, $$
         so gilt insbesondere
-        $$ n' = p_1 \cdot ... \cdot p_e - p_1 \cdot q_2 \cdot ... \cdot q_m $$
+        $$ n' = p_1 \cdot ... \cdot p_\ell - p_1 \cdot q_2 \cdot ... \cdot q_m $$
         und damit $p_1 \mid n'$. Jedoch gilt $p_1 \nmid q_1 - p_1$, da $q_1 \in \mathbb{P}$. Zerlegen wir nun
         $$ q_1 - p_1 = r_1 \cdot ... \cdot r_s $$
         in Primfaktoren, so erhalten wir
@@ -95,9 +95,21 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
 \end{proof}
 
 \begin{remark}
+    Betrachte nochmals den obigen Isomorphismus $\varphi$. Es ist $(\mathbb{N}, \leq)$ eine Totalordnung, also eine Halbordnung in der für alle $x,y$ entweder $x \leq y$ oder $y \leq x$ gilt.
+
+    Wir definieren nun eine Halbordnung auf $S$ durch
+    $$ f \leq g :\Leftrightarrow \forall p \in \mathbb{P}: f(p) \leq g(p). $$
+    Mit 
+    \begin{align*}
+        f \vee g &:= (p \mapsto \max(f(p),g(p))), \\ f \wedge g &:= (p \mapsto \min(f(p),g(p)))
+    \end{align*}
+    wird $S$ also zu einem Verband $(S, \vee, \wedge)$.
+\end{remark}
+
+\begin{remark}
     Wir betrachten $(\mathbb{N} \setminus \{ 0 \}, \mid)$, wobei
-    $$ n \mid k :\Leftrightarrow \exists s \in \mathbb{N}: n \cdot s = K, $$
-    was eine Halbordnung bildet. Wir beobachten nun, dass für alle $f,g \in \mathfrak{S}$ $f \leq g \Leftrightarrow \varphi(f) \mid \varphi(g)$ gilt. Damit ist $\varphi$ ein \emph{Ordnungsisomorphismus}.
+    $$ n \mid k :\Leftrightarrow \exists s \in \mathbb{N}: n \cdot s = k, $$
+    was eine Halbordnung bildet. Wir beobachten nun, dass für alle $f,g \in S$ gilt, dass $f \leq g \Leftrightarrow \varphi(f) \mid \varphi(g)$. Damit ist $\varphi$ ein \emph{Ordnungsisomorphismus}.
 \end{remark}
 
 \begin{corollary}
@@ -111,23 +123,26 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
 \end{proof}
 
 \begin{remark}
-    In einer Gruppe gilt für $a, b, b'$
-    $$ a \cdot b = a \cdot b' \implies b = b'. $$
-    Wir sagen, dass $a$ \emph{linkskürzbar} ist. Entsprechend definieren wir, dass $a$ \emph{rechtskürzbar} ist.
+    Es stellt sich die Frage ob es möglich ist ein Monoid $(H, \cdot, e)$ in eine Gruppe einzubetten.
 
-    Notwendig für Einbettbarkeit von einem Monoid $\mathfrak{H} = (H, \cdot, e)$ in eine Gruppe ist also dass für alle $a \in H$ $a$ sowohl links- als auch rechtskürzbar ist.
+    Wir beobachten, dass in einer Gruppe für $a, b, b'$ gilt, dass
+    $$ a \cdot b = a \cdot b' \implies b = b'. $$
+    Wir sagen, dass $a$ \emph{linkskürzbar} ist. Entsprechend definieren wir, dass $a$ \emph{rechtskürzbar} ist. \index{kürzbar!links-}\index{kürzbar!rechts-}
+
+    Notwendig für Einbettbarkeit von einem Monoid $\mathfrak{H} = (H, \cdot, e)$ in eine Gruppe ist also, dass für alle $a \in H$ $a$ sowohl links- als auch rechtskürzbar ist.
 
     Hinreichend hingegen ist die obige Kürzbarkeit mit der zusätzlichen Forderung das $\mathfrak{H}$ kommutativ ist. Es sei angemerkt, dass, obwohl dies hinreichend ist, die Kommutativität im Allgemeinen nicht notwenig ist.
 \end{remark}
 
-\begin{example}
-    Betrachte $\Gl_2(\mathbb{R})$ und das (nicht kommutative) Untermonoid $\mathfrak{H} := \Gl_2(\mathbb{R}) \cap \mathbb{Z}^{2 \times 2}$.
-
-    Betrachte die freie Gruppe über $\{x,y\}$, so erhalten wir Wörter wie $x^{n_1} y^{m_1} \cdot ... \cdot x^{n_l} y^{m_l}$ ($n_i, m_i \geq 0$).
+\begin{example} {\ }
+    \begin{enumerate}
+        \item Betrachte $\Gl_2(\mathbb{R})$ und das (nicht kommutative) Untermonoid $\mathfrak{H} := \Gl_2(\mathbb{R}) \cap \mathbb{Z}^{2 \times 2}$.
+        \item Betrachte die freie Gruppe über $\{x,y\}$, so erhalten wir Wörter wie $x^{n_1} y^{m_1} \cdot ... \cdot x^{n_l} y^{m_l}$ ($n_i, m_i \geq 0$).
+    \end{enumerate}
 \end{example}
 
 \begin{theorem}\label{theorem:monoid-gruppe-einbettung}
-    Sei $\mathfrak{H} = (H, \cdot, e)$ ein kommutatives Monoid und jedes $a \in H$ kürzbar. Dann gilt
+    Sei $\mathfrak{H} = (H, \cdot, e)$ ein kommutatives Monoid und jedes $a \in H$ kürzbar\footnote{Aufgrund der Kommutativität reicht es sogar lediglich Links- oder Rechtskürzbarkeit zu fordern.}. Dann gilt
     \begin{enumerate}
         \item $\sim\; \subseteq (H^2)^2$
         $$ (a,b) \sim (c,d) :\Leftrightarrow a \cdot d = b \cdot c $$
@@ -141,9 +156,34 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
         ist eine \emph{Einbettung}, also ein injektiver Homomorphismus.
         \item Sei $\mathfrak{G}$ eine Gruppe, so gibt es für alle $\psi : \mathfrak{H} \to \mathfrak{G}$ einen injektiven Homomorphismus $\overline{\psi} : \mathfrak{H}^2 / \sim \to \mathfrak{G}$ mit $\overline{\psi} \circ \varphi = \psi$.
     \end{enumerate}
+
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \node[shape=ellipse,draw,minimum width=30,minimum height=30] at (0, 0) {};
+            \node at (0, 0) {$\mathfrak{H}$};
+
+            \node[shape=ellipse,draw,minimum width=70,minimum height=70] at (3, 0) {};
+            \node[shape=ellipse,draw,dashed,minimum width=30,minimum height=30] at (3, 0) {};
+            \node at (3, 0) {$\mathfrak{H}$};
+            \node at (4.6, 1) {$\mathfrak{H^2} / \sim$};
+
+            \node[shape=ellipse,draw,dashed,minimum width=30,minimum height=30] at (0.5, -2.6) {};
+            \node[shape=ellipse,draw,minimum width=70,minimum height=60] at (0.5, -2.8) {};
+            \node[shape=ellipse,draw,minimum width=120,minimum height=100] at (0, -3) {};
+            \node at (0.5, -2.6) {$\mathfrak{H}$};
+            \node at (0.5, -4.2) {$\mathfrak{H^2} / \sim$};
+            \node at (-2.1, -2) {$\mathfrak{G}$};
+
+            \draw [->] (0.4,0) to [bend left=15] node [midway,above] {$\varphi$} (2,0);
+            \draw [->] (0,-0.4) to [bend right=15] node [midway,left] {$\psi$} (-0.3,-2.6);
+            \draw [->] (3,-1) to [bend left=15] node [midway,right] {$\overline{\psi}$} (1.4,-2.8);
+        \end{tikzpicture}
+        \caption{Visualisierung der Einbettung von $\mathfrak{H}$ in die Gruppen $\mathfrak{G}, \mathfrak{H}^2 / \sim$}
+    \end{figure}
 \end{theorem}
 
-\begin{proof} \phantom{.}
+\begin{proof} {\ }
     \begin{enumerate}
         \item Prüfen wir zunächst, dass $\sim$ eine Äquivalenzrelation ist.
         \begin{enumerate}
@@ -156,7 +196,7 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
         \end{enumerate}
         Seien $(a_1, b_1) \sim (c_1, d_1), (a_2, b_2) \sim (c_2, d_2)$, also $a_1 d_1 = c_1 b_1$ und $a_2 d_2 = c_2 b_2$ und damit $a_1 a_2 d_1 d_2 = c_1 c_2 b_1 b_2$, also $(a_1 a_2, b_1 b_2) \sim (c_1 c_2, d_1, d_2)$, womit $\sim$ auch eine Kongruenzrelation ist.
 
-        \item Wir bemerken zunächst, dass $(a, b) \sim (e, e) \Leftrightarrow ae = be \Leftrightarrow a = b$, also ist $[(e,e)]_\sim = \{ (a, a) \mid a \in H \}$ unser neutrales Element in $\mathfrak{H}^2 / \sim$.
+        \item Wir bemerken, dass $(a, b) \sim (e, e) \Leftrightarrow ae = be \Leftrightarrow a = b$, also ist $[(e,e)]_\sim = \{ (a, a) \mid a \in H \}$ unser neutrales Element in $\mathfrak{H}^2 / \sim$.
         
         Wegen
         $$ [(a,b)]_\sim \cdot [(b,a)]_\sim = [(ab, ab)]_\sim = [(e,e)]_\sim $$
@@ -178,7 +218,9 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
         Seien $a,b,c,d \in H$ beliebig mit $a b^{-1} = c d^{-1}$, so folgt $ad = bc$, also $[(a,b)]_\sim = [(c,d)]_\sim$, womit $\overline{\psi}$ injektiv ist.
 
         Weiters ist
-        $$ \overline{\psi}([(a,b)]_\sim \cdot [(c,d)]_\sim) = \overline{\psi}([(ac,bd)]_\sim) = ac (bd)^{-1} = ab^{-1} \cdot cd^{-1} = \overline{\psi}([(a,b)]_\sim) \cdot \overline{\psi}([(c,d)]_\sim), $$
+        \begin{align*}
+            \overline{\psi}([(a,b)]_\sim \cdot [(c,d)]_\sim) &= \overline{\psi}([(ac,bd)]_\sim) = ac (bd)^{-1} = ab^{-1} \cdot cd^{-1} \\ &= \overline{\psi}([(a,b)]_\sim) \cdot \overline{\psi}([(c,d)]_\sim), 
+        \end{align*}
         womit $\overline{\psi}$ ein Homomorphismus ist.
     \end{enumerate}
 \end{proof}
