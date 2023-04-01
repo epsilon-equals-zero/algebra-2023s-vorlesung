@@ -20,3 +20,117 @@
 
     Die Gruppe $(\Gl_2(\mathbb{Q}), \cdot, E_2, {}^{-1})$ ist nicht zyklisch.
 \end{example}
+
+\begin{definition}
+    Seien $\mathfrak{G} = (G, \cdot, e, ^{-1})$ eine Gruppe, $\mathfrak{U} \le \mathfrak{G}$ eine Untergruppe und $g \in G$. Wir definieren 
+    \begin{itemize}[topsep=0cm, label={--}]
+        \item die \emph{Linksnebenklasse} $gU := {}$ und
+        \item die \emph{Rechtsnebenklasse} $Ug := {}$. %TODO
+    \end{itemize}
+\end{definition}
+
+\begin{lemma}
+    Die Menge $\{gU \mid g \in G\}$ aller Linksnebenklassen bildet eine Partition von $G$.
+\end{lemma}
+\begin{proof}\phantom{.}
+    \begin{itemize}
+        \item Es ist $G = \bigcup_{g \in G} gU$. Denn für $h \in G: h \in hU$, weil $e \in U$ und $h = h \cdot e$.
+        \item z.Z. $\forall g, g' \in G: gU \cap g'U \not= \emptyset \Rightarrow gU = g'U$. Es $\exists u, u' \in U: g\cdot u = g'\cdot u \Rightarrow u'' = u' \cdot u^{-1}, g = g' \cdot u''$ 
+    \end{itemize}
+    
+\end{proof}
+
+Aus dem obigen Beweis erhält man 
+\begin{corollary}
+    Es ist $gU = g'U$ genau dann, wenn $g^{-1}g \in U$.
+\end{corollary}
+
+\begin{corollary}
+    Wir erhalten eine Äquivalenzrelation auf $G$, wobei $x \sim y \Leftrightarrow \exists g \in G: x,y \in gU$.
+\end{corollary}
+
+\begin{lemma}
+    $x \sim y \Leftrightarrow x^{-1}y \in U$. 
+\end{lemma}
+\begin{proof}
+    ``$\Rightarrow$'': $x = g\cdot u, y = g\cdot u' \Rightarrow x^{-1}\cdot y = u^{-1}\cdot g^{-1} \cdot g \cdot u' = u^{-1} \cdot u' \in U$.
+
+    ``$\Leftarrow$'': $x^{-1}\cdot y = u$, also $y = x\cdot u$. $g = x \Rightarrow x \in xU \land y \in xU \Rightarrow x \sim y$. 
+\end{proof}
+
+\begin{lemma}
+    $U = [x]_{\sim}$
+\end{lemma}
+
+All dies funktioniert analog für Rechtsnebenklassen. Im Allgemeinen erhält man dabei allerdings eine andere Äquivalenzrelation.
+
+\begin{lemma}
+    $\vert gU \vert = \vert U \vert$
+\end{lemma}
+\begin{proof}
+    $\phi: U \to gU, u \mapsto g\cdot u$ ist bijektiv. Surjektiv ist klar, Injektiv $gu = gu' \Rightarrow u = u'$.
+\end{proof}
+
+\begin{theorem}[Satz von Lagrange]
+    $G$ eine endliche Gruppe, $U \le G$, $g \in G$. Dann gilt
+    \begin{itemize}[topsep=0cm, label={--}]
+        \item $\vert U \vert \mid \vert G \vert$ 
+        \item $\underbrace{\ord(g)}_{= \vert \langle g \rangle \vert \Rightarrow U := \langle g \rangle} \mid \vert G \vert $
+    \end{itemize}
+\end{theorem}
+
+\begin{example}
+    
+\end{example}
+
+\begin{lemma}
+    $G$ Gruppe, $U \le G$. Dann gilt $\vert \{gU \mid g \in G\}\vert = \vert \{Ug \mid g \in G\}\vert$
+\end{lemma}
+\begin{proof}
+    $\varphi: gU \mapsto Ug^{-1}$ wohldefiniert und bijektiv
+\end{proof}
+
+\begin{definition}
+    $U \le G$. Index ist definiert als $[G:U] := \vert \{gU \mid g \in G\}\vert = \vert \{Ug \mid g \in G\}\vert$. 
+\end{definition}
+
+\begin{remark}
+    $G$ endlich, dann ist $[G:U] = \frac{\vert G \vert}{\vert U \vert}$.
+\end{remark}
+
+\begin{theorem}[Indexsatz]
+    $U \le V \le G$, dann ist $[G:V] = [G:U] \cdot [U:V]$. 
+\end{theorem}
+\begin{proof}
+    Übung 145.
+\end{proof}
+
+Im Allgemeinen ist die durch Nebengruppen induzierte Äquivalenzrelation keine Kongruenzrelation.
+
+\begin{theorem}
+    $G$ Gruppe, $N \subseteq G$, dann sind äquivalent:
+    \begin{enumerate}[label=(\alph*)]
+        \item Es gibt genau eine KR $\sim$ auf G mit $N = [e]_\sim$, nämlich $x \sim y: \Leftrightarrow x^{-1}y \in N$
+        \item Es gibt eine KR $\sim$ auf G mit $N = [e]_\sim$
+        \item Es gibt eine Gruppe $H$ und einen surjektiven Homomorphismus $\varphi: G \to H$ mit $N = \varphi^{-1}(\{e_H\})$
+        \item Es gibt eine Gruppe $H$ und einen Homomorphismus $\varphi: G \to H$ mit $N = \varphi^{-1}(\{e_H\})$
+        \item $N \le G$ mit $\forall x \in G: xNx^{-1} = N$
+        \item $N \le G$ mit $\forall x \in G: xNx^{-1} \subseteq N$
+        \item $N \le G$ mit $\forall x \in G: xN = Nx$
+        \item $N \le G$ mit $\forall x \in G: xN \subseteq Nx$
+    \end{enumerate}
+    % TODO: (1) - (1') - (2) - (2') ...
+\end{theorem}
+
+\begin{definition}
+    Ein solches $N \le G$ heißt Normalteiler. man schreibt $N\vartriangleleft G$
+\end{definition}
+
+\begin{proof}\phantom{.}
+    \begin{itemize}[label={--}, topsep=0cm]
+        \item $(1) \Rightarrow (1')$ trivial
+        \item $(1') \Rightarrow (2)$ $H = G/_{\sim}, \varphi: g \mapsto [g]_\sim $
+        \item $(2) \Rightarrow (2')$ trivial
+        \item $(2') \Rightarrow (3')$ $N = \varphi^{-1}(e_H) \le G$
+    \end{itemize}
+\end{proof}
