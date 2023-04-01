@@ -3,16 +3,26 @@
 \begin{definition}
     Sei $\mathfrak{G} = (G, \cdot, e, {}^{-1})$ eine Gruppe.
     \begin{itemize}
-        \item Wir nennen $|G|$ die \emph{Ordnung} der Gruppe.
-        \item Sei $g \in G$, so erzeugt dieses eine Untergruppe
+        \item Wir nennen $|G|$ die \emph{Ordnung} der Gruppe.\index{Gruppe!Ordnung}
+        \item Sei $g \in G$, so erzeugt dieses Element eine Untergruppe
         $$ \langle \{ g \} \rangle = \{ g^n \mid n \in \mathbb{Z} \}. $$
-        Wir nennen $|\langle\{g\}\rangle|$ die \emph{Ordnung} von $g$ und schreiben auch $\ord(g)$. Ist $\ord(g)$ endlich, so heißt $g$ \emph{Torsionselement}.
-        \item $\mathfrak{G}$ heißt \emph{zyklisch}, falls es ein $g \in G$ mit $G = \langle\{g\}\rangle$ gibt.
+        Wir nennen $|\langle\{g\}\rangle|$ die \emph{Ordnung} von $g$ und schreiben auch $\ord(g)$. Ist $\ord(g)$ endlich, so heißt $g$ \emph{Torsionselement}.\index{Gruppe!Torsionselement}
+        \item $\mathfrak{G}$ heißt \emph{zyklisch}, falls es ein $g \in G$ mit $G = \langle\{g\}\rangle$ gibt.\index{Gruppe!zyklisch}
     \end{itemize}
 \end{definition}
 
-\begin{example}
-    
+\begin{example} {\ }
+    \begin{enumerate}
+        \item Betrachte $\mathbb{Z} \times \mathbb{Z}_m$, so ist $\ord(1,0) = \infty$ und $\ord(0,1) = m$.
+        \item Betrachte $\mathbb{Z}_6$, so ist $\ord(1) = 6$, $\ord(2) = 3$ und $\ord(3) = 2$.
+    \end{enumerate}
+\end{example}
+
+\begin{example} {\ }
+    \begin{enumerate}
+        \item Die Gruppen $(\mathbb{Z}, +, 0, -) = \langle\{1\}\rangle, (\mathbb{Z}_m, +, 0, -) = \langle\{1\}\rangle$ sind zyklisch.
+        \item Die Gruppe $(\Gl_2(\mathbb{Q}), \cdot, E_2, {}^{-1})$ ist \emph{nicht} zyklisch, da -- wie wir noch sehen werden -- zyklische Gruppen abelsch sind.
+    \end{enumerate}
 \end{example}
 
 \begin{example}
