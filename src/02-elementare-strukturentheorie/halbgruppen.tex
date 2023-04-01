@@ -42,14 +42,27 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
         h_2 & \;\text{sonst}
     \end{array}\right.$$
 
-    $(H', \overline{\cdot}, e)$ ist dann ein Monoid und es gilt $\overline{\cdot}\vert{H^2} = \cdot$.
+    $(H', \overline{\cdot}, e)$ ist dann ein Monoid und es gilt $\overline{\cdot}\vert_{H^2} = \cdot$.
 \end{proposition}
 
 \begin{remark}
     Die einfach nachzurechnende \cref{prop:halbgruppe-monoid-einbettung} liefert eine einfache Möglichkeit eine Halbgruppe zu einem Monoid zu ergänzen. Sie ist der Grund, warum sich die Theorien von Halbgruppen und Monoiden sehr ähnlich sind.
 \end{remark}
 
-% TODO freies Monoid
+\begin{remark}
+    Betrachten wir das freie Monoid über $X^{(1)} = \{x_1\}$. Wir erhalten damit $x_1$ als einzigen Term 0-ter Stufe, $e, x_1 \cdot x_1$ als Terme 1-ter Stufe, $e \cdot x_1, (x_1 \cdot x_1), \ldots$ als Terme 2-ter Stufe etc. Nach Faktorisieren wie in \cref{theorem:freie_faktoralgebra} erhalten wir die Repräsentanten $e, x_1, x_1^2, x_1^3, \ldots$, womit klarerweise das hier erhaltene freie Monoid kommutativ ist. Da Monoide i. A. aber nicht kommutativ sind, erhalten wir, dass freie Algebren mehr Gesetze erfüllen können, als in der gesamten Varietät gelten. 
+    
+    Betrachten wir allerdings das freie Monoid über $X^{(2)} = \{x_1, x_2\}$, so ist dieses nicht mehr kommutativ, also ``freier'' als das über $X^{(1)}$. 
+
+    Ist der Generator (die Variablenmenge) $X$ mindestens abzählbar unendlich, so ist das erzeugte Monoid \emph{total frei} über $X$, also es gelten genau die Gesetze, die in der Varietät gelten.
+\end{remark}
+
+\begin{remark}
+    Aus der vorherigen Bemerkung erhalten wir die folgende Beobachtung.
+
+    Ist $\mathcal{K}$ eine Varietät, $\mathfrak{F}$ frei über $X$ in $\mathcal{K}$, dann gilt $$\forall s,t \in T(X): \mathfrak{F} \models s\approx t \Leftrightarrow \left(\forall \mathfrak{A} \in \mathcal{K}: \mathfrak{A} \models s \approx t\right).$$ 
+    Ist allerdings $Y \supsetneq X$ und sind $s,t \in T(Y)$, so erhalten wir keine ähnliche Aussage über $\mathfrak{F} \models s \approx t$.
+\end{remark}
 
 \begin{theorem}[Darstellungssatz von Cayley]\label{theorem:darstellungssatz-cayley}\index{Satz!Darstellungssatz von Cayley}
     Sei $\mathfrak{M} = (M, \cdot, e)$ ein Monoid, so existiert ein injektiver Homomorphismus $\varphi: \mathfrak{M} \to (M^M, \circ, \id_M)$.
