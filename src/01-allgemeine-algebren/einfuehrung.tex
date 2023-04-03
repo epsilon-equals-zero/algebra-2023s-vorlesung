@@ -3,8 +3,8 @@
 \notedate{01.03.2023}
 Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra definiert und es werden weiter einige spezielle Algebren vorgestellt.
 
-\begin{definition}\label{def:allg_algebra}
-    Seien $A$ eine beliebige Menge, $\tau = (n_i)_{i \in I}$ eine Familie aus $\mathbb{N}_0$ über eine beliebige Indexmenge $I$ und $(f_i)_{i \in I}$ eine Familie von Funktionen, wobei $f_i: A^{n_i} \to A$ ist. 
+\begin{definition}\label{def:algebra}\label{def:allg_algebra}
+    Seien $A$ eine beliebige Menge, $\tau = (n_i)_{i \in I}$ eine Familie aus $\mathbb{N}_0$ über einer beliebigen Indexmenge $I$ und $(f_i)_{i \in I}$ eine Familie von Funktionen, wobei $f_i: A^{n_i} \to A$ ist. 
     Das Tupel $\mathfrak{A} = (A, (f_i)_{i \in I})$ heißt dann \emph{(allgemeine) Algebra}\index{Algebra!allgemeine} vom \emph{Typ}\index{Algebra!Typ} $\tau$. Die einzelnen Funktionen $f_i$ nennt man \emph{fundamentale Operationen} und haben \emph{Stelligkeit}\index{Stelligkeit} oder auch \emph{Arität}\index{Arität} $n_i$.
 \end{definition}
 
@@ -104,14 +104,15 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
     $(\mathbb{Z}, +, 0, -. \cdot), (\mathbb{R}[x], +, 0, -, \cdot)$ sind Ringe.
 \end{example}
 
+\begin{samepage}
 \begin{definition}
-    Ein kommutativer Ring mit 1 $\mathfrak{A} = (A,+,0,-,\cdot)$ heißt \emph{Körper}\index{Körper}, wenn 
+    Ist $\mathfrak{A} = (A,+,0,-,1,\cdot)$ ein kommutativer Ring mit 1, so heißt $\mathfrak{A}$ \emph{Körper}\index{Körper}, wenn
     \begin{itemize}[topsep=0pt, label={--}]
         \item $\forall x \in A\backslash \{0\} \exists y \in A: x\cdot y = 1$
     \end{itemize}
-
     Ist $\cdot$ nicht kommutativ, so nennen wir $\mathfrak{A}$ \emph{Schiefkörper}\index{Schiefkörper} oder \emph{Divisionsring}\index{Divisonsring}.
 \end{definition}
+\end{samepage}
 
 \begin{remark}
     Im Vergleich zu allen anderen bis jetzt definierten speziellen Algebren ist ein Körper nicht durch Allaussagen für alle Elemente (Gesetze) und Operationen definiert. 
@@ -130,7 +131,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 \end{definition}
 
 \begin{remark}
-    Ein $\mathfrak{R}$-Modul ist ein Vektorraum, wenn $\mathfrak{R}$ ein Körper ist.
+    Ein $\mathfrak{R}$-Modul ist ein Vektorraum (über $\mathfrak{R}$), wenn $\mathfrak{R}$ ein Körper ist.
 \end{remark}
 
 \begin{example}
@@ -199,13 +200,13 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 \end{lemma}
 \begin{proof}
     Sei $1 := v_1 \vee \ldots \vee v_n$, dann gilt für beliebiges $j \in \{1, \ldots, n\}$, dass $$v_j \vee 1 = v_j \vee v_1 \vee \ldots \vee v_n =  v_1 \vee \ldots \vee v_j \vee v_j \vee \ldots \vee v_n = v_1 \vee \ldots \vee v_n = 1.$$
-    Analoges gilt für $0 := v_1 \vee \ldots \vee v_n$. Damit ist $(V, \wedge, \vee, 0, 1)$ ein beschränkter Verband. 
+    Analoges gilt für $0 := v_1 \wedge \ldots \wedge v_n$. Damit ist $(V, \wedge, \vee, 0, 1)$ ein beschränkter Verband. 
 \end{proof}
 
 \begin{definition}
     Eine Algebra $\mathfrak{A} = (A, \wedge, \vee, 0, 1, \,')$ vom Typ $\tau = (2,2,0,0,1)$ heißt \emph{Boole'sche Algebra}\index{Boole'sche Algebra}, wenn
     \begin{itemize}[topsep=0pt, label={--}]
-        \item $(A, \wedge, \vee, 0, 1, \,')$ ein beschränkter distributiver Verband ist,
+        \item $(A, \wedge, \vee, 0, 1)$ ein beschränkter distributiver Verband ist,
         \item $\forall x \in A: x \wedge x' = 0$ und
         \item $\forall x \in A: x \vee x' = 1$
     \end{itemize}
@@ -232,11 +233,11 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 \end{definition}
 
 \begin{example}
-    Sei $\mathfrak{A}$ eine Algebra. Definieren wir die Mengen \begin{align*}
+    Sei $\mathfrak{A}$ eine Algebra. Wir definieren die Mengen \begin{align*}
         \End(\mathfrak{A}) &:= \{f: A \to A \mid f\text{ ist Endomorphismus}\} \text{ und} \\ \Aut(\mathfrak{A}) &:= \{f: A \to A \mid f\text{ ist Automorphismus}\}.
     \end{align*}
 
     $(\End(\mathfrak{A}), \circ, \id_A)$ ist dann ein Monoid, das \emph{Endomorphismenmonoid von $\mathfrak{A}$}\index{Endomorphismenmonoid}. Jedes Monoid ist isomorph zu einem Endomorphismenmonoid.
     
-    $(\Aut(\mathfrak{A}), \circ, \id_A, \cdot^{-1})$ ist eine Gruppe, die \emph{Automorphismengruppe von $\mathfrak{A}$}\index{Automorphismengruppe}. Nach dem Satz von Cayley ist jede endliche Gruppe isomorph zu einer Automorphismengruppe.
+    $(\Aut(\mathfrak{A}), \circ, \id_A, {}^{-1})$ ist eine Gruppe, die \emph{Automorphismengruppe von $\mathfrak{A}$}\index{Automorphismengruppe}. Nach dem Satz von Cayley ist jede endliche Gruppe isomorph zu einer Automorphismengruppe.
 \end{example}
