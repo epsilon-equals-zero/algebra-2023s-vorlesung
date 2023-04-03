@@ -1,12 +1,96 @@
-\section{Halbgruppen}
+\section{Halbgruppen und Monoide}
+Dieses Kapitel beschäftigt sich mit elementaren Aussagen zu Halbgruppen und Monoiden. Wesentliche Resultate davon sind der \nameref*{theorem:darstellungssatz-cayley}~\ref{theorem:darstellungssatz-cayley}, der \nameref*{theorem:fundamentalsatz-der-arithmetik}~\ref{theorem:fundamentalsatz-der-arithmetik} und \cref{theorem:monoid-gruppe-einbettung}.
 
-\begin{theorem}[Fundamentalsatz der Arithmetik]
+Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweisen, die die im Folgenden verwendeten Begriffe \emph{Halbgruppe}, \emph{Monoid}, \emph{neutrales Element} und \emph{inverses Element} definieren.
 
-\end{theorem}
+\begin{example}
+    Für eine beliebige Menge $M$ ist die Menge aller Funktionen von $M$ nach $M$ mit der Verkettung eine Halbgruppe $\mathfrak{H} = (M^M, \circ)$.
+\end{example}
+
+\begin{definition}
+    Sei $\mathfrak{M} = (M, \cdot, e)$ ein Monoid und $a, a' \in M$, dann heißt
+    \begin{itemize}[topsep=0pt, label={--}]
+        \item $a'$ \emph{linksinvers}\index{invers!links-} zu $a$, wenn $a' \cdot a = e$ und
+        \item $a'$ \emph{rechtsinvers}\index{invers!rechts-} zu $a$, wenn $a \cdot a' = e$ gilt.
+    \end{itemize}
+    Ist $a'$ links- und rechtsinvers zu $a$ so nennt man $a'$ \emph{invers} zu $a$ und $a$ heißt \emph{Einheit}\index{Einheit}.
+\end{definition}
+
+\begin{lemma}
+    Neutrale und inverse Elemente auf Halbgruppen sind eindeutig.
+\end{lemma}
 
 \begin{proof}
-    ..
-    \begin{itemize}
+    Beginnen wir mit der Eindeutigkeit von neutralen Elementen. Sei $\mathfrak{H} = (H, \cdot)$ eine Halbgruppe und seien $e, e' \in H$ neutrale Elemente. Dann gilt $e = e \cdot e' = e'.$
+    
+    Es bleibt noch die Eindeutigkeit von inversen Elementen zu zeigen. Sei $\mathfrak{M} = (M, \cdot, e)$ ein Monoid und seien $a, a', a'' \in M$, wobei $a'$ sowie $a''$ invers zu $a$. Wir erhalten dann $ a' = a' \cdot e = a' \cdot (a \cdot a'') = (a' \cdot a) \cdot a'' = e \cdot a'' = a''.$
+\end{proof}
+
+\begin{remark}
+    Da in einem Monoid $\mathfrak{M} = (M, \cdot, e)$ immer $e \cdot e = e$ gilt, also $e$ zu sich selbst invers ist, ist $e$ immer eine Einheit. Seien $G := \{a \in M \mid a \;\text{ist Einheit von}\; \mathfrak{M}\}$ und $^{-1}: G \to G$ die Abbildung, die jedem Element sein inverses Element zuordnet, dann ist $\mathfrak{G} = (G, \cdot, e, ^{-1})$ eine Gruppe.
+\end{remark}
+
+\begin{example}
+    $\mathfrak{H} = (\mathbb{R}^{2\times 2}, \cdot)$ ist eine Halbgruppe. Die Einheitsmatrix $I_2 := \left(\begin{matrix}
+        1 & 0 \\ 0 & 1
+    \end{matrix}\right)$ ist ein neutrales Element, womit $(\mathbb{R}^{2\times 2}, \cdot, I_2)$ ein Monoid ist. Die Menge der invertierbaren reellen $2 \times 2$ Matrizen ist die Menge aller Einheiten von $\mathfrak{H}$.
+\end{example}
+
+\begin{proposition}\label{prop:halbgruppe-monoid-einbettung}
+    Sei $(H, \cdot)$ eine Halbgruppe und $e \not\in H$. Wir definieren $H' := H \cup \{e\}$ und $$\overline{\cdot}: (H')^2 \to H', (h_1, h_2) \mapsto \left\{\begin{array}{ll}
+        h_1 \cdot h_2, & \;\text{wenn}\; h_1, h_2 \in H, \\
+        h_1, & \;\text{wenn}\; h_1 = e, \\
+        h_2, & \;\text{sonst}.
+    \end{array}\right.$$
+
+    Dann ist $(H', \overline{\cdot}, e)$ ein Monoid und es gilt $\overline{\cdot}\vert_{H^2} = \cdot$.
+\end{proposition}
+
+\begin{remark}
+    Die einfach nachzurechnende \cref{prop:halbgruppe-monoid-einbettung} liefert eine einfache Möglichkeit eine Halbgruppe zu einem Monoid zu ergänzen. Sie ist der Grund, warum sich die Theorien von Halbgruppen und Monoiden sehr ähnlich sind.
+\end{remark}
+
+\begin{remark}
+    Betrachten wir das freie Monoid über $X^{(1)} = \{x_1\}$. Wir erhalten damit $x_1$ als einzigen Term 0-ter Stufe, $e, x_1 \cdot x_1$ als Terme 1-ter Stufe, $e \cdot x_1, (x_1 \cdot x_1), \ldots$ als Terme 2-ter Stufe etc. Nach Faktorisieren wie in \cref{theorem:freie_faktoralgebra} erhalten wir die Repräsentanten $e, x_1, x_1^2, x_1^3, \ldots$, womit klarerweise das hier erhaltene freie Monoid kommutativ ist. Da Monoide i. A. aber nicht kommutativ sind, erhalten wir, dass freie Algebren mehr Gesetze erfüllen können, als in der gesamten Varietät gelten. 
+    
+    Betrachten wir allerdings das freie Monoid über $X^{(2)} = \{x_1, x_2\}$, so ist dieses nicht mehr kommutativ, also ``freier'' als das über $X^{(1)}$. 
+
+    Ist der Generator (die Variablenmenge) $X$ mindestens abzählbar unendlich, so ist das erzeugte Monoid \emph{total frei}\index{Monoid!total frei} über $X$, also es gelten genau die Gesetze, die in der Varietät gelten.
+\end{remark}
+
+\begin{remark}
+    Aus der vorherigen Bemerkung erhalten wir die folgende Beobachtung:
+
+    Ist $\mathcal{K}$ eine Varietät, $\mathfrak{F}$ frei über $X$ in $\mathcal{K}$, dann gilt $$\forall s,t \in T(X): \mathfrak{F} \models s\approx t \Leftrightarrow \left(\forall \mathfrak{A} \in \mathcal{K}: \mathfrak{A} \models s \approx t\right).$$ 
+    Ist allerdings $Y \supsetneq X$ und sind $s,t \in T(Y)$, so erhalten wir keine ähnliche Aussage über $\mathfrak{F} \models s \approx t$.
+\end{remark}
+
+\begin{theorem}[Darstellungssatz von Cayley]\label{theorem:darstellungssatz-cayley}\index{Satz!Darstellungssatz von Cayley}
+    Sei $\mathfrak{M} = (M, \cdot, e)$ ein Monoid, so existiert ein injektiver Homomorphismus $\varphi: \mathfrak{M} \to (M^M, \circ, \id_M)$.
+\end{theorem}
+\begin{proof}
+    Wähle für $a \in M$ die Funktion $f_a: M \to M, b \mapsto a \cdot b$ und sei $\varphi: M \to M^M, a \mapsto f_a$. Zeigen wir nun, dass $\varphi$ ein injektiver Homomorphismus von $\mathfrak{M}$ nach $(M^M, \circ, \id_M)$ ist. Seien $a_1, a_2 \in M$, so gilt $$\varphi(a_1 \cdot a_2) = f_{a_1 \cdot a_2} = (M \to M, b \mapsto a_1 \cdot a_2 \cdot b) = f_{a_1} \circ f_{a_2} = \varphi(a_1) \circ \varphi(a_2)$$
+    und es ist $\varphi(e) = f_e = \id_M$. Damit ist $\varphi$ mit den Operationen verträglich, also ein Homomorphismus. Bleibt noch die Injektivität zu zeigen. Sei angenommen $\varphi(a_1) = \varphi(a_2)$, dann folgt daraus $a_1 = a_1 \cdot e = f_{a_1}(e) = f_{a_2}(e) = a_2 \cdot e = a_2$, womit $\varphi$ injektiv ist.
+\end{proof}
+
+\begin{theorem}[Fundamentalsatz der Arithmetik]\label{theorem:fundamentalsatz-der-arithmetik}\index{Fundamentalsatz!der Arithmetik}
+    Sei $\mathfrak{S} = (S, +^{\mathfrak{S}}, 0^{\mathfrak{S}}) \le \prod_{p \in \mathbb{P}} (\mathbb{N}, +, 0)$ definiert durch
+    $$ S = \{(s_p)_{p \in \mathbb{P}} \in \prod_{p \in \mathbb{P}} \mathbb{N} \mid s_p = 0 \;\text{für fast alle}\; p \in \mathbb{P}\}, $$
+    dann ist $\mathfrak{S} \cong (\mathbb{N}\setminus\{0\}, \cdot, 1)$.
+\end{theorem}
+
+\begin{proof} Definieren wir $\varphi: S \to \mathbb{N}, (s_p)_{p \in \mathbb{P}} \mapsto \prod_{p \in \mathbb{P}} p^{s_p}$ und zeigen, dass dieses $\varphi$ ein Isomorphismus ist.
+    \begin{itemize}[topsep=0cm, label={--}]
+        \item $\varphi$ ist wohldefiniert, da für fast alle $p \in \mathbb{P}: s_p = 0$ ist und $\varphi$ damit nur auf endliche Produkte abbildet.
+        
+        \item Homomorphismus: Seien $(s_p)_{p \in \mathbb{P}}, (t_p)_{p \in \mathbb{P}} \in S$. Dann erhalten wir $\varphi((s_p)_{p \in \mathbb{P}} +^\mathfrak{S} (t_p)_{p \in \mathbb{P}}) = \prod_{p \in \mathbb{P}} p^{s_p + t_p} = \prod_{p \in \mathbb{P}} p^{s_p} \cdot \prod_{p \in \mathbb{P}} p^{t_p}$.
+        
+        \item Surjektivität: Zeigen wir mittel Induktion nach $n$ die Existenz eines Elements $\vec{s}$ aus $S$, sodass $\varphi(\vec{s}) = n$.
+        
+        Induktionsanfang ($n=1$): Es ist $n = \varphi(0^\mathfrak{S})$.
+
+        Induktionsschritt ($k<n \implies n$): Ist $n \in \mathbb{P}$, so kann $\vec{s} = (\delta_{n,p})_{p \in \mathbb{P}}$ gewählt werden und damit ist $\varphi(\vec{s}) = p$. Betrachten wir nun noch den Fall $p \not\in \mathbb{P}$. Wir wissen, dass es $i, j \le n$ gibt, sodass $i \cdot j = n$. Nach der Induktionsvoraussetzung existieren $\vec s^{(i)}, \vec s^{(j)} \in S$ mit $\varphi(\vec s^{(i)}) = i$ und $\varphi(\vec s^{(j)}) = j$. Sei $\vec s := \vec s^{(i)} + \vec s^{(j)}$, dann gilt $\varphi(\vec s) = \varphi(\vec s^{(i)} + \vec s^{(j)}) = \varphi(\vec s^{(i)}) \cdot \varphi(\vec s^{(j)}) = i \cdot j = n$, weil $\varphi$ ein Homomorphismus ist.
+
         \notedate{29.03.2023}
         \item Injektivität: Zu zeigen ist, dass es für alle $n \in \mathbb{N} \setminus \{0\}$ höchstens eine Primfaktorenzerlegung gibt. Wir wenden Induktion nach $n$ an:
         
@@ -75,7 +159,7 @@
     \end{enumerate}
 \end{example}
 
-\begin{theorem}
+\begin{theorem}\label{theorem:monoid-gruppe-einbettung}
     Sei $\mathfrak{H} = (H, \cdot, e)$ ein kommutatives Monoid und jedes $a \in H$ kürzbar\footnote{Aufgrund der Kommutativität reicht es sogar lediglich Links- oder Rechtskürzbarkeit zu fordern.}. Dann gilt
     \begin{enumerate}
         \item $\sim\; \subseteq (H^2)^2$
