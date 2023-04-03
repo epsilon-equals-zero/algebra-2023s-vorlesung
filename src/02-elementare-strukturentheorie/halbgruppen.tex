@@ -13,12 +13,13 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
         \item $a'$ \emph{linksinvers}\index{invers!links-} zu $a$, wenn $a' \cdot a = e$ und
         \item $a'$ \emph{rechtsinvers}\index{invers!rechts-} zu $a$, wenn $a \cdot a' = e$ gilt.
     \end{itemize}
-    Ist $a'$ links- und rechtsinvers zu $a$ so nennt man $a'$ \emph{invers} zu $a$ und $a$ heißt dann \emph{Einheit}\index{Einheit}.
+    Ist $a'$ links- und rechtsinvers zu $a$ so nennt man $a'$ \emph{invers} zu $a$ und $a$ heißt \emph{Einheit}\index{Einheit}.
 \end{definition}
 
 \begin{lemma}
     Neutrale und inverse Elemente auf Halbgruppen sind eindeutig.
 \end{lemma}
+
 \begin{proof}
     Beginnen wir mit der Eindeutigkeit von neutralen Elementen. Sei $\mathfrak{H} = (H, \cdot)$ eine Halbgruppe und seien $e, e' \in H$ neutrale Elemente. Dann gilt $e = e \cdot e' = e'.$
     
@@ -26,7 +27,7 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
 \end{proof}
 
 \begin{remark}
-    Da in einem Monoid $\mathfrak{M} = (M, \cdot, e)$ immer $e \cdot e = e$ gilt, also $e$ zu sich selbst invers ist, ist $e$ immer eine Einheit. Seien $G := \{a \in M \mid a \;\text{ist Einheit von}\; \mathfrak{M}\}$ und $^{-1}: G \to G$ die Abbildung, die jedem Element sein inverses Element zuordnet. $\mathfrak{G} = (G, \cdot, e, ^{-1})$ ist dann eine Gruppe.
+    Da in einem Monoid $\mathfrak{M} = (M, \cdot, e)$ immer $e \cdot e = e$ gilt, also $e$ zu sich selbst invers ist, ist $e$ immer eine Einheit. Seien $G := \{a \in M \mid a \;\text{ist Einheit von}\; \mathfrak{M}\}$ und $^{-1}: G \to G$ die Abbildung, die jedem Element sein inverses Element zuordnet, dann ist $\mathfrak{G} = (G, \cdot, e, ^{-1})$ eine Gruppe.
 \end{remark}
 
 \begin{example}
@@ -36,13 +37,13 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
 \end{example}
 
 \begin{proposition}\label{prop:halbgruppe-monoid-einbettung}
-    Sei $(H, \cdot)$ eine Halbgruppe und $e \not\in H$. Definieren wir $H' := H \cup \{e\}$ und $$\overline{\cdot}: (H')^2 \to H', (h_1, h_2) \mapsto \left\{\begin{array}{ll}
-        h_1 \cdot h_2, & \;\text{wenn}\; h_1, h_2 \in H \\
-        h_1 & \;\text{wenn}\; h_1 = e \\
-        h_2 & \;\text{sonst}
+    Sei $(H, \cdot)$ eine Halbgruppe und $e \not\in H$. Wir definieren $H' := H \cup \{e\}$ und $$\overline{\cdot}: (H')^2 \to H', (h_1, h_2) \mapsto \left\{\begin{array}{ll}
+        h_1 \cdot h_2, & \;\text{wenn}\; h_1, h_2 \in H, \\
+        h_1, & \;\text{wenn}\; h_1 = e, \\
+        h_2, & \;\text{sonst}.
     \end{array}\right.$$
 
-    $(H', \overline{\cdot}, e)$ ist dann ein Monoid und es gilt $\overline{\cdot}\vert_{H^2} = \cdot$.
+    Dann ist $(H', \overline{\cdot}, e)$ ein Monoid und es gilt $\overline{\cdot}\vert_{H^2} = \cdot$.
 \end{proposition}
 
 \begin{remark}
@@ -54,11 +55,11 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
     
     Betrachten wir allerdings das freie Monoid über $X^{(2)} = \{x_1, x_2\}$, so ist dieses nicht mehr kommutativ, also ``freier'' als das über $X^{(1)}$. 
 
-    Ist der Generator (die Variablenmenge) $X$ mindestens abzählbar unendlich, so ist das erzeugte Monoid \emph{total frei} über $X$, also es gelten genau die Gesetze, die in der Varietät gelten.
+    Ist der Generator (die Variablenmenge) $X$ mindestens abzählbar unendlich, so ist das erzeugte Monoid \emph{total frei}\index{Monoid!total frei} über $X$, also es gelten genau die Gesetze, die in der Varietät gelten.
 \end{remark}
 
 \begin{remark}
-    Aus der vorherigen Bemerkung erhalten wir die folgende Beobachtung.
+    Aus der vorherigen Bemerkung erhalten wir die folgende Beobachtung:
 
     Ist $\mathcal{K}$ eine Varietät, $\mathfrak{F}$ frei über $X$ in $\mathcal{K}$, dann gilt $$\forall s,t \in T(X): \mathfrak{F} \models s\approx t \Leftrightarrow \left(\forall \mathfrak{A} \in \mathcal{K}: \mathfrak{A} \models s \approx t\right).$$ 
     Ist allerdings $Y \supsetneq X$ und sind $s,t \in T(Y)$, so erhalten wir keine ähnliche Aussage über $\mathfrak{F} \models s \approx t$.
@@ -72,8 +73,10 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
     und es ist $\varphi(e) = f_e = \id_M$. Damit ist $\varphi$ mit den Operationen verträglich, also ein Homomorphismus. Bleibt noch die Injektivität zu zeigen. Sei angenommen $\varphi(a_1) = \varphi(a_2)$, dann folgt daraus $a_1 = a_1 \cdot e = f_{a_1}(e) = f_{a_2}(e) = a_2 \cdot e = a_2$, womit $\varphi$ injektiv ist.
 \end{proof}
 
-\begin{theorem}[Fundamentalsatz der Arithmetik]\label{theorem:fundamentalsatz-der-arithmetik}
-    Sei $\mathfrak{S} = (S, +^{\mathfrak{S}}, 0^{\mathfrak{S}}) \le \prod_{p \in \mathbb{P}} (\mathbb{N}, +, 0)$ definiert durch $S = \{(s_p)_{p \in \mathbb{P}} \in \prod_{p \in P} \mathbb{N} \mid f_p = 0 \;\text{für fast alle}\; p \in \mathbb{P}\}$, dann ist $\mathfrak{S} \cong (\mathbb{N}\setminus\{0\}, \cdot, 1)$.
+\begin{theorem}[Fundamentalsatz der Arithmetik]\label{theorem:fundamentalsatz-der-arithmetik}\index{Fundamentalsatz!der Arithmetik}
+    Sei $\mathfrak{S} = (S, +^{\mathfrak{S}}, 0^{\mathfrak{S}}) \le \prod_{p \in \mathbb{P}} (\mathbb{N}, +, 0)$ definiert durch
+    $$ S = \{(s_p)_{p \in \mathbb{P}} \in \prod_{p \in \mathbb{P}} \mathbb{N} \mid s_p = 0 \;\text{für fast alle}\; p \in \mathbb{P}\}, $$
+    dann ist $\mathfrak{S} \cong (\mathbb{N}\setminus\{0\}, \cdot, 1)$.
 \end{theorem}
 
 \begin{proof} Definieren wir $\varphi: S \to \mathbb{N}, (s_p)_{p \in \mathbb{P}} \mapsto \prod_{p \in \mathbb{P}} p^{s_p}$ und zeigen, dass dieses $\varphi$ ein Isomorphismus ist.
