@@ -29,8 +29,9 @@
     \end{enumerate}
 \end{example}
 
+\notedate{30.03.2023}
+
 \begin{definition}
-    \notedate{30.03.2023}
     Seien $G$ eine Gruppe, $U \le G$ eine Untergruppe und $g \in G$. Wir definieren 
     \begin{itemize}[topsep=0cm, label={--}]
         \item die \emph{Linksnebenklasse von $g$ nach $U$}\index{Linksnebenklasse} $gU := \{gu \mid u \in U\}$ und
@@ -155,13 +156,13 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
 \begin{proof}{\ }
     \begin{itemize}[topsep=0cm, leftmargin=2.2cm]
         \item[\ref*{item:theorem:normalteiler_equiv_1} $\Rightarrow$ \ref*{item:theorem:normalteiler_equiv_1'}:] 
-        trivial
+        Trivial.
         
         \item[\ref*{item:theorem:normalteiler_equiv_1'} $\Rightarrow$ \ref*{item:theorem:normalteiler_equiv_2}:] 
         Wählen wir $H = G/_\sim$ und sei $\varphi: G \to H, g \mapsto [g]_\sim$ die kanonische Einbettung. Es ist dann klarerweise $\varphi$ surjektiv und $\varphi^{-1}(\{e_H\}) = [e]_\sim = N$.
         
         \item[\ref*{item:theorem:normalteiler_equiv_2} $\Rightarrow$ \ref*{item:theorem:normalteiler_equiv_2'}:] 
-        trivial
+        Trivial.
         
         \item[\ref*{item:theorem:normalteiler_equiv_2'} $\Rightarrow$ \ref*{item:theorem:normalteiler_equiv_3'}:] 
         Zeigen wir zuerst, dass $N$ eine Untergruppe ist. Seien dazu $n, n' \in N = \varphi^{-1}(\{e_H\})$. Dann ist $\varphi(n n') = \varphi(n) \varphi(n') = e_H e_H = e_H$, womit $n n' \in \varphi^{-1}(\{e_H\}) = N$ ist und damit $N \le G$.
@@ -177,7 +178,7 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
         Zeigen wir für $x \in G$, dass $xN \subseteq Nx$ ist. Für ein $y \in xN$ gibt es ein $n \in N$, sodass $y = xn$. Wählen wir $n' = yx^{-1} = xnx^{-1} \in xNx^{-1} = N$, so ist $y = n'x$ und damit $y \in Nx$. Die andere Mengeninklusion zeigt man analog. 
         
         \item[\ref*{item:theorem:normalteiler_equiv_4} $\Rightarrow$ \ref*{item:theorem:normalteiler_equiv_4'}:] 
-        trivial 
+        Trivial.
         
         \item[\ref*{item:theorem:normalteiler_equiv_4'} $\Rightarrow$ \ref*{item:theorem:normalteiler_equiv_1}:]  
         Zeigen wir zuerst die Eindeutigkeit: Sei angenommen es gibt eine Kongruenzrelation $\sim$ auf $G$ mit $N = [e]_\sim$. Für $x, y\in G$ gilt dann 
