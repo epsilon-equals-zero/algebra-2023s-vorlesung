@@ -8,8 +8,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     \begin{itemize}[topsep=0pt, label={--}]
         \item $\forall i\in I\forall a_1,\ldots,a_{n_i}\in S:f^\mathfrak{A}_i(a_1,\ldots,a_{n_i})\in S.$\tab ($S$ \emph{ist abgeschlossen gegenüber allen} $f_i$)
     \end{itemize}
-    Wir schreiben in diesem Fall $\mathfrak{S}\le \mathfrak{A}$. Ist $\mathcal{K}$ eine Klasse von Algebren,
-    so definieren wir die Klasse $S(\mathcal{K}):=\{\mathfrak{S} \mid \exists \mathfrak{A}\in \mathcal{K}:\mathfrak{S}\le\mathfrak{A}\}$.
+    Wir schreiben in diesem Fall $\mathfrak{S}\le \mathfrak{A}$.
 \end{definition}
 
 \begin{example}
@@ -26,7 +25,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
 \begin{proof}
     Laut Definition gilt für alle Variablenbelegungen $\varphi:\var(s)\cup \var(t)\to A:\bar{\varphi}(s)=\bar{\varphi}(t)$.
-    Wegen $S\subseteq A$ ist diese Bedingung insbesondere für $S$ erfüllt, also gilt $\mathfrak{S}\models s\approx t$.
+    Wegen $S\subseteq A$ ist diese Bedingung insbesondere für alle $\varphi : \var(s) \cup \var(t) \to S$ erfüllt, also gilt $\mathfrak{S}\models s\approx t$.
 \end{proof}
 
 \begin{remark}
@@ -122,10 +121,10 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \end{example}
 
 \begin{proposition}
-    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $S\subseteq A$. Dann gelten die beiden Identitäten:
+    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra, $S\subseteq A$ und $X$ eine beliebige Menge. Dann gelten die beiden Identitäten:
     \begin{enumerate}
         \item $\langle S\rangle=S_\infty$
-        \item $\langle S\rangle=\{t^\mathfrak{A}(a_1,\ldots,a_n) \mid a_1,\ldots,a_n\in S\land t\in T(X)\}$
+        \item $\langle S\rangle=\{t^\mathfrak{A}(a_1,\ldots,a_n) \mid a_1,\ldots,a_n\in S, t \in T(X) \}$
     \end{enumerate}
 \end{proposition}
 \begin{proof} In beiden Behauptungen wird die gegenseitige Inklusion von zwei Mengen gezeigt.
@@ -135,12 +134,12 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
         Für die andere Inklusion wird mittels Induktion gezeigt, dass für alle $k\in\mathbb{N}:S_k\subseteq \langle S\rangle$ gilt,
         woraus schließlich auch $S_\infty=\bigcup_{k\in\mathbb{N}}S_k\subseteq \langle S\rangle$ folgt.
 
-        Induktionsanfang $(k=0)$: Per Definitionem der erzeugten Algebra gilt $S_0=S\subseteq \langle S\rangle$\\
+        Induktionsanfang $(k=0)$: Per Definitionem der erzeugten Algebra gilt $S_0=S\subseteq \langle S\rangle$. \\
         Induktionsschritt $(k\to k+1)$: Sei nun $a\in S_{k+1}$ beliebig. Falls $a\in S_k$ ist, so folgt aus
         der Induktionsvoraussetzung dass $a\in \langle S\rangle$ gilt. Andernfalls exisitiert ein $i\in I$ und
-        $a_1,\ldots,a_{n_i}\in S_{k}$, sodass $a=f(a_1,\ldots,a_{n_i})$. Auch hier kann die Induktionsvoraussetzung
-        angewandt werden, weshalb $a_1,\ldots,a_{n_i}\in \langle S\rangle$ ist. Da $(\langle S\rangle,(f_i)_{i\in I})$ eine Unteralgebra
-        von $\mathfrak{A}$ ist, gilt auch $a=f(a_1\ldots,a_{n_i})\in\langle S\rangle$. Daraus folgt die gewünschte Mengeninklusion
+        $a_1,\ldots,a_{n_i}\in S_{k}$, sodass $a=f^{\mathfrak{A}}(a_1,\ldots,a_{n_i})$. Auch hier kann die Induktionsvoraussetzung
+        angewandt werden, weshalb $a_1,\ldots,a_{n_i}\in \langle S\rangle$ ist. Da $(\langle S\rangle,(f_i^{\mathfrak{A}})_{i\in I})$ eine Unteralgebra
+        von $\mathfrak{A}$ ist, gilt auch $a=f^{\mathfrak{A}}(a_1\ldots,a_{n_i})\in\langle S\rangle$. Daraus folgt die gewünschte Mengeninklusion
         $S_{k+1}\subseteq \langle S\rangle$.
 
         \item Definiere $M:=\{t^\mathfrak{A}(a_1,\ldots,a_n)\vert a_1,\ldots,a_n\in S\land t\in T(X)\}$.
@@ -149,7 +148,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
         und seien $b_1,\ldots,b_{n_i}\in M$, dann können diese Elemente als $b_j=t_j^\mathfrak{A}(a_1^{(j)},\ldots,a_{m_j}^{(j)})$
         mit $a_1^{(j)},\ldots,a_{m_j}^{(j)}\in S$ für $j\in \{1,\ldots,n_i\}$ dargestellt werden. Definiert man nun $a:=f^\mathfrak{A}_i(b_1,\ldots,b_{n_i})$
         und den Term $t:=f_i^\mathfrak{T}(t_1(x_1^{(1)},\ldots,x_{m_1}^{(1)}),\ldots,t_{n_i}(x_1^{(n_i)},\ldots,x_{m_{n_i}}^{(n_i)}))$,
-        so erhält man eine passende Termfunktion, das heißt es gilt $t^\mathfrak{A}(a_1,\ldots,a_{m_1}^{(1)},\ldots,a_1^{(n_i)},\ldots,a_{m_{n_i}}^{(n_i)})=a$,
+        so erhält man eine passende Termfunktion, das heißt es gilt $t^\mathfrak{A}(a_1^{(1)},\ldots,a_{m_1}^{(1)},\ldots,a_1^{(n_i)},\ldots,a_{m_{n_i}}^{(n_i)})=a$,
         also insbesondere $a\in M$. Für die andere Mengeninklusion ist erneut eine Induktion nötig.
         Sei $a=t^\mathfrak{A}(a_1,\ldots,a_n)\in M$ beliebig. Zu zeigen ist, dass $a\in \langle S\rangle$ gilt,
         wobei dies mittels Induktion nach der Stufe von $t$ gezeigt wird.
@@ -165,15 +164,16 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \end{proof}
 
 \begin{corollary}
-    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $S=\{s_1,\ldots,s_n\}\subseteq A$.
-    Dann gilt für die von $S$ erzeugte Unteralgebra $\langle S\rangle=\{t^\mathfrak{A}(s_1,\ldots,s_n)\mid t(x_1,\ldots,x_n)\in T(x)\}$.
+    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra, $S=\{s_1,\ldots,s_n\}\subseteq A$ und $X$ eine beliebige Menge.
+    Dann gilt für die von $S$ erzeugte Unteralgebra
+    $$ \langle S\rangle=\{t^\mathfrak{A}(s_1,\ldots,s_n)\mid t(x_1,\ldots,x_n)\in T(X)\}. $$
 \end{corollary}
 
 \begin{proof}
-    Es gilt klarerweise $\langle S\rangle\supseteq \{t^\mathfrak{A}(s_1,\ldots,s_n)\mid t(x_1,\ldots,x_n)\in T(x)\}$.
+    Es gilt klarerweise $\langle S\rangle\supseteq \{t^\mathfrak{A}(s_1,\ldots,s_n)\mid t(x_1,\ldots,x_n)\in T(X)\}$.
     Sei $a\in\langle S\rangle$ beliebig. Dann existiert ein Term $t$ und es existieren $a_1,\ldots,a_\ell\in S$,
     sodass $a=t^\mathfrak{A}(a_1,\ldots,a_\ell)$. Mit dem Term $\tilde{t}(x_1,\ldots,x_n):=t(y_1,\ldots,y_\ell)$, wobei $y_i:=x_j\leftrightarrow a_i=s_j$
-    erhält man $\tilde{t}^\mathfrak{A}(s_1,\ldots,s_n)=t^\mathfrak{A}(a_1,\ldots,a_\ell)=a\in\{t^\mathfrak{A}(s_1,\ldots,s_n)\mid t(x_1,\ldots,x_n)\in T(x)\}.$
+    erhält man $\tilde{t}^\mathfrak{A}(s_1,\ldots,s_n)=t^\mathfrak{A}(a_1,\ldots,a_\ell)=a\in\{t^\mathfrak{A}(s_1,\ldots,s_n)\mid t(x_1,\ldots,x_n)\in T(X)\}.$
 \end{proof}
 
 \begin{remark}
@@ -191,10 +191,10 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \end{remark}
 
 \begin{definition}
-    Sei $\tau = (n_i)_{i\in I}$ eine Typ und sei $(\mathfrak{A}_j)_{j\in J}$ eine Familie von Algebren dieses Typs.
+    Sei $\tau = (n_i)_{i\in I}$ ein Typ und sei $(\mathfrak{A}_j)_{j\in J}$ eine Familie von Algebren dieses Typs.
     Dann heißt $\mathfrak{A}:=\prod_{j\in J}\mathfrak{A}_j=(\prod_{j\in J}A_j,(f^\mathfrak{A}_i)_{i\in I})$ \emph{Produktalgebra}\index{Produktalgebra},
     wobei die Operationen durch $f^\mathfrak{A}_i: \mathfrak{A}^{n_i} \to \mathfrak{A}, ((a_j^{(1)})_{j \in J}, \ldots (a_j^{(n_i)})_{j \in J}) \mapsto (f^{\mathfrak{A}_j}_i(a_j^{(1)}, \ldots, a_j^{(n_i)}))_{j \in J}$
-    definiert werden. Ist $\mathcal{K}$ eine Klasse von Algebren, so definieren wir die Klasse $P(\mathcal{K}):=\{\prod_{j\in J}\mathfrak{A}_j\mid \forall j\in J:\mathfrak{A}_j\in K\}$.
+    definiert werden.
 \end{definition}
 
 \begin{example}
@@ -312,7 +312,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
 \begin{example}
     Für jede beliebige Algebra $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ sind durch die beiden Relationen $\sim_1=A^2$ und $\sim_2=\{(a,a)\mid a\in A\}$
-    Kongruenzrelationen auf $\mathfrak{A}$ gegeben. Diese nennet man daher auch \emph{triviale Kongruenzrelationen}\index{Kongruenzrelation!trivial}.
+    Kongruenzrelationen auf $\mathfrak{A}$ gegeben. Diese nennt man daher auch \emph{triviale Kongruenzrelationen}\index{Kongruenzrelation!trivial}.
 \end{example}
 
 \begin{remark}
@@ -332,7 +332,6 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     wird häufig $[a]$ statt $[a]_\sim$ geschrieben.} ist und die Funktionen definiert\footnote{Dass diese Funktionen tatsächlich wohldefiniert sind,
     folgt direkt aus der Definition der Invaranz einer Kongruenzrelation unter der Algebra.} sind durch
     $f^{\mathfrak{A}/_\sim}([a_1]_\sim,\ldots,[a_{n_i}]_\sim):=[f_i(a_1,\ldots,a_{n_i})]_\sim.$
-    Für eine Klasse $\mathcal{K}$ von Algebren wird die Klasse der Faktoralgebren definiert als $H(\mathcal{K}):=\{\mathfrak{A}/_\sim\mid \mathfrak{A}\in K \land \sim\in\text{Con}(\mathfrak{A})\}$.
 \end{definition}
 
 \begin{example}
@@ -343,7 +342,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \end{example}
 
 \begin{remark}
-    Sei $\mathfrak{A}$ eine beliebige Faktoralgebra und $\sim$ eine Kongruenzrelation. Dann ist die \emph{kanonische Faktorabbildung}\index{kanonische Faktorabbildung} oder \emph{kanonische Projektion}\index{kanonische Projektion}
+    Sei $\mathfrak{A}$ eine beliebige Algebra und $\sim$ eine Kongruenzrelation. Dann ist die \emph{kanonische Faktorabbildung}\index{kanonische Faktorabbildung} oder \emph{kanonische Projektion}\index{kanonische Projektion}
     $\varphi:A\to A/_\sim, a\mapsto [a]_\sim$ ein surjektiver Homomorphismus, das heißt
     Faktoralgebren sind homomorphe Bilder von Algebren. Der folgende Satz liefert in einem gewissen Sinn die Umkehrung.
 \end{remark}
@@ -416,9 +415,21 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
 \notedate{16.03.2023}
 
+\begin{samepage}    
+\begin{definition}
+    Sei $\mathcal{K}$ eine Klasse von Algebren. Dann definieren wir:
+    \begin{itemize}
+        \item $\mathrm{H}\mathcal{K}$ als die Klasse aller Algebren $\mathfrak{A /_\sim}$, wobei $\mathfrak{A} \in \mathcal{K}$ und $\sim$ eine Kongruenzrelation auf $\mathfrak{A}$ sind.
+        \item $\mathrm{S}\mathcal{K}$ als die Klasse aller Algebren $\mathfrak{A}$, zu der es eine Algebra $\mathfrak{A}' \in \mathcal{K}$ mit $\mathfrak{A} \leq \mathfrak{A}'$ gibt.
+        \item $\mathrm{P}\mathcal{K}$ als die Klasse aller Algebren $\prod_{j \in J} \mathfrak{A}_j$, wobei $J$ eine beliebige Indexmenge und $\mathfrak{A}_j \in \mathcal{K}$ sind.
+    \end{itemize}
+    Wir sagen, dass $\mathcal{K}$ unter $\mathrm{HSP}$ abgeschlossen ist, wenn $\mathrm{H}\mathcal{K} = \mathcal{K}, \mathrm{S}\mathcal{K} = \mathcal{K}$ und $\mathrm{P}\mathcal{K} = \mathcal{K}$ gilt.
+\end{definition}
+\end{samepage}
+
 \begin{theorem}[Birkhoff]\index{Satz!von Birkhoff}
     Sei $\tau=(f_i)_{i\in I}$ eine Signatur und $\mathcal{K}$ eine Klasse von $\tau$-Algebren. Dann gilt:
-    \[\mathcal{K} \text{ ist abgeschlossen unter H,S,P} \quad \Leftrightarrow \quad \mathcal{K} \text{ ist eine Varietät} \]
+    \[\mathcal{K} \text{ ist abgeschlossen unter } \mathrm{HSP} \quad \Leftrightarrow \quad \mathcal{K} \text{ ist eine Varietät} \]
 \end{theorem}
 
 \begin{definition}
@@ -428,24 +439,23 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     Für eine Menge von Gesetzen $\Sigma$ definiere die Klasse $\mathcal{V}(\Sigma):=\{\mathfrak{A}\mid \forall s\approx t\in\Sigma:\mathfrak{A}\models s\approx t\}$.
 \end{definition}
 
-\begin{proof}
+\begin{proof}[Beweis des Satzes von Birkhoff]
     Ist $\mathcal{K}$ eine Varietät, so ist $\mathcal{K}$ laut \ref{corollary:sub-varietaeten}, \ref{corollary:prod-varietaeten} und
     \ref{corollary:fak-varietaeten} unter $H,S,P$ abgeschlossen.
-    Es bleibt die andere Implikation zu zeigen. Dazu definiere $\Sigma:=\Sigma(\mathcal{K})$ und $\mathcal{V}:=\mathcal{V}(\Sigma)$,
+    Es bleibt die andere Implikation zu zeigen. Sei also $\mathcal{K}$ unter $\mathrm{HSP}$ abgeschlossen und definiere $\Sigma:=\Sigma(\mathcal{K})$ und $\mathcal{V}:=\mathcal{V}(\Sigma)$,
     womit $\mathcal{V}=\mathcal{K}$ zu zeigen ist. Trivialerweise ist $\mathcal{V}\supseteq\mathcal{K}$ erfüllt. Für die andere
     Inklusion sei $\mathfrak{A}\in\mathcal{V}$ beliebig, das heißt es gilt $\mathfrak{A}\in\mathcal{K}$ zu zeigen.
 
-    Für jedes Gesetz $s\approx t$, welches nicht in $\Sigma$ liegt, wähle eine Algebra $\mathfrak{A}_{s\approx t}\in\mathcal{K}$ mit
+     Für jedes Gesetz $s\approx t$, welches nicht in $\Sigma$ liegt, wähle eine Algebra $\mathfrak{A}_{s\approx t}\in\mathcal{K}$ mit
     $\mathfrak{A}_{s\approx t}\not\models s\approx t$.
-    Es sei $\mathfrak{B}:=\prod_{s\approx t\not\in\Sigma}\mathfrak{A}_{s\approx t}$, wobei $\mathfrak{A}_{s\approx t}\in K$ mit
-    $\mathfrak{A}_{s\approx t}\not\models s\approx t$. Da $\mathcal{K}$ unter Produktbildung abgeschlossen ist,
+    Es sei $\mathfrak{B}:=\prod_{s\approx t\not\in\Sigma}\mathfrak{A}_{s\approx t}$. Da $\mathcal{K}$ unter Produktbildung abgeschlossen ist,
     gilt $\mathfrak{B}\in\mathcal{K}$. Da eine Produktalgebra ein Gesetz genau dann erfüllt, wenn es komponentenweise erfüllt ist,
-    folgt $\Sigma(\mathfrak{B})=\Sigma\subseteq\Sigma(\mathfrak{A})$. Zu zeigen ist nun, dass $\mathfrak{A}\in HSP(\mathfrak{B})$ gilt.
+    folgt $\Sigma(\mathfrak{B})=\Sigma\subseteq\Sigma(\mathfrak{A})$. Zu zeigen ist nun, dass $\mathfrak{A} \in \mathrm{HSP}\mathfrak{B}$.
 
     Bilde die Produktalgebra $\mathfrak{B}^{B^A}=\prod_{i\in B^A}\mathfrak{B}$ und betrachte für alle $a\in A$
     die Funktion $\pi_a:B^A\to B, \alpha\mapsto \alpha(a)$ sowie die erzeugte Unteralgebra $\mathfrak{S}:=\langle\{\pi_a\mid a\in A\}\rangle\le \mathfrak{B}^{B^A}$.
     Dann kann ein surjektiver Homomorphismus $\varphi:S\to A$ mit $\varphi(\pi_a)=a$ folgendermaßen definiert werden.
-    Jedes Element aus $S$ besitzt eine Darstellung der Form $t^\mathfrak{S}(\pi_{a_1},\ldots,\pi_{a_n})$ mit $a_1\ldots,a_n\in A$ dargestellt werden.
+    Jedes Element aus $S$ besitzt eine Darstellung der Form $t^\mathfrak{S}(\pi_{a_1},\ldots,\pi_{a_n})$ mit $a_1\ldots,a_n\in A$.
     Daher wird $\varphi(t^\mathfrak{S}(\pi_{a_1},\ldots,\pi_{a_n})):=t^\mathfrak{A}(a_1,\ldots,a_n)$ definiert. 
 
     Wohldefiniertheit: Es ist zu zeigen, dass die Definition von $\varphi$ unabhängig von der Wahl der Darstellung ist.
@@ -456,7 +466,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     dann auch in $\mathfrak{A}$ gilt, was insbesondere $u^\mathfrak{A}(a_1,\ldots,a_n)=v^\mathfrak{A}(a_1',\ldots,a_m')$ bedingen würde.
     Sind $b_i,b_i'\in B$ beliebige Werte für die Variablen $x_i$ respektive $x_i'$, so muss $u^\mathfrak{B}(b_1,\ldots,b_n)=v^\mathfrak{B}(b_1',\ldots,b_m')$
     gezeigt werden. Nun kann $\alpha\in B^A$ mit $\alpha(a_i)=b_i$ und $\alpha(a_i')=b_i'$ gewählt werden,
-    da aus $x_ia_i=a_j=x_j$ folgen würde, dass $b_i=b_j$ gelten muss. Das analoge Argument gilt auch in den Fällen
+    da aus $x_i=a_i=a_j=x_j$ folgen würde, dass $b_i=b_j$ gelten muss. Das analoge Argument gilt auch in den Fällen
     $a_i=a_j'$ und $a_i'=a_j'$. Da voraussetzungsgemäß $u^\mathfrak{S}(\pi_{a_1},\ldots,\pi_{a_n})=v^\mathfrak{S}(\pi_{a_1'},\ldots,\pi_{a_m'})$ erfüllt ist,
     gilt diese Gleichheit insbesondere wenn $\alpha$ als Argument eingesetzt wird. Dies liefert
     $u^\mathfrak{B}(b_1,\ldots,b_n)=u^\mathfrak{S}(\pi_{a_1},\ldots,\pi_{a_n})(\alpha)=v^\mathfrak{S}(\pi_{a_1'},\ldots,\pi_{a_m'})(\alpha)=v^\mathfrak{B}(b_1',\ldots,b_m')$,
@@ -474,16 +484,15 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
         &=f^\mathfrak{A}_i(t^\mathfrak{A}_1(a_1^{(1)},\ldots,a_{m_1}^{(1)}),\ldots,t^\mathfrak{A}(a_1^{n_i},\ldots,a_{m_{n_i}}^{(n_i)}))\stackrel{(*)}{=}f^\mathfrak{A}_i(\varphi(g_1),\ldots,\varphi(g_{n_i})).
     \end{align*}
     An den Stellen die mit $(*)$ markiert sind, wurde die Definition von $\varphi$ verwendet.
+
+    Mit dem Homomorphiesatz erhalten wir damit einen Isomorphismus $\tilde{\varphi} : \mathfrak{S} /_{\ker \varphi} \to \mathfrak{A}$. Damit ist $\mathfrak{A}$ isomorph zu einer Faktoralgebra, welche durch $\mathrm{HSP}$ aus $\mathfrak{B}$ hervorgeht, was zu zeigen war.
 \end{proof}
 
 \begin{corollary}
-    Sei $\mathcal{K}$ eine Klasse von Algebren und $\mathcal{V}(\mathcal{K})$ die erzeugte Varietät.
-    Dann gilt für alle $\mathfrak{A}\in \mathcal{V}(\mathcal{K}):\mathfrak{A}\in HSP(\mathcal{K})$.
+    Sei $\mathcal{K}$ eine Klasse von Algebren und $\mathcal{V}(\Sigma(\mathcal{K}))$ die erzeugte Varietät. Dann gilt für alle Algebren $\mathfrak{A}$
+    $$ \mathfrak{A} \in \mathcal{V}(\Sigma(\mathcal{K})) \quad \Leftrightarrow \quad \mathfrak{A} \in \mathrm{HSP}\mathcal{K}. $$
 \end{corollary}
 
 \begin{proof}
-    Es gilt $\mathfrak{A}\in\mathcal{V}(\mathcal{K})\Leftrightarrow \mathfrak{A}\models \Sigma(\mathcal{K})$. Die Implikation von links nach rechts
-    ist trivialerweise erfüllt. Die Implikation von rechts nach links folgt aus der Tatsache, dass man $B\in P(\mathcal{K})$
-    mit $\Sigma(A)\supseteq\Sigma(B)$ finden kann und dann wie im Beweis für den Satz von Birkhoff auf $A\in HSP(\mathfrak{B})\subseteq HSP(\mathcal{K})$
-    schließt.
+    Die Implikation von links nach rechts ist trivialerweise erfüllt. Die Implikation von rechts nach links folgt aus der Tatsache, dass man, wie im Beweis des Satzes von Birkhoff, $B\in P(\mathcal{K})$ mit $\Sigma(A)\supseteq\Sigma(B)$ finden kann und auf $A\in \mathrm{HSP}\mathfrak{B}\subseteq \mathrm{HSP}\mathcal{K}$ schließt.
 \end{proof}
