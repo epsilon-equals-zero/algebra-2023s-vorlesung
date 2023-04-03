@@ -53,6 +53,7 @@
 
 %% PACKAGES %%
 \RequirePackage[utf8]{inputenc}
+\RequirePackage[ngerman]{babel}
 \RequirePackage{imakeidx}
 \RequirePackage{hyperref}
 \RequirePackage{graphicx}
@@ -61,7 +62,7 @@
 \RequirePackage{amsfonts}
 \RequirePackage{amsthm}
 \RequirePackage{nameref}
-\RequirePackage{cleveref}
+\RequirePackage[ngerman]{cleveref}
 \RequirePackage{enumitem}
 \RequirePackage{tikz}
 \RequirePackage{marginnote}
@@ -69,7 +70,6 @@
 \RequirePackage[hypcap=false]{caption}
 \RequirePackage{float}
 \RequirePackage{xcolor}
-\RequirePackage[ngerman]{babel}
 \RequirePackage{intcalc}
 
 \usetikzlibrary{shapes,arrows,chains}
