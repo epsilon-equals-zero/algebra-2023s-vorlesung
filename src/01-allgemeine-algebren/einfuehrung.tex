@@ -3,7 +3,7 @@
 \notedate{01.03.2023}
 Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra definiert und es werden weiter einige spezielle Algebren vorgestellt.
 
-\begin{definition}\label{def:algebra}
+\begin{definition}\label{def:algebra}\label{def:allg_algebra}
     Seien $A$ eine beliebige Menge, $\tau = (n_i)_{i \in I}$ eine Familie aus $\mathbb{N}_0$ über einer beliebigen Indexmenge $I$ und $(f_i)_{i \in I}$ eine Familie von Funktionen, wobei $f_i: A^{n_i} \to A$ ist. 
     Das Tupel $\mathfrak{A} = (A, (f_i)_{i \in I})$ heißt dann \emph{(allgemeine) Algebra}\index{Algebra!allgemeine} vom \emph{Typ}\index{Algebra!Typ} $\tau$. Die einzelnen Funktionen $f_i$ nennt man \emph{fundamentale Operationen} und haben \emph{Stelligkeit}\index{Stelligkeit} oder auch \emph{Arität}\index{Arität} $n_i$.
 \end{definition}
@@ -16,7 +16,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
     Eine nullstellige Operation $f_i$ bildet von der Menge $A^0 := \{\emptyset\}$ auf $A$ ab. Es ist also $f_i$ konstant mit $f(\emptyset) = a \in A$. Im Folgenden wird bei $n_i = 0$ nicht zwischen der Operation $f_i$ und dem Element $a$, auf das abgebildet wird, unterschieden.
 \end{remark}
 
-\begin{definition}
+\begin{definition}\label{def:halbgruppe}
     Eine Algebra $\mathfrak{A} = (A, +)$ vom Typ $\tau = (2)$ heißt \emph{Halbgruppe}\index{Halbgruppe}, wenn 
     \begin{itemize}[topsep=0pt, label={--}]
         \item $\forall x,y,z \in A: (x + y) + z = x + (y + z)$ \tab (\emph{Assoziativität}\index{Assoziativität} von $+$)
@@ -27,7 +27,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 \begin{example} $(\mathbb{R}, +), (\mathbb{R}, \cdot), (\mathbb{R}^{2\times 2}, \cdot), (\mathbb{N}, +)$ sind Halbgruppen.
 \end{example}
 
-\begin{definition}
+\begin{definition}\label{def:monoid}
     Eine Algebra $\mathfrak{A} = (A, +, e)$ vom Typ $\tau = (2,0)$ heißt \emph{Monoid}\index{Monoid}, wenn
     \begin{itemize}[topsep=0pt, label={--}]
         \item $(A, +)$ eine Halbgruppe ist und
@@ -44,7 +44,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
     Eine Algebra $\mathfrak{A} = (A, +, e, -)$ vom Typ $\tau = (2,0,1)$ heißt \emph{Gruppe}\index{Gruppe}, wenn
     \begin{itemize}[topsep=0pt, label={--}]
         \item $(A, +, e)$ ein Monoid ist und
-        \item $\forall x \in A: x + (-x) = (-x) + x = e$ \tab ($-$ bildet ab auf \emph{inverse Elemente}\index{inveses Element})
+        \item $\forall x \in A: x + (-x) = (-x) + x = e$ \tab ($-$ bildet ab auf \emph{inverse Elemente}\index{invers!inverses Element})
     \end{itemize}
     gilt.
 \end{definition}

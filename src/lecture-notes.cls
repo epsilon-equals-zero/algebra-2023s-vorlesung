@@ -53,6 +53,7 @@
 
 %% PACKAGES %%
 \RequirePackage[utf8]{inputenc}
+\RequirePackage[ngerman]{babel}
 \RequirePackage{imakeidx}
 \RequirePackage{hyperref}
 \RequirePackage{graphicx}
@@ -61,7 +62,7 @@
 \RequirePackage{amsfonts}
 \RequirePackage{amsthm}
 \RequirePackage{nameref}
-\RequirePackage{cleveref}
+\RequirePackage[ngerman]{cleveref}
 \RequirePackage{enumitem}
 \RequirePackage{tikz}
 \RequirePackage{marginnote}
@@ -69,7 +70,7 @@
 \RequirePackage[hypcap=false]{caption}
 \RequirePackage{float}
 \RequirePackage{xcolor}
-\RequirePackage[ngerman]{babel}
+\RequirePackage{intcalc}
 
 \usetikzlibrary{shapes,arrows,chains}
 \usetikzlibrary[calc]
@@ -145,7 +146,18 @@
 \DeclareMathOperator{\var}{var}
 \DeclareMathOperator{\Gl}{Gl}
 \DeclareMathOperator{\Sl}{Sl}
+\DeclareMathOperator{\ord}{ord}
 
 %% OTHER COMMANDS %%
 
 \newcommand{\mailto}[1]{\href{mailto:{#1}}{\texttt{#1}}}
+
+%% enum format %%
+\newcommand*{\enumArabicDual}[1]{%
+  \expandafter\@enumArabicDual\csname c@#1\endcsname
+}
+\newcommand*{\@enumArabicDual}[1]{%
+  \protect{\@arabic\intcalcDiv{\intcalcInc{#1}}{2}\ifcase\intcalcMod{#1}{2}'\or\fi}%
+}
+\AddEnumerateCounter{\enumArabicDual}{\@enumArabicDual}{10'}
+
