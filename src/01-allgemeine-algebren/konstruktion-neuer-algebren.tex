@@ -136,10 +136,10 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
         Induktionsanfang $(k=0)$: Per Definitionem der erzeugten Algebra gilt $S_0=S\subseteq \langle S\rangle$. \\
         Induktionsschritt $(k\to k+1)$: Sei nun $a\in S_{k+1}$ beliebig. Falls $a\in S_k$ ist, so folgt aus
-        der Induktionsvoraussetzung dass $a\in \langle S\rangle$ gilt. Andernfalls exisitiert ein $i\in I$ und
-        $a_1,\ldots,a_{n_i}\in S_{k}$, sodass $a=f^{\mathfrak{A}}(a_1,\ldots,a_{n_i})$. Auch hier kann die Induktionsvoraussetzung
+        der Induktionsvoraussetzung dass $a\in \langle S\rangle$ gilt. Andernfalls existieren ein $i\in I$ und
+        $a_1,\ldots,a_{n_i}\in S_{k}$, sodass $a=f_i^{\mathfrak{A}}(a_1,\ldots,a_{n_i})$. Auch hier kann die Induktionsvoraussetzung
         angewandt werden, weshalb $a_1,\ldots,a_{n_i}\in \langle S\rangle$ ist. Da $(\langle S\rangle,(f_i^{\mathfrak{A}})_{i\in I})$ eine Unteralgebra
-        von $\mathfrak{A}$ ist, gilt auch $a=f^{\mathfrak{A}}(a_1\ldots,a_{n_i})\in\langle S\rangle$. Daraus folgt die gewünschte Mengeninklusion
+        von $\mathfrak{A}$ ist, gilt auch $a=f_i^{\mathfrak{A}}(a_1\ldots,a_{n_i})\in\langle S\rangle$. Daraus folgt die gewünschte Mengeninklusion
         $S_{k+1}\subseteq \langle S\rangle$.
 
         \item Definiere $M:=\{t^\mathfrak{A}(a_1,\ldots,a_n)\vert a_1,\ldots,a_n\in S\land t\in T(X)\}$.
@@ -441,7 +441,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
 \begin{proof}[Beweis des Satzes von Birkhoff]
     Ist $\mathcal{K}$ eine Varietät, so ist $\mathcal{K}$ laut \ref{corollary:sub-varietaeten}, \ref{corollary:prod-varietaeten} und
-    \ref{corollary:fak-varietaeten} unter $H,S,P$ abgeschlossen.
+    \ref{corollary:fak-varietaeten} unter $\mathrm{HSP}$ abgeschlossen.
     Es bleibt die andere Implikation zu zeigen. Sei also $\mathcal{K}$ unter $\mathrm{HSP}$ abgeschlossen und definiere $\Sigma:=\Sigma(\mathcal{K})$ und $\mathcal{V}:=\mathcal{V}(\Sigma)$,
     womit $\mathcal{V}=\mathcal{K}$ zu zeigen ist. Trivialerweise ist $\mathcal{V}\supseteq\mathcal{K}$ erfüllt. Für die andere
     Inklusion sei $\mathfrak{A}\in\mathcal{V}$ beliebig, das heißt es gilt $\mathfrak{A}\in\mathcal{K}$ zu zeigen.
