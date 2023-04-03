@@ -70,6 +70,7 @@
 \RequirePackage[hypcap=false]{caption}
 \RequirePackage{float}
 \RequirePackage{xcolor}
+\RequirePackage{intcalc}
 
 \usetikzlibrary{shapes,arrows,chains}
 \usetikzlibrary[calc]
@@ -150,3 +151,13 @@
 %% OTHER COMMANDS %%
 
 \newcommand{\mailto}[1]{\href{mailto:{#1}}{\texttt{#1}}}
+
+%% enum format %%
+\newcommand*{\enumArabicDual}[1]{%
+  \expandafter\@enumArabicDual\csname c@#1\endcsname
+}
+\newcommand*{\@enumArabicDual}[1]{%
+  \protect{\@arabic\intcalcDiv{\intcalcInc{#1}}{2}\ifcase\intcalcMod{#1}{2}'\or\fi}%
+}
+\AddEnumerateCounter{\enumArabicDual}{\@enumArabicDual}{10'}
+
