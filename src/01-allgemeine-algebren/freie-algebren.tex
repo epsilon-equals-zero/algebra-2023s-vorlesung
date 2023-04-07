@@ -57,7 +57,7 @@ Sei $ \tau = (n_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\
     Betrachten wir $\id_X : X \to X$, so gibt es eindeutige Homomorphismen $\varphi : \mathfrak{F}_1 \to \mathfrak{F}_2, \psi : \mathfrak{F}_2 \to \mathfrak{F}_1$ mit $\varphi \vert_X = \id_X, \psi \vert_X = \id_X$. Es ist dann $\psi \circ \varphi : \mathfrak{F}_1 \to \mathfrak{F}_1$ ein Homomorphismus mit $(\psi \circ \varphi) \vert_X = \id_X$. Da $\mathfrak{F}_1$ frei über $X$ ist gilt $\phi \circ \varphi = \id_{F_1}$, womit $\psi$ surjektiv und $\varphi$ injektiv ist. Analog folgt, dass $\psi$ injektiv und $\varphi$ surjektiv ist, womit $\varphi, \psi$ Isomorphismen mit $\varphi = \psi^{-1}$ sind.
 \end{proof}
 
-\notedate{22.03.2022}
+\notedate{22.03.2023}
 
 \begin{proposition}
     Sei $\mathcal{K}$ eine Klasse von Algebren mit Typ $(n_i)_{i \in I} =: \tau$. Sei
@@ -119,7 +119,7 @@ Sei $ \tau = (n_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\
     Wir definieren $ \mathfrak{T}^{X, \Sigma_X} := \mathfrak{T}^X /_{\Sigma_X}$.
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}\label{theorem:freie_faktoralgebra}
     $\mathfrak{T}^{X, \Sigma_X}$ ist frei über $X$ in $\mathcal{K}$.
 \end{theorem}
 
@@ -141,6 +141,8 @@ Sei $ \tau = (n_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\
 
     Dass $\varphi$ ein Homomorphismus ist verifiziert man unmittelbar in Analogie zum Beweis des Satzes von Birkhoff. Damit ist $\varphi$ insgesamt also ein Isomorphismus, $\mathfrak{S} \cong \mathfrak{T}^{X, \Sigma_X}$, womit $\mathfrak{T}^{X, \Sigma_X}$ frei über $\{ [x]_{\Sigma_X} \mid x \in X \}$ ist.
 \end{proof}
+
+\notedate{23.03.2023}
 
 \begin{definition}\label{def:potenz}
     Sei $(H,\cdot)$ eine Halbgruppe und $a\in H$. Dann wird für $n\in\mathbb{N}$ rekursiv definiert:
