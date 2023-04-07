@@ -142,7 +142,17 @@ Sei $ \tau = (n_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\
     Dass $\varphi$ ein Homomorphismus ist verifiziert man unmittelbar in Analogie zum Beweis des Satzes von Birkhoff. Damit ist $\varphi$ insgesamt also ein Isomorphismus, $\mathfrak{S} \cong \mathfrak{T}^{X, \Sigma_X}$, womit $\mathfrak{T}^{X, \Sigma_X}$ frei über $\{ [x]_{\Sigma_X} \mid x \in X \}$ ist.
 \end{proof}
 
-\begin{example}
+\notedate{23.03.2023}
+
+\begin{definition}\label{def:potenz}
+    Sei $(H,\cdot)$ eine Halbgruppe und $a\in H$. Dann wird für $n\in\mathbb{N}$ rekursiv definiert:
+    \[a^1:=a,\quad a^{n+1}:=a\cdot a^n.\]
+    Falls\footnote{Insbesondere sind diese Notationen für Monoide und Gruppen definiert.} es ein neutrales Element $e$ gibt, so wird $a^0:=e$ definiert und im Fall, dass $a$ ein inverses Element $a^*$ besitzt
+    wird rekursiv definiert:
+    \[a^{-1}:=a^*,\quad a^{-(n+1)}:=a^*\cdot a^{-n}.\]
+\end{definition}
+
+\begin{example}\label{ex:gruppenterme}
     Bezeichne $(\cdot, e, {}^{-1})$ vom Typ $\tau = (2,0,1)$ die Sprache der Gruppen. Sei $X = \{ x_1, x_2, ... \}$ eine Variablenmenge so sind
     $$ \left. \begin{matrix} x_1, x_2, x_3, ... \\ e, x_1 \cdot x_2, x_2 \cdot x_1, x_1^{-1}, ... \\ e \cdot x_1, x_1 \cdot e, (x_1 \cdot x_2) \cdot x_3, x_1 \cdot (x_2 \cdot x_3), ... \\ \vdots \end{matrix} \quad \right\} \quad \begin{matrix} (T(X), \cdot^\mathfrak{T}, e^\mathfrak{T}, {{}^{-1}}^\mathfrak{T}) \textrm{ ist frei über} \\ X \textrm{ in der Klasse aller $\tau$-Algebren.} \end{matrix} $$
     Beispiele für Terme respektiver 1., 2. und 3. Stufe. Bezeichne nun
@@ -150,5 +160,43 @@ Sei $ \tau = (n_i)_{i \in I}$, $\mathcal{K}$ eine Klasse von $\tau$-Algebren, $\
     als die Menge aller Gesetze welche in allen Gruppen gelten. Faktorisieren wir nun nach Term\-äquivalenz, so erhalten wir
     $$ T(X) /_{\Sigma_X} = \{ [x_1], [x_2], ..., [x_1, x_2], [x_2, x_1], ... \}. $$
     Jedes Element $t$ von $T(X) /_{\Sigma_X}$ (außer $e$) hat also einen Repräsentanten der Form $a_1 \cdot a_2 \cdot ... \cdot a_n$, wobei $a_i = x_j$ oder $a_i = x_j^{-1}$ für ein $j$, aber nie $x_j$ und $x_j^{-1}$ aufeinanderfolgen oder umgekehrt.
+    Mit Hilfe von Definition \ref*{def:potenz} können diese Repräsentanten auch als $x_{j_1}^{n_1}\cdots x_{j_m}^{n_m}$ mit $n_1,\ldots,n_m\in\mathbb{Z}$ und $x_{j_i}\neq x_{j_{i+1}}$
+    für $i\in\{1,\ldots,m-1\}$ geschrieben werden.
 \end{example}
-\notedate{23.03.2023}
+
+\begin{remark}
+    Ist $(G,\cdot,e,{}^{-1})$ eine Gruppe so gilt $\forall m,n\in\mathbb{Z}\forall a\in G:a^m\cdot a^n=a^{m+n}$ und $(a^m)^n=a^{m\cdot n}$.
+    Falls $\cdot$ kommutativ ist, gilt weiters $\forall m\in\mathbb{Z}\forall a,b\in G\forall m\in\mathbb{Z}:(a\cdot b)^m=a^m\cdot b^m$.
+\end{remark}
+
+\begin{example}
+    Es sei $(\cdot,e,{}^{-1})$ die Sprache der Gruppen und $X=\{x_1,x_2,\ldots\}$ eine Variablenmenge.
+    Ausgehend von Beispiel \ref{ex:gruppenterme} kann analog die freie kommutative Gruppe über $X$ in der Klasse
+    aller kommutativen Gruppen konstruiert werden. Jedes Element der Termalgebra besitzt dann einen Repräsentanten
+    der Form $x_{i_1}^{m_1},\ldots,x_{i_{k}}^{m_k}$ mit $m_1,\ldots,m_k\in \mathbb{Z}$ und $\forall j,\ell\in\{1,\ldots,k\}:j<\ell\Rightarrow i_j<i_\ell$.
+\end{example}
+
+\begin{example}
+    Betrachten wir die freie Gruppe über der einelementigen Menge $X=\{x\}$, so können alle Elemente durch $x^n$ für
+    $n\in\mathbb{N}$ repräsentiert werden. Außerdem gilt für $m,n\in\mathbb{Z}:x^m\cdot x^n=x^{m+n}$. Das bedeutet,
+    dass diese freie Gruppe isomorph zu $(\mathbb{Z},+,0,-)$ ist, vermöge dem Isomorphismus $\varphi:\{x^n\mid n\in\mathbb{Z}\}\to \mathbb{Z},x^n\mapsto n$.
+\end{example}
+
+\begin{example}
+    In Analogie zum letzten Beispiel kann auch die freie kommutative Gruppe über der Menge $X=\{x,y\}$ klassifiziert werden.
+    Ihre Elemente besitzen eindeutige Repräsentanten der Form $x^{n_1}\cdot y^{n_2}$ mit $n_1,\ldots,n_2\in\mathbb{Z}$.
+    Die Identität $(x^{n_1}\cdot y^{n_2})\cdot (x^{m_1}\cdot x^{m_2})=(x^{n_1+m_1}\cdot y^{n_2+m_2})$ begründet die Isomorphie
+    zur Gruppe $(\mathbb{Z},+,0,-)^2$ vermöge der Abbildung $\varphi:\{x^{n_1}\cdot y^{n_2}\mid (n_1,n_2)\in\mathbb{Z}^2\}\to \mathbb{Z}^2,x^{n_1}\cdot y^{n_2}\mapsto (n_1,n_2)$.
+\end{example}
+
+\begin{example}
+    Es sei $\mathfrak{K}$ ein Körper und $(+,0,-,(m_r)_{r\in\mathfrak{K}})$ die Sprache der Vektorräume und $\tau=(2,0,1,)$. Sei
+    $X=\{x_1,x_2,\ldots\}$ eine Variablenmenge so sind
+    $$ \left. \begin{matrix} x_1, x_2, x_3, ... \\ 0, x_1 + x_2, x_2 + x_1, r\odot x_1, -x_1, ... \\ 0 + x_1, r\odot (x_1+x_2), (r\odot x_1) + (r\odot x_2), ... \\ \vdots \end{matrix} \quad \right\} \quad \begin{matrix} (T(X), +^\mathfrak{T}, 0^\mathfrak{T}, -^\mathfrak{T},(m^\mathfrak{T}_r)_{r\in\mathfrak{K}}) \textrm{ ist frei über} \\ X \textrm{ in der Klasse aller $\tau$-Algebren.} \end{matrix} $$
+    Beispiele für Terme respektiver 1., 2. und 3. Stufe. Bezeichne nun
+    $$ \Sigma_X = \{ (0 + x_1, x_1), (r \odot (x_1+x_2), (r\odot x_1)+(r\odot x_2)), ((r\cdot s)\odot x_1, r\odot(s\odot x_1)), ... \} $$
+    als die Menge aller Gesetze welche in allen Vektorräumen gelten. Faktorisieren wir nun nach Termäquivalenz, so erhalten wir
+    $$ T(X) /_{\Sigma_X} = \{ [x_1], [x_2], ..., [c_1\odot x_1 + c_2\odot x_2],... \}. $$
+    Jedes Element $t$ von $T(X) /_{\Sigma_X}$ hat also einen Repräsentanten der Form $c_1\odot x_{i_1}+\ldots +c_n\odot x_{i_n}$ mit $\forall j,k\in\{1,\ldots,n\}:i<j\Rightarrow i_j<i_k$.
+    Man kann daher $[x_1],[x_2],\ldots$ als Basis des freien Vektorraumes sehen.
+\end{example}
