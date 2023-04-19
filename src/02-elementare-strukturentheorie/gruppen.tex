@@ -224,7 +224,7 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
 \begin{remark} \label{remark:gruppe-injektiv-kern-trivial}
     Seien $G, H$ Gruppen, $h : G \to H$ ein Homomorphismus. Es sei erinnert, dass $h$ injektiv ist, wenn
     $$ \{ (x,y) \mid h(x) = h(y) \} = \{ (x,x) \mid x \in G \}. $$
-    Diese Menge definiert eine Kongruenzrelation $\sim$ auf $G$. Also ist $h$ genau dann injektiv, wenn $[e]_\sim = \{e\}$, also gerade $\ker h = \{ e \}$. Man vergleiche diese Eigenschaft mit der Injektivität von Vektorraum-Homomorphismen aus der Linearen Algebra.
+    Erstere Menge definiert eine Kongruenzrelation $\sim$ auf $G$. Also ist $h$ genau dann injektiv, wenn $\sim$ die triviale Gleichheitsrelation ist, also $[e]_\sim = \{e\}$, also gerade $\ker h = \{ e \}$. Man vergleiche diese Eigenschaft mit der Injektivität von Vektorraum-Homomorphismen aus der Linearen Algebra.
 \end{remark}
 
 \begin{remark}
@@ -233,7 +233,7 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
 
 \begin{definition}
     Sei $G$ eine Gruppe, $N \vartriangleleft G$ ein Normalteiler und $\sim$ die entsprechende Kongruenzrelation. Wir definieren die \emph{Faktorgruppe} \index{Gruppe!Faktor-}
-    $$ G /_\sim = \{ aN \mid a \in G \}. $$
+    $$ G /_N := G /_\sim = \{ aN \mid a \in G \}. $$
     Dabei ist
     $$ aN \cdot bN := (a \cdot b)N. $$
     Man überzeugt sich leicht davon, dass dies gerade dann wohldefiniert ist wenn eben $N$ ein Normalteiler ist.
@@ -257,7 +257,7 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
     Betrachte die Gruppe $(\Gl_2(\mathbb{R}), \cdot, E_2, {}^{-1})$ und
     $$ N := \{ A \in \Gl_2(\mathbb{R}) \mid \det A = 1 \}. $$
     Für ein beliebiges $A \in \Gl_2(\mathbb{R})$ gilt $ A N A^{-1} \subseteq N, $ da mit $C \in N$
-    $$ \det(A C A^{-1}) = \det A \det N \det A^{-1} = \det C = 1. $$
+    $$ \det(A C A^{-1}) = \det A \det C \det A^{-1} = \det C = 1. $$
     Also ist $N$ ein Normalteiler. Sei $\sim$ die entsprechende Äquivalenzrelation, wir wollen die Struktur von $\Gl_2(\mathbb{R})/_\sim$ analysieren. Es gilt
     $$ A \sim B \Leftrightarrow A \cdot B^{-1} \in N \Leftrightarrow \det(A \cdot B^{-1}) = 1 \Leftrightarrow \det A = \det B, $$
     die Äquivalenzklassen hängen also nur von der Determinante und ansonsten nicht von der unterliegenden Matrixstruktur ab. Also ist $\Gl_2(\mathbb{R})/_\sim \cong (\mathbb{R} \setminus \{0\}, \cdot, 1, {}^{-1})$.
