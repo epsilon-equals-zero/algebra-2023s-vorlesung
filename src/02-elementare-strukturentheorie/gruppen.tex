@@ -75,7 +75,7 @@
     Seien $G$ eine Gruppe, $U \le G$ eine Untergruppe und $g \in G$. Es gilt $$\vert gU \vert = \vert U \vert = \vert Ug \vert.$$
 \end{lemma}
 \begin{proof}
-    Definieren wir die Funktion $\varphi: U \to gU, u \mapsto g\cdot u$ und zeigen, dass sie bijektiv ist. Die Surjektivität ist klar, da $gU$ genau als das Bild von $\varphi$ definiert ist. Die Injektivtät erhalten wir wegen $gu = gu' \Rightarrow u = u'$. Damit ist $\vert U \vert = \vert gU \vert$. Die zweite Gleichheit wird analog gezeigt.
+    Definieren wir die Funktion $\varphi: U \to gU, u \mapsto g\cdot u$ und zeigen, dass sie bijektiv ist. Die Surjektivität ist klar, da $gU$ genau als das Bild von $\varphi$ definiert ist. Die Injektivität erhalten wir wegen $gu = gu' \Rightarrow u = u'$. Damit ist $\vert U \vert = \vert gU \vert$. Die zweite Gleichheit wird analog gezeigt.
 \end{proof}
 
 \begin{remark}\label{rem:nebenklassenzerlegung_endlich}
@@ -204,15 +204,181 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
     \cref{theorem:normalteiler_equiv} beschreibt einige Eigenschaften von Normalteilern.
     \begin{itemize}[label={--}]
         \item \ref*{item:theorem:normalteiler_equiv_1}, \ref*{item:theorem:normalteiler_equiv_1'} liefern den bijektiven Zusammenhang von Normalteilern und Kongruenzrelation. Betrachtet man die Verbände von Normalteilern bzw. Kongruenzrelationen, so stellt diese Bijektion einen Verbandsisomorphismus dar.
-        \item \ref*{item:theorem:normalteiler_equiv_2}, \ref*{item:theorem:normalteiler_equiv_2'} beschreiben die Darstellung des Normalteilers über den Kern eines Homomorphismus $\varphi: G \to H$. Es ist $\ker \varphi = \{g \in G \mid \varphi(g) = e_H\} = \varphi^{-1}(\{e_H\}) = N$.\footnote{Hier besteht eine Ähnlichkeit zum Kern von linearen Abbildungen der ein Unterraum ist.}
+        \item \ref*{item:theorem:normalteiler_equiv_2}, \ref*{item:theorem:normalteiler_equiv_2'} beschreiben die Darstellung des Normalteilers über den Kern eines Homomorphismus $\varphi: G \to H$. Es ist $\ker \varphi = \{g \in G \mid \varphi(g) = e_H\} = \varphi^{-1}(\{e_H\}) = N$.
         \item \ref*{item:theorem:normalteiler_equiv_3}, \ref*{item:theorem:normalteiler_equiv_3'} liefern direkt, dass Normalteiler unter Abbildungen $\pi_x: G \to G, g \mapsto xgx^{-1}$ abgeschlossen sind. So eine Abbildung nennt man \emph{inneren Automorphismus}.
         \item \ref*{item:theorem:normalteiler_equiv_4}, \ref*{item:theorem:normalteiler_equiv_4'} besagen, dass die Links- und Rechtsnebenklassen genau dann gleich sind, wenn die Untergruppe ein Normalteiler ist.
     \end{itemize}
+
+    Inbesondere sind alle Äquivalenzklassen einer Kongruenzrelation gleich groß, da sie lediglich ``Verschiebungen'' der Äquivalenzklasse des neutralen Elements sind.
 \end{remark}
 
-\begin{corollary}
+\begin{corollary} \label{corollary:abelsch-normalteiler-untergruppe}
     In einer abelschen Gruppe $G$ ist $N \subseteq G$ genau dann ein Normalteiler, wenn $N$ eine Untergruppe von $G$ ist.
 \end{corollary}
 \begin{proof}
     In einer abelschen Gruppe ist immer $xN = Nx$. \cref{theorem:normalteiler_equiv} \ref*{item:theorem:normalteiler_equiv_4} liefert dann damit die Behauptung.
 \end{proof}
+
+\notedate{19.04.2023}
+
+\begin{remark} \label{remark:gruppe-injektiv-kern-trivial}
+    Seien $G, H$ Gruppen, $h : G \to H$ ein Homomorphismus. Es sei erinnert, dass $h$ injektiv ist, wenn
+    $$ \{ (x,y) \mid h(x) = h(y) \} = \{ (x,x) \mid x \in G \}. $$
+    Diese Menge definiert eine Kongruenzrelation $\sim$ auf $G$. Also ist $h$ genau dann injektiv, wenn $[e]_\sim = \{e\}$, also gerade $\ker h = \{ e \}$. Man vergleiche diese Eigenschaft mit der Injektivität von Vektorraum-Homomorphismen aus der Linearen Algebra.
+\end{remark}
+
+\begin{remark}
+    Es sei an \cref{def:einfache-algebra} einer einfachen Algebra erinnert. Wir bemerken, dass eine Gruppe genau dann einfach ist, wenn sie nur ihre Trägermenge und $\{e\}$ als Normalteiler hat.
+\end{remark}
+
+\begin{definition}
+    Sei $G$ eine Gruppe, $N \vartriangleleft G$ ein Normalteiler und $\sim$ die entsprechende Kongruenzrelation. Wir definieren die \emph{Faktorgruppe} \index{Gruppe!Faktor-}
+    $$ G /_\sim = \{ aN \mid a \in G \}. $$
+    Dabei ist
+    $$ aN \cdot bN := (a \cdot b)N. $$
+    Man überzeugt sich leicht davon, dass dies gerade dann wohldefiniert ist wenn eben $N$ ein Normalteiler ist.
+\end{definition}
+
+\begin{example}
+    Betrachte die Gruppe $(\mathbb{Z}, +, 0, -)$, so ist für jedes $m \in \mathbb{N}$ die Menge $m \mathbb{Z}$ eine Untergruppe, und da sie kommutativ ist nach \cref{corollary:abelsch-normalteiler-untergruppe} auch ein Normalteiler.
+
+    Sei $\sim$ die entsprechende Kongruenzrelation und betrachten wir $(\mathbb{Z}, +, 0, -)/_\sim$, so enthält diese Faktorgruppe
+    $$ 0 + m\mathbb{Z}, \quad 1 + m\mathbb{Z}, \quad \hdots, \quad (m-1) + m\mathbb{Z}. $$
+
+    In dieser Gruppe rechnet man
+    $$ (i + m\mathbb{Z}) + (j + m\mathbb{Z}) = (i+j) + m\mathbb{Z}, $$
+    wobei man auch $(i + j \pmod{m})$ für einen ``schöneren'' Repräsentanten betrachten kann.
+
+    Im Falle $n = 4$ ist beispielsweise
+    $$ (1 + 4\mathbb{Z}) + (3 + 4\mathbb{Z}) = 4 + 4\mathbb{Z} = 0 + 4\mathbb{Z}. $$
+\end{example}
+
+\begin{example}
+    Betrachte die Gruppe $(\Gl_2(\mathbb{R}), \cdot, E_2, {}^{-1})$ und
+    $$ N := \{ A \in \Gl_2(\mathbb{R}) \mid \det A = 1 \}. $$
+    Für ein beliebiges $A \in \Gl_2(\mathbb{R})$ gilt $ A N A^{-1} \subseteq N, $ da mit $C \in N$
+    $$ \det(A C A^{-1}) = \det A \det N \det A^{-1} = \det C = 1. $$
+    Also ist $N$ ein Normalteiler. Sei $\sim$ die entsprechende Äquivalenzrelation, wir wollen die Struktur von $\Gl_2(\mathbb{R})/_\sim$ analysieren. Es gilt
+    $$ A \sim B \Leftrightarrow A \cdot B^{-1} \in N \Leftrightarrow \det(A \cdot B^{-1}) = 1 \Leftrightarrow \det A = \det B, $$
+    die Äquivalenzklassen hängen also nur von der Determinante und ansonsten nicht von der unterliegenden Matrixstruktur ab. Also ist $\Gl_2(\mathbb{R})/_\sim \cong (\mathbb{R} \setminus \{0\}, \cdot, 1, {}^{-1})$.
+\end{example}
+
+\begin{remark}
+    Sei $G$ eine Gruppe, $\sim$ eine Kongruenzrelation. Wir fragen uns, wann $G/_\sim$ kommutativ ist. Dazu bemerken wir
+    $$ G/_\sim \textrm{ kommutativ} \quad \Leftrightarrow \quad \forall a, b \in G: (ab)N = (aN) (bN) = (bN) (aN) = (ba)N. $$
+    Letzteres können wir umschreiben als $a^{-1} b^{-1} a b N = N$, was genau dann der Fall ist, wenn für beliebiges $a, b$ gilt
+    $$ [a, b] := a^{-1} b^{-1} a b \in N. $$
+    Wir nennen $[a, b]$ den \emph{Kommutator} \index{Kommutator} von $(a, b)$.
+\end{remark}
+
+\begin{definition}
+    Definiere
+    $$ G' := \langle \{ [a, b] \mid a, b \in G \} \rangle \leq G. $$
+    Wir nennen $G'$ die \emph{Ableitung} oder auch die \emph{Kommutatorgruppe} von $G$. \index{Gruppe!Ableitung}\index{Gruppe!Kommutatorgruppe}
+\end{definition}
+    
+\begin{proposition}
+    Sei $G$ eine Gruppe. Ist $G$ abelsch, so ist $G' = \{ e \}$.
+\end{proposition}
+
+\begin{proof}
+    Ist $G$ abelsch so ist
+    $$ G' = \langle \{ a^{-1} b^{-1} a b \mid a, b \in G \} \rangle = \langle \{ a^{-1} b^{-1} b a \mid a, b \in G \} \rangle = \langle \{e\} \rangle = \{e\}. $$
+\end{proof}
+
+\begin{theorem}
+    Sei $G$ eine Gruppe. Dann gilt:
+    \begin{enumerate}
+        \item $G' \vartriangleleft G$
+        \item $G/_{G'}$ ist abelsch.
+        \item $\forall N \vartriangleleft G: ( G/_N \textrm{ abelsch} \Leftrightarrow N \supseteq G')$
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    (2) ist ein Spezialfall von (3).
+
+    Um (3) einzusehen sei $N \vartriangleleft G$, so folgt mit obiger Bemerkung sofort
+    \begin{align*}
+        G/_N \textrm{ abelsch} &\Leftrightarrow \forall a, b: (aN)(bN) = (bN)(aN) \Leftrightarrow \\ &\Leftrightarrow \forall a, b a^{-1}b^{-1} a b \in N \Leftrightarrow \forall a, b: [a, b] \in N \Leftrightarrow N \subseteq G'.
+    \end{align*}
+
+    Zeigen wir nun (1). Sei $h : G \to G$ ein beliebiger Endomorphismus, dann gilt für alle $a, b \in G$, dass $h([a,b]) = [h(a), h(b)]$, also $h(G') \subseteq G'$. Für beliebiges $x \in G$ definieren wir
+    $$ h_x : G \to G, g \mapsto xgx^{-1}, $$
+    so ist $h_x$ ein Automorphismus\footnote{$h_x$ ist wie früher schon bemerkt ein \emph{innerer Automorphismus}.}. Also ist
+    $$ x G' x^{-1} = h_x(G') \subseteq G', $$
+    womit $G' \vartriangleleft G$ folgt.
+\end{proof}
+
+\begin{definition}
+    Sei $G$ eine Gruppe, $U_1, U_2 \subseteq G, x \in G$, so definieren wir das \emph{Komplexprodukt}
+    $$ U_1 \cdot U_2 = \{ u_1 \cdot u_2 \mid u_1 \in U_1, u_2 \in U_2 \}. $$
+\end{definition}
+
+\begin{definition} \label{def:direktes-inneres-produkt}
+    Sei $G$ eine Gruppe, $U_1, \hdots, U_n \leq G$. Wir nennen $G$ ein \emph{inneres direktes Produkt} von $(U_1, \hdots, U_n)$, wenn die Abbildung
+    $$ \varphi : U_1 \times \hdots \times U_n \to G, (u_1, \hdots u_n) \mapsto u_1 \cdot \hdots \cdot u_n $$
+    ein Isomorphismus ist. In diesem Fall schreiben wir $G = U_1 \odot \hdots \odot U_n$.
+\end{definition}
+
+\begin{remark} \label{remark:inneres-direktes-produkt-notwendig}
+    Wir sammeln nun notwendige Bedingungen dafür, dass $G$ ein inneres direktes Produkt ist.
+    
+    Für $i \in \{ 1,\hdots,n \}$ definiere $V_i := U_1 \cdot \hdots \cdot U_{i-1} \cdot U_{i+1} \cdot \hdots \cdot U_n$, so muss gelten
+    $$ U_i \cap V_i = \{ e \}. $$
+    Sonst gäbe es $(u_j)_{j=1}^n \in (U_j)_{j=1}^n, u_i \neq e$ mit
+    $$ \varphi(e, \hdots, e, \overbrace{u_i}^{\textrm{$i$-te Stelle}}, e, \hdots, e) = u_i \overset{!}{=} u_1 \cdot \hdots \cdot u_{i-1} \cdot u_{i+1} \cdot \hdots \cdot u_n = \varphi(u_1, \hdots, u_{i-1}, e, u_{i+1}, \hdots, u_n), $$
+    womit $\varphi$ nicht injektiv wäre.
+
+    Weiters muss $U_i \vartriangleleft G$ sein. Um dies einzusehen, betrachte die Abbildung
+    $$ \psi_i : U_1 \times ... \times U_n \to U_1 \times ... \times U_{i-1} \times U_{i+1} \times ... \times U_n, (u_i)_{i=1}^n \mapsto (u_i, \hdots, u_{i-1}, u_{i+1}, \hdots, u_n). $$
+    Diese ist ein Homomorphismus, womit
+    $$ \ker \psi_i = \{e\} \times ... \times \{e\} \times U_i \times \{e\} \times ... \times \{e\} \vartriangleleft U_1 \times ... \times U_n. $$
+    Damit ist $U_i = \varphi(\ker \psi_i) \vartriangleleft G$.
+
+    Zuletzt gilt in einem direkten inneren Produkt für $i \neq j, x \in U_i, y \in U_j$, dass $xy = yx$. Um dies einzusehen sei \obda $i < j$, so gilt
+    \begin{align*}        
+        xy &= \varphi(e, \hdots, e, \overbrace{x}^{\textrm{$i$-te Stelle}}, e, \hdots, e) \cdot \varphi(e, \hdots, e, \overbrace{y}^{\textrm{$j$-te Stelle}}, e, \hdots, e) =  \\ &= \varphi(e, \hdots, e, \overbrace{x}^{\textrm{$i$-te Stelle}}, e, \hdots, e, \overbrace{y}^{\textrm{$j$-te Stelle}}, e, \hdots, e) = \\ &= \varphi(e, \hdots, e, \overbrace{y}^{\textrm{$i$-te Stelle}}, e, \hdots, e) \cdot \varphi(e, \hdots, e, \overbrace{x}^{\textrm{$j$-te Stelle}}, e, \hdots, e) = yx.
+    \end{align*}
+\end{remark}
+
+\begin{lemma} \label{lemma:gruppe-normalteiler-kommutativ}
+    Sei $G$ eine Gruppe, $U, V \vartriangleleft G$, $U \cap V = \{ e \}$, dann gilt für alle $u \in U$ und $v \in V$, dass $uv = vu$.
+\end{lemma}
+
+\begin{proof}
+    Es gilt
+    $$ uv = vu \Leftrightarrow u^{-1} v^{-1} u v = e. $$
+    Nun ist $u^{-1} v^{-1} u \in V$, damit $u^{-1} v^{-1} u v \in V$. Andererseits gilt $v^{-1} u v \in U$, damit $u^{-1} v^{-1} u v \in U$. Also folgt $u^{-1} v^{-1} u v = e$ und damit $uv=vu$.
+\end{proof}
+
+\begin{proposition} \label{prop:kriterien-direktes-inneres-produkt}
+    Sei $G$ eine Gruppe und $U_1, \hdots, U_n \leq G$. Gelte $G = U_1 \cdot \hdots \cdot U_n$, beziehungsweise äquivalent die Surjektivität von $\varphi$ wie in \cref{def:direktes-inneres-produkt}. Gelte weiters für $i \in \{ 1, \hdots, n \} $, dass $U_i \vartriangleleft G$ und $U_i \cap V_i = \{ e \} $, wobei $V_i$ wie in \cref{remark:inneres-direktes-produkt-notwendig} definiert ist. Dann ist $G = U_1 \odot \hdots \odot U_n $.
+\end{proposition}
+
+\begin{proof}
+    Definiere $\varphi$ wie in \cref{def:direktes-inneres-produkt}, so ist $\varphi$ nach Voraussetzung surjektiv.
+
+    Zeigen wir, dass $\varphi$ ein Homomorphismus ist. Mit \cref{lemma:gruppe-normalteiler-kommutativ} gilt
+    \begin{align*}        
+        \varphi((u_1, \hdots, u_n) \cdot (v_1, \hdots, v_n)) &= \varphi(u_1 v_1, \hdots, u_n v_n) = u_1 v_1 \hdots u_n v_n = \\ &= u_1 \hdots u_n v_1 \hdots v_n = \varphi(u_1, \hdots, u_n) \varphi(v_1, \hdots, v_n).
+    \end{align*}
+
+    Bleibt die Injektivität zu zeigen. Dazu reicht es nach \cref{remark:gruppe-injektiv-kern-trivial} zu zeigen, dass der Kern trivial ist. Sei also $\varphi(u_1, \hdots, u_n) = e$, so ist $(u_1, \hdots, u_n) = (e, \hdots, e)$ zu zeigen. Sei dazu indirekt angenommen es wäre nicht der Fall und sei $i$ minimal mit $u_i \neq e$, also
+    $$ e = \varphi(u_1, \hdots, u_n) = e \hdots e u_i \hdots u_n = u_i \hdots u_n, $$
+    womit $u_i^{-1} = u_{i+1} ... u_n \in V_i$ folgt. Da jedoch auch $u_i^{-1} \in U_i$ und $U_i \cap V_i = \{ e \}$ folgt damit $u_i = e$, im Widerspruch.
+
+    Insgesamt ist $\varphi$ also ein Isomorphismus, was zu zeigen war.
+\end{proof}
+
+\begin{remark}
+    Sei $(U_i)_{i \in I}$ eine Familie von Untergruppen einer Gruppe $G$, wobei $(I, <)$ totalgeordnet ist. Wir definieren das \emph{schwache Produkt} \index{schwaches Produkt}
+    $$ \prod_{i \in I}^w U_i := \{ f : I \to \bigcup_{i \in I} U_i \mid \forall i \in I: f(i) \in U_i \land f(i) = e \textrm{ für fast alle } i \in I \}. $$
+    Definiere weiters
+    $$ \varphi : \prod_{i \in I}^w U_i \to G, f \mapsto f(i_1) \cdot \hdots \cdot f(i_k), $$
+    wobei $i_1 < \hdots < i_k $ genau jene Indizes sind, für die $f(i_j) \neq e$ ist.
+
+    Falls $\varphi$ ein Isomorphismus ist, so nennen wir $G$ \emph{inneres direktes Produkt} von $(U_i)_{i \in I}$.
+
+    Ohne Beweis sei angemerkt dass \cref{prop:kriterien-direktes-inneres-produkt} entsprechend auch für solche inneren direkten Produkte gilt.
+\end{remark}
