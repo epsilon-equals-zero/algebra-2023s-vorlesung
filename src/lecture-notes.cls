@@ -147,6 +147,8 @@
 \DeclareMathOperator{\Gl}{Gl}
 \DeclareMathOperator{\Sl}{Sl}
 \DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\ran}{ran}
 
 %% OTHER COMMANDS %%
 

@@ -1,6 +1,6 @@
 \section{Gruppen}
 
-\begin{definition}
+\begin{definition}\label{def:gruppe}
     Sei $\mathfrak{G} = (G, \cdot, e, {}^{-1})$ eine Gruppe.
     \begin{itemize}
         \item Wir nennen $|G|$ die \emph{Ordnung} der Gruppe.\index{Gruppe!Ordnung}
@@ -381,4 +381,130 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
     Falls $\varphi$ ein Isomorphismus ist, so nennen wir $G$ \emph{inneres direktes Produkt} von $(U_i)_{i \in I}$.
 
     Ohne Beweis sei angemerkt dass \cref{prop:kriterien-direktes-inneres-produkt} entsprechend auch für solche inneren direkten Produkte gilt.
+\end{remark}
+
+\notedate{20.04.2023}
+
+Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
+
+\begin{example}
+    $\mathbb{Z} = \langle \{1\}\rangle$ und $\mathbb{Z}_m = \langle\{1\}\rangle$ sind zyklische Gruppen.
+\end{example}
+
+\begin{proposition}\label{prop:zyklische_gruppen_1} Für eine Gruppe $G$ gilt:
+    \begin{enumerate}
+        \item $G\;\text{zyklisch} \Leftrightarrow \exists h: \mathbb{Z} \to G\;\text{surjektiver Homomorphisus}$
+        \item $G\;\text{zyklisch} \Rightarrow G\;\text{abelsch}$
+        \item $G\;\text{zyklisch} \Rightarrow \forall F \in \textrm{H}(\{G\}): F\;\text{zyklisch}$
+        \item $G\;\text{zyklisch} \Rightarrow \forall F \in \textrm{S}(\{G\}): F\;\text{zyklisch}$
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof} {\ }
+    \begin{enumerate}
+        \item \begin{itemize}
+            \item[$\Leftarrow$:] Es gilt $\mathbb{Z}=\langle \{1\} \rangle$ und damit folgt $G=\langle \{h(1)\} \rangle$.
+            \item[$\Rightarrow$:] Sei $g \in G$ so, dass $G = \{g^n \mid g \in \mathbb{Z}\} $. Definiere die Abbildung $h: \mathbb{Z} \to G, n \mapsto g^n$. Dafür gilt $h(0) = e_g$, $h(n)^{-1} = (g^{n})^{-1} = g^{-n} = h(-n)$ und $h(m+n) = g^{m+n} = g^m g^n = h(m)h(n)$, womit $h$ ein Homomorphismus ist. Aufgrund der Wahl von $g$ ist $h$ nun surjektiv.
+        \end{itemize}
+        \item Diese Aussage folgt direkt aus 1., da abelsche Gruppen eine Varietät bilden. Es ist $\mathbb{Z}$ abelsch, also auch dessen homomorphe Bilder, insbesondere $G$.
+        \item Sei $F \in \mathrm{H}(\{G\})$ beliebig, es gibt also einen surjektiven Homomorphismus $\varphi: G \to F$. Aus 1. erhalten wir außerdem, da $G$ zyklisch ist, die Existenz eines surjektiven Homomorphismus $h: \mathbb{Z} \to G$. Die Verkettung $\varphi \circ h: \mathbb{Z} \to F$ ist nun erneut ein surjektiver Homomorphismus, weshalb wir erneut aus 1. erhalten, dass $F$ zyklisch ist.
+        \item Sei $F \in \mathrm{S}(\{G\})$ beliebig, also $F \le G$. Weiter sei $h: \mathbb{Z} \to G$ ein nach 1. existierender surjektiver Homomorphismus.
+        Wir wählen nun $U := h^{-1}(F) \le \mathbb{Z}$ und $m := \min\{n > 0 \mid n \in U\}$ bzw. $0$, falls die Menge leer ist. 
+        
+        Wir behaupten nun, dass $U = m \mathbb{Z}$. Sei zuerst $mk \in m\mathbb{Z}$, dann folgt, da $m \in U$ und $U$ als Untergruppe unter Addition und Inversenbildung abgeschlossen ist, induktiv auch $mk \in U$. Es gilt also $U \subseteq m\mathbb{Z}$. Sei nun $n \in U$ und \obda $n > 0$. Es gibt dann $k \in \mathbb{N}$ und $r \in \{0, \ldots, m-1\}$, sodass $n = mk+r$. Durch Umformen erhalten wir $r = n - mk \in U$. Aufgrund der Wahl von $m$ folgt nun, dass $r = 0$, da es sonst ein kleineres positives Element als $m$ in $G$ gäbe, im Widerspruch zur Minimalität von $m$. Es ist also $n = mk \in m\mathbb{Z}$, womit $U = m\mathbb{Z}$ folgt.
+
+        Betrachten wir nun den surjektiven Homomorphismus $h\vert_{m\mathbb{Z}}: m\mathbb{Z} \to F$. Da $m\mathbb{Z} = \langle\{m\}\rangle$ und $m\mathbb{Z}$ damit zyklisch ist, folgt aus 1., dass $F$ zyklisch ist.
+    \end{enumerate}
+\end{proof}
+
+\begin{remark}
+    Es ist leicht einzusehen, dass $\mathbb{Z}_2 \times \mathbb{Z}_2$ nicht zyklisch ist, obwohl $\mathbb{Z}_2$ es ist. Die zyklischen Gruppen sind also nicht unter P abgeschlossen und daher keine Varietät.
+\end{remark}
+
+\begin{proposition}
+    Sei $G$ eine zyklische Gruppe. Dann ist $G \cong \mathbb{Z}$ oder $G \cong \mathbb{Z}_m$.
+\end{proposition}
+\begin{proof}
+    Aus \cref{prop:zyklische_gruppen_1} folgt die Existenz eines surjektiven Homomorphismus $h: \mathbb{Z} \to G$. Der Homomorphiesatz (\ref{satz:homomorphiesatz}) liefert, dass $G \cong \mathbb{Z}/_{\ker h}$. Ist $\ker h = \{0\}$, so ist $G \cong \mathbb{Z}$. Ist $\ker h$ nicht trivial, so gibt es ein $m \in \mathbb{N}$, sodass $\ker h = m\mathbb{Z}$, da der Kern immer eine Untergruppe ist und im Beweis von \cref{prop:zyklische_gruppen_1} gezeigt wurde, dass alle Untergruppen von $\mathbb{Z}$ diese Form haben. Es folgt also $G \cong \mathbb{Z}/_{m\mathbb{Z}} \cong \mathbb{Z}_m$.
+\end{proof}
+
+\begin{definition}
+    Für eine Menge $A$ sei
+    $$ S_A = \{f: A \to A \mid f \;\text{bijektiv}\}$$
+    definiert. Wir nennen $(S_A, \circ, \id_A, {}^{-1})$ die \emph{symmetrische Gruppe von A}\index{Gruppe!symmetrische}.
+
+    Jede Untergruppe $U \le S_A$ einer symmetrischen Gruppe heißt \emph{Permutationsgruppe}\index{Permutationsgruppe}.
+\end{definition}
+
+\begin{theorem}[Darstellungssatz von Cayley für Gruppen]\index{Satz!von Cayley (Gruppen)}\label{satz:darstellungssatz-cayley-gruppen}
+    Sei $G$ eine Gruppe, dann existiert eine Permutationsgruppe $U$, sodass $G \cong U$.
+\end{theorem}
+\begin{proof}
+    Definieren wir die Abbildungen $$f_g: G \to G, h \mapsto gh \quad\text{und}\quad \varphi: G \to G^G, g \mapsto f_g.$$
+    Im Beweis von \cref{theorem:darstellungssatz-cayley-monoid} wurde bereits gezeigt, dass $\varphi$ ein Monoid-Homomorphismus bezüglich $\cdot / \circ$ ist. Sei nun $g \in G$ beliebig, dann gilt $$ \id_G = f_e = \varphi(e) = \varphi(g g^{-1}) = \varphi(g) \circ \varphi(g^{-1}) = f_g \circ f_{g^{-1}}$$
+    und analog $f_{g^{-1}} \circ f_g = \id_G$, also sind diese invers zueinander und somit Bijektionen. Wir erhalten daraus nun, dass $\varphi(g)^{-1} = \varphi(g^{-1})$ gilt, also $\varphi$ ein Gruppenhomomorphismus ist und, dass $\varphi(G) \le S_G$.
+\end{proof}
+
+\begin{definition}
+    Sei $A$ eine Menge und $G$ eine Gruppe. Ein Homomorphismus $h: G \to S_A$ heißt \emph{(Gruppen)Aktion von G auf A}\index{Gruppe!-aktion}. Man schreibt auch $G \overset{h}{\curvearrowright} A$.
+\end{definition}
+
+\begin{remark}
+   Eine andere Gruppenaktionen von $G$ nach $G$ als die Linkstranslation $\varphi$. Eine weitere ist die aus dem Beweis von \cref{satz:darstellungssatz-cayley-gruppen} bekannte Abbildung
+   \begin{equation*}
+        \Psi: G \to G^G, g \mapsto [\psi_g: G \to G, h \mapsto ghg^{-1}]. \tag*{(Konjugation)}
+   \end{equation*}
+
+   Ist $G$ abelsch, so ist $\Psi(G) = \{\id_G\}$. Außerdem ist 
+   $$ \ker \Psi = \{g \in G \mid \psi_g = \id_G\} = \{g \in G \mid \forall h \in G: ghg^{-1} = h\} = \{g \in G \mid \forall h \in G: gh = hg\}. $$
+
+   Wir definieren das \emph{Zentrum von $G$}\index{Gruppe!Zentrum} als
+   $$ Z(G) := \{ g \in G \mid \forall h \in G: gh = hg\}. $$ 
+\end{remark}
+
+\begin{definition}
+    Eine \emph{Permutation}\index{Permutation} ist eine bijektive Abbildung $\pi: \{1, \ldots, n\} \to \{1, \ldots, n\}$. Eine Darstellung von Permutationen ist die sogenannte \emph{Zyklenschreibweise}\index{Zyklenschreibweise}. Es wird die Permutation dabei dargestellt als
+    $$ (a_1\; \pi(a_1)\; \pi^2(a_1)\; \ldots \; \pi^{\ell_{a_1} - 1}(a_1)) (a_2\; \pi(a_2)\; \ldots \; \pi^{\ell_{a_2} - 1}(a_2)) \ldots (a_n\; \pi(a_n)\; \ldots \; \pi^{\ell_{a_n} - 1}(a_n)),$$
+    wobei die einzelnen Klammern \emph{Zyklus (von $a_i$)} genannt werden und $\ell_{a_i}$ die kleinste natürliche Zahl ist, sodass $\pi^{\ell_{a_i}}(a_i) = a_i$ gilt. Zyklen mit $\ell_{a_i} = 1$ (Fixpunkte) können in der Zyklenschreibweise weggelassen werden.
+    Die Gruppe aller Permutationen für bestimmtes $n \in \mathbb{N}$ ist die \emph{symmetrische Gruppe}\index{symmetrische Gruppe} und wir schreiben auch $S_n := S_{\{1,\ldots, n\}}$.
+
+    Eine \emph{Transposition}\index{Transposition} ist eine Permutation der Form $(i\; j)$.
+\end{definition}
+
+\begin{proposition}\label{prop:sym_gruppe} Für $n \in \mathbb{N}_{\ge 2}$ gilt
+    \begin{enumerate}
+        \item $\vert S_n \vert = n!$,
+        \item $\forall \pi \in S_n: \pi\;\text{ist das Produkt von Transpositionen}$ und
+        \item $\forall \pi \in S_n: \text{\# der Transpositionen modulo 2 ist unabhängig von der Darstellung}$.
+    \end{enumerate}
+\end{proposition}
+\begin{proof}{\ }
+    \begin{enumerate}
+        \item Wir beweisen mittels vollständiger Induktion, dass es $n!$ Bijektionen zwischen zwei $n$-elementigen Mengen $X_n = \{x_1, \ldots, x_n\}, Y_n = \{y_1, \ldots, y_n$ gibt.
+        
+        Induktionsanfang ($n = 1$): Es gibt genau eine (bijektive) Abbildung $f: \{x_1\} \to \{y_1\}$.\\
+        Induktionsschritt ($n \to n+1$): Für $i \in \{1, \ldots, n+1\}$ gibt es wegen der Induktionsvoraussetzung genau $n!$ Bijektionen von $X_n$ nach $\{y_1, \ldots, y_{i-1}, y_{i+1}, \ldots, y_{n+1}\}$ gibt, also gibt es $n!$ Bijektionen zwischen $X_{n+1}$ und $Y_{n+1}$ mit $f(x_{n+1}) = y_i$. Da nun $i$ aus $n+1$ Zahlen gewählt werden kann, gibt es $(n+1)n! = (n+1)!$ Bijektionen zwischen $X_{n+1}$ und $Y_{n+1}$.
+
+        Mit $X_n = Y_n = \{1, \ldots, n\}$ folgt die Behauptung.
+
+        \item Wir zeigen die Aussage mittels vollständiger Induktion:
+        
+        Induktionsanfang ($n = 2$): Es ist $S_n = \{ \id_{\{1,2\}}, (1\; 2) \}$, wobei $\id_{\{1,2\}} = (1\; 2) \circ (1\; 2)$.\\
+        Induktionsschritt ($n \to n+1$): Sei $\pi \in S_{n+1}$. Falls $\pi(n+1) \not= n+1$ wählen wir die (selbstinverse) Transposition $\tau = (\pi(n+1)\; n+1)$. Wählen wir nun $\tilde{\pi} := \tau \circ \pi$ oder $\tilde{\pi} = \pi$ falls $\pi(n+1) = n+1$. Es ist dann $\tilde{\pi}\vert_{\{1,\ldots,n\}} \in S_n$, womit es nach der Induktionsvoraussetzung eine Darstellung als Produkt von Transpositionen gibt. Da $\pi = \tilde\pi$ oder $\pi = \tau\tilde\pi$ gibt es nun also auch für $\pi$ eine solche Darstellung.
+
+        \item Die Aussage wird mittels vollständiger Induktion nach $m := \vert \{ i \mid \pi(i) \not= i \}\vert$ gezeigt.
+        
+        \textit{wird nachgeholt}
+    \end{enumerate}
+\end{proof}
+
+\begin{corollary}
+    Die Abbildung $$\sgn: S_n \to \{-1,1\}, \pi \mapsto \text{\# Transpositionen in der Darstellung von}\;\pi\;\text{mod}\; 2$$ ist ein Gruppenhomomorphismus.
+\end{corollary}
+\begin{proof}
+    Zuerst bemerken wir, dass die Abbildung aufgrund von \cref{prop:sym_gruppe} wohldefiniert ist. Zeigen wir nun die Verträglichkeit mit den Operationen. Es gilt klarerweise $\sgn(\id) = 1$. Seien nun $\pi, \pi' \in S_n$. Betrachten wir den Fall, dass $\pi$ und $\pi'$ Darstellungen durch eine gerade Anzahl an Permutationen haben, dann hat auch $\pi \circ \pi'$ eine Darstellung durch eine gerade Anzahl an Permutationen und es gilt $\sgn(\pi)\sgn(\pi') = \sgn(\pi \circ \pi')$. Die anderen drei Fälle sind analog. Zuletzt sei noch $\pi \in G$, dann ist $1 = \sgn(\id) = \sgn(\pi \circ \pi^{-1}) = \sgn(\pi) \sgn(\pi^{-1})$. Ist nun $\sgn(\pi) = 1$, so folgt $\sgn(\pi^{-1}) = 1 = \sgn(\pi)^{-1}$, der andere Fall ist analog.
+\end{proof}
+
+\begin{remark}
+    Es ist die \emph{alternierende Gruppe} $A_n := \ker \sgn \vartriangleleft S_n$ ein Normalteiler der symmetrischen Gruppe. Mit dem Homomorphiesatz erhält man, dass $S_n/A_n \cong \ran \sgn = (\{-1,1\}, \cdot)$.
 \end{remark}
