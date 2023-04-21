@@ -31,6 +31,8 @@
 
 \notedate{30.03.2023}
 
+\subsection{Nebenklassen und Normalteiler}
+
 \begin{definition}
     Seien $G$ eine Gruppe, $U \le G$ eine Untergruppe und $g \in G$. Wir definieren 
     \begin{itemize}[topsep=0cm, label={--}]
@@ -310,6 +312,8 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
     womit $G' \vartriangleleft G$ folgt.
 \end{proof}
 
+\subsection{Innere direkte Produkte}
+
 \begin{definition}
     Sei $G$ eine Gruppe, $U_1, U_2 \subseteq G, x \in G$, so definieren wir das \emph{Komplexprodukt}
     $$ U_1 \cdot U_2 = \{ u_1 \cdot u_2 \mid u_1 \in U_1, u_2 \in U_2 \}. $$
@@ -385,6 +389,8 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
 
 \notedate{20.04.2023}
 
+\subsection{Zyklische Gruppen}
+
 Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
 
 \begin{example}
@@ -427,6 +433,8 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
 \begin{proof}
     Aus \cref{prop:zyklische_gruppen_1} folgt die Existenz eines surjektiven Homomorphismus $h: \mathbb{Z} \to G$. Der Homomorphiesatz (\ref{satz:homomorphiesatz}) liefert, dass $G \cong \mathbb{Z}/_{\ker h}$. Ist $\ker h = \{0\}$, so ist $G \cong \mathbb{Z}$. Ist $\ker h$ nicht trivial, so gibt es ein $m \in \mathbb{N}$, sodass $\ker h = m\mathbb{Z}$, da der Kern immer eine Untergruppe ist und im Beweis von \cref{prop:zyklische_gruppen_1} gezeigt wurde, dass alle Untergruppen von $\mathbb{Z}$ diese Form haben. Es folgt also $G \cong \mathbb{Z}/_{m\mathbb{Z}} \cong \mathbb{Z}_m$.
 \end{proof}
+
+\subsection{Symmetrische und Permutationsgruppen}
 
 \begin{definition}
     Für eine Menge $A$ sei
