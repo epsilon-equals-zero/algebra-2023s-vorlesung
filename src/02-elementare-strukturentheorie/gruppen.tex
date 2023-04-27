@@ -536,7 +536,7 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
 \end{remark}
 
 \begin{definition}
-    Der \emph{Exponent} einer Gruppe $G$ ist definiert als
+    Der \emph{Exponent}\index{Gruppe!Exponent} einer Gruppe $G$ ist definiert als
     $$ \exp(G) := \min \{ m \in \mathbb{N} \setminus \{0\} \mid \forall g \in G: g^m = e \}, $$
     wobei wir $\exp(G) = \infty$ setzen, falls die obige Menge leer ist.
 \end{definition}
@@ -546,45 +546,45 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
 \end{remark}
 
 \begin{definition}
-    Sei $G$ eine Gruppe, $g \in G, p \in \mathbb{P}$, so nennen wir $g$ ein $p$-Element, wenn es ein $k$ mit $\ord(g) = p^k$ gibt. Weiters definieren wir den $p$-Anteil von $G$ als
+    Sei $G$ eine Gruppe, $g \in G, p \in \mathbb{P}$, so nennen wir $g$ ein \emph{$p$-Element}\index{Gruppe!$p$-Element}, wenn es ein $k \in \mathbb{N}$ mit $\ord(g) = p^k$ gibt. Weiters definieren wir den \emph{$p$-Anteil}\index{Gruppe!$p$-Anteil} von $G$ als
     $$ G_p := \{ g \in G \mid g \textrm{ ist $p$-Element } \}. $$
-    Hier sei daran erinnert, dass $g$ Torsionselement heißt, wenn es ein $k \in \mathbb{Z} \setminus \{ 0 \}$ mit $g^k = e$ gibt. Wir definieren
+    Hier sei daran erinnert, dass $g$ \emph{Torsionselement}\index{Gruppe!Torsionselement} heißt, wenn es ein $k \in \mathbb{Z} \setminus \{ 0 \}$ mit $g^k = e$ gibt. Wir definieren
     $$ G_t := \{ g \in G \mid g \textrm{ ist Torsionselement } \}. $$
 \end{definition}
 
 \begin{lemma} \label{lemma:abelsch-torsion-lemma}
-    Sei $G$ abelsch, $a_1, \hdots, a_n \in G_t$, so gelten:
+    Sei $G$ eine abelsche Gruppe und seien $a_1, \hdots, a_n \in G_t$, so gelten:
     \begin{enumerate}
-        \item $ \ord(a_1 \cdot \hdots \cdot a_n) \mid \ord(a_1) \cdot \hdots \cdot \ord(a_n) $
-        \item $ \forall i, j \in \{ 1, \hdots, n \}, i \neq j: \mathrm{ggT}(\ord(a_i), \ord(a_j)) = 1 \implies \ord(a_1 \cdot \hdots \cdot a_n) = \ord(a_1) \cdot \hdots \cdot \ord(a_n) $
+        \item $ \ord(a_1 \cdot \hdots \cdot a_n) \mid \ord(a_1) \cdot \hdots \cdot \ord(a_n) $\label{item:lemma:abelsch-torsion-lemma-1}
+        \item $ \left[\forall i, j \in \{ 1, \hdots, n \}, i \neq j: \mathrm{ggT}(\ord(a_i), \ord(a_j)) = 1\right] \Rightarrow \ord(a_1 \cdot \hdots \cdot a_n) = \ord(a_1) \cdot \hdots \cdot \ord(a_n) $\label{item:lemma:abelsch-torsion-lemma-2}
         \item $ \exists a \in G: \ord(a) = \mathrm{kgV}(\ord(a_1), \hdots, \ord(a_n)) $
     \end{enumerate}
 \end{lemma}
 
 \begin{proof}{\ }
     \begin{enumerate}
-        \item Wir zeigen die Aussage mittels Induktion nach $n$. Der Fall $n=1$ ist trivial. Zeigen wir also $n \to n + 1$. Setze $a := a_1 \cdot \hdots \cdot a_n$, so ist
+        \item Wir zeigen die Aussage mittels Induktion nach $n$. Der Induktionsanfang $n=1$ ist trivial. Zeigen wir also den Induktionsschritt $n \to n + 1$. Setze $a := a_1 \cdot \hdots \cdot a_n$, so ist
         $$ (a_1 \cdot \hdots \cdot a_n \cdot a_{n+1})^{\ord(a) \cdot \ord(a_{n+1})} = a^{\ord(a) \cdot \ord(a_{n+1})} \cdot a_{n+1}^{\ord(a) \cdot \ord(a_{n+1})} = e, $$
-        womit $\ord(a_1 \cdot \hdots \cdot a_{n+1}) \mid \ord(a) \cdot \ord(a_{n+1})$, und nach Induktionsvoraussetzung also auch $\ord(a_1 \cdot \hdots \cdot a_{n+1}) \mid \ord(a_1) \cdot \hdots \cdot \ord(a_{n+1})$.
+        womit $\ord(a_1 \cdot \hdots \cdot a_{n+1}) \mid \ord(a) \cdot \ord(a_{n+1})$, und nach Induktionsvoraussetzung und der Transitivität von $\mid$ also auch $\ord(a_1 \cdot \hdots \cdot a_{n+1}) \mid \ord(a_1) \cdot \hdots \cdot \ord(a_{n+1})$.
 
-        \item Wir zeigen die Aussage wieder mittels Induktion nach $n$. Der Fall $n=1$ ist trivial. Betrachten wir zunächst $n=2$. Sei Sei $\mathrm{ggT}(\ord(a_1), \ord(a_2)) = 1, m_1 = \ord(a_1), m_2 = \ord(a_2)$. Definiere $r := \ord(a_1 \cdot a_2)$, so ist
+        \item Wir zeigen die Aussage wieder mittels Induktion nach $n$. Der Induktionsanfang $n=1$ ist trivial. Betrachten wir zunächst $n=2$. Sei $\mathrm{ggT}(\ord(a_1), \ord(a_2)) = 1, m_1 = \ord(a_1), m_2 = \ord(a_2)$. Definiere $r := \ord(a_1 \cdot a_2)$, so ist
         $$ a_1^{r \cdot m_2} = a_1^{r \cdot m_2} \cdot a_2^{r \cdot m_2} = (a_1 \cdot a_2)^{r \cdot m_2} = e $$
-        und wir schließen $m_1 \mid r \cdot m_2$. Da $m_1, m_2$ teilerfremd sind folgt damit $m_1 \mid r$. Analog erhalten wir $m_2 \mid r$ und damit $m_1 \cdot m_2 \mid r$. Nach (1) gilt $r \mid m_1 \cdot m_2$, insgesamt folgt also $r = m_1 \cdot m_2$. Der Schritt $n \to n+1$ folgt nun sofort mit der Induktionsvoraussetzung und dem Fall $n=2$.
+        und wir schließen $m_1 \mid r \cdot m_2$. Da $m_1, m_2$ teilerfremd sind folgt damit $m_1 \mid r$. Analog erhalten wir $m_2 \mid r$ und damit $m_1 \cdot m_2 \mid r$. Nach \ref*{item:lemma:abelsch-torsion-lemma-1} gilt $r \mid m_1 \cdot m_2$, insgesamt folgt also $r = m_1 \cdot m_2$. Der Induktionsschritt $n \to n+1$ folgt nun sofort mit der Induktionsvoraussetzung und dem Fall $n=2$.
 
-        \item Wir zeigen die Aussage wieder mittels Induktion nach $n$. Der Fall $n=1$ ist trivial. Betrachten wir also wieder zunächst $n=2$. Setze $m_i := \ord(a_i)$. Wir können nun $\mathrm{kgV}(m_1, m_2) = r_1 \cdot r_2$ schreiben, wobei $\mathrm{ggT}(r_1, r_2) = 1, r_1 \mid m_1, r_2 \mid m_2$. Betrachte nun $b_i := a_i^{m_i / r_i}$, so ist $\ord(b_i) = r_i$. Da $r_1, r_2$ teilerfremd sind, folgt durch (2) $\ord(b_1 \cdot b_2) = \ord(b_1) \ord(b_2) = r_1 \cdot r_2 = \mathrm{kgV}(m_1, m_2)$. Wieder folgt der Schritt $n \to n+1$ sofort mit der Induktionsvoraussetzung und dem Fall $n=2$. 
+        \item Wir zeigen die Aussage wieder mittels Induktion nach $n$. Der Induktionsanfang $n=1$ ist trivial. Betrachten wir also wieder zunächst $n=2$. Setze $m_i := \ord(a_i)$. Wir können nun $\mathrm{kgV}(m_1, m_2) = r_1 \cdot r_2$ schreiben, wobei $\mathrm{ggT}(r_1, r_2) = 1, r_1 \mid m_1, r_2 \mid m_2$. Betrachte nun $b_i := a_i^{m_i / r_i}$, so ist $\ord(b_i) = r_i$. Da $r_1, r_2$ teilerfremd sind, folgt durch \ref*{item:lemma:abelsch-torsion-lemma-2} $\ord(b_1 \cdot b_2) = \ord(b_1) \ord(b_2) = r_1 \cdot r_2 = \mathrm{kgV}(m_1, m_2)$. Wieder folgt der Induktionsschritt $n \to n+1$ sofort mit der Induktionsvoraussetzung und dem Fall $n=2$. 
     \end{enumerate}
 \end{proof}
 
 \begin{corollary}
-    Sei $G$ abelsch, mit $\exp(G) = m < \infty$. Dann gibt es ein $g \in G$, mit $\ord(g) = m$.
+    Sei $G$ eine abelsche Gruppe mit $\exp(G) = m < \infty$. Dann gibt es ein $g \in G$, mit $\ord(g) = m$.
 \end{corollary}
 
 \begin{proof}
-    Sei $h \in G$ beliebig, so gilt $h^m = $ und damit $\ord(h) \mid m$. Damit ist $M := \{ \ord(h) \mid h \in G \}$ endlich, wir können also $M = \{ \ord(h_1), \hdots, \ord(h_n) \}$, mit $h_i \in G$, schreiben. Nach $\cref{lemma:abelsch-torsion-lemma}$ gibt es nun ein $g \in G$ mit $\ord(g) = \mathrm{kgV}(\ord(h_1), \hdots, \ord(h_n))$. Sei $h \in G$ beliebig, so ist $h^{\ord(g)} = e$. Insgesamt folgt damit also $m \leq \ord(g) \leq m$.
+    Sei $h \in G$ beliebig, so gilt $h^m = e$ und damit $\ord(h) \mid m$. Damit ist $M := \{ \ord(h) \mid h \in G \}$ endlich, wir können also $M = \{ \ord(h_1), \hdots, \ord(h_n) \}$, mit $h_i \in G$, schreiben. Nach $\cref{lemma:abelsch-torsion-lemma}$ gibt es nun ein $g \in G$ mit $\ord(g) = \mathrm{kgV}(\ord(h_1), \hdots, \ord(h_n))$. Es gilt nun $h^{\ord(g)} = e$. Insgesamt folgt damit also $$m \overset{h^{\ord(g)} = e}{\leq} \ord(g) \overset{\exp(G) = m,\; g \in G}{\leq} m$$.
 \end{proof}
 
 \begin{lemma}
-    Sei $G$ eine abelsche Gruppe und $p \in \mathbb{P}$. Dann gilt:
+    Sei $G$ eine abelsche Gruppe und sei $p \in \mathbb{P}$. Dann gilt:
     \begin{enumerate}
         \item $G_p \leq G$
         \item $G_t \leq G$
@@ -593,13 +593,13 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
 
 \begin{proof}{\ }
     \begin{enumerate}
-        \item Seien $a, b \in G_p$, so gibt es $u, v$ mit $\ord(a) = p^u, \ord(b) = p^v$, also folgt $\ord(a \cdot b) \mid \ord(a) \cdot \ord(b) = p^{u+v}$, also $a \cdot b \in G_p$. Wegen $\ord(a^{-1}) = \ord(a)$ folgt auch $a^{-1} \in G_p$.
+        \item Seien $a, b \in G_p$, so gibt es $u, v \in \mathbb{N}$ mit $\ord(a) = p^u, \ord(b) = p^v$ und es gilt nach \cref{lemma:abelsch-torsion-lemma} $\ord(a \cdot b) \mid \ord(a) \cdot \ord(b) = p^{u+v}$, also folgt $a \cdot b \in G_p$. Wegen $\ord(a^{-1}) = \ord(a)$ folgt auch $a^{-1} \in G_p$.
         \item Seien $a, b \in G_t$ mit $\ord(a) = x, \ord(b) = y$, so gilt $ \ord(a \cdot b) \mid x \cdot y$, also $a \cdot b \in G_t$.
     \end{enumerate}
 \end{proof}
 
 \begin{lemma} \label{lemma:p-anteile-verschieden}
-    Sei G abelsch, $p, p_1, \hdots, p_n \in \mathbb{P}$ paarweise verschieden, so ist
+    Sei G eine abelsche Gruppe und seien $p, p_1, \hdots, p_n \in \mathbb{P}$ paarweise verschieden, so ist
     $$ G_p \cap ( G_{p_1} \cdot \hdots \cdot G_{p_n} ) = \{ e \}. $$
 \end{lemma}
 
@@ -608,7 +608,7 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
 \end{proof}
 
 \begin{lemma} \label{lemma:zerlegung-p-anteile}
-    Sei $G$ abelsch, $a \in G$, $\ord(a) = p_1^{e_1} \cdot \hdots \cdot p_n^{e_n}$, wobei $p_1, \hdots, p_n \in \mathbb{P}$ paarweise verschieden sind. Dann ist $a \in G_{p_1} \cdot \hdots \cdot G_{p_n}$.
+    Sei $G$ eine abelsche Gruppe und sei $a \in G$ mit $\ord(a) = p_1^{e_1} \cdot \hdots \cdot p_n^{e_n}$, wobei $p_1, \hdots, p_n \in \mathbb{P}$ paarweise verschieden sind. Dann ist $a \in G_{p_1} \cdot \hdots \cdot G_{p_n}$.
 \end{lemma}
 
 \begin{proof}
@@ -616,7 +616,7 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
     $$ t_i := \frac{\ord(a)}{p_i^{e_i}}. $$
     Dann ist $\mathrm{ggT}(t_1, \hdots, t_n) = 1$. Es gibt also $x_1, \hdots, x_n \in \mathbb{Z}$ mit $\sum_{i=1}^n x_i t_i = 1$. Um dies einzusehen betrachte
     $$ M := \left\{ \sum_{i=1}^n x_i t_i \mid x_1, \hdots x_n \in \mathbb{Z} \right\} \subseteq \mathbb{Z}, $$
-    so ist $M \leq (\mathbb{Z}, +, 0, -)$ und $M = \langle \{ t_1, \hdots, t_n \} \rangle$. Es gibt nun ein $M$ mit $M = m \mathbb{Z}$. Dann gilt für alle $i$, dass $t_i \in M$, also $m \mid t_i$, womit $m = 1$ folgt und damit $M = \mathbb{Z}$.
+    so ist $M \leq (\mathbb{Z}, +, 0, -)$ und $M = \langle \{ t_1, \hdots, t_n \} \rangle$. Es gibt nun ein $m$ mit $M = m \mathbb{Z}$. Dann gilt für alle $i$, dass $t_i \in M$, also $m \mid t_i$, womit $m = 1$ folgt und damit $M = \mathbb{Z}$.
 
     Betrachte nun
     $$ a = a^1 = a^{\sum_{i=1}^n x_i t_i} = (a^{t_1})^{x_1} \cdot \hdots \cdot (a^{t_n})^{x_n}. $$
