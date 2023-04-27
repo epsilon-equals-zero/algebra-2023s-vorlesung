@@ -500,9 +500,11 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
         Induktionsanfang ($n = 2$): Es ist $S_n = \{ \id_{\{1,2\}}, (1\; 2) \}$, wobei $\id_{\{1,2\}} = (1\; 2) \circ (1\; 2)$.\\
         Induktionsschritt ($n \to n+1$): Sei $\pi \in S_{n+1}$. Falls $\pi(n+1) \not= n+1$ wählen wir die (selbstinverse) Transposition $\tau = (\pi(n+1)\; n+1)$. Wählen wir nun $\tilde{\pi} := \tau \circ \pi$ oder $\tilde{\pi} = \pi$ falls $\pi(n+1) = n+1$. Es ist dann $\tilde{\pi}\vert_{\{1,\ldots,n\}} \in S_n$, womit es nach der Induktionsvoraussetzung eine Darstellung als Produkt von Transpositionen gibt. Da $\pi = \tilde\pi$ oder $\pi = \tau\tilde\pi$ gibt es nun also auch für $\pi$ eine solche Darstellung.
 
-        \item Die Aussage wird mittels vollständiger Induktion nach $m := \vert \{ i \mid \pi(i) \not= i \}\vert$ gezeigt.
-        
-        \textit{wird nachgeholt}
+        \item Sei $\pi \in S_n$ mit zwei Darstellungen $\pi = (i_1\; j_1) \hdots (i_k\; j_k) = (a_1\; b_1) \hdots (a_\ell\; b_\ell)$. Transposition sind selbstinvers, wir haben also
+        $$ (a\ell\; b_\ell) \hdots (a_1\; b_1) (i_1\; j_1) \hdots (i_k\; j_k) = \id_{\{1,\hdots,n\}}. $$
+        Es reicht also zu zeigen, dass die Identität keine ungerade Darstellung besitzt. Dazu bemerken wir, dass $S_n$ auf der Menge $M := \{ (i, j) \mid 1 \leq i, j \leq n, i \neq j \}$ als Gruppenaktion agiert, und zwar durch
+        $$ \pi((i, j)) := (\pi(i), \pi(j)). $$
+        Sei $(i, j) \in M, i < j$, dann nennen wir $(i,j)$ einen Fehlstand von $\pi$, wenn $\pi(i) > \pi(j)$. Sei $1 \leq a < b \leq n$ und betrachte die Transposition $\pi_{ab}$ von $a$ und $b$. Ein Fehlstand muss klarerweise immer $a$ oder $b$ enthalten. Dann hat $\pi_{ab}$ die Fehlstände $(a, b)$, $(a, j)$, wobei $a < j < b$ und $(j, b)$, wobei $a < j < b$. Insgesamt ist die Anzahl der Fehlstände also ungerade. Da eine ungerade Anzahl an Kompositionen an Transpositionen immer eine ungerade Anzahl an Fehlständen hat, die Identität jedoch eine gerade Anzahl hat (nämlich 0), kann die Identität also nicht aus einer ungeraden Anzahl von Permutationen erzeugt werden.
     \end{enumerate}
 \end{proof}
 
@@ -516,3 +518,107 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
 \begin{remark}
     Es ist die \emph{alternierende Gruppe} $A_n := \ker \sgn \vartriangleleft S_n$ ein Normalteiler der symmetrischen Gruppe. Mit dem Homomorphiesatz erhält man, dass $S_n/A_n \cong \ran \sgn = (\{-1,1\}, \cdot)$.
 \end{remark}
+
+\notedate{26.04.2023}
+
+\subsection{Abelsche Gruppen}
+
+\begin{remark}
+    Sei $(G, \cdot, e, {}^{-1})$ eine abelsche Gruppe, so ist $G$ auch ein unitärer Modul über dem kommutativen 1-Ring $(\mathbb{Z}, +, 0, -, \ast, 1)$. Für $n \in \mathbb{Z}, g \in G$ definieren wir dazu $n \odot g := g^n$. Prüfen wir die Anforderungen an ein Modul. Seien $n, m \in \mathbb{Z}, g, h \in G$ beliebig. Dann ist
+    $$ (n \ast m) \odot g = g^{n \ast m} = (g^m)^n = n \odot (m \odot g), $$
+    $$ (n+m) \odot g = g^{n+m} = g^n \cdot g^m = (n \odot g) \cdot (m \odot g), $$
+    $$ n \odot (g \cdot h) = (g \cdot h)^n = g^n \cdot h^n = (n \odot g) \cdot (n \odot h), $$
+    wobei wir bei der letzten Zeile verwenden, dass $G$ abelsch ist.
+
+    Es stellt sich die Frage ob $G$ auch ein Modul über einem anderen Ring ist. Sei angenommen es gäbe ein $m \in \mathbb{Z}$, sodass für alle $g \in G$ gilt $g^m = e$. Dann ist $G$ ein unitärer Modul über $(\mathbb{Z}_m, +, 0, -, \ast, 1)$. Indirekt angenommen es gäbe ein $g \in G$ mit $g^m \neq e$, so wäre $g^0 = e$ ein Widerspruch.
+
+    Im Folgenden wollen wir statt $\cdot, \ast, \odot$ stets nur $\cdot$ schreiben.
+\end{remark}
+
+\begin{definition}
+    Der \emph{Exponent}\index{Gruppe!Exponent} einer Gruppe $G$ ist definiert als
+    $$ \exp(G) := \min \{ m \in \mathbb{N} \setminus \{0\} \mid \forall g \in G: g^m = e \}, $$
+    wobei wir $\exp(G) = \infty$ setzen, falls die obige Menge leer ist.
+\end{definition}
+
+\begin{remark}
+    Ist $G$ also eine abelsche Gruppe mit $\exp(G) = m < \infty$, so ist $G$ ein unitärer $\mathbb{Z}_m$-Modul vermöge $k \cdot g := g^k$ für $k \in \mathbb{Z}_m$.
+\end{remark}
+
+\begin{definition}
+    Sei $G$ eine Gruppe, $g \in G, p \in \mathbb{P}$, so nennen wir $g$ ein \emph{$p$-Element}\index{Gruppe!$p$-Element}, wenn es ein $k \in \mathbb{N}$ mit $\ord(g) = p^k$ gibt. Weiters definieren wir den \emph{$p$-Anteil}\index{Gruppe!$p$-Anteil} von $G$ als
+    $$ G_p := \{ g \in G \mid g \textrm{ ist $p$-Element } \}. $$
+    Hier sei daran erinnert, dass $g$ \emph{Torsionselement}\index{Gruppe!Torsionselement} heißt, wenn es ein $k \in \mathbb{Z} \setminus \{ 0 \}$ mit $g^k = e$ gibt. Wir definieren
+    $$ G_t := \{ g \in G \mid g \textrm{ ist Torsionselement } \}. $$
+\end{definition}
+
+\begin{lemma} \label{lemma:abelsch-torsion-lemma}
+    Sei $G$ eine abelsche Gruppe und seien $a_1, \hdots, a_n \in G_t$, so gelten:
+    \begin{enumerate}
+        \item $ \ord(a_1 \cdot \hdots \cdot a_n) \mid \ord(a_1) \cdot \hdots \cdot \ord(a_n) $\label{item:lemma:abelsch-torsion-lemma-1}
+        \item $ \left[\forall i, j \in \{ 1, \hdots, n \}, i \neq j: \mathrm{ggT}(\ord(a_i), \ord(a_j)) = 1\right] \Rightarrow \ord(a_1 \cdot \hdots \cdot a_n) = \ord(a_1) \cdot \hdots \cdot \ord(a_n) $\label{item:lemma:abelsch-torsion-lemma-2}
+        \item $ \exists a \in G: \ord(a) = \mathrm{kgV}(\ord(a_1), \hdots, \ord(a_n)) $
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}{\ }
+    \begin{enumerate}
+        \item Wir zeigen die Aussage mittels Induktion nach $n$. Der Induktionsanfang $n=1$ ist trivial. Zeigen wir also den Induktionsschritt $n \to n + 1$. Setze $a := a_1 \cdot \hdots \cdot a_n$, so ist
+        $$ (a_1 \cdot \hdots \cdot a_n \cdot a_{n+1})^{\ord(a) \cdot \ord(a_{n+1})} = a^{\ord(a) \cdot \ord(a_{n+1})} \cdot a_{n+1}^{\ord(a) \cdot \ord(a_{n+1})} = e, $$
+        womit $\ord(a_1 \cdot \hdots \cdot a_{n+1}) \mid \ord(a) \cdot \ord(a_{n+1})$, und nach Induktionsvoraussetzung und der Transitivität von $\mid$ also auch $\ord(a_1 \cdot \hdots \cdot a_{n+1}) \mid \ord(a_1) \cdot \hdots \cdot \ord(a_{n+1})$.
+
+        \item Wir zeigen die Aussage wieder mittels Induktion nach $n$. Der Induktionsanfang $n=1$ ist trivial. Betrachten wir zunächst $n=2$. Sei $\mathrm{ggT}(\ord(a_1), \ord(a_2)) = 1, m_1 = \ord(a_1), m_2 = \ord(a_2)$. Definiere $r := \ord(a_1 \cdot a_2)$, so ist
+        $$ a_1^{r \cdot m_2} = a_1^{r \cdot m_2} \cdot a_2^{r \cdot m_2} = (a_1 \cdot a_2)^{r \cdot m_2} = e $$
+        und wir schließen $m_1 \mid r \cdot m_2$. Da $m_1, m_2$ teilerfremd sind folgt damit $m_1 \mid r$. Analog erhalten wir $m_2 \mid r$ und damit $m_1 \cdot m_2 \mid r$. Nach \ref*{item:lemma:abelsch-torsion-lemma-1} gilt $r \mid m_1 \cdot m_2$, insgesamt folgt also $r = m_1 \cdot m_2$. Der Induktionsschritt $n \to n+1$ folgt nun sofort mit der Induktionsvoraussetzung und dem Fall $n=2$.
+
+        \item Wir zeigen die Aussage wieder mittels Induktion nach $n$. Der Induktionsanfang $n=1$ ist trivial. Betrachten wir also wieder zunächst $n=2$. Setze $m_i := \ord(a_i)$. Wir können nun $\mathrm{kgV}(m_1, m_2) = r_1 \cdot r_2$ schreiben, wobei $\mathrm{ggT}(r_1, r_2) = 1, r_1 \mid m_1, r_2 \mid m_2$. Betrachte nun $b_i := a_i^{m_i / r_i}$, so ist $\ord(b_i) = r_i$. Da $r_1, r_2$ teilerfremd sind, folgt durch \ref*{item:lemma:abelsch-torsion-lemma-2} $\ord(b_1 \cdot b_2) = \ord(b_1) \ord(b_2) = r_1 \cdot r_2 = \mathrm{kgV}(m_1, m_2)$. Wieder folgt der Induktionsschritt $n \to n+1$ sofort mit der Induktionsvoraussetzung und dem Fall $n=2$. 
+    \end{enumerate}
+\end{proof}
+
+\begin{corollary}
+    Sei $G$ eine abelsche Gruppe mit $\exp(G) = m < \infty$. Dann gibt es ein $g \in G$, mit $\ord(g) = m$.
+\end{corollary}
+
+\begin{proof}
+    Sei $h \in G$ beliebig, so gilt $h^m = e$ und damit $\ord(h) \mid m$. Damit ist $M := \{ \ord(h) \mid h \in G \}$ endlich, wir können also $M = \{ \ord(h_1), \hdots, \ord(h_n) \}$, mit $h_i \in G$, schreiben. Nach $\cref{lemma:abelsch-torsion-lemma}$ gibt es nun ein $g \in G$ mit $\ord(g) = \mathrm{kgV}(\ord(h_1), \hdots, \ord(h_n))$. Es gilt nun $h^{\ord(g)} = e$. Insgesamt folgt damit also $$m \overset{h^{\ord(g)} = e}{\leq} \ord(g) \overset{\exp(G) = m,\; g \in G}{\leq} m$$.
+\end{proof}
+
+\begin{lemma}
+    Sei $G$ eine abelsche Gruppe und sei $p \in \mathbb{P}$. Dann gilt:
+    \begin{enumerate}
+        \item $G_p \leq G$
+        \item $G_t \leq G$
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}{\ }
+    \begin{enumerate}
+        \item Seien $a, b \in G_p$, so gibt es $u, v \in \mathbb{N}$ mit $\ord(a) = p^u, \ord(b) = p^v$ und es gilt nach \cref{lemma:abelsch-torsion-lemma} $\ord(a \cdot b) \mid \ord(a) \cdot \ord(b) = p^{u+v}$, also folgt $a \cdot b \in G_p$. Wegen $\ord(a^{-1}) = \ord(a)$ folgt auch $a^{-1} \in G_p$.
+        \item Seien $a, b \in G_t$ mit $\ord(a) = x, \ord(b) = y$, so gilt $ \ord(a \cdot b) \mid x \cdot y$, also $a \cdot b \in G_t$.
+    \end{enumerate}
+\end{proof}
+
+\begin{lemma}
+    Sei G eine abelsche Gruppe und seien $p, p_1, \hdots, p_n \in \mathbb{P}$ paarweise verschieden, so ist
+    $$ G_p \cap ( G_{p_1} \cdot \hdots \cdot G_{p_n} ) = \{ e \}. $$
+\end{lemma}
+
+\begin{proof}
+    Sei $a \in G_{p_1} \cdot \hdots \cdot G_{p_n}$, es gibt also $a_i \in G_{p_i}$ mit $a = a_1 \cdot \hdots \cdot a_n$. Dann gilt $\ord(a) \mid \ord(a_1) \cdot \hdots \cdot \ord(a_n)$, also $\ord(a) = 1$, womit $a = e$ folgt.
+\end{proof}
+
+\begin{lemma}
+    Sei $G$ eine abelsche Gruppe und sei $a \in G$ mit $\ord(a) = p_1^{e_1} \cdot \hdots \cdot p_n^{e_n}$, wobei $p_1, \hdots, p_n \in \mathbb{P}$ paarweise verschieden sind. Dann ist $a \in G_{p_1} \cdot \hdots \cdot G_{p_n}$.
+\end{lemma}
+
+\begin{proof}
+    Wir definieren
+    $$ t_i := \frac{\ord(a)}{p_i^{e_i}}. $$
+    Dann ist $\mathrm{ggT}(t_1, \hdots, t_n) = 1$. Es gibt also $x_1, \hdots, x_n \in \mathbb{Z}$ mit $\sum_{i=1}^n x_i t_i = 1$. Um dies einzusehen betrachte
+    $$ M := \left\{ \sum_{i=1}^n x_i t_i \mid x_1, \hdots x_n \in \mathbb{Z} \right\} \subseteq \mathbb{Z}, $$
+    so ist $M \leq (\mathbb{Z}, +, 0, -)$ und $M = \langle \{ t_1, \hdots, t_n \} \rangle$. Es gibt nun ein $m$ mit $M = m \mathbb{Z}$. Dann gilt für alle $i$, dass $t_i \in M$, also $m \mid t_i$, womit $m = 1$ folgt und damit $M = \mathbb{Z}$.
+
+    Betrachte nun
+    $$ a = a^1 = a^{\sum_{i=1}^n x_i t_i} = (a^{t_1})^{x_1} \cdot \hdots \cdot (a^{t_n})^{x_n}. $$
+    Es ist aber $\ord(a^{t_i}) = p_i^{e_i}$, womit wegen $(a^{t_i})^{{p_i}^{e_i}} = a^{\ord(a)} = e$ dann $a^{t_i} \in G_{p_i}$ folgt.
+\end{proof}
