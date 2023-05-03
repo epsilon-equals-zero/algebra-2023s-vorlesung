@@ -1,0 +1,184 @@
+
+\notedate{03.05.2023}
+
+\section{Ringe}
+
+Es sei an \cref{def:ring} eines Rings erinnert.
+
+\begin{example}
+    Der kommutative 1-Ring der ganzen Zahlen $(\mathbb{Z}, +, 0, -, \cdot, 1)$.
+\end{example}
+
+\begin{example}
+    Es sei $P \subseteq \mathbb{R}^{\mathbb{R}}$ die Menge der Polynomfunktionen, so ist $(P, +, 0, -, \cdot, 1)$ ein Ring mit 1.
+\end{example}
+
+\begin{example}
+    Der 1-Ring der reelen $2 \times 2$ Matrizen $(\mathbb{R}^{2 \times 2}, +, (0)_{2 \times 2}, -, \cdot, E_2)$.
+\end{example}
+
+\begin{example}
+    Der Ring $(m\mathbb{Z}, +, 0, -, \cdot), m \geq 2$ besitzt kein Einselement.
+\end{example}
+
+\begin{definition}
+    Sei $R$ ein Ring, so heißt $\emptyset \neq I \subseteq R$ Ideal genau dann wenn
+    \begin{itemize}
+        \item $(I, +, 0, -)$ ist eine Untergruppe von R,
+        \item $\forall r \in R: rI \subseteq I \land Ir \subseteq I$
+    \end{itemize}
+    Gilt bei letzterer Bedingung nur $rI \subseteq I$, beziehungsweise $Ir \subseteq I$, so heißt $I$ Linksideal, beziehungsweise Rechtsideal.
+
+    Ist $I$ ein Ideal von $R$ so schreiben wir auch $I \vartriangleleft R$.
+\end{definition}
+
+\begin{remark}
+    Sei $I$ ein Ideal. Wir bemerken, dass dann $I$ eine Untergruppe von $(R, +, 0, -)$ ist. Nach Definition ist $I$ abgeschlossen unter $+$ und für $x \in I$ gilt $(-1) \cdot x = -x \in I$.
+
+    Weiters ist $I$ sogar ein Unterring von $R$, da $I$ nach Definition unter $\cdot$ abgeschlossen ist.
+\end{remark}
+
+\begin{remark}
+    Sei $I$ ein Ideal. Wir bemerken, dass $1 \in I \Leftrightarrow I = R$. Es gilt $I \subseteq R$ nach Definition, für die andere Richtung bemerken wir, dass für alle $r \in R$ gilt $r \cdot 1 = r \in I$.
+\end{remark}
+
+\begin{example}
+    Betrachte den Ring $(\mathbb{Q}, +, 0, -, \cdot, 1)$, so ist $\mathbb{Z}$ ein Unterring, jedoch kein Ideal.
+\end{example}
+
+\begin{example}
+    Es ist $m \mathbb{Z} \subseteq (\mathbb{Z}, +, 0, -, \cdot, 1)$ ein Ideal.
+\end{example}
+
+\begin{example}
+    Sei $M$ eine Menge und betrachte den Ring $(\mathcal{P}(M), \triangle, \emptyset, \id_{\mathcal{P}(M)}, \cap, M)$. Sei $A \subseteq M$ beliebig, so ist $\mathcal{P}(A) \vartriangleleft \mathcal{P}(M)$. Weiters ist $(\mathcal{P}(A), \triangle, \emptyset, \id_{\mathcal{P}(A)}, \cap, A)$ ein weiterer Ring mit 1.
+\end{example}
+
+\begin{example}
+    Sei wieder $P$ die Menge der Polynomfunktionen von $\mathbb{R}$ in sich. Dann ist $(x^2 + 1) \cdot P \vartriangleleft P$. Dies ist ein allgemeines Prinzip, wie wir später noch sehen werden.
+\end{example}
+
+\begin{remark}
+    Sei $(R, +, 0, -, \cdot)$ ein Ring und $\sim \subseteq R^2$ eine Kongruenzrelation auf $R$. Dann ist $\sim$ insbesondere eine Kongruenzrelation auf $(R, +, 0, -)$, womit $\sim$ eindeutig durch $[0]_{\sim}$ bestimmt ist.
+
+    Sind $x, y \in R$ beliebig, $x, y \in [0]_{\sim}$, so gilt $x + y \in [0]_{\sim}, (-x) \in [0]_{\sim}$, vergleiche die Theorie von Normalteilern von Gruppen. Sei $r \in R$ beliebig, so gilt $x \sim 0, r \sim r$, und da $\sim$ Kongruenzrelation ist damit $r \cdot x \sim 0 \cdot r = 0$, also folgt $[0]_{\sim} \vartriangleleft R$.
+
+    Umgekehrt sei $I \vartriangleleft R$ ein Ideal, wir wollen eine entsprechende Kongruenzrelation $\sim$ definieren. Für $x, y \in R$ definieren wir
+    $$ x \sim y :\Leftrightarrow y - x \in I. $$
+    Wir wissen, dass $\sim$ eine Kongruenzrelation bezüglich $(R, +, 0, -)$ ist. Sei $a \sim b, c \sim d$, dann folgt
+    $$ (a-b) \cdot d \in I, \quad a \cdot (c - d) \in I \implies (a-b)\cdot d + a\cdot(c-d) \in I. $$
+    Letzerer Ausdruck ist jedoch gleich
+    $$ ad - bd + ac - ad = -(bd - ac), $$
+    also folgt $ac \sim bd$ und $\sim$ ist auch eine Kongruenzrelation bezüglich $\cdot$.
+\end{remark}
+
+\begin{definition}
+    Sei $R$ ein Ring, $A \subseteq R$, $a \in R$, so heißen
+    $$ (A) := \bigcap \{ I \vartriangleleft R \mid A \subseteq I \}, $$
+    $$ (a) := \bigcap \{ I \vartriangleleft R \mid a \in I \} $$
+    die von $A$, beziehungsweise $a$, \emph{erzeugten Ideale}.
+\end{definition}
+
+\begin{remark}
+    Man beachte dass $(A)$ und $(a)$ tatsächlich Ideale sind, da Ideale unter Schnitten abgeschlossen sind.
+\end{remark}
+
+\begin{remark}
+    Wir bemerken, dass gilt
+    $$ (A) = \left\{ \sum_i r_i a_i s_i + \sum_j r_j' a_j' + \sum_k a_k'' s_k'' + \sum_\ell a_\ell''' \mid a_i, a_j', a_k'' \in A, a_\ell''' \in A \cup (-A), r_i, r_j', s_i, s_k'' \in R \right\}. $$
+
+    Ist $R$ sogar ein kommutativer Ring mit 1, so gilt
+    $$ (A) = \left\{ \sum_i r_i a_i \mid r_i \in R, a_i \in A \right\}. $$
+\end{remark}
+
+\begin{definition}
+    Sei $R$ ein Ring. Wir nennen $I \vartriangleleft R$ \emph{Hauptideal}, wenn gilt
+    $$ \exists a \in R: I = (a). $$
+
+    Weiters nennen wir $R$ einen \emph{Hauptidealring}, wenn gilt
+    $$ \forall I \vartriangleleft R : I \text{ ist Hauptideal}. $$
+\end{definition}
+
+\begin{example}
+    Es ist $(\mathbb{Z}, +, 0, -, \cdot, 1)$ ein Hauptidealring, da alle Untergruppen von der Form $m \mathbb{Z} = (m)$ sind.
+\end{example}
+
+\begin{definition}
+    Ein Ring $R$ heißt \emph{nullteilerfrei}, wenn
+    $$ \forall a, b \in R: (a \cdot b = 0 \implies a = 0 \lor b = 0) $$
+\end{definition}
+
+\begin{example}
+    Ist $R$ ein Körper, so ist $R$ nullteilerfrei, da mit $0 \neq a \in R, b \in R$ gilt
+    $$ a b = 0 \implies b = a^{-1} a b = a^{-1} 0 = 0. $$
+\end{example}
+
+\begin{definition}
+    Ist $R$ ein kommutativer Ring mit 1 und nullteilerfrei, so nennen wir $R$ \emph{Integritätsbereich}.
+\end{definition}
+
+\begin{example}
+    Es ist $(\mathbb{Z}, +, 0, -, \cdot, 1)$ ein Integritätsbereich, jedoch kein Körper.
+\end{example}
+
+\begin{proposition}
+    Ist $R$ ein Integritätsbereich und endlich, so ist $R$ ein Körper.
+\end{proposition}
+
+\begin{proof}
+    Sei $r \in R \setminus \{0\}$, wir wollen ein multiplikatives Inverses finden. Betrachte die Abbildung
+    $$ \varphi_r : R \to R, x \mapsto r \cdot x. $$
+    $\varphi_r$ ist injektiv: Sei $\varphi_r(x) = \varphi_r(y)$, so folgt $rx = ry$, also $r(x-y) = 0$, also $x-y=0$, also $x=y$.
+    Da $R$ endlich ist, ist damit $\varphi_r$ schon surjektiv, also gibt es ein $x \in R$ mit $\varphi_r(x) = r \cdot x = 1$.
+\end{proof}
+
+\begin{proposition}
+    Sei $R$ ein kommutativer Ring mit 1, dann ist $R$ ein Körper genau dann, wenn
+    $$ \forall I \vartriangleleft R: (I = \{0\} \lor I = R). $$
+\end{proposition}
+
+\begin{proof}{\ }
+    \begin{itemize}
+        \item $\implies$: Sei $I \neq \{0\}, x \in I, x \neq 0$, so ist $1 = x^{-1} x \in I$, also $I = R$.
+        \item $\impliedby$: Sei $R$ ein kein Körper, so gibt es ein $x \in R \setminus \{0\}$ sodass für alle $y \in R$ gilt $xy \neq 1$. Setze $I := (x) \vartriangleleft R$, so gilt wegen $x \in I$ dass $I \neq \{0\}$. Wegen $1 \notin I$ ist auch $I \neq R$.
+    \end{itemize}
+\end{proof}
+
+\begin{definition}
+    Sei $I \vartriangleleft R$. Wir nennen $I$ \emph{prim}, wenn
+    $$ \forall a, b \in R: (ab \in I \implies a \in I \lor b \in I). $$
+    Weiters nennen wir $I$ \emph{maximal}, wenn
+    $$ I \subsetneq R \land \forall J \vartriangleleft R : J \supsetneq I. $$
+\end{definition}
+
+\begin{example}
+    Sei $p \in \mathbb{P}$, so ist $p \mathbb{Z} \vartriangleleft \mathbb{Z}$ prim. Ist $m \in \mathbb{N}_{\geq 2} \setminus \mathbb{P}$, so ist $m \mathbb{Z}$ nicht prim.
+\end{example}
+
+\begin{proposition}
+    Sei $R$ ein kommutativer Ring mit 1 und $I \vartriangleleft R$. Dann gilt:
+    \begin{itemize}
+        \item $R /_{I} \text{ ist Körper} \Leftrightarrow I \text{ ist maximal}$
+        \item $R /_{I} \text{ ist prim} \Leftrightarrow I \text{ ist prim}$
+        \item $I \text{ ist maximal} \implies I \text{ ist prim}$
+        \item $I \text{ ist echt} \implies \exists J \supseteq I: J \vartriangleleft R \text{ ist maximal}$
+    \end{itemize}
+\end{proposition}
+
+\begin{proof}{\ }
+    \begin{enumerate}
+        \item \begin{itemize}
+            \item $\implies$: Angenommen $I$ wäre nicht maximal, es gibt also ein $J \supsetneq I, J \vartriangleleft R$.
+            Sei $J' := \{ a + I \mid a \in J \}$. Dann ist $J' \vartriangleleft R/_I, J' \neq R/_I$, also ist $J' \neq \{I\}$. Also hat $R/_I$ ein echtes Ideal, im Widerspruch dazu, dass $R/_I$ ein Körper ist.
+            \item $\impliedby$: Sei $I$ maximal. Wir behaupten, dass $R/_I$ keine echten Ideale außer dem trivialen hat. Wäre dies nicht so, so sei $J \vartriangleleft R/_I$ echt, $J \neq \{I\}$ und sei $J' := \bigcup J$. Dann ist $J' \supsetneq I, J' \neq R, J' \vartriangleleft R$, im Widerspruch zur Maximalität von $I$.
+        \end{itemize}
+        \item Es gilt
+        \begin{align*}
+            R/_I \text{ ist Integritätsbereich} &\Leftrightarrow \forall a, b \in R: (a + I)(b + I) = I \implies a + I = I \lor b + I = I \\
+            &\Leftrightarrow \forall a, b \in R: ab \in I \implies a \in I \lor b \in I \\
+            &\Leftrightarrow I \text{ ist prim}.
+        \end{align*}
+        \item Folgt direkt aus (1) und (2).
+        \item Folgt aus dem Lemma von Zorn.
+    \end{enumerate}
+\end{proof}
