@@ -182,3 +182,112 @@ Es sei an \cref{def:ring} eines Rings erinnert.
         \item Folgt aus dem Lemma von Zorn.
     \end{enumerate}
 \end{proof}
+
+\notedate{04.05.2023}
+
+\begin{example}
+    Betrachte den Ring $\mathbb{Z}$, $p \in \mathbb{P}$ und $p \mathbb{Z} \vartriangleleft \mathbb{Z}$, so erhalten wir $\mathbb{Z}/_{p\mathbb{Z}} = \mathbb{Z}/_p$.
+
+    Für ein $m \in \mathbb{N}$ betrachte $m \mathbb{Z} \vartriangleleft \mathbb{Z}$, so ist zwar $\mathbb{Z} /_{m\mathbb{Z}} = \mathbb{Z}_m$, jedoch kein Körper.
+\end{example}
+
+\begin{example}
+    Sei $P$ die Menge der Polynomfunktionen auf $\mathbb{R}$ und $(x^2+1) \cdot P \vartriangleleft P$, so ist dies ein Primideal, und $P/_{(x^2+1) \cdot P}$ sogar ein Integritätsbereich. Jedoch ist es kein Körper, da $(x^2+1) \cdot P$ nicht maximal ist -- betrachte dazu beispielsweise
+    $$ (x^2 + 1) \cdot P \subsetneq (x^2+1) \cdot P + x \cdot P \vartriangleleft P $$.
+
+    Das Ideal $I := (x^2 - 1) \cdot P \vartriangleleft P$ ist kein Primideal, da $(x-1)\notin I, (x+1) \notin I$, aber $(x-1)(x+1) = x^2 - 1 \in I$.
+\end{example}
+
+\begin{definition}
+    Wir definieren die $\emph{Charakteristik}$ eines Rings als
+    $$ \mathrm{char}{R} := $$
+    TODO
+\end{definition}
+
+\begin{proposition}
+    Sei $R$ ein Ring mit 1, $\mathrm{char} R = p \in \mathbb{P}$. Dann ist
+    $$ \varphi : R \to R, x \mapsto x^{p^k} $$
+    ein Homomorphismus.
+\end{proposition}
+
+\begin{proof}
+    Wir zeigen die Aussage mittels Induktion nach $k$.
+
+    Induktionsanfang ($k = 1$): Es gilt
+    $$ (a+b)^p = \sum_{i=0}^p {p \choose i} a^i b^{p-1}. $$
+    Wir beobachten
+    $$ {p \choose i} = \frac{p \cdot (p-1) \cdot \hdots \cdot (p-i+1)}{} \equiv 0 mod p $$
+    TODO
+\end{proof}
+
+\begin{remark}
+    Sei $R$ ein kommutativer Ring mit 1, wir wollen $R$ in einen Körper einbetten. Es gelte \obda $0 \neq 1$ (da sonst für alle $x$ gilt $ x = 1\cdot x = 0 \cdot x = 0$). Wir sammeln nun notwendige Voraussetzungen.
+
+    Es muss $R$ ein Integritätsbereich sein, da sonst
+    TODO
+
+    Nicht notwendig (da es aus der vorigen Bedingung folgt), aber interessant ist die Tatsache, dass wenn $R$ ein Integritätsbereich ist, jedes Element außer $0$ bereits kürzbar ist.
+    TODO
+
+    Es ist $R^* := R \setminus \{0\}$ ein kommutatives Monoid mit $\cdot$. Definiere eine Äquivalenzrelation $\sim \subseteq (R \times R^*)^2, (a, b) \sim (c, d) :\Leftrightarrow ad = bc$. Wie man nachrechnet ist dies sogar eine Kongruenzrelation. Dann ist $((R \times R^*)/_\sim, \cdot, [(1,1])_\sim) := M$ ein Monoid, wobei jedes $[(x,y)]_\sim$ mit $x \neq 0$ ein Inverses besitzt.
+    
+    Dann ist
+    $$ \varphi : R \to M, x \mapsto [(x, 1)]_\sim $$
+    eine Einbettung von $R$ in $M$.
+
+    Für jedes multiplikative Monoid $N$ mit einer Einbettung $\psi : R \to N$ gibt es eine Einbettung $\bar{\psi} : M \to N$ mit $\bar{\psi} \circ \varphi = \psi$.
+
+    Auf $M$ definieren wir nun eine Addition
+    $$ (a,b) + (c,d) := (ad+bc, bd), \quad -(a,b) := (-a, b), $$
+    so ist $(R \times R^*, +, (0,1), -)$ eine Gruppe.
+\end{remark}
+
+\begin{lemma}
+    Die wie oben definierte Äquivalenzrelation $\sim \subset (R \times R^*)^2$ ist eine Kongruenzrelation bezüglich $+$.
+\end{lemma}
+
+\begin{proof}
+    nachrechnen TODO
+\end{proof}
+
+\begin{theorem}
+    Sei $R$ ein kommutativer Ring mit $1 \neq 0$, der zusätzlich ein Integritätsbereich ist. Sei weiters $\sim \subseteq (R \times R^*)^2$ wie oben definiert. Dann gilt:
+    \begin{enumerate}
+        \item $K := (R \times R^*)^2/_\sim $ mit $+, \cdot$ wie oben definiert ist ein Körper.
+        \item $\varphi : R \to K, x \mapsto [(x, 1)]_\sim$ ist eine Einbettung.
+        \item Für alle Einbettungen $\psi : R \to L$ in einen Körper $L$ gibt es eine Einbettung $\bar{\psi} : K \to L$ mit $\bar{\psi} \circ \varphi = \psi$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Wir haben bereits gezeigt, dass $\sim$ eine Kongruenzrelation ist, womit $K$ wohldefiniert ist.
+
+    Wir wissen $(K, \cdot, [(1,1)]_\sim)$ ist ein kommutatives Monoid.
+
+    Weiters ist $(K \setminus \{ [(0,1)]_\sim \}, \cdot, [(1, 1)]_\sim) = (R^* \times R^*)/_\sim$ eine kommutative Gruppe, genauso auch $(K, +, [(0,1)]_\sim, -)$.
+
+    Das Distributivgesetz verifiziert man unmittelbar durch Nachrechnen.
+
+    Nach Konstruktion ist $\varphi$ eine injektive Einbettung bezüglich $\cdot$. Wie man nachrechnet ist $\varphi$ sogar eine Einbettung bezüglich $+$.
+
+    Sei $\psi : R \to L$ eine Einbettung in einen Körper $L$. Nach der Monoidkonstruktion gibt es eine Einbettung $\bar{\psi} : K \to L$ bezüglich $\cdot$ mit $\bar{\psi} \circ \varphi = \psi$. Wir verifizieren nun
+    \begin{align*}
+        \bar{\psi} ([(z_1, u_1)]_\sim + [(z_2, u_2)]_\sim) &= \bar{\psi} ([(z_1 u_2 + z_2 u_1, u_1 u_2)]_\sim) \\
+        &= \bar{\psi}([])
+    \end{align*}
+\end{proof}
+
+\begin{proposition}
+    Sei $L$ ein Körper mit der obigen Eigenschaft (3), so gilt bereits $L \cong K$, wobei $K$ unser konstruierter Körper.
+\end{proposition}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{example}
+    Sei $R$ ein kommutativer Ring mit 1, $x$ eine Variable und definiere
+    $$ R[x] := \{ t(x) \mid t \text{ Term über $x$ in Sprache } +, \cdot, (r)_{r \in R} \}/_\sim, $$
+    wobei $\sim$ die von Gesetzen der kommutativen Ringe mit 1 und Gesetzen in $R$ erzeugte Äquivalenzrelation ist. In $R[x]$ gilt also beispielsweise
+    $$ x + x \cdot x = x \cdot x + x, \quad r \cdot (s \cdot x) = (r \cdot s) \cdot x. $$
+\end{example}
