@@ -291,3 +291,89 @@ Es sei an \cref{def:ring} eines Rings erinnert.
     wobei $\sim$ die von Gesetzen der kommutativen Ringe mit 1 und Gesetzen in $R$ erzeugte Äquivalenzrelation ist. In $R[x]$ gilt also beispielsweise
     $$ x + x \cdot x = x \cdot x + x, \quad r \cdot (s \cdot x) = (r \cdot s) \cdot x. $$
 \end{example}
+
+\notedate{11.05.2023}
+
+\subsection{Faktorielle Ringe}
+
+\begin{definition}
+    Sei $R$ ein Integritätsbereich, so heißt $R$ \emph{faktorieller Ring} (oder \emph{Gaußscher Ring}, oder auch \emph{ZPE-Ring}) genau dann wenn
+    $$ \forall r \in R : \exists r_1, \hdots, r_n \in R \setminus \{ [1]_\sim \} \text{ irreduzibel} : r = r_1 \cdot \hdots \cdot r_n, $$
+    wobei die $r_i$ bis auf Reihenfolge und Äquivalenz $\sim$ eindeutig bestimmt sind\footnote{Wir haben also zwei geforderte Eigenschaften für faktorielle Ringe, die Existenz und die Eindeutigkeit. In der Literatur werden oft Ringe mit der ersten Eigenschaft mit \emph{factorization domain (FD)} bezeichnet, Ringe wo zusätzlich die Letztere gilt oft mit \emph{unique factorization domain (UFD)}.}.
+\end{definition}
+
+\begin{remark}
+    Wir bemerken, dass Zerlegung in Primelemente \emph{immer} eindeutig sind (wieder bis auf Reihenfolge und Äquivalenz).
+
+    Um dies einzusehen sei $a \in R$ mit zwei Zerlegungen
+    $$ a = p_1 \cdot \hdots \cdot p_u = q_1 \cdot \hdots \cdot q_v, $$
+    wobei $p_i, q_i$ prim sind. Damit folgt $p_1 \mid q_1 \cdot \hdots \cdot q_v$, da $p_1$ prim ist gibt es also ein $j$ mit $p_1 \mid q_j$. Nach Voraussetzung ist $q_j$ irreduzibel, also folgt $p_1 \sim q_j$ und damit $x \cdot p_1 = q_j$ mit einem $x \sim 1$. Kürzen von $p_1$ liefert
+    $$ p_2 \cdot \hdots \cdot p_u = q_1 \cdot \hdots \cdot q_{j-1} \cdot x \cdot q_{j+1} \cdot \hdots \cdot q_v. $$
+    Induktiv folgt dadurch die Eindeutigkeit.
+
+    Tatsächlich haben wir hier nicht verwendet, dass die $q_i$ prim sind - wir haben also die stärkere Aussage gezeigt, dass es, sobald es eine Zerlegung in Primelemente gibt, diese bereits eindeutig ist (es gibt also keine andere Zerlegung in Nichtprimelemente, bis auf Reihenfolge und Äquivalen).
+\end{remark}
+
+\begin{proposition}
+    Sei $R$ ein Integritätsbereich, dann sind äquivalent:
+    \begin{enumerate}
+        \item $R$ ist faktoriell.
+        \item $ \forall r \in R \setminus \{0\}, r \not\sim 1 \exists p_1, \hdots, p_s \in R \text{ prim}: r = p_1 \cdot \hdots \cdot p_s $
+        \item $ \forall r \in R: ( \setminus \{0\}, r \not\sim 1 \exists r_1, \hdots, r_t \in R \text{ irreduzibel}: r = r_1 \cdot \hdots \cdot r_t ) \land ( r \text{ irreduzibel} \implies r \text{ prim} ) $
+    \end{enumerate}
+\end{proposition}
+
+
+\begin{proof}{\ }
+    \begin{itemize}[leftmargin=2.5cm]
+        \item[$(1) \implies (3)$:] Die erste Aussage gilt nach Definition. Ist nun $r \in R$ irreduzibel, so wähle $a, b \in R$ mit $r \mid a \cdot b$, es gibt also ein $c$ mit $r \cdot c = a \cdot b$. Mit (1) erhalten wir eine Zerlegung
+        $$ r \cdot (c_1 \cdot \hdots \cdot c_u) = (a_1 \cdot \hdots \cdot a_v) \cdot (b_1 \cdot \hdots \cdot b_w), $$
+        wobei die geklammerten Terme jeweils irreduzibel sind. Nach (1) gibt es nun noch $i, j$ mit $r \sim a_i$ und $r \sim b_j$, womit $r \mid a$ und $r \mid b$ folgt, womit $r$ prim ist.
+
+        \item[$(3) \implies (1)$:] Wir haben oben bereits gezeigt dass Zerlegungen in Primelemente eindeutig sind, somit folgt sofort die Aussage.
+        
+        \item[$(3) \implies (2)$:] Trivial.
+
+        \item[$(2) \implies (3)$:] Die erste Aussage folgt da Primelemente irreduzibel sind. Für die zweite sei $r \in R$ irreduzibel, nach (2) gibt es eine Zerlegung $r = r_1 \cdot \hdots \cdot r_s$ in Primelemente. Da $r$ irreduzibel ist folgt $s = 1$, womit $r$ prim ist.
+    \end{itemize}
+\end{proof}
+
+\begin{example}
+    Betrachte $R = \mathbb{Q} + x \cdot \mathbb{R}[x] \leq \mathbb{R}[x]$, so ist $R$ ein Integritätsbereich. Nun gilt jedoch $x \mid (\sqrt{2} x)^2 = 2x^2$, aber $x \nmid \sqrt{2}x$, womit $x$ nicht prim ist.
+    
+    Weiters ist $x$ irreduzibel, da $x = p \cdot q$ implizieren würde $\deg{p} = 0$ und $\deg{q} = 0$. Dann wäre jedoch $p \in \mathbb{Q}$, also $p \sim 1$.
+    
+    Nun gilt
+    $$ x \cdot x = x^2 = (\frac{\sqrt{2}}{2} x)(\sqrt{2}x), $$
+    wobei alle Faktoren rechts und links irreduzibel sind. Die Zerlegungen sind unterschiedlich, da $x \not\sim \sqrt{2} x, \frac{\sqrt{2}}{2} x$, da $\sqrt{2}, \frac{\sqrt{2}}{2} \notin R$.
+\end{example}
+
+\begin{proposition}
+    Wenn $R$ ein Hauptidealring ist, so ist $R$ faktoriell.
+\end{proposition}
+
+\begin{proof}
+    Sei $r \in R$ irreduzibel, wir zeigen, dass $r$ prim ist. Wir bemerken, dass $ (r) \vartriangleleft R $ echt ist, womit es ein maximales, echtes Ideal gibt mit $(r) \subseteq I \vartriangleleft R$. Da $R$ ein Hauptidealring ist gibt es ein $c \in R$ mit $I = (c)$. $c$ ist prim, da $I$ maximal und damit prim ist. Nun gilt $r \in (c)$, womit $c \mid r$ folgt. Da $r$ irreduzibel ist folgt $r \mid c$, also folgt $r \sim c$ und damit, dass $r$ prim ist.
+
+    Sei nun $r \in R \setminus \{0\}, r \not\sim 1$, wir suchen eine Zerlegung in irreduzible Elemente. Ist $r$ nicht irreduzibel, so können wir $r = r_0 \cdot r_1$ schreiben, wobei $r_0, r_1 \not\sim 1$. Entsprechend können wir, wenn $r_0$ beziehungsweise $r_1$ nicht irreduzibel sind $r_{00}, r_{01}$ finden. Induktiv zerlegen wir also
+    $$ r_{i_1 \hdots i_n} = r_{i_1 \hdots i_n 0} \cdot r_{i_1 \hdots i_n 1}. $$
+    Sei $T$ der Baum der $r_{i_1 \hdots i_n}$. Ist $T$ endlich, so haben wir eine gewünschte Zerlegung gefunden. Sei indirekt angenommen $T$ wäre unendlich, es gibt also einen unendlichen Ast (König's Lemma) -- \obda betrachten wir den Ast $r_0, r_{00}, r_{000}, \hdots$. Nun gilt
+    $$ (r) \subseteq (r_0) \subseteq (r_{00}) \subseteq \hdots $$
+    Sei indirekt angenommen $r_0 \sim r_{00}$, so gibt es ein $x$ mit $r_{00} = r_0 \cdot x = r_{00} \cdot r_{01} \cdot x$, also folgt $ 1 = r_{01} \cdot x$, also $r_{01} \sim 1$, im Widerspruch. Die obige Schachtelung ist also sogar echt, wir haben eine echt aufsteigende Kette von Idealen. Setze
+    $$ I := (r_0) \cup (r_{00}) \cup \hdots \vartriangleleft R. $$
+    Nun gibt es ein $c$ mit $I = (c)$, womit es ein $i$ gibt mit $c \in (r_{0 \hdots 0})$, wobei $0 \hdots 0$ $i$-mal, also folgt $c \sim r_{0 \hdots 0}$, also $I = (r_{0 \hdots 0})$, im Widerspruch dazu, dass unsere Kette aufsteigend war.
+\end{proof}
+
+\begin{example}
+    Betrachte $\mathbb{Z}[x]$. Sei $a \in \mathbb{Z}, a \not\sim 1, a \neq 0$. Betrachte $({a,x}) \vartriangleleft \mathbb{Z}[x]$, was zwar echt aber kein Hauptideal ist. Wäre nämlich $({a,x}) = (b)$, so würde wegen $a \in (b)$ direkt $\deg b = 0$ folgen. Wegen $x \in (b)$ folgt dadurch $b = 1$, im Widerspruch.
+
+    Es ist aber $\mathbb{Z}[x]$ sehr wohl faktoriell, wie wir später noch sehen werden.
+\end{example}
+
+\begin{definition}
+    Sei $R$ ein kommutativer Ring mit 1, $A \subseteq R$ und $d \in R$. Dann ist $d$ ein größter gemeinsamer Teiler von $A$ (wir schreiben auch $d = \mathrm{ggT}(A)$, obwohl diese Gleichheit formal nicht korrekt ist), wenn
+    $$ \forall a \in A: ( d \mid a \land \forall d' \in R ( \forall a \in A: d' \mid a \implies d' \mid d ) ). $$
+    Dieser größte gemeinsame Teiler ist eindeutig bis auf Äquivalenz.
+
+    Entsprechend kann man auch das kleinste gemeinsame Vielfache einer Menge definieren.
+\end{definition}
