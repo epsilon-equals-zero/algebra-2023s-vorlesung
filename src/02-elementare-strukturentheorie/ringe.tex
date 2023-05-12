@@ -108,7 +108,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
     Ein Ring $R$ heißt \emph{nullteilerfrei}\index{Ring!nullteilerfrei}, wenn
     $$ \forall a, b \in R: (a \cdot b = 0 \Rightarrow a = 0 \lor b = 0) $$
 
-    Ist $R$ ein kommutativer Ring mit 1 und nullteilerfrei, so nennen wir $R$ \emph{Integritätsbereich}\index{Integrationsbereich}.
+    Ist $R$ ein kommutativer Ring mit 1 und nullteilerfrei, so nennen wir $R$ \emph{Integritätsbereich}\index{Integritätsbereich}.
 \end{definition}
 
 \begin{example}
@@ -183,16 +183,24 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
             &\Leftrightarrow I \text{ ist prim}.
         \end{align*}
         \item Folgt direkt aus (1) und (2).
-        \item Folgt aus dem Lemma von Zorn.
+        \item Diese Aussage kann leicht mit dem bekannten Lemma von Zorn bewiesen werden.
+        Dazu wird die Menge aller echten Ideale $J$ mit $J\supseteq I$ mittels Mengeninklusion partiell geordnet.
+        Ist nun $\mathcal{K}$ eine Kette von Idealen, so stellt $\bigcup_{J\in\mathcal{K}}J$ wieder ein Ideal dar.
+        Dieses ist tatsächlich echt, denn es gilt für jedes Ideal $J\in\mathcal{K}:1\not\in J$,
+        also ist $1\not\in\bigcup_{J\in\mathcal{K}}J$. Klarerweise ist die Vereinigung damit eine obere Schranke und aus dem Lemma
+        von Zorn folgt nun die Existenz eines maximalen Elements. Dieses maximale Element ist auch maximal in der Menge
+        aller echten Ideale und ist trivialerweise eine Obermenge von $I$.
     \end{enumerate}
 \end{proof}
 
 \notedate{04.05.2023}
 
 \begin{example}
-    Betrachte den Ring $\mathbb{Z}$, $p \in \mathbb{P}$ und $p \mathbb{Z} \vartriangleleft \mathbb{Z}$, so erhalten wir $\mathbb{Z}/_{p\mathbb{Z}} = \mathbb{Z}/_p$.
+    Betrachte den Ring $\mathbb{Z}$, $p \in \mathbb{P}$ und $p \mathbb{Z} \vartriangleleft \mathbb{Z}$, so erhalten wir $\mathbb{Z}/_{p\mathbb{Z}} = \mathbb{Z}_p$.
+    $p\mathbb{Z}$ ist dabei ein Primideal und $\mathbb{Z}_p$ ein Körper.
 
-    Für ein $m \in \mathbb{N}$ betrachte $m \mathbb{Z} \vartriangleleft \mathbb{Z}$, so ist zwar $\mathbb{Z} /_{m\mathbb{Z}} = \mathbb{Z}_m$, jedoch kein Körper.
+    Für ein $m \in \mathbb{N}$ betrachte $m \mathbb{Z} \vartriangleleft \mathbb{Z}$, so ist zwar $\mathbb{Z} /_{m\mathbb{Z}} = \mathbb{Z}_m$, jedoch kein Integritätsbereich,
+    also insbesondere kein Körper.
 \end{example}
 
 \begin{example}
@@ -204,9 +212,18 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 
 \begin{definition}
     Wir definieren die $\emph{Charakteristik}$ eines Rings als
-    $$ \mathrm{char}{R} := $$
-    TODO
+    $$ \mathrm{char}{R} := 
+    \begin{cases}
+        \min\{n\in\mathbb{N}|\overbrace{1+\ldots+1}^n=0\} & \text{falls existent,}\\
+        0 & \text{sonst}.
+    \end{cases}
+        $$
 \end{definition}
+
+\begin{example}
+    Für $m\in\mathbb{N}$ ist $\mathbb{Z}_m$ ein bekanntes Beispiel für einen Ring mit Charakteristik $m$.
+    $\mathbb{Z}_m^{\mathbb{N}}$ ist beispielsweise ein unendlicher Ring mit Charakteristik $m$.
+\end{example}
 
 \begin{proposition}
     Sei $R$ ein Ring mit 1, $\mathrm{char} R = p \in \mathbb{P}$. Dann ist
@@ -220,26 +237,30 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
     Induktionsanfang ($k = 1$): Es gilt
     $$ (a+b)^p = \sum_{i=0}^p {p \choose i} a^i b^{p-1}. $$
     Wir beobachten
-    $$ {p \choose i} = \frac{p \cdot (p-1) \cdot \hdots \cdot (p-i+1)}{} \equiv 0 mod p $$
-    TODO
+    $$ {p \choose i} = \frac{p \cdot (p-1) \cdot \hdots \cdot (p-i+1)}{1\cdot \ldots \cdot i} \equiv 0 \text{ mod } p $$
+    für $i\neq 0,p$, daher folgt $(a+b)^p\equiv a^p+b^p\text{ mod }p$.
+
+    Induktionsschritt ($k\to k+1$): Es gilt unmittelbar
+    $$(a+b)^{p^{k+1}}=(a^{p^k}+b^{p^k})^p=a^{p^{k+1}}+b^{p^{k+1}}.$$
 \end{proof}
 
 \begin{remark}
     Sei $R$ ein kommutativer Ring mit 1, wir wollen $R$ in einen Körper einbetten. Es gelte \obda $0 \neq 1$ (da sonst für alle $x$ gilt $ x = 1\cdot x = 0 \cdot x = 0$). Wir sammeln nun notwendige Voraussetzungen.
 
-    Es muss $R$ ein Integritätsbereich sein, da sonst
-    TODO
+    Es muss $R$ ein Integritätsbereich sein, da $rs=0\Rightarrow r^{-1}rs=s=0$ für $r,s\in R$ folgen wird.
 
     Nicht notwendig (da es aus der vorigen Bedingung folgt), aber interessant ist die Tatsache, dass wenn $R$ ein Integritätsbereich ist, jedes Element außer $0$ bereits kürzbar ist.
-    TODO
+    Denn für $r,x,y\in R,r\neq 0$ gilt $rx=ry\Rightarrow r(x-y)=0\Rightarrow x-y=0\Rightarrow x=y$.
 
-    Es ist $R^* := R \setminus \{0\}$ ein kommutatives Monoid mit $\cdot$. Definiere eine Äquivalenzrelation $\sim \subseteq (R \times R^*)^2, (a, b) \sim (c, d) :\Leftrightarrow ad = bc$. Wie man nachrechnet ist dies sogar eine Kongruenzrelation. Dann ist $((R \times R^*)/_\sim, \cdot, [(1,1])_\sim) := M$ ein Monoid, wobei jedes $[(x,y)]_\sim$ mit $x \neq 0$ ein Inverses besitzt.
+    Es ist $R^* := R \setminus \{0\}$ ein kommutatives Monoid mit $\cdot$. Definiere eine Äquivalenzrelation $\sim \subseteq (R \times R^*)^2, (a, b) \sim (c, d) :\Leftrightarrow ad = bc$. Wie man nachrechnet ist dies sogar eine Kongruenzrelation. Dann ist $((R \times R^*)/_\sim, \cdot, [(1,1])_\sim) =: M$ ein Monoid, wobei jedes $[(x,y)]_\sim$ mit $x \neq 0$ ein Inverses besitzt.
     
     Dann ist
     $$ \varphi : R \to M, x \mapsto [(x, 1)]_\sim $$
     eine Einbettung von $R$ in $M$.
 
-    Für jedes multiplikative Monoid $N$ mit einer Einbettung $\psi : R \to N$ gibt es eine Einbettung $\bar{\psi} : M \to N$ mit $\bar{\psi} \circ \varphi = \psi$.
+    Für jedes multiplikative Monoid $N$ mit einer Einbettung $\psi : R \to N$ und der Eigenschaft
+    $$\forall x\in R^*\exists y\in N:y\varphi(x)=\varphi(x)y=1$$
+    gibt es eine Einbettung $\bar{\psi} : M \to N$ mit $\bar{\psi} \circ \varphi = \psi$.
 
     Auf $M$ definieren wir nun eine Addition
     $$ (a,b) + (c,d) := (ad+bc, bd), \quad -(a,b) := (-a, b), $$
@@ -251,10 +272,13 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \end{lemma}
 
 \begin{proof}
-    nachrechnen TODO
+    Seien $(z_1,n_1),(z_1',n_1'),(z_2,n_2),(z_2',n_2')\in R\times R^*$ mit $(z_1,n_1)\sim (z_1',n_1')$ und $(z_2,n_2)\sim (z_2',n_2')$ gegeben.
+    Dann ist zu zeigen, dass $(z_1n_2+z_2n_1,n_1n_2)\sim (z_1'n_2'+z_2'n_1',n_1'n_2')$ gilt. Die Behauptung folgt durch Einsetzen
+    in die Definition:
+    $$(z_1n_2+z_2n_1)n_1'n_2'=\overbrace{z_1n_1'}^{z_1'n_1}n_2n_2'+\overbrace{z_2n_2'}^{z_2'n_2}n_1n_1'=(z_1'n_2'+z_2'n_1')n_1n_2$$
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}\label{theorem:Quotientenkoerper}
     Sei $R$ ein kommutativer Ring mit $1 \neq 0$, der zusätzlich ein Integritätsbereich ist. Sei weiters $\sim \subseteq (R \times R^*)^2$ wie oben definiert. Dann gilt:
     \begin{enumerate}
         \item $K := (R \times R^*)^2/_\sim $ mit $+, \cdot$ wie oben definiert ist ein Körper.
@@ -272,22 +296,49 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 
     Das Distributivgesetz verifiziert man unmittelbar durch Nachrechnen.
 
-    Nach Konstruktion ist $\varphi$ eine injektive Einbettung bezüglich $\cdot$. Wie man nachrechnet ist $\varphi$ sogar eine Einbettung bezüglich $+$.
+    Nach Konstruktion ist $\varphi$ eine injektive Einbettung bezüglich $\cdot$. Allerdings gilt
+    für $a,b\in R$, dass $\varphi(a+b)=[(a+b,1)]_\sim=[(1a+1b,1\cdot 1)]_\sim=[(a,1)]_\sim+[(b,1)]_\sim=\varphi(a)+\varphi(b)$.
+    Wegen $\varphi(0)=[(0,1)]_\sim\varphi(0)=0$ wird auch das neutrale Element von $\varphi$ erhalten,
+    woraus bereits die Verträglichkeit mit additiven Inversen folgt. Daher ist $\varphi$ sogar eine Einbettung bezüglich $+$.
 
-    Sei $\psi : R \to L$ eine Einbettung in einen Körper $L$. Nach der Monoidkonstruktion gibt es eine Einbettung $\bar{\psi} : K \to L$ bezüglich $\cdot$ mit $\bar{\psi} \circ \varphi = \psi$. Wir verifizieren nun
+    Sei $\psi : R \to L$ eine Einbettung in einen Körper $L$. Nach der Monoidkonstruktion gibt es eine Einbettung $\bar{\psi} : K \to L$ bezüglich $\cdot$ mit $\bar{\psi} \circ \varphi = \psi$.
+    Wir verifizieren nun, dass $\bar{\psi}$ mit der Addition verträglich ist:
     \begin{align*}
         \bar{\psi} ([(z_1, u_1)]_\sim + [(z_2, u_2)]_\sim) &= \bar{\psi} ([(z_1 u_2 + z_2 u_1, u_1 u_2)]_\sim) \\
-        &= \bar{\psi}([])
+        &= \bar{\psi}([(z_1n_2+z_2n_1,1)]_\sim)\cdot \bar{\psi}([(1,n_1n_2)]_\sim)\\
+        &= \overbrace{\bar{\psi}\circ\varphi}^{=\psi}(z_1n_2+z_2n_1)\cdot \bar{\psi}([(1,n_1n_2)]_\sim)\\
+        &= \big(\overbrace{\psi}^{\bar{\psi}\circ\varphi}(z_1n_2)+\overbrace{\psi}^{\bar{\psi}\circ\varphi}(z_2n_1)\big)\cdot \bar{\psi}([(1,n_1n_2)]_\sim)\\
+        &= \bar{\psi}([(z_1n_2,1)]_\sim)\cdot \bar{\psi}([(1,n_1n_2)]_\sim)+\bar{\psi}([(z_2n_1,1)]_\sim)\cdot \bar{\psi}([(1,n_1n_2)]_\sim)\\
+        &= \bar{\psi}([(z_1,n_1)]_\sim)+\bar{\psi}([(z_2,n_2)]_\sim)
     \end{align*}
 \end{proof}
 
 \begin{proposition}
-    Sei $L$ ein Körper mit der obigen Eigenschaft (3), so gilt bereits $L \cong K$, wobei $K$ unser konstruierter Körper.
+    Sei $L$ ein Körper mit der obigen Eigenschaft (3) aus Satz \ref{theorem:Quotientenkoerper}, so gilt bereits $L \cong K$, wobei $K$ unser konstruierter Körper ist.
 \end{proposition}
 
 \begin{proof}
-    
+    Gegeben sind also $\varphi:R\to K$ und $\varphi_0:R\to L$ jeweils mit Eigenschaft (3).
+    Daher existieren $\bar{\varphi}:L\to K$ mit $\bar{\varphi}\circ \varphi_0=\varphi$ und ${\varphi_0}:K\to L$
+    mit $\bar{\varphi_0}\circ \varphi=\varphi_0$.
+    Wir zeigen zuerst die folgenden Behauptung. Für jeden injektiven Homomorphismus
+    $\xi:K\to K$ mit $\xi|_{\varphi(R)}=\id_R$ folgt $\xi=\id$. Dies folgt aus der folgenden Rechnung:
+    $$
+        \xi([(a,b)]_\sim)=\xi([(a,1)]_\sim)\xi([1,b]_\sim)=[(a,1)]_\sim\cdot [(b,1)]_\sim^{-1}=[(a,b)]_\sim.
+    $$
+    Insbesondere gilt daher $\bar{\varphi}\circ \bar{\varphi_0}=\id_K$, da $(\bar{\varphi}\circ\bar{\varphi_0}\circ\varphi)(a)=(\bar{\varphi}\circ\varphi_0)(a)=\varphi(a)$ gilt.
 \end{proof}
+
+\begin{definition}
+    Sei $R$ ein kommutativer Ring mit $1\neq 0$ und ein Integritätsbereich. Dann wird der Körper
+    $(R\times R^*)^2/_\sim$ aus Satz \ref{theorem:Quotientenkoerper} \emph{Quotientenk\"orper von $R$} genannt.
+\end{definition}
+
+\begin{remark}
+    Die letzten beiden Theoreme liefern uns folgendes Ergebnis: Zu einem kommutativen Ring mit $1\neq 0$ der ein Integritätsbereich
+    ist, kann der Quotientenk\"orper konstruiert werden. Dieser ist eindeutig bestimmt und der kleinste Körper
+    der $R$ enthält.
+\end{remark}
 
 \begin{example}
     Sei $R$ ein kommutativer Ring mit 1, $x$ eine Variable und definiere
@@ -295,6 +346,31 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
     wobei $\sim$ die von Gesetzen der kommutativen Ringe mit 1 und Gesetzen in $R$ erzeugte Äquivalenzrelation ist. In $R[x]$ gilt also beispielsweise
     $$ x + x \cdot x = x \cdot x + x, \quad r \cdot (s \cdot x) = (r \cdot s) \cdot x. $$
 \end{example}
+
+\begin{example}
+    Sei wieder $R$ eine Ring mit $1$. Alternativ zum vorherigen Beispiel kann man auch
+    $$R[x]:=\{f\in\mathbb{N}\to R||\{f(x)\neq 0|x\in R\}|<\infty\}$$
+    definieren. In diesem Fall sind Addition und Multiplikation (Cauchy-Produkt) wie folgt definiert:
+    \begin{align*}
+        \forall n\in\mathbb{N}:(f+g)(n)&:=f(n)+g(n)\\
+        \forall n\in\mathbb{N}:(f\cdot g)(n):=\sum_{i=0}^nf(i)g(n-i)
+    \end{align*}
+    Diese Definition hat den entscheidenen Vorteil, dass die Verallgemeinerung der \emph{formalen Potenzreihen}
+    möglich wird. Diesen Ring bezeichnen wir mit $R[[x]]:=\{f:\mathbb{N}\to R\}$. Die Elemente von 
+    $R[x]$ wollen wir auch als $p(x)=\sum_{i=0}^na_ix^i$ auffassen, wenn $a_i=0$ für $i>n$ gilt. Formal ist hier eigentlich die Folge
+    der Koeffizienten ein Element des Ringes. Weiters schreiben wir für die Elemente von $R[[x]]$ auch
+    $p(x)=\sum_{i=0}^\infty a_ix^i$.
+\end{example}
+
+\begin{proposition}
+    Sei $R$ ein kommutativer Ring mit $1$. Dann gilt:
+    \begin{itemize}
+        \item $R[{x}]$ ist ein kommutativer Ring mit $1$.
+        \item $R[x]\subseteq R[[x]]$
+        \item $R$ ist in $R[x]$ eingebettet vermöge $r\mapsto \sum_{i=0}^0rx^i$
+        \item $R$ ist ein Integritätsbereich $\Leftrightarrow$ $R[x]$ und $R[[x]]$ sind Integritätsbereiche.
+    \end{itemize}
+\end{proposition}
 
 \notedate{11.05.2023}
 
