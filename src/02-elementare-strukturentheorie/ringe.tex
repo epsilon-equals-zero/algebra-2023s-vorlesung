@@ -332,6 +332,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \begin{definition}
     Sei $R$ ein kommutativer Ring mit $1\neq 0$ und ein Integritätsbereich. Dann wird der Körper
     $(R\times R^*)^2/_\sim$ aus Satz \ref{theorem:Quotientenkoerper} \emph{Quotientenk\"orper von $R$} genannt.
+    Für $[(z,n)]_\sim$ schreibt man auch $\frac{z}{n}$.
 \end{definition}
 
 \begin{remark}
@@ -371,6 +372,118 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
         \item $R$ ist ein Integritätsbereich $\Leftrightarrow$ $R[x]$ und $R[[x]]$ sind Integritätsbereiche.
     \end{itemize}
 \end{proposition}
+
+\notedate{10.05.2023}
+\begin{definition}
+    Sei $R$ ein Ring mit $1\neq 0$ und ein Integritätsbereich. Dann ist der \emph{Quotientenk\"orper von $R[x]$}
+    definiert:
+    $$R(x):=\{\frac{p(x)}{q(x)}|p(x),q(x)\in R[x],q(x)\neq 0\}/_\sim$$
+    mit der üblichen Relation $\frac{p}{q}\sim \frac{r}{s}\Leftrightarrow sp=qr$.
+\end{definition}
+
+\begin{remark}
+    Ist $R$ ein Ring mit $1\neq 0$ und ein Integritätsbereich so kann der Quotientenk\"orper $K$ und dann von diesem
+    der Polynomring $K[x]$ betrachten werden. Dieser besitzt nun einen Quotientenk\"orper $K(x)$. Andererseits
+    kann man auch den Quotientenk\"orper des Polynomrings über $R$ betrachten und erhält durch $R(x)$ einen dazu isomorphen Körper,
+    also $K(x)\cong R(x)$.
+\end{remark}
+
+\begin{remark}
+    Als Verallgemeinerung des Polynomrings kann man auch den Polynomring in $n$-Variablen $x_1,\ldots,x_n$ rekursiv definieren
+    durch $R[x_1,\ldots,x_n]:=R[x_1,\ldots,x_{n-1}][x_n]$. Auch für eine beliebige Variablenmenge $X$ kann eine Verallgemeinerung
+    getroffen werden, indem man mit $R[x]$ die Terme über der Sprache $(+,0,-,\cdot,1,(x)_{x\in X},(m_r)_{r\in R})$ nach den Ringgesetzen
+    und Gleichheiten in $R$ faktorisiert.
+\end{remark}
+
+\begin{definition}
+    Sei $K$ ein Körper. Dann heißt $K$ \emph{algebraisch abgeschlossen}, wenn
+    $$\forall p(x)\in K[x]:p\not\in K\Rightarrow \exists a\in K:p(a)=0$$
+    gilt.
+\end{definition}
+
+\begin{theorem}\label{theorem:nullstellensatz}
+    Sei $K$ ein algebraisch abgeschlossener Körper und $I\triangleleft K[x_1,\ldots,x_n]$ ein echtes Ideal.
+    Dann gilt $\exists(a_1,\ldots,a_n)\in K^n:\forall p(x_1,\ldots,x_n)\in I:p(a_1,\ldots,a_n)=0.$
+\end{theorem}
+
+\begin{remark}
+    Satz \ref{theorem:nullstellensatz} ist nicht Teil dieser Lehrveranstaltung, sondern soll nur einen Ausblick auf die Algebra 2 Vorlesung geben.
+    Die Anforderung an ein echtes Ideal sind dabei sehr natürlich. Ein echtes Ideal kann nämlich keine Konstanten $c$ enthalten, da sonst
+    $c\in I\Rightarrow c^{-1}c\in I\Rightarrow I=K[x_1,\ldots,x_n]$ gilt. Ist außerdem $F$ eine beliebige Menge von
+    Polynomen mit einer gemeinsamen Nullstelle, so überzeugt man sich leicht davon, dass auch jedes Polynom aus dem erzeugten Ideal
+    von $F$ an dieser Stelle den Wert $0$ annimmt. Daher kann $\obda$ angenommen werden, dass $F$ sogar ein Ideal ist.
+\end{remark}
+
+\begin{proposition}
+    Sei $R$ ein kommutativer Ring mit $1$ und $X$ eine Variablenmenge. Dann gilt:
+    \begin{enumerate}
+        \item $R\leq R[X]$
+        \item Für jeden Ring $S$ mit $R\leq S$ und jeden Homomorphismus $\varphi:X\to S$
+        existiert genau ein Homomorphismus $\bar{\varphi}:R[X]\to S$, sodass $\bar{\varphi}|_X=\varphi$ und $\bar{\varphi}|_R=\id_R$ gilt.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Der Beweis verläuft analog wie bei den freien Algebren.
+\end{proof}
+
+
+\begin{definition}
+    Sei $R$ eine Ring und $I\triangleleft R$. Dann definieren wir für $r,s\in R$:
+    $$r\equiv s\text{ mod }I:\Leftrightarrow r-s\in I.$$
+    Wir sagen auch \emph{$r$ ist $s$ modulo $I$}.
+\end{definition}
+
+\begin{theorem}(Chinesischer Restsatz)
+    Sei $R$ ein kommutativer Ring mit $1$ und $I_1,\ldots,I_n\triangleleft R$ mit $\forall i\neq j\Rightarrow I_i+I_j=R$.
+    Dann wird $I:=\bigcap_{i=1}^nI_i$ definiert und es gilt:
+    \begin{enumerate}
+        \item $\forall r_1\ldots,r_n\in R\,\exists r\in R:\forall i\in\{1,\ldots,n\}:r\equiv r_i\text{ mod }I_i$. Weiters ist $r$
+        modulo $I$ eindeutig bestimmt.
+        \item $\varphi:R/I\to R/_{I_1}\times\ldots\times R/_{I_n}, r+I\mapsto (r*I_1,\ldots,r+I_n)$ ist ein Isomorphismus.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Zuerst stellen wir die Behauptung $\forall i=2,\ldots,n: I_1+(I_2\cap \ldots \cap I_n)=R$ auf, welche wir mit Induktion
+    beweisen wollen:
+
+    Induktionsanfang $(i=2)$: Die Behauptung gilt laut Voraussetzung.
+
+    Induktionsschritt $(i\to i+1)$: Da $R$ ein Ring mit $1$ ist gilt
+    $R=R\cdot R$. Nun kann die Induktionsannahme auf den ersten Faktor und die Voraussetzung des Satzes auf den zweiten Faktor angewendet werden,
+    woraus man $R\cdot R=(I_1+(I_2\cap\ldots\cap I_i))\cdot(I_1+I_{i+1})$ erhält. Das ist offensichtlich eine Teilmenge
+    von $I_1+(I_2\cap\ldots\cap I_i)\cdot I_{i+1}$. Der zweite Summand ist eine Teilmenge von $I_{i+1}$, da
+    $I_{i+1}$ ein (Links-)Ideal ist. Gleichzeitig ist er eine Teilmenge von $I_2\cap\ldots \cap _i$, da diese Menge ein (Rechts-)Ideal ist.
+    Damit folgt, dass $R=R\cdot R$ schon in $I_1+(I_2\cap\ldots \cap I_{i+1})$ enthalten sein muss, also die Gleichheit.
+
+    Analog gilt mit der Definition $I_i':=\bigcap_{j\neq i}I_j$, dass für alle $i\in\{1,\ldots,n\}$
+    auch $I_i+I_i'=R$ ist. Daher existieren für jedes $i\in\{1,\ldots,n\}$ ein $a_i\in I_i$ und ein $a_i'\in I_i'$
+    mit $r_i=a_i+a_i'$. Definiert man nun $r:=\sum_{i=1}^na_i'$, so erhält man für alle $i\in\{1,\ldots,n\}$, dass
+    $r\equiv a_i'\equiv r_i \text{ mod }I_i$ gilt, also die Existenz.
+
+    Dieses Element ist eindeutig modulo $I$ bestimmt, denn falls $r'$ und $r$ beide die gewünschte Eigenshaft haben,
+    so folgt $r'-r\in I_i$ für alle $i$, also $r'-r\in\bigcap_{i=1}^nI_i=I$.
+
+    Schließlich ist die Abbildung $\varphi$ laut Definition wohldefiniert. Die Surjektivität ist die Existenz vonb $r$ im ersten Punkt,
+    die Injektivität ist die Eindeutigkeit modulo $I$. Für die Homomorphiebedingung rechnen wir exemplarisch nach, dass
+    $\varphi$ mit der Addition verträglich ist:
+    $$\varphi(r+I+s+I)=\varphi((r+s)+I)=((r+s)+I_1,\ldots,(r+s)+I_n)=\varphi(r+I)+\varphi(s+I).$$
+    Die Multiplikation zeigt man analog.
+\end{proof}
+
+\begin{corollary}
+    Seien $m_1,\ldots,m_n\geq 2$ und $\forall i\neq j: m_i\mathbb{Z}+m_j\mathbb{Z}=\mathbb{Z}$
+    oder äquivalent dazu $\text{ggT}(m_i,m_j)=1$. Dann gilt
+    \begin{enumerate}
+        \item $\forall a_1,\ldots,a_n\in\mathbb{Z}\,\exists a\in\mathbb{Z}:\forall i\in\{1,\ldots,n\}a\equiv a_i \text{ mod }m_i$.
+        Weiters ist dieses $a$ eindeutig modulo $\bigcap_{i=1}^{n}m_i\mathbb{Z}=m_1\ldots m_n\mathbb{Z}$.
+        \item $\varphi:\mathbb{Z}_{m_1\ldots m_n}\to \mathbb{Z}_{m_1}\times \mathbb{Z}_{m_n}, [a]\mapsto (a\text{ mod }m_1,\ldots, a\text{ mod }m_n)$
+        ist ein Isomorphismus.
+    \end{enumerate}
+\end{corollary}
+
+
 
 \notedate{11.05.2023}
 
