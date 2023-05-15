@@ -1,0 +1,64 @@
+\section{Grundlagen}
+
+\begin{definition}
+    Sei $(H,\cdot)$ eine Halbgruppe und $a,b\in H$. Dann sind definiert:
+    \begin{itemize}
+        \item $a\mid b:\Leftrightarrow \exists c\in H:a\cdot c=b$ \tab (\emph{$a$ teilt $b$})
+        \item $a\sim b:\Leftrightarrow a\mid b\land b\mid a$ \tab (\emph{$a$ ist assoziiert zu $b$})
+    \end{itemize}
+\end{definition}
+
+\begin{remark}
+    Ist $(H,\cdot)$ eine Halbgruppe, so ist die Teilbarkeitsrelation $\mid$ transitiv.
+    Falls $H$ ein neutrales Element $e$ besitzt, so ist $\mid$ auch reflexiv. Relationen mit diesen beiden Eigenschaften
+    werden auch \emph{Quasiordnung} genannt. Im Falle eines kommutativen Monoides handelt es sich bei
+    $\sim$ um eine Kongruenzrelation.
+\end{remark}
+
+\begin{example}
+    In $(\mathbb{Z},\cdot)$ gilt beispielsweise für alle $a\in\mathbb{Z}:a\mid a$ und $a\mid -a$. 
+\end{example}
+
+\begin{proposition}
+    Sei $R$ ein kommutativer Ring mit $1$ und $p\in R$. Dann sind äquivalent:
+    \begin{enumerate}
+        \item $(p)\triangleleft R$ ist prim.
+        \item Falls $p\not\sim 1$ gilt, so folgt für alle $a,b\in R$
+        aus $p\mid a\cdot b$, dass $p\mid a$ oder $p\mid b$ gilt.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}{\ }
+    \begin{itemize}[leftmargin=2.5cm] 
+        \item[$(1) \implies (2)$:]Da $(p)$ prim ist, ist das erzeugte Ideal insbesondere echt, daher ist $1\not\in (p)$, also gilt $p\not\vert 1$ und $p\not\sim 1$.
+        Seien $a,b\in R$ beliebig mit $p\mid a\cdot b$. Dann ist $ab\in (p)$, also $a\in(p)$ oder $b\in(p)$, da $(p)$ prim ist.
+        Das ist aber äquivalent zu $p\mid a$ oder $p\mid b$.
+        \item[$(2) \implies (1)$:]Da $p\not\sim 1$ gilt, folgt dass $(p)\neq R$ ist, also ist das erzeugt Ideal echt.
+        Seien weiters $a,b\in R$ mit $a,b\in (p)$. Dann gilt $p\mid ab$ und gemäß Voraussetzung folgt $p\mid a$ oder $p\mid b$.
+        Das ist widerum äquivalent zu $a\in(p)$ oder $b\in(p)$.
+    \end{itemize}
+\end{proof}
+
+\begin{definition}
+    Sei $R$ ein kommutativer Ring mit $1$ und $p\in R$. Dann heißt $p$
+    \begin{itemize}
+        \item \emph{prim} $:\Leftrightarrow p\neq 0, p\not\sim 1\land \forall a,b\in R:p\mid ab\Rightarrow p\mid a\lor p\mid b,$
+        \item \emph{irreduzibel} $:\Leftrightarrow p\not\sim 1\land \forall a,b\in R:ab=p\Rightarrow a\sim 1\lor b\sim 1.$
+    \end{itemize}
+\end{definition}
+
+\begin{proposition}
+    Sei $R$ ein Integritätsbereich und $p\in R$. Dann gilt die Implikation $p$ prim $\Rightarrow p$ irreduzibel.
+\end{proposition}
+
+\begin{proof}
+    Seien $a,b\in R$ mit $ab=p$. Dann gilt nach Definition $p\mid ab$, also $p\mid a$ oder $p\mid b$.
+    \obda gelte $p\mid a$, das heißt es existiert $c\in R$ sodass $pc=a$. Dann gilt $p=pcb\Leftrightarrow p(1-cb)=0$
+    und da $p\neq 0$ ist und $R$ ein Integritätsbereich ist, folgt $1-cb=0$, also $cb=1$ und $b\sim 1$.
+\end{proof}
+
+\begin{example}
+    Die Umkehrung dieser Proposition stimmt nicht.
+    Durch $\mathbb{Z}[\sqrt{5}]$ ist ein Integritätsbereich gegeben, in welchem es irreduzible Element
+    gibt, welche nicht prim sind, beispielweise $2$ oder $3$.
+\end{example}
