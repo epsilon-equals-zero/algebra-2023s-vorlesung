@@ -211,10 +211,10 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \end{example}
 
 \begin{definition}
-    Wir definieren die $\emph{Charakteristik}$ eines Rings als
-    $$ \mathrm{char}{R} := 
+    Wir definieren die \emph{Charakteristik}\index{Charakteristik} eines Rings als
+    $$ \chara R := 
     \begin{cases}
-        \min\{n\in\mathbb{N}|\overbrace{1+\ldots+1}^n=0\} & \text{falls existent,}\\
+        \min\{n\in\mathbb{N}\mid\sum_{i=1}^n 1=0\} & \text{falls existent,}\\
         0 & \text{sonst}.
     \end{cases}
         $$
@@ -222,11 +222,11 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 
 \begin{example}
     Für $m\in\mathbb{N}$ ist $\mathbb{Z}_m$ ein bekanntes Beispiel für einen Ring mit Charakteristik $m$.
-    $\mathbb{Z}_m^{\mathbb{N}}$ ist beispielsweise ein unendlicher Ring mit Charakteristik $m$.
+    $(\mathbb{Z}_m)^{\mathbb{N}}$ ist beispielsweise ein unendlicher Ring mit Charakteristik $m$.
 \end{example}
 
 \begin{proposition}
-    Sei $R$ ein Ring mit 1, $\mathrm{char} R = p \in \mathbb{P}$. Dann ist
+    Sei $R$ ein Ring mit 1, $\chara R = p \in \mathbb{P}$. Dann ist
     $$ \varphi : R \to R, x \mapsto x^{p^k} $$
     ein Homomorphismus.
 \end{proposition}
@@ -244,7 +244,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
     $$(a+b)^{p^{k+1}}=(a^{p^k}+b^{p^k})^p=a^{p^{k+1}}+b^{p^{k+1}}.$$
 \end{proof}
 
-\begin{remark}
+\begin{remark}\label{rem:ring-koerper}
     Sei $R$ ein kommutativer Ring mit 1, wir wollen $R$ in einen Körper einbetten. Es gelte \obda $0 \neq 1$ (da sonst für alle $x$ gilt $ x = 1\cdot x = 0 \cdot x = 0$). Wir sammeln nun notwendige Voraussetzungen.
 
     Es muss $R$ ein Integritätsbereich sein, da $rs=0\Rightarrow r^{-1}rs=s=0$ für $r,s\in R$ folgen wird.
@@ -252,11 +252,11 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
     Nicht notwendig (da es aus der vorigen Bedingung folgt), aber interessant ist die Tatsache, dass wenn $R$ ein Integritätsbereich ist, jedes Element außer $0$ bereits kürzbar ist.
     Denn für $r,x,y\in R,r\neq 0$ gilt $rx=ry\Rightarrow r(x-y)=0\Rightarrow x-y=0\Rightarrow x=y$.
 
-    Es ist $R^* := R \setminus \{0\}$ ein kommutatives Monoid mit $\cdot$. Definiere eine Äquivalenzrelation $\sim \subseteq (R \times R^*)^2, (a, b) \sim (c, d) :\Leftrightarrow ad = bc$. Wie man nachrechnet ist dies sogar eine Kongruenzrelation. Dann ist $((R \times R^*)/_\sim, \cdot, [(1,1])_\sim) =: M$ ein Monoid, wobei jedes $[(x,y)]_\sim$ mit $x \neq 0$ ein Inverses besitzt.
+    Es ist $R^* := R \setminus \{0\}$ ein kommutatives Monoid mit der Operation $\cdot$. Definiere eine Äquivalenz\-relation $\sim \subseteq (R \times R^*)^2, (a, b) \sim (c, d) :\Leftrightarrow ad = bc$. Wie man nachrechnet ist dies sogar eine Kongruenzrelation. Dann ist $((R \times R^*)/_\sim, \cdot, [(1,1)]_\sim) =: M$ ein Monoid, wobei jedes $[(x,y)]_\sim$ mit $x \neq 0$ ein Inverses besitzt.
     
     Dann ist
     $$ \varphi : R \to M, x \mapsto [(x, 1)]_\sim $$
-    eine Einbettung von $R$ in $M$.
+    eine homomorphe Einbettung von $R$ in $M$.
 
     Für jedes multiplikative Monoid $N$ mit einer Einbettung $\psi : R \to N$ und der Eigenschaft
     $$\forall x\in R^*\exists y\in N:y\varphi(x)=\varphi(x)y=1$$
@@ -268,7 +268,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \end{remark}
 
 \begin{lemma}
-    Die wie oben definierte Äquivalenzrelation $\sim \subset (R \times R^*)^2$ ist eine Kongruenzrelation bezüglich $+$.
+    Die in \cref{rem:ring-koerper} definierte Äquivalenzrelation $\sim \subset (R \times R^*)^2$ ist eine Kongruenzrelation bezüglich $+$.
 \end{lemma}
 
 \begin{proof}
@@ -279,9 +279,9 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \end{proof}
 
 \begin{theorem}\label{theorem:Quotientenkoerper}
-    Sei $R$ ein kommutativer Ring mit $1 \neq 0$, der zusätzlich ein Integritätsbereich ist. Sei weiters $\sim \subseteq (R \times R^*)^2$ wie oben definiert. Dann gilt:
+    Sei $R$ ein kommutativer Ring mit $1 \neq 0$, der zusätzlich ein Integritätsbereich ist. Sei weiters $\sim \subseteq (R \times R^*)^2$ wie in \cref{rem:ring-koerper} definiert. Dann gilt:
     \begin{enumerate}
-        \item $K := (R \times R^*)^2/_\sim $ mit $+, \cdot$ wie oben definiert ist ein Körper.
+        \item $K := (R \times R^*)/_\sim $ mit $+, \cdot$ aus \cref{rem:ring-koerper} ist ein Körper.
         \item $\varphi : R \to K, x \mapsto [(x, 1)]_\sim$ ist eine Einbettung.
         \item Für alle Einbettungen $\psi : R \to L$ in einen Körper $L$ gibt es eine Einbettung $\bar{\psi} : K \to L$ mit $\bar{\psi} \circ \varphi = \psi$.
     \end{enumerate}
@@ -331,39 +331,48 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 
 \begin{definition}
     Sei $R$ ein kommutativer Ring mit $1\neq 0$ und ein Integritätsbereich. Dann wird der Körper
-    $(R\times R^*)^2/_\sim$ aus Satz \ref{theorem:Quotientenkoerper} \emph{Quotientenk\"orper von $R$} genannt.
+    $(R\times R^*)/_\sim$ aus Satz \ref{theorem:Quotientenkoerper} \emph{Quotientenk\"orper von $R$}\index{Quotientenkörper} genannt.
     Für $[(z,n)]_\sim$ schreibt man auch $\frac{z}{n}$.
 \end{definition}
 
 \begin{remark}
     Die letzten beiden Theoreme liefern uns folgendes Ergebnis: Zu einem kommutativen Ring mit $1\neq 0$ der ein Integritätsbereich
-    ist, kann der Quotientenk\"orper konstruiert werden. Dieser ist eindeutig bestimmt und der kleinste Körper
+    ist, kann der Quotientenk\"orper konstruiert werden. Dieser ist (bis auf Isomorphie) eindeutig bestimmt und der kleinste Körper
     der $R$ enthält.
 \end{remark}
 
-\begin{example}
-    Sei $R$ ein kommutativer Ring mit 1, $x$ eine Variable und definiere
-    $$ R[x] := \{ t(x) \mid t \text{ Term über $x$ in Sprache } +, \cdot, (r)_{r \in R} \}/_\sim, $$
-    wobei $\sim$ die von Gesetzen der kommutativen Ringe mit 1 und Gesetzen in $R$ erzeugte Äquivalenzrelation ist. In $R[x]$ gilt also beispielsweise
-    $$ x + x \cdot x = x \cdot x + x, \quad r \cdot (s \cdot x) = (r \cdot s) \cdot x. $$
-\end{example}
-
-\begin{example}
-    Sei wieder $R$ eine Ring mit $1$. Alternativ zum vorherigen Beispiel kann man auch
-    $$R[x]:=\{f\in\mathbb{N}\to R||\{f(x)\neq 0|x\in R\}|<\infty\}$$
-    definieren. In diesem Fall sind Addition und Multiplikation (Cauchy-Produkt) wie folgt definiert:
+\begin{definition}\label{def:polynomring}
+    Sei $R$ eine Ring mit $1$. Wir definieren den \emph{Polynomring über $R$}\index{Polynomring}
+    $$R[x]:=\left\{(x_n)_{n\in \mathbb{N}} \in R^\mathbb{N} \;\middle|\; \vert\{x_n\neq 0\mid n\in \mathbb{N}\}\vert<\infty\right\}$$
+    mit den Operationen
     \begin{align*}
-        \forall n\in\mathbb{N}:(f+g)(n)&:=f(n)+g(n)\\
-        \forall n\in\mathbb{N}:(f\cdot g)(n):=\sum_{i=0}^nf(i)g(n-i)
+        + &: R[x] \times R[x] \to R[x], ((x_n)_{n\in \mathbb{N}}, (y_n)_{n\in\mathbb{N}}) \mapsto (x_n+y_n)_{n\in\mathbb{N}}\\
+        \cdot &: R[x] \times R[x] \to R[x], ((x_n)_{n\in \mathbb{N}}, (y_n)_{n\in\mathbb{N}}) \mapsto \left(\sum_{i=0}^n x_i y_{n-i}\right)_{n\in\mathbb{N}}
     \end{align*}
-    Diese Definition hat den entscheidenen Vorteil, dass die Verallgemeinerung der \emph{formalen Potenzreihen}
-    möglich wird. Diesen Ring bezeichnen wir mit $R[[x]]:=\{f:\mathbb{N}\to R\}$. Die Elemente von 
-    $R[x]$ wollen wir auch als $p(x)=\sum_{i=0}^na_ix^i$ auffassen, wenn $a_i=0$ für $i>n$ gilt. Formal ist hier eigentlich die Folge
+
+    Elemente von $R[x]$ bezeichnen wir als \emph{Polynome}\index{Polynom}.
+
+    Weiter definieren wir den Ring der \emph{formalen Potenzreihen}\index{formale Potenzreihe} 
+    $$R[[x]]:=\left\{(x_n)_{n \in \mathbb{N}} \in R^\mathbb{N}\right\}$$
+    mit denselben Operation wie oben. 
+    
+    Die Elemente von $R[x]$ wollen wir auch als $p(x)=\sum_{i=0}^na_ix^i$ auffassen, wenn $a_i=0$ für $i>n$ gilt. Formal ist hier eigentlich die Folge
     der Koeffizienten ein Element des Ringes. Weiters schreiben wir für die Elemente von $R[[x]]$ auch
     $p(x)=\sum_{i=0}^\infty a_ix^i$.
-\end{example}
+\end{definition}
 
-\begin{proposition}
+\begin{remark}
+    Alternativ kann der Polynomring wie folgt definiert werden:
+
+    Sei $R$ ein kommutativer Ring mit 1, $x$ eine Variable und definiere
+    $$ R[x] := \{ t(x) \mid t \text{ Term über $x$ in Sprache } +, \cdot, (r)_{r \in R} \}/_\sim, $$
+    wobei $\sim$ die von Gesetzen der kommutativen Ringe mit 1 und Gesetzen in $R$ erzeugte Äquivalenz\-relation ist. In $R[x]$ gilt also beispielsweise
+    $$ x + x \cdot x = x \cdot x + x, \quad r \cdot (s \cdot x) = (r \cdot s) \cdot x. $$
+
+    Vorteil von \cref{def:polynomring} ist, dass analog auch die Verallgemeinerung der formalen Potenzreihen definiert werden kann, was mit diesem Ansatz nicht möglich ist.
+\end{remark}
+
+\begin{proposition}\label{prop:polynomringe}
     Sei $R$ ein kommutativer Ring mit $1$. Dann gilt:
     \begin{itemize}
         \item $R[{x}]$ ist ein kommutativer Ring mit $1$.
@@ -375,10 +384,9 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 
 \notedate{10.05.2023}
 \begin{definition}
-    Sei $R$ ein Ring mit $1\neq 0$ und ein Integritätsbereich. Dann ist der \emph{Quotientenk\"orper von $R[x]$}
-    definiert:
-    $$R(x):=\{\frac{p(x)}{q(x)}|p(x),q(x)\in R[x],q(x)\neq 0\}/_\sim$$
-    mit der üblichen Relation $\frac{p}{q}\sim \frac{r}{s}\Leftrightarrow sp=qr$.
+    Sei $R$ ein Ring mit $1\neq 0$ und ein Integritätsbereich. Dann nennen wir den Quotientenkörper von $R[x]$ 
+    $$R(x):=\left\{\frac{p(x)}{q(x)}\;\middle|\;p(x),q(x)\in R[x],q(x)\neq 0\middle\}\right/_\sim$$
+    mit der üblichen Relation $\frac{p}{q}\sim \frac{r}{s}\Leftrightarrow sp=qr$ den Körper der \emph{gebrochen rationalen Funktionen}\index{gebrochen rationale Funktion}.
 \end{definition}
 
 \begin{remark}
@@ -396,13 +404,13 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \end{remark}
 
 \begin{definition}
-    Sei $K$ ein Körper. Dann heißt $K$ \emph{algebraisch abgeschlossen}, wenn
-    $$\forall p(x)\in K[x]:p\not\in K\Rightarrow \exists a\in K:p(a)=0$$
+    Sei $K$ ein Körper. Dann heißt $K$ \emph{algebraisch abgeschlossen}\index{Körper!algebraisch abgeschlossen}, wenn
+    $$\forall p(x)\in K[x]:p\not\in\footnote{Hier wird $K$ mittels der Einbettung aus \cref{prop:polynomringe} als Teilmenge betrachtet.} K\Rightarrow \exists a\in K:p(a)=0$$
     gilt.
 \end{definition}
 
-\begin{theorem}\label{theorem:nullstellensatz}
-    Sei $K$ ein algebraisch abgeschlossener Körper und $I\triangleleft K[x_1,\ldots,x_n]$ ein echtes Ideal.
+\begin{theorem}[Nullstellensatz von Hilbert, klein]\label{theorem:nullstellensatz}\index{Nullstellensatz von Hilbert}
+    Sei $K$ ein algebraisch abgeschlossener Körper und $I\vartriangleleft K[x_1,\ldots,x_n]$ ein echtes Ideal.
     Dann gilt $\exists(a_1,\ldots,a_n)\in K^n:\forall p(x_1,\ldots,x_n)\in I:p(a_1,\ldots,a_n)=0.$
 \end{theorem}
 
@@ -411,7 +419,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
     Die Anforderung an ein echtes Ideal sind dabei sehr natürlich. Ein echtes Ideal kann nämlich keine Konstanten $c$ enthalten, da sonst
     $c\in I\Rightarrow c^{-1}c\in I\Rightarrow I=K[x_1,\ldots,x_n]$ gilt. Ist außerdem $F$ eine beliebige Menge von
     Polynomen mit einer gemeinsamen Nullstelle, so überzeugt man sich leicht davon, dass auch jedes Polynom aus dem erzeugten Ideal
-    von $F$ an dieser Stelle den Wert $0$ annimmt. Daher kann $\obda$ angenommen werden, dass $F$ sogar ein Ideal ist.
+    von $F$ an dieser Stelle den Wert $0$ annimmt. Daher kann \obda angenommen werden, dass $F$ sogar ein Ideal ist.
 \end{remark}
 
 \begin{proposition}
@@ -429,18 +437,19 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 
 
 \begin{definition}
-    Sei $R$ eine Ring und $I\triangleleft R$. Dann definieren wir für $r,s\in R$:
-    $$r\equiv s\text{ mod }I:\Leftrightarrow r-s\in I.$$
-    Wir sagen auch \emph{$r$ ist $s$ modulo $I$}.
+    Sei $R$ eine Ring und $I\vartriangleleft R$. Dann definieren wir für $r,s\in R$:
+    $$r\equiv s\mod I:\Leftrightarrow r-s\in I.$$
+    Wir sagen auch \emph{$r$ ist $s$ modulo $I$}\index{modulo}.
 \end{definition}
 
-\begin{theorem}(Chinesischer Restsatz)
-    Sei $R$ ein kommutativer Ring mit $1$ und $I_1,\ldots,I_n\triangleleft R$ mit $\forall i\neq j\Rightarrow I_i+I_j=R$.
+\begin{theorem}[Chinesischer Restsatz, allgmeien]\index{Chinesischer Restsatz!allgemein}
+    Seien $R$ ein kommutativer Ring mit 1 und $I_1,\ldots,I_n\vartriangleleft R$ mit $\forall i\neq j\Rightarrow I_i+I_j=R$.
+    
     Dann wird $I:=\bigcap_{i=1}^nI_i$ definiert und es gilt:
     \begin{enumerate}
-        \item $\forall r_1\ldots,r_n\in R\,\exists r\in R:\forall i\in\{1,\ldots,n\}:r\equiv r_i\text{ mod }I_i$. Weiters ist $r$
+        \item $\forall r_1\ldots,r_n\in R\,\exists r\in R:\forall i\in\{1,\ldots,n\}:r\equiv r_i\mod I_i$. Weiters ist $r$
         modulo $I$ eindeutig bestimmt.
-        \item $\varphi:R/I\to R/_{I_1}\times\ldots\times R/_{I_n}, r+I\mapsto (r*I_1,\ldots,r+I_n)$ ist ein Isomorphismus.
+        \item $\varphi:R/_I\to R/_{I_1}\times\ldots\times R/_{I_n}, r+I\mapsto (r+I_1,\ldots,r+I_n)$ ist ein Isomorphismus.
     \end{enumerate}
 \end{theorem}
 
@@ -472,13 +481,13 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
     Die Multiplikation zeigt man analog.
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}[Chinesischer Restsatz, klassisch]\index{Chinesischer Restsatz!klassisch}
     Seien $m_1,\ldots,m_n\geq 2$ und $\forall i\neq j: m_i\mathbb{Z}+m_j\mathbb{Z}=\mathbb{Z}$
     oder äquivalent dazu $\text{ggT}(m_i,m_j)=1$. Dann gilt
     \begin{enumerate}
-        \item $\forall a_1,\ldots,a_n\in\mathbb{Z}\,\exists a\in\mathbb{Z}:\forall i\in\{1,\ldots,n\}a\equiv a_i \text{ mod }m_i$.
+        \item $\forall a_1,\ldots,a_n\in\mathbb{Z}\,\exists a\in\mathbb{Z}:\forall i\in\{1,\ldots,n\}: a\equiv a_i \mod m_i$.
         Weiters ist dieses $a$ eindeutig modulo $\bigcap_{i=1}^{n}m_i\mathbb{Z}=m_1\ldots m_n\mathbb{Z}$.
-        \item $\varphi:\mathbb{Z}_{m_1\ldots m_n}\to \mathbb{Z}_{m_1}\times \mathbb{Z}_{m_n}, [a]\mapsto (a\text{ mod }m_1,\ldots, a\text{ mod }m_n)$
+        \item $\varphi:\mathbb{Z}_{m_1\ldots m_n}\to \mathbb{Z}_{m_1}\times \mathbb{Z}_{m_n}, [a]\mapsto (a\mod m_1,\ldots, a\mod m_n)$
         ist ein Isomorphismus.
     \end{enumerate}
 \end{corollary}

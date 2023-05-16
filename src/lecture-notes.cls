@@ -149,6 +149,7 @@
 \DeclareMathOperator{\ord}{ord}
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\ran}{ran}
+\DeclareMathOperator{\chara}{char}
 
 %% OTHER COMMANDS %%
 
