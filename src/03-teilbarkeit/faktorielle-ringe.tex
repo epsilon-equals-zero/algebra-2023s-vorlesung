@@ -1,16 +1,15 @@
-
 \notedate{11.05.2023}
 
 \subsection{Faktorielle Ringe}
 
 \begin{definition}
     Sei $R$ ein Integritätsbereich, so heißt $R$ \emph{faktorieller Ring} (oder \emph{Gaußscher Ring}, oder auch \emph{ZPE-Ring}) genau dann wenn
-    $$ \forall r \in R : \exists r_1, \hdots, r_n \in R \setminus \{ [1]_\sim \} \text{ irreduzibel} : r = r_1 \cdot \hdots \cdot r_n, $$
-    wobei die $r_i$ bis auf Reihenfolge und Äquivalenz $\sim$ eindeutig bestimmt sind\footnote{Wir haben also zwei geforderte Eigenschaften für faktorielle Ringe, die Existenz und die Eindeutigkeit. In der Literatur werden oft Ringe mit der ersten Eigenschaft mit \emph{factorization domain (FD)} bezeichnet, Ringe wo zusätzlich die Letztere gilt oft mit \emph{unique factorization domain (UFD)}.}.
+    $$ \forall r \in R \exists r_1, \hdots, r_n \in R \setminus \{ [1]_\sim \} \text{ irreduzibel} : r = r_1 \cdot \hdots \cdot r_n, $$
+    wobei die $r_i$ bis auf Reihenfolge und Assoziiertheit eindeutig bestimmt sind\footnote{Wir haben also zwei geforderte Eigenschaften für faktorielle Ringe, die Existenz und die Eindeutigkeit. In der Literatur werden oft Ringe mit der ersten Eigenschaft mit \emph{factorization domain (FD)} bezeichnet, Ringe wo zusätzlich die Letztere gilt oft mit \emph{unique factorization domain (UFD)}.}.
 \end{definition}
 
 \begin{remark}
-    Wir bemerken, dass Zerlegung in Primelemente \emph{immer} eindeutig sind (wieder bis auf Reihenfolge und Äquivalenz).
+    Wir bemerken, dass eine Zerlegung in Primelemente \emph{immer} eindeutig ist (wieder bis auf Reihenfolge und Assoziiertheit).
 
     Um dies einzusehen sei $a \in R$ mit zwei Zerlegungen
     $$ a = p_1 \cdot \hdots \cdot p_u = q_1 \cdot \hdots \cdot q_v, $$
@@ -18,7 +17,7 @@
     $$ p_2 \cdot \hdots \cdot p_u = q_1 \cdot \hdots \cdot q_{j-1} \cdot x \cdot q_{j+1} \cdot \hdots \cdot q_v. $$
     Induktiv folgt dadurch die Eindeutigkeit.
 
-    Tatsächlich haben wir hier nicht verwendet, dass die $q_i$ prim sind - wir haben also die stärkere Aussage gezeigt, dass es, sobald es eine Zerlegung in Primelemente gibt, diese bereits eindeutig ist (es gibt also keine andere Zerlegung in Nichtprimelemente, bis auf Reihenfolge und Äquivalenz).
+    Tatsächlich haben wir hier nicht verwendet, dass die $q_i$ prim sind - wir haben also die stärkere Aussage gezeigt, dass es, sobald es eine Zerlegung in Primelemente gibt, diese bereits eindeutig ist (es gibt also keine andere Zerlegung in Nichtprimelemente, bis auf Reihenfolge und Assoziiertheit).
 \end{remark}
 
 \begin{proposition}
@@ -26,7 +25,11 @@
     \begin{enumerate}
         \item $R$ ist faktoriell.
         \item $ \forall r \in R \setminus \{0\}, r \not\sim 1 \exists p_1, \hdots, p_s \in R \text{ prim}: r = p_1 \cdot \hdots \cdot p_s $
-        \item $ \forall r \in R: ( \setminus \{0\}, r \not\sim 1 \exists r_1, \hdots, r_t \in R \text{ irreduzibel}: r = r_1 \cdot \hdots \cdot r_t ) \land ( r \text{ irreduzibel} \implies r \text{ prim} ) $
+        \item Für alle $ r \in R \setminus \{0\}, r \not\sim 1 $ gilt:
+        \begin{enumerate}[label=\roman*.]
+            \item $ \exists r_1, \hdots, r_t \in R \text{ irreduzibel}: r = r_1 \cdot \hdots \cdot r_t $
+            \item $ r \text{ irreduzibel} \implies r \text{ prim} $
+        \end{enumerate}
     \end{enumerate}
 \end{proposition}
 
@@ -51,7 +54,7 @@
     Weiters ist $x$ irreduzibel, da $x = p \cdot q$ implizieren würde $\deg{p} = 0$ und $\deg{q} = 0$. Dann wäre jedoch $p \in \mathbb{Q}$, also $p \sim 1$.
     
     Nun gilt
-    $$ x \cdot x = x^2 = (\frac{\sqrt{2}}{2} x)(\sqrt{2}x), $$
+    $$ x \cdot x = x^2 = \left(\frac{\sqrt{2}}{2} x\right)(\sqrt{2}x), $$
     wobei alle Faktoren rechts und links irreduzibel sind. Die Zerlegungen sind unterschiedlich, da $x \not\sim \sqrt{2} x, \frac{\sqrt{2}}{2} x$, da $\sqrt{2}, \frac{\sqrt{2}}{2} \notin R$.
 \end{example}
 
@@ -79,7 +82,7 @@
 
 \begin{definition}
     Sei $R$ ein kommutativer Ring mit 1, $A \subseteq R$ und $d \in R$. Dann ist $d$ ein größter gemeinsamer Teiler von $A$ (wir schreiben auch $d = \mathrm{ggT}(A)$, obwohl diese Gleichheit formal nicht korrekt ist), wenn
-    $$ \forall a \in A: ( d \mid a \land \forall d' \in R ( \forall a \in A: d' \mid a \implies d' \mid d ) ). $$
+    $$ \forall a \in A: ( d \mid a \land \forall d' \in R : ( \forall a \in A: d' \mid a \implies d' \mid d ) ). $$
     Dieser größte gemeinsame Teiler ist eindeutig bis auf Äquivalenz.
 
     Entsprechend kann man auch das kleinste gemeinsame Vielfache einer Menge definieren.
