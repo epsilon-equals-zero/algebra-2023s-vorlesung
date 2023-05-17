@@ -1,0 +1,495 @@
+
+\notedate{03.05.2023}
+
+\section{Ringe}
+
+Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
+
+\begin{example} Ringe sind unter anderen
+    \begin{itemize}
+        \item der kommutative Ring mit 1 der ganzen Zahlen $(\mathbb{Z}, +, 0, -, \cdot, 1)$,
+        \item der kommutative Ring mit 1 der reellen Polynomfunktionen $(P, +, 0, - \cdot, 1)$, wobei $P \subseteq \mathbb{R}^\mathbb{R}$ die Menge aller Polynomfunktionen ist, $+, \cdot$ punktweise Operationen sind und $0, 1$ konstante Polynome mit entsprechendem Wert,
+        \item der (nicht kommutative) Ring mit 1 der reellen $2 \times 2$ Matrizen $(\mathbb{R}^{2 \times 2}, +, (0)_{2 \times 2}, -, \cdot, E_2)$ und
+        \item der kommutative Ring $(m\mathbb{Z}, +, 0, -, \cdot), m \geq 2$ der kein Einselement enthält.
+    \end{itemize}
+\end{example}
+
+\begin{remark}
+    Wie auch schon im Abschnitt über Gruppen werden wir im Folgenden für einen Ring $\mathfrak{R} = (R, +, 0, -, \cdot)$ mit Einselement $1$, falls dieses existiert nur $R$ schreiben, also den Ring mit der Trägermenge identifizieren.
+\end{remark}
+
+\begin{definition}
+    Sei $R$ ein Ring, so heißt $\emptyset \neq I \subseteq R$ \emph{Ideal}\index{Ideal}, oder kurz $I \vartriangleleft R$, genau dann wenn
+    \begin{itemize}
+        \item $(I, +, 0, -)$ eine Untergruppe von R ist und
+        \item $\forall r \in R: rI \subseteq I \land Ir \subseteq I.$
+    \end{itemize}
+    Gilt bei letzterer Bedingung nur $rI \subseteq I$, beziehungsweise $Ir \subseteq I$, so heißt $I$ \emph{Linksideal}\index{Ideal!Links-}, beziehungsweise \emph{Rechtsideal}\index{Ideal!Rechts-}.
+\end{definition}
+
+\begin{remark}
+    Ein Ideal $I$ eines Rings $R$ ist definitionsgemäß eine Untergruppe der additiven Gruppe $(R, +, 0, -)$.
+
+    Weiters ist $I$ sogar ein Unterring von $R$, da $I$ nach Definition unter $\cdot$ abgeschlossen ist.
+\end{remark}
+
+\begin{remark}\label{remark:ideal-mit-1-trivial}
+    Für ein Ideal $I$ eines Rings $R$ gilt $1 \in I \Leftrightarrow I = R$. Nach der Definition ist $I \subseteq R$, für die andere Richtung bemerken wir, dass für alle $r \in R$ gilt $r \cdot 1 = r \in I$.
+\end{remark}
+
+\begin{example}
+    Betrachte den Ring $(\mathbb{Q}, +, 0, -, \cdot, 1)$, so ist $\mathbb{Z}$ ein Unterring, jedoch kein Ideal.
+\end{example}
+
+\begin{example}
+    Es ist $m \mathbb{Z} \subseteq (\mathbb{Z}, +, 0, -, \cdot, 1)$ ein Ideal. Sei $P$ der Ring der reellen Polynomfunktionen. Dann ist $(x^2 + 1) \cdot P \vartriangleleft P$. Dies ist ein allgemeines Prinzip, wie wir später noch sehen werden.
+
+    Sei $M$ eine Menge und betrachte den Ring $(\mathcal{P}(M), \triangle, \emptyset, \id_{\mathcal{P}(M)}, \cap, M)$. Sei $A \subseteq M$ beliebig, so ist $\mathcal{P}(A) \vartriangleleft \mathcal{P}(M)$. Weiters kann $(\mathcal{P}(A), \triangle, \emptyset, \id_{\mathcal{P}(A)}, \cap, A)$ zu einem Ring mit 1 gemacht werden. Es handelt sich dabei um keinen Widerspruch zu \cref{remark:ideal-mit-1-trivial}, da hier ein anders Einselement gefunden wird als im ursprünglichen Ring.
+\end{example}
+
+\begin{remark}\label{remark:ideal-congrel}
+    Sei $(R, +, 0, -, \cdot)$ ein Ring und $\sim \subseteq R^2$ eine Kongruenzrelation auf $R$. Dann ist $\sim$ insbesondere eine Kongruenzrelation auf $(R, +, 0, -)$, womit $\sim$ eindeutig durch $[0]_{\sim}$ bestimmt ist.
+
+    Sind $x, y \in R$ beliebig, $x, y \in [0]_{\sim}$, so gilt $x + y \in [0]_{\sim}, (-x) \in [0]_{\sim}$, vergleiche die Theorie von Normalteilern von Gruppen. Sei $r \in R$ beliebig, so gilt $x \sim 0, r \sim r$, und da $\sim$ Kongruenzrelation ist damit $r \cdot x \sim 0 \cdot r = 0$, also folgt $[0]_{\sim} \vartriangleleft R$.
+
+    Umgekehrt sei $I \vartriangleleft R$ ein Ideal, wir wollen eine entsprechende Kongruenzrelation $\sim$ definieren. Für $x, y \in R$ definieren wir
+    $$ x \sim y :\Leftrightarrow y - x \in I. $$
+    Wir wissen, dass $\sim$ eine Kongruenzrelation bezüglich $(R, +, 0, -)$ ist. Sei $a \sim b, c \sim d$, dann folgt
+    $$ (a-b) \cdot d \in I, \quad a \cdot (c - d) \in I \implies (a-b)\cdot d + a\cdot(c-d) \in I. $$
+    Letzerer Ausdruck ist jedoch gleich
+    $$ ad - bd + ac - ad = -(bd - ac), $$
+    also folgt $ac \sim bd$ und $\sim$ ist auch eine Kongruenzrelation bezüglich $\cdot$.
+\end{remark}
+
+\begin{definition}
+    Sei $R$ ein Ring, $I \vartriangleleft G$ ein Ideal, dann definieren wir für $a \in R$ die \emph{Nebenklasse von a modulo I}\index{Nebenklasse} als 
+    $$a+I := \{ a + r \mid r \in I \}.$$
+\end{definition}
+
+\begin{definition}
+    Sei $R$ eine Ring, $I \vartriangleleft G$ ein Ideal und $\sim$ die wie in \cref{remark:ideal-congrel} vom Ideal induzierte Kongruenzrelation. Wir definieren den \emph{Faktorring} \index{Ring!Faktor-}
+    $$ R/_I := R/_\sim = \{ a + I \mid a \in R\}.$$
+    Dabei ist
+    $$ (a + I) + (b + I) := (a + b) + I \quad\text{und}\quad (a + I)\cdot(b+I) = (a\cdot b) + I. $$
+\end{definition}
+
+\begin{definition}
+    Sei $R$ ein Ring, $A \subseteq R$, $a \in R$, so heißen
+    $$ (A) := \bigcap \{ I \vartriangleleft R \mid A \subseteq I \}, $$
+    $$ (a) := \bigcap \{ I \vartriangleleft R \mid a \in I \} $$
+    die von $A$, beziehungsweise $a$, \emph{erzeugten Ideale}\index{erzeugtes Ideal}.
+\end{definition}
+
+\begin{remark}
+    Man beachte dass $(A)$ und $(a)$ tatsächlich Ideale sind, da Ideale unter Schnitten abgeschlossen sind.
+\end{remark}
+
+\begin{remark}
+    Wir bemerken, dass gilt
+    $$ (A) = \left\{ \sum_i r_i a_i s_i + \sum_j r_j' a_j' + \sum_k a_k'' s_k'' + \sum_\ell a_\ell''' \mid a_i, a_j', a_k'' \in A, a_\ell''' \in A \cup (-A), r_i, r_j', s_i, s_k'' \in R \right\}. $$
+
+    Ist $R$ sogar ein kommutativer Ring mit 1, so gilt
+    $$ (A) = \left\{ \sum_i r_i a_i \mid r_i \in R, a_i \in A \right\}. $$
+\end{remark}
+
+\begin{definition}
+    Sei $R$ ein Ring. Wir nennen $I \vartriangleleft R$ \emph{Hauptideal}\index{Hauptideal}, wenn gilt
+    $$ \exists a \in R: I = (a). $$
+
+    Weiters nennen wir $R$ einen \emph{Hauptidealring}\index{Hauptideal!-ring}, wenn gilt
+    $$ \forall I \vartriangleleft R : I \text{ ist Hauptideal}. $$
+\end{definition}
+
+\begin{example}
+    Es ist $(\mathbb{Z}, +, 0, -, \cdot, 1)$ ein Hauptidealring, da alle Unterringe von der Form $m \mathbb{Z} = (m)$ sind.
+\end{example}
+
+\begin{definition}
+    Ein Ring $R$ heißt \emph{nullteilerfrei}\index{Ring!nullteilerfrei}, wenn
+    $$ \forall a, b \in R: (a \cdot b = 0 \Rightarrow a = 0 \lor b = 0) $$
+
+    Ist $R$ ein kommutativer Ring mit 1 und nullteilerfrei, so nennen wir $R$ \emph{Integritätsbereich}\index{Integritätsbereich}.
+\end{definition}
+
+\begin{example}
+    Ist $R$ ein Körper, so ist $R$ nullteilerfrei, da mit $0 \neq a \in R, b \in R$ gilt
+    $$ a b = 0 \Rightarrow b = a^{-1} a b = a^{-1} 0 = 0. $$
+\end{example}
+
+\begin{example}
+    Es ist $(\mathbb{Z}, +, 0, -, \cdot, 1)$ ein Integritätsbereich, jedoch kein Körper.
+\end{example}
+
+\begin{proposition}
+    Ist $R$ ein Integritätsbereich und endlich, so ist $R$ ein Körper.
+\end{proposition}
+
+\begin{proof}
+    Sei $r \in R \setminus \{0\}$, wir wollen ein multiplikatives Inverses finden. Betrachte die Abbildung
+    $$ \varphi_r : R \to R, x \mapsto r \cdot x. $$
+    $\varphi_r$ ist injektiv: Sei $\varphi_r(x) = \varphi_r(y)$, so folgt $rx = ry$, also $r(x-y) = 0$, also $x-y=0$, also $x=y$.
+    Da $R$ endlich ist, ist damit $\varphi_r$ auch surjektiv, also gibt es ein $x \in R$ mit $\varphi_r(x) = r \cdot x = 1$.
+\end{proof}
+
+\begin{proposition}
+    Sei $R$ ein kommutativer Ring mit 1, dann ist $R$ ein Körper genau dann, wenn
+    $$ \forall I \vartriangleleft R: (I = \{0\} \lor I = R). $$
+\end{proposition}
+
+\begin{proof}{\ }
+    \begin{itemize}
+        \item[$\Rightarrow$:] Sei $I \neq \{0\}, x \in I, x \neq 0$, so ist $1 = x^{-1} x \in I$, also $I = R$.
+        \item[$\Leftarrow$:] Sei $R$ kein Körper, so gibt es ein $x \in R \setminus \{0\}$ sodass für alle $y \in R$ gilt $xy \neq 1$. Setze $I := (x) \vartriangleleft R$, so gilt wegen $x \in I$ dass $I \neq \{0\}$. Wegen $1 \notin I$ ist auch $I \neq R$.
+    \end{itemize}
+\end{proof}
+
+\begin{definition}
+    Sei $I \vartriangleleft R$. Wir nennen $I$
+    
+    \begin{itemize}
+        \item \emph{echt}\index{Ideal!echt}, wenn $I \subsetneq R$, 
+        \item \emph{prim}\index{Ideal!prim}, wenn $I$ echt ist und
+        $ \forall a, b \in R: (ab \in I \Rightarrow a \in I \lor b \in I) $ und
+        \item\emph{maximal}\index{Ideal!maximal}, wenn $I$ echt ist und
+        $\forall J \vartriangleleft R : J \supsetneq I \Rightarrow J = R. $
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    Sei $p \in \mathbb{P}$, so ist $p \mathbb{Z} \vartriangleleft \mathbb{Z}$ prim. Ist $m \in \mathbb{N}_{\geq 2} \setminus \mathbb{P}$, so ist $m \mathbb{Z}$ nicht prim.
+\end{example}
+
+\begin{proposition}
+    Sei $R$ ein kommutativer Ring mit 1 und $I \vartriangleleft R$. Dann gilt:
+    \begin{itemize}
+        \item $R /_{I} \text{ ist Körper} \Leftrightarrow I \text{ ist maximal}$
+        \item $R /_{I} \text{ ist prim} \Leftrightarrow I \text{ ist prim}$
+        \item $I \text{ ist maximal} \Rightarrow I \text{ ist prim}$
+        \item $I \text{ ist echt} \Rightarrow \exists J \supseteq I: J \vartriangleleft R \text{ ist maximal}$
+    \end{itemize}
+\end{proposition}
+
+\begin{proof}{\ }
+    \begin{enumerate}
+        \item \begin{itemize}
+            \item[$\Rightarrow$:] Angenommen $I$ wäre nicht maximal, es gibt also ein $R \neq J \supsetneq I, J \vartriangleleft R$.
+            Sei $J' := \{ a + I \mid a \in J \}$. Dann ist $J' \vartriangleleft R/_I, J' \neq R/_I$ und $J \neq \{I\}$. Also hat $R/_I$ ein echtes Ideal, im Widerspruch dazu, dass $R/_I$ ein Körper ist.
+            \item[$\Leftarrow$:] Sei $I$ maximal. Wir behaupten, dass $R/_I$ keine echten Ideale außer dem trivialen hat. Wäre dies nicht so, so sei $J \vartriangleleft R/_I$ echt, $J \neq \{I\}$ und sei $J' := \bigcup_{M \in J} M$. Dann ist $J' \supsetneq I, J' \neq R, J' \vartriangleleft R$, im Widerspruch zur Maximalität von $I$.
+        \end{itemize}
+        \item Es gilt
+        \begin{align*}
+            R/_I \text{ ist Integritätsbereich} &\Leftrightarrow \forall a, b \in R: (a + I)(b + I) = I \Rightarrow a + I = I \lor b + I = I \\
+            &\Leftrightarrow \forall a, b \in R: ab \in I \Rightarrow a \in I \lor b \in I \\
+            &\Leftrightarrow I \text{ ist prim}.
+        \end{align*}
+        \item Folgt direkt aus (1) und (2).
+        \item Diese Aussage kann leicht mit dem bekannten Lemma von Zorn bewiesen werden.
+        Dazu wird die Menge aller echten Ideale $J$ mit $J\supseteq I$ mittels Mengeninklusion partiell geordnet.
+        Ist nun $\mathcal{K}$ eine Kette von Idealen, so stellt $\bigcup_{J\in\mathcal{K}}J$ wieder ein Ideal dar.
+        Dieses ist tatsächlich echt, denn es gilt für jedes Ideal $J\in\mathcal{K}:1\not\in J$,
+        also ist $1\not\in\bigcup_{J\in\mathcal{K}}J$. Klarerweise ist die Vereinigung damit eine obere Schranke und aus dem Lemma
+        von Zorn folgt nun die Existenz eines maximalen Elements. Dieses maximale Element ist auch maximal in der Menge
+        aller echten Ideale und ist trivialerweise eine Obermenge von $I$.
+    \end{enumerate}
+\end{proof}
+
+\notedate{04.05.2023}
+
+\begin{example}
+    Betrachte den Ring $\mathbb{Z}$, $p \in \mathbb{P}$ und $p \mathbb{Z} \vartriangleleft \mathbb{Z}$, so erhalten wir $\mathbb{Z}/_{p\mathbb{Z}} = \mathbb{Z}_p$.
+    $p\mathbb{Z}$ ist dabei ein Primideal und $\mathbb{Z}_p$ ein Körper.
+
+    Für ein $m \in \mathbb{N}$ betrachte $m \mathbb{Z} \vartriangleleft \mathbb{Z}$, so ist zwar $\mathbb{Z} /_{m\mathbb{Z}} = \mathbb{Z}_m$, jedoch kein Integritätsbereich,
+    also insbesondere kein Körper.
+\end{example}
+
+\begin{example}
+    Sei $P$ die Menge der Polynomfunktionen auf $\mathbb{R}$ und $(x^2+1) \cdot P \vartriangleleft P$, so ist dies ein Primideal, und $P/_{(x^2+1) \cdot P}$ sogar ein Integritätsbereich. Jedoch ist es kein Körper, da $(x^2+1) \cdot P$ nicht maximal ist -- betrachte dazu beispielsweise
+    $$ (x^2 + 1) \cdot P \subsetneq (x^2+1) \cdot P + x \cdot P \vartriangleleft P $$.
+
+    Das Ideal $I := (x^2 - 1) \cdot P \vartriangleleft P$ ist kein Primideal, da $(x-1)\notin I, (x+1) \notin I$, aber $(x-1)(x+1) = x^2 - 1 \in I$.
+\end{example}
+
+\begin{definition}
+    Wir definieren die \emph{Charakteristik}\index{Charakteristik} eines Rings als
+    $$ \chara R := 
+    \begin{cases}
+        \min\{n\in\mathbb{N}\mid\sum_{i=1}^n 1=0\} & \text{falls existent,}\\
+        0 & \text{sonst}.
+    \end{cases}
+        $$
+\end{definition}
+
+\begin{example}
+    Für $m\in\mathbb{N}$ ist $\mathbb{Z}_m$ ein bekanntes Beispiel für einen Ring mit Charakteristik $m$.
+    $(\mathbb{Z}_m)^{\mathbb{N}}$ ist beispielsweise ein unendlicher Ring mit Charakteristik $m$.
+\end{example}
+
+\begin{proposition}
+    Sei $R$ ein Ring mit 1, $\chara R = p \in \mathbb{P}$. Dann ist
+    $$ \varphi : R \to R, x \mapsto x^{p^k} $$
+    ein Homomorphismus.
+\end{proposition}
+
+\begin{proof}
+    Wir zeigen die Aussage mittels Induktion nach $k$.
+
+    Induktionsanfang ($k = 1$): Es gilt
+    $$ (a+b)^p = \sum_{i=0}^p {p \choose i} a^i b^{p-1}. $$
+    Wir beobachten
+    $$ {p \choose i} = \frac{p \cdot (p-1) \cdot \hdots \cdot (p-i+1)}{1\cdot \ldots \cdot i} \equiv 0 \text{ mod } p $$
+    für $i\neq 0,p$, daher folgt $(a+b)^p\equiv a^p+b^p\text{ mod }p$.
+
+    Induktionsschritt ($k\to k+1$): Es gilt unmittelbar
+    $$(a+b)^{p^{k+1}}=(a^{p^k}+b^{p^k})^p=a^{p^{k+1}}+b^{p^{k+1}}.$$
+\end{proof}
+
+\begin{remark}\label{rem:ring-koerper}
+    Sei $R$ ein kommutativer Ring mit 1, wir wollen $R$ in einen Körper einbetten. Es gelte \obda $0 \neq 1$ (da sonst für alle $x$ gilt $ x = 1\cdot x = 0 \cdot x = 0$). Wir sammeln nun notwendige Voraussetzungen.
+
+    Es muss $R$ ein Integritätsbereich sein, da $rs=0\Rightarrow r^{-1}rs=s=0$ für $r,s\in R$ folgen wird.
+
+    Nicht notwendig (da es aus der vorigen Bedingung folgt), aber interessant ist die Tatsache, dass wenn $R$ ein Integritätsbereich ist, jedes Element außer $0$ bereits kürzbar ist.
+    Denn für $r,x,y\in R,r\neq 0$ gilt $rx=ry\Rightarrow r(x-y)=0\Rightarrow x-y=0\Rightarrow x=y$.
+
+    Es ist $R^* := R \setminus \{0\}$ ein kommutatives Monoid mit der Operation $\cdot$. Definiere eine Äquivalenz\-relation $\sim \subseteq (R \times R^*)^2, (a, b) \sim (c, d) :\Leftrightarrow ad = bc$. Wie man nachrechnet ist dies sogar eine Kongruenzrelation. Dann ist $((R \times R^*)/_\sim, \cdot, [(1,1)]_\sim) =: M$ ein Monoid, wobei jedes $[(x,y)]_\sim$ mit $x \neq 0$ ein Inverses besitzt.
+    
+    Dann ist
+    $$ \varphi : R \to M, x \mapsto [(x, 1)]_\sim $$
+    eine homomorphe Einbettung von $R$ in $M$.
+
+    Für jedes multiplikative Monoid $N$ mit einer Einbettung $\psi : R \to N$ und der Eigenschaft
+    $$\forall x\in R^*\exists y\in N:y\varphi(x)=\varphi(x)y=1$$
+    gibt es eine Einbettung $\bar{\psi} : M \to N$ mit $\bar{\psi} \circ \varphi = \psi$.
+
+    Auf $M$ definieren wir nun eine Addition
+    $$ (a,b) + (c,d) := (ad+bc, bd), \quad -(a,b) := (-a, b), $$
+    so ist $(R \times R^*, +, (0,1), -)$ eine Gruppe.
+\end{remark}
+
+\begin{lemma}
+    Die in \cref{rem:ring-koerper} definierte Äquivalenzrelation $\sim \subset (R \times R^*)^2$ ist eine Kongruenzrelation bezüglich $+$.
+\end{lemma}
+
+\begin{proof}
+    Seien $(z_1,n_1),(z_1',n_1'),(z_2,n_2),(z_2',n_2')\in R\times R^*$ mit $(z_1,n_1)\sim (z_1',n_1')$ und $(z_2,n_2)\sim (z_2',n_2')$ gegeben.
+    Dann ist zu zeigen, dass $(z_1n_2+z_2n_1,n_1n_2)\sim (z_1'n_2'+z_2'n_1',n_1'n_2')$ gilt. Die Behauptung folgt durch Einsetzen
+    in die Definition:
+    $$(z_1n_2+z_2n_1)n_1'n_2'=\overbrace{z_1n_1'}^{z_1'n_1}n_2n_2'+\overbrace{z_2n_2'}^{z_2'n_2}n_1n_1'=(z_1'n_2'+z_2'n_1')n_1n_2$$
+\end{proof}
+
+\begin{theorem}\label{theorem:Quotientenkoerper}
+    Sei $R$ ein kommutativer Ring mit $1 \neq 0$, der zusätzlich ein Integritätsbereich ist. Sei weiters $\sim \subseteq (R \times R^*)^2$ wie in \cref{rem:ring-koerper} definiert. Dann gilt:
+    \begin{enumerate}
+        \item $K := (R \times R^*)/_\sim $ mit $+, \cdot$ aus \cref{rem:ring-koerper} ist ein Körper.
+        \item $\varphi : R \to K, x \mapsto [(x, 1)]_\sim$ ist eine Einbettung.
+        \item Für alle Einbettungen $\psi : R \to L$ in einen Körper $L$ gibt es eine Einbettung $\bar{\psi} : K \to L$ mit $\bar{\psi} \circ \varphi = \psi$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Wir haben bereits gezeigt, dass $\sim$ eine Kongruenzrelation ist, womit $K$ wohldefiniert ist.
+
+    Wir wissen $(K, \cdot, [(1,1)]_\sim)$ ist ein kommutatives Monoid.
+
+    Weiters ist $(K \setminus \{ [(0,1)]_\sim \}, \cdot, [(1, 1)]_\sim) = (R^* \times R^*)/_\sim$ eine kommutative Gruppe, genauso auch $(K, +, [(0,1)]_\sim, -)$.
+
+    Das Distributivgesetz verifiziert man unmittelbar durch Nachrechnen.
+
+    Nach Konstruktion ist $\varphi$ eine injektive Einbettung bezüglich $\cdot$. Allerdings gilt
+    für $a,b\in R$, dass $\varphi(a+b)=[(a+b,1)]_\sim=[(1a+1b,1\cdot 1)]_\sim=[(a,1)]_\sim+[(b,1)]_\sim=\varphi(a)+\varphi(b)$.
+    Wegen $\varphi(0)=[(0,1)]_\sim\varphi(0)=0$ wird auch das neutrale Element von $\varphi$ erhalten,
+    woraus bereits die Verträglichkeit mit additiven Inversen folgt. Daher ist $\varphi$ sogar eine Einbettung bezüglich $+$.
+
+    Sei $\psi : R \to L$ eine Einbettung in einen Körper $L$. Nach der Monoidkonstruktion gibt es eine Einbettung $\bar{\psi} : K \to L$ bezüglich $\cdot$ mit $\bar{\psi} \circ \varphi = \psi$.
+    Wir verifizieren nun, dass $\bar{\psi}$ mit der Addition verträglich ist:
+    \begin{align*}
+        \bar{\psi} ([(z_1, u_1)]_\sim + [(z_2, u_2)]_\sim) &= \bar{\psi} ([(z_1 u_2 + z_2 u_1, u_1 u_2)]_\sim) \\
+        &= \bar{\psi}([(z_1n_2+z_2n_1,1)]_\sim)\cdot \bar{\psi}([(1,n_1n_2)]_\sim)\\
+        &= \overbrace{\bar{\psi}\circ\varphi}^{=\psi}(z_1n_2+z_2n_1)\cdot \bar{\psi}([(1,n_1n_2)]_\sim)\\
+        &= \big(\overbrace{\psi}^{\bar{\psi}\circ\varphi}(z_1n_2)+\overbrace{\psi}^{\bar{\psi}\circ\varphi}(z_2n_1)\big)\cdot \bar{\psi}([(1,n_1n_2)]_\sim)\\
+        &= \bar{\psi}([(z_1n_2,1)]_\sim)\cdot \bar{\psi}([(1,n_1n_2)]_\sim)+\bar{\psi}([(z_2n_1,1)]_\sim)\cdot \bar{\psi}([(1,n_1n_2)]_\sim)\\
+        &= \bar{\psi}([(z_1,n_1)]_\sim)+\bar{\psi}([(z_2,n_2)]_\sim)
+    \end{align*}
+\end{proof}
+
+\begin{proposition}
+    Sei $L$ ein Körper mit der obigen Eigenschaft (3) aus Satz \ref{theorem:Quotientenkoerper}, so gilt bereits $L \cong K$, wobei $K$ unser konstruierter Körper ist.
+\end{proposition}
+
+\begin{proof}
+    Gegeben sind also $\varphi:R\to K$ und $\varphi_0:R\to L$ jeweils mit Eigenschaft (3).
+    Daher existieren $\bar{\varphi}:L\to K$ mit $\bar{\varphi}\circ \varphi_0=\varphi$ und ${\varphi_0}:K\to L$
+    mit $\bar{\varphi_0}\circ \varphi=\varphi_0$.
+    Wir zeigen zuerst die folgenden Behauptung. Für jeden injektiven Homomorphismus
+    $\xi:K\to K$ mit $\xi|_{\varphi(R)}=\id_R$ folgt $\xi=\id$. Dies folgt aus der folgenden Rechnung:
+    $$
+        \xi([(a,b)]_\sim)=\xi([(a,1)]_\sim)\xi([1,b]_\sim)=[(a,1)]_\sim\cdot [(b,1)]_\sim^{-1}=[(a,b)]_\sim.
+    $$
+    Insbesondere gilt daher $\bar{\varphi}\circ \bar{\varphi_0}=\id_K$, da $(\bar{\varphi}\circ\bar{\varphi_0}\circ\varphi)(a)=(\bar{\varphi}\circ\varphi_0)(a)=\varphi(a)$ gilt.
+\end{proof}
+
+\begin{definition}
+    Sei $R$ ein kommutativer Ring mit $1\neq 0$ und ein Integritätsbereich. Dann wird der Körper
+    $(R\times R^*)/_\sim$ aus Satz \ref{theorem:Quotientenkoerper} \emph{Quotientenk\"orper von $R$}\index{Quotientenkörper} genannt.
+    Für $[(z,n)]_\sim$ schreibt man auch $\frac{z}{n}$.
+\end{definition}
+
+\begin{remark}
+    Die letzten beiden Theoreme liefern uns folgendes Ergebnis: Zu einem kommutativen Ring mit $1\neq 0$ der ein Integritätsbereich
+    ist, kann der Quotientenk\"orper konstruiert werden. Dieser ist (bis auf Isomorphie) eindeutig bestimmt und der kleinste Körper
+    der $R$ enthält.
+\end{remark}
+
+\begin{definition}\label{def:polynomring}
+    Sei $R$ eine Ring mit $1$. Wir definieren den \emph{Polynomring über $R$}\index{Polynomring}
+    $$R[x]:=\left\{(x_n)_{n\in \mathbb{N}} \in R^\mathbb{N} \;\middle|\; \vert\{x_n\neq 0\mid n\in \mathbb{N}\}\vert<\infty\right\}$$
+    mit den Operationen
+    \begin{align*}
+        + &: R[x] \times R[x] \to R[x], ((x_n)_{n\in \mathbb{N}}, (y_n)_{n\in\mathbb{N}}) \mapsto (x_n+y_n)_{n\in\mathbb{N}}\\
+        \cdot &: R[x] \times R[x] \to R[x], ((x_n)_{n\in \mathbb{N}}, (y_n)_{n\in\mathbb{N}}) \mapsto \left(\sum_{i=0}^n x_i y_{n-i}\right)_{n\in\mathbb{N}}
+    \end{align*}
+
+    Elemente von $R[x]$ bezeichnen wir als \emph{Polynome}\index{Polynom}.
+
+    Weiter definieren wir den Ring der \emph{formalen Potenzreihen}\index{formale Potenzreihe} 
+    $$R[[x]]:=\left\{(x_n)_{n \in \mathbb{N}} \in R^\mathbb{N}\right\}$$
+    mit denselben Operation wie oben. 
+    
+    Die Elemente von $R[x]$ wollen wir auch als $p(x)=\sum_{i=0}^na_ix^i$ auffassen, wenn $a_i=0$ für $i>n$ gilt. Formal ist hier eigentlich die Folge
+    der Koeffizienten ein Element des Ringes. Weiters schreiben wir für die Elemente von $R[[x]]$ auch
+    $p(x)=\sum_{i=0}^\infty a_ix^i$.
+\end{definition}
+
+\begin{remark}
+    Alternativ kann der Polynomring wie folgt definiert werden:
+
+    Sei $R$ ein kommutativer Ring mit 1, $x$ eine Variable und definiere
+    $$ R[x] := \{ t(x) \mid t \text{ Term über $x$ in Sprache } +, \cdot, (r)_{r \in R} \}/_\sim, $$
+    wobei $\sim$ die von Gesetzen der kommutativen Ringe mit 1 und Gesetzen in $R$ erzeugte Äquivalenz\-relation ist. In $R[x]$ gilt also beispielsweise
+    $$ x + x \cdot x = x \cdot x + x, \quad r \cdot (s \cdot x) = (r \cdot s) \cdot x. $$
+
+    Vorteil von \cref{def:polynomring} ist, dass analog auch die Verallgemeinerung der formalen Potenzreihen definiert werden kann, was mit diesem Ansatz nicht möglich ist.
+\end{remark}
+
+\begin{proposition}\label{prop:polynomringe}
+    Sei $R$ ein kommutativer Ring mit $1$. Dann gilt:
+    \begin{itemize}
+        \item $R[{x}]$ ist ein kommutativer Ring mit $1$.
+        \item $R[x]\subseteq R[[x]]$
+        \item $R$ ist in $R[x]$ eingebettet vermöge $r\mapsto \sum_{i=0}^0rx^i$
+        \item $R$ ist ein Integritätsbereich $\Leftrightarrow$ $R[x]$ und $R[[x]]$ sind Integritätsbereiche.
+    \end{itemize}
+\end{proposition}
+
+\notedate{10.05.2023}
+\begin{definition}
+    Sei $R$ ein Ring mit $1\neq 0$ und ein Integritätsbereich. Dann nennen wir den Quotientenkörper von $R[x]$ 
+    $$R(x):=\left\{\frac{p(x)}{q(x)}\;\middle|\;p(x),q(x)\in R[x],q(x)\neq 0\middle\}\right/_\sim$$
+    mit der üblichen Relation $\frac{p}{q}\sim \frac{r}{s}\Leftrightarrow sp=qr$ den Körper der \emph{gebrochen rationalen Funktionen}\index{gebrochen rationale Funktion}.
+\end{definition}
+
+\begin{remark}
+    Ist $R$ ein Ring mit $1\neq 0$ und ein Integritätsbereich so kann der Quotientenk\"orper $K$ und dann von diesem
+    der Polynomring $K[x]$ betrachten werden. Dieser besitzt nun einen Quotientenk\"orper $K(x)$. Andererseits
+    kann man auch den Quotientenk\"orper des Polynomrings über $R$ betrachten und erhält durch $R(x)$ einen dazu isomorphen Körper,
+    also $K(x)\cong R(x)$.
+\end{remark}
+
+\begin{remark}
+    Als Verallgemeinerung des Polynomrings kann man auch den Polynomring in $n$-Variablen $x_1,\ldots,x_n$ rekursiv definieren
+    durch $R[x_1,\ldots,x_n]:=R[x_1,\ldots,x_{n-1}][x_n]$. Auch für eine beliebige Variablenmenge $X$ kann eine Verallgemeinerung
+    getroffen werden, indem man mit $R[x]$ die Terme über der Sprache $(+,0,-,\cdot,1,(x)_{x\in X},(m_r)_{r\in R})$ nach den Ringgesetzen
+    und Gleichheiten in $R$ faktorisiert.
+\end{remark}
+
+\begin{definition}
+    Sei $K$ ein Körper. Dann heißt $K$ \emph{algebraisch abgeschlossen}\index{Körper!algebraisch abgeschlossen}, wenn
+    $$\forall p(x)\in K[x]:p\not\in\footnote{Hier wird $K$ mittels der Einbettung aus \cref{prop:polynomringe} als Teilmenge betrachtet.} K\Rightarrow \exists a\in K:p(a)=0$$
+    gilt.
+\end{definition}
+
+\begin{theorem}[Nullstellensatz von Hilbert, klein]\label{theorem:nullstellensatz}\index{Nullstellensatz von Hilbert}
+    Sei $K$ ein algebraisch abgeschlossener Körper und $I\vartriangleleft K[x_1,\ldots,x_n]$ ein echtes Ideal.
+    Dann gilt $\exists(a_1,\ldots,a_n)\in K^n:\forall p(x_1,\ldots,x_n)\in I:p(a_1,\ldots,a_n)=0.$
+\end{theorem}
+
+\begin{remark}
+    Satz \ref{theorem:nullstellensatz} ist nicht Teil dieser Lehrveranstaltung, sondern soll nur einen Ausblick auf die Algebra 2 Vorlesung geben.
+    Die Anforderung an ein echtes Ideal sind dabei sehr natürlich. Ein echtes Ideal kann nämlich keine Konstanten $c$ enthalten, da sonst
+    $c\in I\Rightarrow c^{-1}c\in I\Rightarrow I=K[x_1,\ldots,x_n]$ gilt. Ist außerdem $F$ eine beliebige Menge von
+    Polynomen mit einer gemeinsamen Nullstelle, so überzeugt man sich leicht davon, dass auch jedes Polynom aus dem erzeugten Ideal
+    von $F$ an dieser Stelle den Wert $0$ annimmt. Daher kann \obda angenommen werden, dass $F$ sogar ein Ideal ist.
+\end{remark}
+
+\begin{proposition}
+    Sei $R$ ein kommutativer Ring mit $1$ und $X$ eine Variablenmenge. Dann gilt:
+    \begin{enumerate}
+        \item $R\leq R[X]$
+        \item Für jeden Ring $S$ mit $R\leq S$ und jeden Homomorphismus $\varphi:X\to S$
+        existiert genau ein Homomorphismus $\bar{\varphi}:R[X]\to S$, sodass $\bar{\varphi}|_X=\varphi$ und $\bar{\varphi}|_R=\id_R$ gilt.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Der Beweis verläuft analog wie bei den freien Algebren.
+\end{proof}
+
+
+\begin{definition}
+    Sei $R$ eine Ring und $I\vartriangleleft R$. Dann definieren wir für $r,s\in R$:
+    $$r\equiv s\mod I:\Leftrightarrow r-s\in I.$$
+    Wir sagen auch \emph{$r$ ist $s$ modulo $I$}\index{modulo}.
+\end{definition}
+
+\begin{theorem}[Chinesischer Restsatz, allgmeien]\index{Chinesischer Restsatz!allgemein}
+    Seien $R$ ein kommutativer Ring mit 1 und $I_1,\ldots,I_n\vartriangleleft R$ mit $\forall i\neq j\Rightarrow I_i+I_j=R$.
+    
+    Dann wird $I:=\bigcap_{i=1}^nI_i$ definiert und es gilt:
+    \begin{enumerate}
+        \item $\forall r_1\ldots,r_n\in R\,\exists r\in R:\forall i\in\{1,\ldots,n\}:r\equiv r_i\mod I_i$. Weiters ist $r$
+        modulo $I$ eindeutig bestimmt.
+        \item $\varphi:R/_I\to R/_{I_1}\times\ldots\times R/_{I_n}, r+I\mapsto (r+I_1,\ldots,r+I_n)$ ist ein Isomorphismus.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Zuerst stellen wir die Behauptung $\forall i=2,\ldots,n: I_1+(I_2\cap \ldots \cap I_n)=R$ auf, welche wir mit Induktion
+    beweisen wollen:
+
+    Induktionsanfang $(i=2)$: Die Behauptung gilt laut Voraussetzung.
+
+    Induktionsschritt $(i\to i+1)$: Da $R$ ein Ring mit $1$ ist gilt
+    $R=R\cdot R$. Nun kann die Induktionsannahme auf den ersten Faktor und die Voraussetzung des Satzes auf den zweiten Faktor angewendet werden,
+    woraus man $R\cdot R=(I_1+(I_2\cap\ldots\cap I_i))\cdot(I_1+I_{i+1})$ erhält. Das ist offensichtlich eine Teilmenge
+    von $I_1+(I_2\cap\ldots\cap I_i)\cdot I_{i+1}$. Der zweite Summand ist eine Teilmenge von $I_{i+1}$, da
+    $I_{i+1}$ ein (Links-)Ideal ist. Gleichzeitig ist er eine Teilmenge von $I_2\cap\ldots \cap _i$, da diese Menge ein (Rechts-)Ideal ist.
+    Damit folgt, dass $R=R\cdot R$ schon in $I_1+(I_2\cap\ldots \cap I_{i+1})$ enthalten sein muss, also die Gleichheit.
+
+    Analog gilt mit der Definition $I_i':=\bigcap_{j\neq i}I_j$, dass für alle $i\in\{1,\ldots,n\}$
+    auch $I_i+I_i'=R$ ist. Daher existieren für jedes $i\in\{1,\ldots,n\}$ ein $a_i\in I_i$ und ein $a_i'\in I_i'$
+    mit $r_i=a_i+a_i'$. Definiert man nun $r:=\sum_{i=1}^na_i'$, so erhält man für alle $i\in\{1,\ldots,n\}$, dass
+    $r\equiv a_i'\equiv r_i \text{ mod }I_i$ gilt, also die Existenz.
+
+    Dieses Element ist eindeutig modulo $I$ bestimmt, denn falls $r'$ und $r$ beide die gewünschte Eigenshaft haben,
+    so folgt $r'-r\in I_i$ für alle $i$, also $r'-r\in\bigcap_{i=1}^nI_i=I$.
+
+    Schließlich ist die Abbildung $\varphi$ laut Definition wohldefiniert. Die Surjektivität ist die Existenz vonb $r$ im ersten Punkt,
+    die Injektivität ist die Eindeutigkeit modulo $I$. Für die Homomorphiebedingung rechnen wir exemplarisch nach, dass
+    $\varphi$ mit der Addition verträglich ist:
+    $$\varphi(r+I+s+I)=\varphi((r+s)+I)=((r+s)+I_1,\ldots,(r+s)+I_n)=\varphi(r+I)+\varphi(s+I).$$
+    Die Multiplikation zeigt man analog.
+\end{proof}
+
+\begin{corollary}[Chinesischer Restsatz, klassisch]\index{Chinesischer Restsatz!klassisch}
+    Seien $m_1,\ldots,m_n\geq 2$ und $\forall i\neq j: m_i\mathbb{Z}+m_j\mathbb{Z}=\mathbb{Z}$
+    oder äquivalent dazu $\text{ggT}(m_i,m_j)=1$. Dann gilt
+    \begin{enumerate}
+        \item $\forall a_1,\ldots,a_n\in\mathbb{Z}\,\exists a\in\mathbb{Z}:\forall i\in\{1,\ldots,n\}: a\equiv a_i \mod m_i$.
+        Weiters ist dieses $a$ eindeutig modulo $\bigcap_{i=1}^{n}m_i\mathbb{Z}=m_1\ldots m_n\mathbb{Z}$.
+        \item $\varphi:\mathbb{Z}_{m_1\ldots m_n}\to \mathbb{Z}_{m_1}\times \mathbb{Z}_{m_n}, [a]\mapsto (a\mod m_1,\ldots, a\mod m_n)$
+        ist ein Isomorphismus.
+    \end{enumerate}
+\end{corollary}
+
+

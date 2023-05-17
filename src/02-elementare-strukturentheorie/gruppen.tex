@@ -588,7 +588,7 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
     Sei $h \in G$ beliebig, so gilt $h^m = e$ und damit $\ord(h) \mid m$. Damit ist $M := \{ \ord(h) \mid h \in G \}$ endlich, wir können also $M = \{ \ord(h_1), \hdots, \ord(h_n) \}$, mit $h_i \in G$, schreiben. Nach $\cref{lemma:abelsch-torsion-lemma}$ gibt es nun ein $g \in G$ mit $\ord(g) = \mathrm{kgV}(\ord(h_1), \hdots, \ord(h_n))$. Es gilt nun $h^{\ord(g)} = e$. Insgesamt folgt damit also $$m \overset{h^{\ord(g)} = e}{\leq} \ord(g) \overset{\exp(G) = m,\; g \in G}{\leq} m$$.
 \end{proof}
 
-\begin{lemma}
+\begin{lemma} \label{lemma:p-t-anteil-untergruppe}
     Sei $G$ eine abelsche Gruppe und sei $p \in \mathbb{P}$. Dann gilt:
     \begin{enumerate}
         \item $G_p \leq G$
@@ -635,7 +635,9 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
 \end{theorem}
 
 \begin{proof}
-    Wir müssen lediglich zeigen, dass für alle $p \in \mathbb{P}, G_p \vartriangleleft G$ gilt, dann folgt die Aussage aus den \cref{lemma:p-anteile-verschieden,lemma:zerlegung-p-anteile,prop:kriterien-direktes-inneres-produkt}. Seien also $p \in \mathbb{P}, g \in G$ beliebig, wir wollen $g G_p g^{-1} \subseteq G_p$ zeigen. Für den inneren Automorphismus $\varphi_g$ soll also $\varphi_g(G_p) \subseteq G_p$ gelten. Wir wissen, da $\varphi_g$ ein Automorphismus ist, dass für $a \in G$ gilt, dass $\ord(a) = \ord(\varphi(a))$, womit also sofort $\varphi_g(G_p) \subseteq G_p$ folgt.
+    Wir müssen lediglich zeigen, dass für alle $p \in \mathbb{P}, G_p \vartriangleleft G$ gilt,
+    dann folgt die Aussage aus den \cref{lemma:p-anteile-verschieden,lemma:zerlegung-p-anteile,prop:kriterien-direktes-inneres-produkt}. Seien also $p \in \mathbb{P}, g \in G$ beliebig, wir wollen $g G_p g^{-1} \subseteq G_p$ zeigen.
+    Da der $p$-Anteil nach Lemma \ref{lemma:p-t-anteil-untergruppe} eine Untergruppe ist und $G$ abelsch ist, ist die Behauptung offensichtlich wahr.
 \end{proof}
 
 \begin{lemma}\label{lemma:p-gruppe-max-ordnung}
@@ -674,7 +676,7 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
 
     Sei $a \in G$ mit maximaler Ordnung $p^{e_n}$, so wissen wir nach \cref{lemma:p-gruppe-max-ordnung} $G \cong \langle a \rangle \times U$, wobei $\langle a \rangle \cong C_{p^{e_n}}$. Dies wird induktiv mit $U$ wiederholt, wobei wir dies nur endlich oft machen müssen, da $G$ endlich ist.
 
-    Zeigen wir nun noch die Eindeutigkeit: Sei $$G \cong \Bigl( C_{p_1^{e_1}} \Bigr)^{m_1} \times \hdots \times \Bigl( C_{p_n^{e_n}} \Bigr)^{m_n} \cong G \times \Bigl( C_{q_1^{f_1}} \Bigr)^{\ell_1} \times \hdots \times \Bigl( C_{q_s^{f_s}} \Bigr)^{\ell_s} .$$
+    Zeigen wir nun noch die Eindeutigkeit: Sei $$G \cong \Bigl( C_{p_1^{e_1}} \Bigr)^{m_1} \times \hdots \times \Bigl( C_{p_n^{e_n}} \Bigr)^{m_n} \cong \Bigl( C_{q_1^{f_1}} \Bigr)^{\ell_1} \times \hdots \times \Bigl( C_{q_s^{f_s}} \Bigr)^{\ell_s} .$$
     Definiere $m:=\max\{r^v| r\in\mathbb{P}, v\geq1, \exists a\in G:\mathrm{ord}(a)=r^v\}$. Dann existieren $i\in\{1,\ldots,n\}$
     und $j\in\{1,\ldots,s\}$ mit $m=(p_i)^{e_i}=(q_j)^{f_j}$. Damit haben die beiden Darstellungen einen Faktor gemeinsam. Damit ist
     $G/(C_{m})$ eine Gruppe mit weniger Elementen als $G$, welche isomorph zu den beiden Gruppen
