@@ -82,8 +82,8 @@
 
 \begin{definition}
     Sei $R$ ein kommutativer Ring mit 1, $A \subseteq R$ und $d \in R$. Dann ist $d$ ein größter gemeinsamer Teiler von $A$ (wir schreiben auch $d = \mathrm{ggT}(A)$, obwohl diese Gleichheit formal nicht korrekt ist), wenn
-    $$ \forall a \in A: ( d \mid a \land \forall d' \in R : ( \forall a \in A: d' \mid a \implies d' \mid d ) ). $$
-    Dieser größte gemeinsame Teiler ist eindeutig bis auf Äquivalenz.
+    $$ (\forall a \in A: d \mid a ) \land ( \forall d' \in R : ( \forall b \in A: d' \mid b \implies d' \mid d ) ). $$
+    Dieser größte gemeinsame Teiler ist eindeutig bis auf Assoziiertheit.
 
     Entsprechend kann man auch das kleinste gemeinsame Vielfache einer Menge definieren.
 \end{definition}
