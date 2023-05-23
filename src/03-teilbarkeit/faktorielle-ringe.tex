@@ -1,6 +1,6 @@
 \notedate{11.05.2023}
 
-\subsection{Faktorielle Ringe}
+\section{Faktorielle Ringe}
 
 \begin{definition}
     Sei $R$ ein Integritätsbereich, so heißt $R$ \emph{faktorieller Ring} (oder \emph{Gaußscher Ring}, oder auch \emph{ZPE-Ring}) genau dann wenn
@@ -87,3 +87,70 @@
 
     Entsprechend kann man auch das kleinste gemeinsame Vielfache einer Menge definieren.
 \end{definition}
+
+\begin{remark}
+    Sei $R$ ein Ring und Integritätsbereich und seien $a,b\in R$. Dann gilt die Äquivalenz
+    $a\mid b\Leftrightarrow (b)\subseteq (a)$. Es ist daher die Struktur
+    $(R/_\sim,\mid)$ ordnungstheoretisch isomorph zu der Menge aller Hauptideal mit Mengeninklusion,
+    vermöge der Abbildung $\psi([a]_\sim):= (a)$. Dabei ist $\sim$ die Assoziiertheit. Im Fall eines
+    Hauptidealrings kann \glqq Menge der Hauptideale\grqq{} offensichtlich mit \glqq Menge der Ideale\grqq{}
+    ersetzt werden. Für $A\subseteq R$ ist $\inf_{\vert}(A)=\mathrm{ggT}(A)$ und $\sup_{\vert}(A)=\mathrm{kgV}(A)$.
+    Aufgrund von dieser Tatsachen folgt nun, dass es in einem Hauptidealring $R$
+    zu $A\subseteq R$ eine Menge von Idealen $A'=\psi(A)$ gibt. Da $R$ ein Hauptidealring ist,
+    existiert ein $d\in R$ mit $(A)=(d)$ und es folgt
+    $$\mathrm{ggT}(A)=\inf{}_|(A)\widehat{=}\inf{}_{\supseteq}\{(a)\mid a\in A\}=\sup{}_\subseteq\{(a)\mid a\in A\}=(A)=(d).$$
+\end{remark}
+
+\begin{lemma}[Lemma von Bezout]
+    Sei $R$ ein Hauptidealring und $A\subseteq R$. Dann existieren
+    $n\in\mathbb{N}$, $a_1,\ldots,a_n\in A$ und $r_1,\ldots,r_n\in R$, sodass $\mathrm{ggT}(A)=\sum_{i=1}^nr_ia_i$.
+\end{lemma}
+
+\begin{proof}
+    Aus der vorangegangen Bemerkung folgt $(\textrm{ggT}(A))=(A)$. Aufgrund der Darstellung über das erzeugte Ideal folgt die Behauptung.
+\end{proof}
+
+\begin{example}
+    Ein Beispiel in $R=\mathbb{Z}$ ist $\textrm{ggT}(5,3)=1=(-1)5+2\cdot 3$.
+\end{example}
+
+\section{Teilen mit Rest}
+\begin{example}
+    Dieses Beispiel illustriert die Motivation dieses Kapitels: In den ganzen Zahlen kann die bekannte Division mit Rest, durchgeführt werden. Das heißt für zwei ganze Zahlen $a,b\in \mathbb{Z}$ mit $a\neq 0$ existieren $q,r\in\mathbb{Z}$ sodass $b=qa+r$ gilt, wobei $0\le r<|a|$. Beispielsweise ist $16=5\cdot 3+1$ eine solche Division mit Rest, während $16=4\cdot 3+4$
+    diese Definition nicht erfüllt.
+\end{example}
+
+\begin{definition}
+    Sei $R$ ein Integritätsbereichs-Ring. Dieser heißt \emph{euklidischer Ring}, wenn es eine Funktion $H:R\setminus\{0\}\to\mathbb{N}$ mit
+    $$\forall a\in R\setminus\{0\},b\in R:\exists\footnote{Diese Elemente müssen nicht eindeutig sein!} q,r\in R:b=aq+r \quad \land \quad (r=0\lor H(r)<H(a))$$ gibt. Die Funktion $H$ heißt \emph{euklidische Bewertung}.
+\end{definition}
+
+\begin{example}
+    Ein Beispiel für einen euklidischen Ring ist $\mathbb{Z}$ mit $H(x)=|x|$.
+    Weiters ist für einen Körper $K[x]$ ein euklidischer Ring gegeben, wobei die Bewertung der Grad ist. Jeder Körper $K$ mit einer beliebigen Funktion $H:R\setminus\{0\}\to\mathbb{N}$ ist ein triviales Beispiel, da man immer $0$ als Divisionsrest erhalten kann.
+\end{example}
+
+\begin{example}
+    Wir wir gleich sehen werden, ist jeder euklidische Ring auch ein Hauptidealring. Da
+    $\mathbb{Z}[x]$ kein Hauptidealring ist, ist $\mathbb{Z}[x]$ insbesondere kein euklidischer Ring. Ein Beispiel für einen Hauptidealring der kein euklidischer Ring ist, wäre $\mathbb{Z}[\frac{1+\sqrt{-19}}{2}]\subseteq \mathbb{C}$ (ohne Beweis).
+\end{example}
+
+\begin{theorem}
+    Jeder euklidische Ring ist ein Hauptidealring.
+\end{theorem}
+
+\begin{proof}
+    Sei $R$ ein euklidischer Ring und $I$ ein Ideal. Falls $I=\{0\}$ ist, so gilt trivialerweise $I=(0)$. Falls $I\neq \{0\}$ gilt, so muss ein $a\in R$ mit $I=(a)=\{aq\mid q\in R\}$ gefunden werden. Wähle daher $a\in I\setminus\{0\}$ mit $H(a)=\min\{H(x)\mid x\in I\}$. Dieses Minimum existiert, da jede nichtleere Teilmenge natürlicher Zahlen ein Minimum hat. Offensichtlich gilt $(a)\subseteq I$.
+
+    Für die andere Mengeninklusion sei $b\in(a)$. Da $R$ ein euklidischer Ring ist, existieren $q,r\in R$ mit $b=aq+r$ und $r=0\lor H(r)<H(a)$. Wegen $r=b-aq\in I$ und der Minimalität von $H(a)$
+    folgt, dass $r=0$ gilt, also $b=aq$ und $b\in (a)$.
+\end{proof}
+
+\begin{theorem}[Euklidischer Algorithmus]
+    Seien $a,b\in R, a\neq 0$. Wähle $q_1,r_1\in R:b=aq_1+r_1$ mit $r_1=0\lor H(r_1)<H(a)$. Wenn $r_1=0$ ist, dann terminiert der Algorithmus. Ansonsten wählt man $q_2,r_2\in R$ mit
+    $a=r_1q_2+r_2$ und $r_2=0\lor H(r_2)<H(r_1)$. Falls $r_2=0$ ist, so terminiert der Algorithmus, ansonsten verfahren wir induktiv. Wenn $r_i, r_{i+1}$ und $q_{i+1}$ bereits gewählt sind, dann wählt man $q_{i+2},r_{i+2}$ mit $r_i=r_{i+1}q_{i+2}+r_{i+2}$ mit $r_{i+2}=0\lor H(r_{i+2})<H(r_{i+1})$. Aufgrund der Schachtelung $H(a)>H(r_1)>H(r_2)$ terminiert der Algorithmus, das heißt es ist $r_k=0$ für ein $k\in\mathbb{N}$. Dann ist $r_{k_1}$ der letzte von $0$ verschieden Rest und es gilt $r_{k-1}=\mathrm{ggT}(a,b)$.
+\end{theorem}
+
+\begin{proof}
+    
+\end{proof}
