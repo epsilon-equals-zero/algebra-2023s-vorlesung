@@ -86,3 +86,104 @@
     Ist $\frac{p''}{q''}$ ebenfalls eine solche Darstellung von $\frac{p}{q}$, so überzeugt man sich
     von $p'\sim p''$ und $q'\sim q''$ ebenfalls mithilfe der Primfaktorenzerlegung in $R$.
 \end{proof}
+
+\notedate{24.05.2023}
+
+\section{Der Satz von Gauß}
+
+\begin{theorem}[Satz von Gauß]
+    Ist $R$ ein faktorieller Ring, so ist auch $R[x]$ faktoriell.
+\end{theorem}
+
+\begin{corollary}
+    Sei $R$ ein faktorieller Ring. Dann gilt:
+    \begin{itemize}
+        \item Der Polynomring $R[x_1, \hdots, x_n]$ ist faktoriell.
+        \item Ist $X$ eine beliebige Menge, so ist auch $R[X]$ faktoriell.
+    \end{itemize}
+\end{corollary}
+
+\begin{corollary}
+    $\mathbb{Z}[x]$ ist faktoriell.
+\end{corollary}
+
+\begin{definition}
+    Ist $R$ ein Ring und $f = \sum_{i=0}^n a_i x^i \in R[x]$, so nennen wir $f$ \emph{leer} (oder auch \emph{primitiv}), wenn
+    $$ \mathrm{ggT}( a_0, \hdots, a_n ) = 1. $$
+\end{definition}
+
+\begin{remark}
+    Ist $R$ ein faktorieller Ring, so existiert für alle $f \in R[x]$ eine Darstellung
+    $$ f = \mathrm{ggT}(a_0, \hdots, a_n) \cdot f_0, $$
+    wobei $f \in R[x]$ leer ist.
+\end{remark}
+
+\begin{lemma}
+    Sei $R$ faktoriell, $f, g \in R[x]$, $p \in R$ prim. Dann gilt
+    $$ p \mid f \cdot g \implies p \mid f \lor p \mid g. $$
+\end{lemma}
+
+\begin{proof}
+    Wir zeigen die Aussage mittels Induktion nach $\deg fg = n+m$, wobei
+    $$ f = \sum_{i=0}^n a_i x^i, g = \sum_{j=0}^n b_j x^j. $$
+
+    Ist $n+m=0$, so sind also $f, g \in R$, womit folgt $p \mid f \lor p \mid g$, da $p$ prim in $R$ ist.
+
+    Gilt $p \mid fg$, so folgt $p \mid a_n b_m$ und damit, da $p$ prim in $R$ ist, $p \mid a_n \lor p \mid b_m$. Nehmen wir \obda $p \mid a_n$ an. Schreiben wir nun $f = a_n x^n + f'$. Es gilt
+    $$ fg = a_n x^n g + f' g. $$
+    Nun teilt $p$ jedoch $fg, a_n, f' g$. Nach Induktionsvoraussetzung gilt damit $p \mid f' \lor p \mid g$, und damit $p \mid a_n, p \mid f'$ und damit $p \mid f$.
+\end{proof}
+
+\begin{corollary}
+    Sei $R$ faktoriell, $f,g \in R[x]$ leer, so ist auch $fg$ leer.
+\end{corollary}
+
+\begin{lemma}
+    Sei $R$ faktoriell, $Q$ der Quotientenkörper von $R$ und $f \in Q[x]$. Dann existieren $c_f \in Q, f_0 \in R[x]$ leer, mit
+    $$ f = c_f \cdot f_0. $$
+
+    Diese Darstellung ist eindeutig bis auf Äquivalenz, die Konstanten unterscheiden sich also lediglich um eine Einheit.
+
+    Weiters gibt es zu $f, g \in Q[x]$ eine Einheit $e \in R$ mit
+    $$ c_{f \cdot g} = e \cdot c_f \cdot c_g. $$
+\end{lemma}
+
+\begin{proof}
+    Die Koeffizienten von $f$ in $Q$ haben eine Darstellung als Quotient mit teilerfremden Elementen aus dem Ring, wir können also schreiben
+    $$ f = \sum_{i=0}^\ell a_i x^i = \sum_{i=0}^\ell \frac{z_i}{n_i} x^i = \frac{\mathrm{ggT}(z_0, \hdots, z_n)}{\mathrm{kgV}(n_0, \hdots, n_\ell)} \sum_{i=0}^\ell b_i x^i, $$
+    wobei $b_i \in R$ und sich somit sofort die geforderte Darstellung ergibt.
+
+    Seien nun $c_f \cdot f_0 = f = d \cdot g$ zwei Darstellungen. Schreiben wir
+    $$ f_0 = \sum_{i=0}^\ell b_i x^i, g = \sum_{i=0}^\ell t_i x^i, $$
+    so folgt durch Koeffizientenvergleich, dass für alle $i$ gilt $c_f \cdot b_i = d \cdot t_i$. Schreiben wir $c_f = \frac{c_f^z}{c_f^n}, d = \frac{d^z}{d^n}$. Damit gilt $c_f^z b_i d^n = d^z t_i c_f^n$, aufgrund der Eindeutigkeit des ggT's (bis auf Assoziiertheit) folgt $c_f^z d^n \sim d^z c_f^n$ und damit die Existenz einer Einheit $e$ mit $e \cdot c_f = d$.
+
+    Sind nun $f = c_f \cdot f_0, g = c_g \cdot g_0$, so folgt
+    $$ f \cdot g = (c_f \cdot c_g) \cdot (f_0 \cdot g_0) $$
+    und damit sofort die Aussage.
+\end{proof}
+
+\begin{lemma}
+    Sei $R$ faktoriell, $Q$ der Quotientenkörper von $R$. Sei $f \in R[x]$ irreduzibel in $R[x]$, $\deg f \geq 1$, so ist $f$ irreduzibel in $Q[x]$.
+\end{lemma}
+
+\begin{proof}
+    Sei $f = g \cdot h$, $g, h \in Q[x]$. Gilt $\deg g = 0 \lor \deg h = 0$, so folgt sofort die Assoziiertheit von $g$ oder $h$ zu $1$ in $Q[x]$. Sind $\deg f, \deg h \geq 1$, so schreibe mit obigem Lemma $g = c_g \cdot g_0, h = c_h \cdot h_0$. Wir nehmen \obda $c_f = c_g \cdot c_h$ an. $f$ ist irreduzibel in $R[x]$, insbesondere ist $f$ also leer. Wir können also \obda $c_f = 1$ annehmen. Damit ist also
+    $$ f = g \cdot h = c_g \cdot g_0 \cdot c_h \cdot h_0 = g_0 \cdot h_0, $$
+    im Widerspruch dazu, dass $f$ irreduzibel in $R[x]$ ist.
+\end{proof}
+
+\begin{lemma}
+    Sei $R$ ein faktorieller Ring. Ist $f \in R[x]$ irreduzibel, so ist $f$ prim.
+\end{lemma}
+
+\begin{proof}
+    Seien $g, h \in R[x], f \mid g \cdot h$. Wir wollen $f \mid g \lor f \mid h$ zeigen. In $Q[x]$ gilt $f \mid g \lor f \mid h$, \obda sei $p \in Q[x]$ mit $f \cdot p = g$. Nun können wir also
+    $$ f \cdot c_p \cdot p_0 = g = c_g \cdot g_0 $$
+    schreiben, also $c_p \cdot (f \cdot p_0) = c_g \cdot g_0$. Aufgrund der Eindeutigkeit dieser Darstellung gibt es eine Einheit $e \in R$ mit $c_p = e \cdot c_g$. Damit ist jedoch auch $c_p \in R$, womit $p \in R[x]$ folgt. Damit gilt $f \mid g$ in $R[x]$.
+\end{proof}
+
+\begin{proof}[Beweis (Satz von Gauß)]
+    Sei $f \in R[x]$, dann ist
+    $$ f = c_f \cdot f_0 = c_f^1 \cdot \hdots \cdot c_f^n \cdot f_0^1 \cdot \hdots \cdot f_0^\ell, $$
+    wobei die erste Zerlegung in Primelemente existiert da $R$ faktoriell ist und $c_f^i$ prim in $R[x]$ ist, nach obigem Lemma. Letztere Zerlegung in irreduzible Polynome existiert aus Gradgründen, wobei $f_0^j$ prim nach obigem Lemma sind.
+\end{proof}
