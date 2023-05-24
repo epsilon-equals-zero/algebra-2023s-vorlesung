@@ -28,7 +28,7 @@
         \item Für alle $ r \in R \setminus \{0\}, r \not\sim 1 $ gilt:
         \begin{enumerate}[label=\roman*.]
             \item $ \exists r_1, \hdots, r_t \in R \text{ irreduzibel}: r = r_1 \cdot \hdots \cdot r_t $
-            \item $ r \text{ irreduzibel} \implies r \text{ prim} $
+            \item $ r \text{ irreduzibel} \Rightarrow r \text{ prim} $
         \end{enumerate}
     \end{enumerate}
 \end{proposition}
@@ -36,15 +36,15 @@
 
 \begin{proof}{\ }
     \begin{itemize}[leftmargin=2.5cm]
-        \item[$(1) \implies (3)$:] Die erste Aussage gilt nach Definition. Ist nun $r \in R$ irreduzibel, so wähle $a, b \in R$ mit $r \mid a \cdot b$, es gibt also ein $c$ mit $r \cdot c = a \cdot b$. Mit (1) erhalten wir eine Zerlegung
+        \item[$(1) \Rightarrow (3)$:] Die erste Aussage gilt nach Definition. Ist nun $r \in R$ irreduzibel, so wähle $a, b \in R$ mit $r \mid a \cdot b$, es gibt also ein $c$ mit $r \cdot c = a \cdot b$. Mit (1) erhalten wir eine Zerlegung
         $$ r \cdot (c_1 \cdot \hdots \cdot c_u) = (a_1 \cdot \hdots \cdot a_v) \cdot (b_1 \cdot \hdots \cdot b_w), $$
         wobei die geklammerten Terme jeweils irreduzibel sind. Nach (1) gibt es nun noch $i, j$ mit $r \sim a_i$ und $r \sim b_j$, womit $r \mid a$ und $r \mid b$ folgt, womit $r$ prim ist.
 
-        \item[$(3) \implies (1)$:] Wir haben oben bereits gezeigt dass Zerlegungen in Primelemente eindeutig sind, somit folgt sofort die Aussage.
+        \item[$(3) \Rightarrow (1)$:] Wir haben oben bereits gezeigt dass Zerlegungen in Primelemente eindeutig sind, somit folgt sofort die Aussage.
         
-        \item[$(3) \implies (2)$:] Trivial.
+        \item[$(3) \Rightarrow (2)$:] Trivial.
 
-        \item[$(2) \implies (3)$:] Die erste Aussage folgt da Primelemente irreduzibel sind. Für die zweite sei $r \in R$ irreduzibel, nach (2) gibt es eine Zerlegung $r = r_1 \cdot \hdots \cdot r_s$ in Primelemente. Da $r$ irreduzibel ist folgt $s = 1$, womit $r$ prim ist.
+        \item[$(2) \Rightarrow (3)$:] Die erste Aussage folgt da Primelemente irreduzibel sind. Für die zweite sei $r \in R$ irreduzibel, nach (2) gibt es eine Zerlegung $r = r_1 \cdot \hdots \cdot r_s$ in Primelemente. Da $r$ irreduzibel ist folgt $s = 1$, womit $r$ prim ist.
     \end{itemize}
 \end{proof}
 
@@ -82,7 +82,7 @@
 
 \begin{definition}
     Sei $R$ ein kommutativer Ring mit 1, $A \subseteq R$ und $d \in R$. Dann ist $d$ ein größter gemeinsamer Teiler von $A$ (wir schreiben auch $d = \mathrm{ggT}(A)$, obwohl diese Gleichheit formal nicht korrekt ist), wenn
-    $$ (\forall a \in A: d \mid a ) \land ( \forall d' \in R : ( \forall b \in A: d' \mid b \implies d' \mid d ) ). $$
+    $$ (\forall a \in A: d \mid a ) \land ( \forall d' \in R : ( \forall b \in A: d' \mid b ) \Rightarrow d' \mid d  ). $$
     Dieser größte gemeinsame Teiler ist eindeutig bis auf Assoziiertheit.
 
     Entsprechend kann man auch das kleinste gemeinsame Vielfache einer Menge definieren.
