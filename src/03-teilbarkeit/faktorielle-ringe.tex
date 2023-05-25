@@ -3,7 +3,7 @@
 \section{Faktorielle Ringe}
 
 \begin{definition}
-    Sei $R$ ein Integritätsbereich, so heißt $R$ \emph{faktorieller Ring}\index{faktorieller Ring} (oder \emph{Gaußscher Ring}\index{Gaußscher Ring}, oder auch \emph{ZPE-Ring}\index{ZPE-Ring}) genau dann wenn
+    Sei $R$ ein Integritätsbereich, so heißt $R$ \emph{faktorieller Ring}\index{Ring!faktorieller} (oder \emph{Gaußscher Ring}\index{Ring!Gaußscher}, oder auch \emph{ZPE-Ring}\index{Ring!ZPE-}) genau dann wenn
     $$ \forall r \in R \exists r_1, \hdots, r_n \in R \setminus \{ [1]_\sim \} \text{ irreduzibel} : r = r_1 \cdot \hdots \cdot r_n, $$
     wobei die $r_i$ bis auf Reihenfolge und Assoziiertheit eindeutig bestimmt sind\footnote{Wir haben also zwei geforderte Eigenschaften für faktorielle Ringe, die Existenz und die Eindeutigkeit. In der Literatur werden oft Ringe mit der ersten Eigenschaft mit \emph{factorization domain (FD)} bezeichnet, Ringe wo zusätzlich die letztere gilt oft mit \emph{unique factorization domain (UFD)}.}.
 \end{definition}
@@ -59,7 +59,7 @@
 \end{example}
 
 \begin{proposition}
-    Wenn $R$ ein Hauptidealring ist, so ist $R$ faktoriell.
+    Jeder Hauptidealring ist ein faktorieller Ring.
 \end{proposition}
 
 \begin{proof}
@@ -93,7 +93,7 @@
 \begin{remark}
     Sei $R$ ein Ring und Integritätsbereich und seien $a,b\in R$. Dann gilt die Äquivalenz
     $a\mid b\Leftrightarrow (b)\subseteq (a)$. Es ist daher die Struktur
-    $(R/_\sim,\mid)$ ordnungstheoretisch isomorph zu der Menge aller Hauptideal mit Mengeninklusion,
+    $(R/_\sim,\mid)$ ordnungstheoretisch isomorph zu der Menge aller Hauptideale mit Mengeninklusion,
     vermöge der Abbildung $\psi([a]_\sim):= (a)$. Dabei ist $\sim$ die Assoziiertheit. Im Fall eines
     Hauptidealrings kann \glqq Menge der Hauptideale\grqq{} offensichtlich mit \glqq Menge der Ideale\grqq{}
     ersetzt werden. Für $A\subseteq R$ ist $\inf_{\vert}(A)=\mathrm{ggT}(A)$ und $\sup_{\vert}(A)=\mathrm{kgV}(A)$.
@@ -103,7 +103,7 @@
     $$\mathrm{ggT}(A)=\inf{}_|(A)\widehat{=}\inf{}_{\supseteq}\{(a)\mid a\in A\}=\sup{}_\subseteq\{(a)\mid a\in A\}=(A)=(d).$$
 \end{remark}
 
-\begin{lemma}[Lemma von Bezout]
+\begin{lemma}[Lemma von B\'ezout]\index{Lemma von B\'ezout}
     Sei $R$ ein Hauptidealring und $A\subseteq R$. Dann existieren
     $n\in\mathbb{N}$, $a_1,\ldots,a_n\in A$ und $r_1,\ldots,r_n\in R$, sodass $\mathrm{ggT}(A)=\sum_{i=1}^nr_ia_i$.
 \end{lemma}
@@ -113,5 +113,5 @@
 \end{proof}
 
 \begin{example}
-    Ein Beispiel in $R=\mathbb{Z}$ ist $\textrm{ggT}(5,3)=1=(-1)5+2\cdot 3$.
+    Ein Beispiel in $R=\mathbb{Z}$ ist $\textrm{ggT}(5,3)=1=(-1)\cdot 5+2\cdot 3$.
 \end{example}
