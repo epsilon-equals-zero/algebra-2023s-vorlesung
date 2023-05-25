@@ -1,11 +1,11 @@
 \notedate{11.05.2023}
 
-\subsection{Faktorielle Ringe}
+\section{Faktorielle Ringe}
 
 \begin{definition}
-    Sei $R$ ein Integritätsbereich, so heißt $R$ \emph{faktorieller Ring} (oder \emph{Gaußscher Ring}, oder auch \emph{ZPE-Ring}) genau dann wenn
+    Sei $R$ ein Integritätsbereich, so heißt $R$ \emph{faktorieller Ring}\index{Ring!faktorieller} (oder \emph{Gaußscher Ring}\index{Ring!Gaußscher}, oder auch \emph{ZPE-Ring}\index{Ring!ZPE-}) genau dann wenn
     $$ \forall r \in R \exists r_1, \hdots, r_n \in R \setminus \{ [1]_\sim \} \text{ irreduzibel} : r = r_1 \cdot \hdots \cdot r_n, $$
-    wobei die $r_i$ bis auf Reihenfolge und Assoziiertheit eindeutig bestimmt sind\footnote{Wir haben also zwei geforderte Eigenschaften für faktorielle Ringe, die Existenz und die Eindeutigkeit. In der Literatur werden oft Ringe mit der ersten Eigenschaft mit \emph{factorization domain (FD)} bezeichnet, Ringe wo zusätzlich die Letztere gilt oft mit \emph{unique factorization domain (UFD)}.}.
+    wobei die $r_i$ bis auf Reihenfolge und Assoziiertheit eindeutig bestimmt sind\footnote{Wir haben also zwei geforderte Eigenschaften für faktorielle Ringe, die Existenz und die Eindeutigkeit. In der Literatur werden oft Ringe mit der ersten Eigenschaft mit \emph{factorization domain (FD)} bezeichnet, Ringe wo zusätzlich die letztere gilt oft mit \emph{unique factorization domain (UFD)}.}.
 \end{definition}
 
 \begin{remark}
@@ -28,7 +28,7 @@
         \item Für alle $ r \in R \setminus \{0\}, r \not\sim 1 $ gilt:
         \begin{enumerate}[label=\roman*.]
             \item $ \exists r_1, \hdots, r_t \in R \text{ irreduzibel}: r = r_1 \cdot \hdots \cdot r_t $
-            \item $ r \text{ irreduzibel} \implies r \text{ prim} $
+            \item $ r \text{ irreduzibel} \Rightarrow r \text{ prim} $
         \end{enumerate}
     \end{enumerate}
 \end{proposition}
@@ -36,15 +36,15 @@
 
 \begin{proof}{\ }
     \begin{itemize}[leftmargin=2.5cm]
-        \item[$(1) \implies (3)$:] Die erste Aussage gilt nach Definition. Ist nun $r \in R$ irreduzibel, so wähle $a, b \in R$ mit $r \mid a \cdot b$, es gibt also ein $c$ mit $r \cdot c = a \cdot b$. Mit (1) erhalten wir eine Zerlegung
+        \item[$(1) \Rightarrow (3)$:] Die erste Aussage gilt nach Definition. Ist nun $r \in R$ irreduzibel, so wähle $a, b \in R$ mit $r \mid a \cdot b$, es gibt also ein $c$ mit $r \cdot c = a \cdot b$. Mit (1) erhalten wir eine Zerlegung
         $$ r \cdot (c_1 \cdot \hdots \cdot c_u) = (a_1 \cdot \hdots \cdot a_v) \cdot (b_1 \cdot \hdots \cdot b_w), $$
         wobei die geklammerten Terme jeweils irreduzibel sind. Nach (1) gibt es nun noch $i, j$ mit $r \sim a_i$ und $r \sim b_j$, womit $r \mid a$ und $r \mid b$ folgt, womit $r$ prim ist.
 
-        \item[$(3) \implies (1)$:] Wir haben oben bereits gezeigt dass Zerlegungen in Primelemente eindeutig sind, somit folgt sofort die Aussage.
+        \item[$(3) \Rightarrow (1)$:] Wir haben oben bereits gezeigt dass Zerlegungen in Primelemente eindeutig sind, somit folgt sofort die Aussage.
         
-        \item[$(3) \implies (2)$:] Trivial.
+        \item[$(3) \Rightarrow (2)$:] Trivial.
 
-        \item[$(2) \implies (3)$:] Die erste Aussage folgt da Primelemente irreduzibel sind. Für die zweite sei $r \in R$ irreduzibel, nach (2) gibt es eine Zerlegung $r = r_1 \cdot \hdots \cdot r_s$ in Primelemente. Da $r$ irreduzibel ist folgt $s = 1$, womit $r$ prim ist.
+        \item[$(2) \Rightarrow (3)$:] Die erste Aussage folgt da Primelemente irreduzibel sind. Für die zweite sei $r \in R$ irreduzibel, nach (2) gibt es eine Zerlegung $r = r_1 \cdot \hdots \cdot r_s$ in Primelemente. Da $r$ irreduzibel ist folgt $s = 1$, womit $r$ prim ist.
     \end{itemize}
 \end{proof}
 
@@ -59,7 +59,7 @@
 \end{example}
 
 \begin{proposition}
-    Wenn $R$ ein Hauptidealring ist, so ist $R$ faktoriell.
+    Jeder Hauptidealring ist ein faktorieller Ring.
 \end{proposition}
 
 \begin{proof}
@@ -81,9 +81,37 @@
 \end{example}
 
 \begin{definition}
-    Sei $R$ ein kommutativer Ring mit 1, $A \subseteq R$ und $d \in R$. Dann ist $d$ ein größter gemeinsamer Teiler von $A$ (wir schreiben auch $d = \mathrm{ggT}(A)$, obwohl diese Gleichheit formal nicht korrekt ist), wenn
-    $$ (\forall a \in A: d \mid a ) \land ( \forall d' \in R : ( \forall b \in A: d' \mid b \implies d' \mid d ) ). $$
+    Sei $R$ ein kommutativer Ring mit 1, $A \subseteq R$ und $d \in R$. Dann ist $d$ ein \emph{größter gemeinsamer Teiler}\index{größter gemeinsamer Teiler} von $A$ (wir schreiben auch $d = \mathrm{ggT}(A)$, obwohl diese Gleichheit formal nicht korrekt ist), wenn
+    $$ (\forall a \in A: d \mid a ) \land ( \forall d' \in R : ( \forall b \in A: d' \mid b ) \Rightarrow d' \mid d  ). $$
     Dieser größte gemeinsame Teiler ist eindeutig bis auf Assoziiertheit.
 
-    Entsprechend kann man auch das kleinste gemeinsame Vielfache einer Menge definieren.
+    Entsprechend kann man auch das \emph{kleinste gemeinsame Vielfache}\index{kleinste gemeinsame Vielfache} einer Menge definieren.
 \end{definition}
+
+\notedate{17.05.2023}
+
+\begin{remark}
+    Sei $R$ ein Ring und Integritätsbereich und seien $a,b\in R$. Dann gilt die Äquivalenz
+    $a\mid b\Leftrightarrow (b)\subseteq (a)$. Es ist daher die Struktur
+    $(R/_\sim,\mid)$ ordnungstheoretisch isomorph zu der Menge aller Hauptideale mit Mengeninklusion,
+    vermöge der Abbildung $\psi([a]_\sim):= (a)$. Dabei ist $\sim$ die Assoziiertheit. Im Fall eines
+    Hauptidealrings kann \glqq Menge der Hauptideale\grqq{} offensichtlich mit \glqq Menge der Ideale\grqq{}
+    ersetzt werden. Für $A\subseteq R$ ist $\inf_{\vert}(A)=\mathrm{ggT}(A)$ und $\sup_{\vert}(A)=\mathrm{kgV}(A)$.
+    Aufgrund von dieser Tatsachen folgt nun, dass es in einem Hauptidealring $R$
+    zu $A\subseteq R$ eine Menge von Idealen $A'=\psi(A)$ gibt. Da $R$ ein Hauptidealring ist,
+    existiert ein $d\in R$ mit $(A)=(d)$ und es folgt
+    $$\mathrm{ggT}(A)=\inf{}_|(A)\widehat{=}\inf{}_{\supseteq}\{(a)\mid a\in A\}=\sup{}_\subseteq\{(a)\mid a\in A\}=(A)=(d).$$
+\end{remark}
+
+\begin{lemma}[Lemma von B\'ezout]\index{Lemma von B\'ezout}
+    Sei $R$ ein Hauptidealring und $A\subseteq R$. Dann existieren
+    $n\in\mathbb{N}$, $a_1,\ldots,a_n\in A$ und $r_1,\ldots,r_n\in R$, sodass $\mathrm{ggT}(A)=\sum_{i=1}^nr_ia_i$.
+\end{lemma}
+
+\begin{proof}
+    Aus der vorangegangen Bemerkung folgt $(\textrm{ggT}(A))=(A)$. Aufgrund der Darstellung über das erzeugte Ideal folgt die Behauptung.
+\end{proof}
+
+\begin{example}
+    Ein Beispiel in $R=\mathbb{Z}$ ist $\textrm{ggT}(5,3)=1=(-1)\cdot 5+2\cdot 3$.
+\end{example}
