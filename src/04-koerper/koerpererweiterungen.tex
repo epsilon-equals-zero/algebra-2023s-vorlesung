@@ -1,0 +1,122 @@
+\section{Körpererweiterungen}
+
+Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körper und $L$ ein Oberkörper (beziehungsweise eine Körpererweiterung) davon.
+
+\subsection{Einfache algebraische Erweiterungen}
+
+\begin{definition}
+    Sei $K \leq L$, so definieren wir $[L:K]$ als die Dimension von $L$ über $K$ als Vektorraum.
+\end{definition}
+
+\begin{theorem}[Gradsatz]
+    Sei $K \leq E \leq L$, $[L:E],[E:K] < \infty$. Dann ist
+    $$ [L:K] = [L:E] [E:K] < \infty. $$
+\end{theorem}
+
+\begin{proof}
+    Übungsaufgabe.
+\end{proof}
+
+\begin{definition}
+    Sei $K \leq L, \alpha \in L$. Dann nennen wir \emph{$\alpha$ algebraisch über $K$} (kurz $\alpha \text{ alg.}/_K$), wenn
+    $$ \exists f \in K[x] \setminus \{0\}: f(\alpha) = 0. $$
+\end{definition}
+
+\begin{example}
+    Sei $K$ ein Körper und betrachte $K \leq K(x)$. Dann ist $x$ nicht algebraisch, da $x$ klarerweise nicht annullierbar ist.
+\end{example}
+
+\begin{example}
+    Betrachte $\mathbb{R} \leq \mathbb{C}$. Dann ist $i \in \mathbb{C}$ algebraisch, da wir $f(x) = x^2 + 1$ wählen können.
+\end{example}
+
+\begin{example}
+    Betrachte $\mathbb{Q} \leq \mathbb{R}$. Dann ist $\sqrt{2} \in \mathbb{R}$ algebraisch. Jedoch sind $\pi, e \in \mathbb{R}$ nicht algebraisch.
+\end{example}
+
+\begin{definition}
+    Wir nennen \emph{$\alpha$ transzendent über $K$} (kurz $\alpha \text { transz.}/_K$) genau dann, wenn $\alpha$ nicht algebraisch über $K$ ist.
+\end{definition}
+
+\begin{remark}
+    Ist $\alpha$ algebraisch über $K$, so können wir das nichttriviale Ideal
+    $$ I := \{ f \in K[x] \mid f(\alpha) = 0 \} \vartriangleleft K[x] $$
+    wählen. Nun gibt es ein $\mu_\alpha \in K[x]$ normiert, mit $I = (\mu_a)$, da $K[x]$ ein Hauptidealring ist. Dieses ist eindeutig, denn ist $I = (\mu_\alpha) = (g)$, so gilt $\mu_\alpha \mid g$ und $g \mid \mu_\alpha$, womit $g \sim \mu_\alpha$. Dieses $\mu_\alpha$ nennen wir das \emph{Minimalpolynom von $\alpha$ über $K$}. Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem Fall stimmen jedoch die jeweiligen Körpererweiterungen überein, wie wir später noch sehen werden.
+\end{remark}
+
+\begin{proposition}
+    Sei $K \leq L, \alpha \in L$ algebraisch über $K$ und $\deg \mu_\alpha = k$. Dann gilt:
+    \begin{enumerate}
+        \item Die Abbildung $\varphi : K[x]/_{(\mu_\alpha)} \to K[\alpha], f + (\mu_\alpha) \mapsto f(\alpha)$ ist ein Ring-Isomorphismus.
+        \item $K[\alpha] = K(\alpha)$
+        \item $\forall \beta \in K(\alpha) \exists ! a_0, \hdots, a_{k-1} \in K: \beta = \sum_{i=0}^{k-1}a_i x^i$
+        \item $\alpha^0, \hdots, \alpha^{k-1}$ sind eine Basis von $K(\alpha)/_K$ als Vektorraum.
+        \item $[K(\alpha) : K] = k$
+        \item Ist $\beta \in L, \mu_\alpha = \mu_\beta$, so existiert ein eindeutiger Isomorphismus $\psi : K(\alpha) \to K(\beta)$ mit $\psi(\alpha) = \beta$ und $\psi\vert_K = \id_K$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}{\ }
+    \begin{enumerate}
+        \item Folgt sofort aus dem Homomorphiesatz, angewandt auf den Einsetzungshomomorphismus.
+        
+        \item Es ist $K[\alpha]$ ein Unterring von $L$ und damit ein Integritätsbereich. Nach (1) ist also auch $K[x]/_{(\mu_\alpha)}$ ein Integritätsbereich, womit $(\mu_\alpha)$ prim ist. Damit ist $\mu_\alpha$ prim, insbesondere irreduzibel. Wir behaupten nun, dass $(\mu_\alpha)$ ein maximal Ideal ist. Um dies einzusehen sei $J$ ein echtes Ideal von $K[x]$ mit $(\mu_\alpha) \subseteq J$. Dann gibt es ein $g \in K[x]$ mit $J = (g)$, also $(\mu_\alpha) \subseteq (g)$, womit $g \mid \mu_\alpha$ folgt. Da $\mu_\alpha$ irreduzibel ist folgt dadurch $g \sim \mu_\alpha$ und damit $J = (\mu_\alpha)$. Also ist $(\mu_\alpha)$ maximal. Damit ist jedoch $K[x]/_{(\mu_\alpha)}$ ein Körper und nach (1) isomorph zu $K[\alpha]$, womit $K[\alpha] = K(\alpha)$ folgt.
+        
+        \item Existenz: Nach (1) und (2) gibt es ein $f \in K[x]$ mit $\varphi(f + (\mu_\alpha)) = f(\alpha) = \beta$. Nun ist $f = g \cdot \mu_\alpha + f'$ mit einem Polynom $f'$ mit Grad kleiner $k$. Damit ist $f'(\alpha) = f(\alpha) = \beta$.
+        
+        Eindeutigkeit: Ist $f(\alpha) = \beta = g(\alpha)$, wobei der Grad von $f, g$ kleiner als $k$ ist, so folgt $(f-g)(\alpha) = 0$, womit $(f-g) \in (\mu_\alpha)$ liegt, also gilt $\mu_\alpha \mid (f-g)$, womit $f-g=0$ und damit $f=g$ ist.
+
+        \item Folgt sofort aus (3).
+        
+        \item Folgt sofort aus (4).
+        
+        \item (todo, da hat er so viel gezeichnet)
+    \end{enumerate}
+\end{proof}
+
+\subsection{Nicht-einfache algebraische Erweiterungen}
+
+\begin{definition}
+    Wir nennen $K \leq L$ \emph{(rein) algebraisch}, wenn
+    $$ \forall \alpha \in L: \alpha \text{ ist algebraisch über } K. $$
+\end{definition}
+
+\begin{proposition}{\ }
+    \begin{enumerate}
+        \item Sei $K \leq L$. Gilt $[L:K] < \infty$, so ist $K \leq L$ algebraisch.
+        \item Sei $K \leq K(\alpha)$ algebraisch, so ist $[K(\alpha) : K] < \infty$.
+        \item Ist $K \leq L$ algebraisch und $L \leq M$ algebraisch, so ist $K \leq M$ algebraisch.
+        \item Sei $K \leq L$ und $S := \{ \alpha \in L \mid \alpha \text{ ist algebraisch über } K \}$, so ist $K \leq S \leq L$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}{\ }
+    \begin{enumerate}
+        \item Sei $\alpha \in L \setminus \{0\}$. Da die Dimension der Erweiterung endlich ist, ist die Folge der Potenzen $\alpha^0, \alpha^1, \hdots$ linear abhängig über K. Es gibt also $a_0, \hdots, a_n \in K$ mit $\sum_{i=0}^n a_i \alpha^i = 0$, womit wir $f(x) = \sum_{i=0}^n a_i x^i$ wählen können. Es ist $f(\alpha) = 0$, womit $\alpha$ algebraisch ist.
+        
+        \item Es gilt $[K(\alpha) : K] = \deg \mu_\alpha < \infty$.
+        
+        \item Sei $\alpha \in M$ beliebig, so gibt es ein $f(x) = \sum_{i=0}^n a_i x^i \in L[x], f(\alpha) = 0$, wobei $a_i \in L$, also algebraisch über $K$ sind. Es ist dann auch $\alpha$ algebraisch über $K(a_0, \hdots, a_n)$. Nun gilt
+        \begin{align*}
+            [K(\alpha) : K] &\leq [K(\alpha, a_0, \hdots, a_n) : K] = \\
+            &= [K(\alpha, a_0, \hdots, a_n) : K(a_0, \hdots, a_n)] \cdot [K(a_0, \hdots, a_n) : K] = \\
+            &= [K(\alpha, a_0, \hdots, a_n) : K(a_0, \hdots, a_n)] \cdot \hdots \cdot [K(a_n) : K] < \infty
+        \end{align*}
+        und nach (1) ist $K$ algebraisch.
+
+        \item Seien $\alpha, \beta \in S$. Dann gilt auch $\alpha, \beta \in K(\alpha, \beta) \subseteq S$. Nach (1) ist $K \leq K(\alpha)$ algebraisch, genauso ist $K(\alpha) \leq K(\alpha, \beta)$ algebraisch, wobei letzteres ein Körper ist, womit $\alpha \cdot \beta, \alpha + \beta, \alpha^{-1} \in K(\alpha, \beta)$ folgt und wir damit nach (3) algebraisch über K sind.
+    \end{enumerate}
+\end{proof}
+
+\subsection{Transzendente Erweiterungen}
+
+\begin{proposition}
+    Sei $K \leq L, \alpha \in L$ transzendent über $K$. Dann existiert ein eindeutiger Isomorphismus $\psi : K(x) \to K(\alpha)$ mit $\psi(x) = \alpha, \psi \vert_K = \id_K$.
+\end{proposition}
+
+\begin{proof}
+    Existenz: Sei $\varphi : K[x] \to K[\alpha]$ der Einsetzungshomomorphismus, $\varphi(f(x)) = f(\alpha)$. Da $\alpha$ transzendent ist, ist $\ker \varphi$ trivial. Damit ist $\varphi$ ein Ringisomorphismus. Nun ist $K(x)$ der Quotientenkörper von $K[x]$, genauso ist $K(\alpha)$ der Quotientenkörper von $K[\alpha]$. Aufgrund der Eindeutigkeit des Quotientenkörpers existiert genau ein $\psi : K(x) \to K(\alpha)$ mit $\psi\vert_{K[x]} = \varphi$.
+
+    Eindeutigkeit: Sei $\widetilde{\psi}$ ein weiterer Isomorphismus mit denselben Eigenschaften. Damit folgt $\widetilde{\psi}\vert_{K[x]} = \varphi$. Nach der oben erwähnten Eindeutigkeit des Quotientenkörpers folgt dadurch bereits $\widetilde{\psi} = \psi$.
+\end{proof}
+
