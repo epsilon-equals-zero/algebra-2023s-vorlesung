@@ -41,7 +41,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \begin{remark}
     Ist $\alpha$ algebraisch über $K$, so können wir das nichttriviale Ideal
     $$ I := \{ f \in K[x] \mid f(\alpha) = 0 \} \vartriangleleft K[x] $$
-    wählen. Nun gibt es ein $\mu_\alpha \in K[x]$ normiert, mit $I = (\mu_a)$, da $K[x]$ ein Hauptidealring ist. Dieses ist eindeutig, denn ist $I = (\mu_\alpha) = (g)$, so gilt $\mu_\alpha \mid g$ und $g \mid \mu_\alpha$, womit $g \sim \mu_\alpha$. Dieses $\mu_\alpha$ nennen wir das \emph{Minimalpolynom von $\alpha$ über $K$}. Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem Fall stimmen jedoch die jeweiligen Körpererweiterungen überein, wie wir später noch sehen werden.
+    wählen. Nun gibt es ein $\mu_\alpha \in K[x]$ normiert, mit $I = (\mu_a)$, da $K[x]$ ein Hauptidealring ist. Dieses ist eindeutig, denn ist $I = (\mu_\alpha) = (g)$, so gilt $\mu_\alpha \mid g$ und $g \mid \mu_\alpha$, womit $g \sim \mu_\alpha$. Dieses $\mu_\alpha$ nennen wir das \emph{Minimalpolynom von $\alpha$ über $K$}. Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem Fall stimmen jedoch die jeweiligen Körpererweiterungen überein, wie wir in folgender Proposition sehen werden.
 \end{remark}
 
 \begin{proposition}
@@ -70,7 +70,16 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
         
         \item Folgt sofort aus (4).
         
-        \item (todo, da hat er so viel gezeichnet)
+        \item \underline{Existenz:} Nach (1) gibt und (2) gibt es Isomorphismen
+        $\varphi:K[x]/_{(\mu_\alpha)}\to K(\alpha)$ und $\varphi':K[x]/_{(\mu_\alpha)}\to K(\beta)$
+        welche $\varphi\vert_K=\id_K$ und $\varphi'\vert_K=\id_K$ erfüllen. Wegen $\varphi(x+(\mu_\alpha))=\alpha$
+        und $\varphi'(x+(\mu_\alpha))=\beta$ liefert $\varphi'\circ\varphi^{-1}:K(\alpha)\to K(\beta)$
+        einen gewünschten Isomorphismus.
+
+        \underline{Eindeutigkeit:} Sei $\psi:K(\alpha)\to K(\beta)$ ein Isomorphismus mit $\psi(\alpha)=\beta$
+        und $\psi\vert_K=\id_K$. Dann gilt insbesondere $\psi(\alpha^i)=\beta^i$, da $\psi$ ein Körperautomorphismus
+        ist. Daher ist $\psi$ als lineare Abbildung von $K(\alpha)$ als Vektorraum über $K$ in den Vektorraum $K(\beta)$
+        bereits auf einer Basis eindeutig festgelegt, womit $\psi$ istbesondere als Körperautomorphismus eindeutig ist.
     \end{enumerate}
 \end{proof}
 
