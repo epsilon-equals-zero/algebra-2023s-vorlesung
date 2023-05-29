@@ -65,7 +65,7 @@
             \item[``$\Rightarrow$'':] Es gibt $u, u' \in U$, sodass $x = g u$ und $y = g u'$. Es ist also $x^{-1} y = u^{-1} g^{-1} \cdot g  u' = u^{-1} u' \in U$.
             \item[``$\Leftarrow$'':] Es gilt $x^{-1}\cdot y = u$, also $y = x\cdot u$.  Es ist nun $x \in xU$ und auch  $y \in xU$, also $x \sim y$. 
         \end{itemize}
-        \item Es ist $a \in [x]_\sim \;\Leftrightarrow\; e \sim x \;\Leftrightarrow\; e^{-1} a = a \in U $.
+        \item Es ist $a \in [e]_\sim \;\Leftrightarrow\; e \sim a \;\Leftrightarrow\; e^{-1} a = a \in U $.
     \end{enumerate}
 \end{proof}
 
@@ -167,13 +167,14 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
         Trivial.
         
         \item[\ref*{item:theorem:normalteiler_equiv_2'} $\Rightarrow$ \ref*{item:theorem:normalteiler_equiv_3'}:] 
-        Zeigen wir zuerst, dass $N$ eine Untergruppe ist. Seien dazu $n, n' \in N = \varphi^{-1}(\{e_H\})$. Dann ist $\varphi(n n') = \varphi(n) \varphi(n') = e_H e_H = e_H$, womit $n n' \in \varphi^{-1}(\{e_H\}) = N$ ist und damit $N \le G$.
+        Zeigen wir zuerst, dass $N$ eine Untergruppe ist. Seien dazu $n, n' \in N = \varphi^{-1}(\{e_H\})$. Dann ist $\varphi(n n') = \varphi(n) \varphi(n') = e_H e_H = e_H$, womit $n n' \in \varphi^{-1}(\{e_H\}) = N$ ist.
+        Zuletzt ist für $n\in N$ auch $n^{-1}\in N$ nötig. Das gilt wegen $\varphi(n^{-1})=\varphi(n)^{-1}=e^{-1}=e$, daher ist $N \le G$.
 
         Zeigen wir nun noch für $x \in G, n \in N$, dass $y = xnx^{-1} \in N$ ist. Wir erhalten $$\varphi(y) = \varphi(x) \underbrace{\varphi(n)}_{= e_H} \varphi(x^{-1}) = \varphi(x)\varphi(x)^{-1} = e_H \;\Rightarrow\; y \in \varphi^{-1}(\{e_H\}) = N.$$
 
         \item[\ref*{item:theorem:normalteiler_equiv_3'} $\Rightarrow$ \ref*{item:theorem:normalteiler_equiv_3}:] 
-        Wir wissen bereits, dass $\forall x \in G: xNx^{-1} \subseteq N$ gilt und wollen zeigen, dass für $y \in G$ die umgekehrte Inklusion gilt. Es ist $y^{-1} \in G$, womit $y^{-1}N(y^{-1})^{-1} = y^{-1}Ny \subseteq N$ ist. Wir erhalten damit nun 
-        $$ N \overset{(*)}{=} y y^{-1} N y y^{-1} = y (y^{-1} N y) y^{-1} \subseteq y N y^{-1}, $$
+        Wir wissen bereits, dass $\forall x \in G: xNx^{-1} \subseteq N$ gilt und wollen zeigen, dass für alle $y \in G$ die umgekehrte Inklusion gilt. Es ist $y^{-1} \in G$, womit $y^{-1}N(y^{-1})^{-1} = y^{-1}Ny \subseteq N$ ist. Wir erhalten damit nun 
+        $$ N = (y y^{-1}) N (y y^{-1}) \overset{(*)}{=} y (y^{-1} N y) y^{-1} \subseteq y N y^{-1}, $$
         wobei $(*)$ einfach nachzurechnen ist.
         
         \item[\ref*{item:theorem:normalteiler_equiv_3} $\Rightarrow$ \ref*{item:theorem:normalteiler_equiv_4}:] 
@@ -208,7 +209,7 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
         \item \ref*{item:theorem:normalteiler_equiv_1}, \ref*{item:theorem:normalteiler_equiv_1'} liefern den bijektiven Zusammenhang von Normalteilern und Kongruenzrelation. Betrachtet man die Verbände von Normalteilern bzw. Kongruenzrelationen, so stellt diese Bijektion einen Verbandsisomorphismus dar.
         \item \ref*{item:theorem:normalteiler_equiv_2}, \ref*{item:theorem:normalteiler_equiv_2'} beschreiben die Darstellung des Normalteilers über den Kern eines Homomorphismus $\varphi: G \to H$. Es ist $\ker \varphi = \{g \in G \mid \varphi(g) = e_H\} = \varphi^{-1}(\{e_H\}) = N$.
         \item \ref*{item:theorem:normalteiler_equiv_3}, \ref*{item:theorem:normalteiler_equiv_3'} liefern direkt, dass Normalteiler unter Abbildungen $\pi_x: G \to G, g \mapsto xgx^{-1}$ abgeschlossen sind. So eine Abbildung nennt man \emph{inneren Automorphismus}.
-        \item \ref*{item:theorem:normalteiler_equiv_4}, \ref*{item:theorem:normalteiler_equiv_4'} besagen, dass die Links- und Rechtsnebenklassen genau dann gleich sind, wenn die Untergruppe ein Normalteiler ist.
+        \item \ref*{item:theorem:normalteiler_equiv_4}, \ref*{item:theorem:normalteiler_equiv_4'} besagen, dass die Links- und Rechtsnebenklassen einer Untergruppe genau dann gleich sind, wenn die Untergruppe ein Normalteiler ist.
     \end{itemize}
 
     Inbesondere sind alle Äquivalenzklassen einer Kongruenzrelation gleich groß, da sie lediglich ``Verschiebungen'' der Äquivalenzklasse des neutralen Elements sind.
@@ -266,7 +267,7 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
 \end{example}
 
 \begin{remark}
-    Sei $G$ eine Gruppe, $\sim$ eine Kongruenzrelation. Wir fragen uns, wann $G/_\sim$ kommutativ ist. Dazu bemerken wir
+    Sei $G$ eine Gruppe, $\sim$ eine Kongruenzrelation und $N=[e]_\sim$. Wir fragen uns, wann $G/_\sim$ kommutativ ist. Dazu bemerken wir
     $$ G/_\sim \textrm{ kommutativ} \quad \Leftrightarrow \quad \forall a, b \in G: (ab)N = (aN) (bN) = (bN) (aN) = (ba)N. $$
     Letzteres können wir umschreiben als $a^{-1} b^{-1} a b N = N$, was genau dann der Fall ist, wenn für beliebiges $a, b$ gilt
     $$ [a, b] := a^{-1} b^{-1} a b \in N. $$
@@ -302,7 +303,7 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
 
     Um (3) einzusehen sei $N \vartriangleleft G$, so folgt mit obiger Bemerkung sofort
     \begin{align*}
-        G/_N \textrm{ abelsch} &\Leftrightarrow \forall a, b: (aN)(bN) = (bN)(aN) \Leftrightarrow \\ &\Leftrightarrow \forall a, b a^{-1}b^{-1} a b \in N \Leftrightarrow \forall a, b: [a, b] \in N \Leftrightarrow N \subseteq G'.
+        G/_N \textrm{ abelsch} &\Leftrightarrow \forall a, b: (aN)(bN) = (bN)(aN) \Leftrightarrow \\ &\Leftrightarrow \forall a, b: a^{-1}b^{-1} a b \in N \Leftrightarrow \forall a, b: [a, b] \in N \Leftrightarrow N \subseteq G'.
     \end{align*}
 
     Zeigen wir nun (1). Sei $h : G \to G$ ein beliebiger Endomorphismus, dann gilt für alle $a, b \in G$, dass $h([a,b]) = [h(a), h(b)]$, also $h(G') \subseteq G'$. Für beliebiges $x \in G$ definieren wir
@@ -315,7 +316,7 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
 \subsection{Innere direkte Produkte}
 
 \begin{definition}
-    Sei $G$ eine Gruppe, $U_1, U_2 \subseteq G, x \in G$, so definieren wir das \emph{Komplexprodukt}
+    Sei $G$ eine Gruppe, $U_1, U_2 \subseteq G$, so definieren wir das \emph{Komplexprodukt}
     $$ U_1 \cdot U_2 = \{ u_1 \cdot u_2 \mid u_1 \in U_1, u_2 \in U_2 \}. $$
 \end{definition}
 
@@ -361,8 +362,6 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
 \end{proposition}
 
 \begin{proof}
-    Definiere $\varphi$ wie in \cref{def:direktes-inneres-produkt}, so ist $\varphi$ nach Voraussetzung surjektiv.
-
     Zeigen wir, dass $\varphi$ ein Homomorphismus ist. Mit \cref{lemma:gruppe-normalteiler-kommutativ} gilt
     \begin{align*}        
         \varphi((u_1, \hdots, u_n) \cdot (v_1, \hdots, v_n)) &= \varphi(u_1 v_1, \hdots, u_n v_n) = u_1 v_1 \hdots u_n v_n = \\ &= u_1 \hdots u_n v_1 \hdots v_n = \varphi(u_1, \hdots, u_n) \varphi(v_1, \hdots, v_n).
