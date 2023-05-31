@@ -123,10 +123,10 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \end{example}
 
 \begin{proposition}
-    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra, $S\subseteq A$ und $X$ eine beliebige Menge. Dann gelten die beiden Identitäten:
+    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra, $S\subseteq A$ und $X$ eine Menge mit $\vert X \vert \ge \min\{\vert S \vert, \aleph_0\}$. Dann gelten die beiden Identitäten:
     \begin{enumerate}
         \item $\langle S\rangle=S_\infty$
-        \item $\langle S\rangle=\{t^\mathfrak{A}(a_1,\ldots,a_n) \mid a_1,\ldots,a_n\in S, t \in T(X) \}$
+        \item $\langle S\rangle=\{t^\mathfrak{A}(a_1,\ldots,a_n) \mid n \in \mathbb{N}, a_1,\ldots,a_n\in S, t \in T(X) \}$
     \end{enumerate}
 \end{proposition}
 \begin{proof} In beiden Behauptungen wird die gegenseitige Inklusion von zwei Mengen gezeigt.
@@ -166,7 +166,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \end{proof}
 
 \begin{corollary}
-    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra, $S=\{s_1,\ldots,s_n\}\subseteq A$ und $X$ eine beliebige Menge.
+    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra, $S=\{s_1,\ldots,s_n\}\subseteq A$ und $X$ eine beliebige Menge mit mindestens $n$-Elementen.
     Dann gilt für die von $S$ erzeugte Unteralgebra
     $$ \langle S\rangle=\{t^\mathfrak{A}(s_1,\ldots,s_n)\mid t(x_1,\ldots,x_n)\in T(X)\}. $$
 \end{corollary}
@@ -196,7 +196,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
 \begin{definition}
     Sei $\tau = (n_i)_{i\in I}$ ein Typ und sei $(\mathfrak{A}_j)_{j\in J}$ eine Familie von Algebren dieses Typs.
-    Dann heißt $\mathfrak{A}:=\prod_{j\in J}\mathfrak{A}_j=(\prod_{j\in J}A_j,(f^\mathfrak{A}_i)_{i\in I})$ \emph{Produktalgebra}\index{Produktalgebra},
+    Dann heißt $\mathfrak{A}:=\prod_{j\in J}\mathfrak{A}_j:=(\prod_{j\in J}A_j,(f^\mathfrak{A}_i)_{i\in I})$ \emph{Produktalgebra}\index{Produktalgebra},
     wobei die Operationen durch $f^\mathfrak{A}_i: \mathfrak{A}^{n_i} \to \mathfrak{A}, ((a_j^{(1)})_{j \in J}, \ldots (a_j^{(n_i)})_{j \in J}) \mapsto (f^{\mathfrak{A}_j}_i(a_j^{(1)}, \ldots, a_j^{(n_i)}))_{j \in J}$
     definiert werden.
 \end{definition}
@@ -368,7 +368,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
 \begin{theorem}[Homomorphiesatz]\index{Homomorphiesatz}\label{satz:homomorphiesatz}
     Seien $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ und $\mathfrak{B}=(B,(f^\mathfrak{B}_i)_{i\in I})$ zwei Algebren
-    in derselben Signatur, $\varphi:\mathfrak{A}\to \mathfrak{A}/_{\ker h}$ die kanonische Faktorabbildung und sei $h:\mathfrak{A}\to \mathfrak{B}$ ein Homomorphismus.
+    in derselben Signatur, $h:\mathfrak{A}\to \mathfrak{B}$ ein Homomorphismus und sei $\varphi:\mathfrak{A}\to \mathfrak{A}/_{\ker h}$ die kanonische Faktorabbildung.
     Dann existiert genau ein Homomorphismus $\tilde{h}:\mathfrak{A}/_{\ker h}\to \mathfrak{B}$ mit $h=\tilde{h}\circ \varphi$. Dieser Homomorphismus
     ist injektiv und, falls $h$ surjektiv ist, auch surjektiv.
     \begin{figure}[H]
@@ -428,7 +428,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     Sei $\mathcal{K}$ eine Klasse von Algebren. Dann definieren wir:
     \begin{itemize}
         \item $\mathrm{H}\mathcal{K}$ als die Klasse aller Algebren $\mathfrak{A /_\sim}$, wobei $\mathfrak{A} \in \mathcal{K}$ und $\sim$ eine Kongruenzrelation auf $\mathfrak{A}$ sind.
-        \item $\mathrm{S}\mathcal{K}$ als die Klasse aller Algebren $\mathfrak{A}$, zu der es eine Algebra $\mathfrak{A}' \in \mathcal{K}$ mit $\mathfrak{A} \leq \mathfrak{A}'$ gibt.
+        \item $\mathrm{S}\mathcal{K}$ als die Klasse aller Algebren $\mathfrak{A}'$, zu der es eine Algebra $\mathfrak{A} \in \mathcal{K}$ mit $\mathfrak{A}' \leq \mathfrak{A}$ gibt.
         \item $\mathrm{P}\mathcal{K}$ als die Klasse aller Algebren $\prod_{j \in J} \mathfrak{A}_j$, wobei $J$ eine beliebige Indexmenge und $\mathfrak{A}_j \in \mathcal{K}$ sind.
     \end{itemize}
     Wir sagen, dass $\mathcal{K}$ unter $\mathrm{HSP}$ abgeschlossen ist, wenn $\mathrm{H}\mathcal{K} = \mathcal{K}, \mathrm{S}\mathcal{K} = \mathcal{K}$ und $\mathrm{P}\mathcal{K} = \mathcal{K}$ gilt.
@@ -441,10 +441,11 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \end{theorem}
 
 \begin{definition}
-    Für eine Klasse $\mathcal{K}$ von Algebren sei die Menge aller Gesetze von $\mathcal{K}$ 
-    $\Sigma(\mathcal{K}):=\{s\approx t\mid \forall \mathfrak{A}\in\mathcal{K}:\mathfrak{A}\models s\approx t\}$.
-    
-    Für eine Menge von Gesetzen $\Sigma$ definiere die Klasse $\mathcal{V}(\Sigma):=\{\mathfrak{A}\mid \forall s\approx t\in\Sigma:\mathfrak{A}\models s\approx t\}$.
+    Für eine Klasse $\mathcal{K}$ von Algebren sei die \emph{Menge aller Gesetze von $\mathcal{K}$} definiert als
+    $$\Sigma(\mathcal{K}):=\{s\approx t\mid \forall \mathfrak{A}\in\mathcal{K}:\mathfrak{A}\models s\approx t\}.$$
+
+    Für eine einzelne Algebra $\mathfrak{A}$ sei die \emph{Menge aller Gesetze von $\mathfrak{A}$} definiert als 
+    $$\Sigma(\mathfrak{A}) := \Sigma(\{\mathfrak{A}\}).$$ 
 \end{definition}
 
 \begin{proof}[Beweis des Satzes von Birkhoff]
@@ -502,5 +503,5 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \end{corollary}
 
 \begin{proof}
-    Die Implikation von links nach rechts ist trivialerweise erfüllt. Die Implikation von rechts nach links folgt aus der Tatsache, dass man, wie im Beweis des Satzes von Birkhoff, $B\in P(\mathcal{K})$ mit $\Sigma(A)\supseteq\Sigma(B)$ finden kann und auf $A\in \mathrm{HSP}\mathfrak{B}\subseteq \mathrm{HSP}\mathcal{K}$ schließt.
+    Die Implikation von rechts nach links ist trivialerweise erfüllt. Die Implikation von links nach rechts folgt aus der Tatsache, dass man, wie im Beweis des Satzes von Birkhoff, $\mathfrak{B}\in P(\mathcal{K})$ mit $\Sigma(\mathfrak{A})\supseteq\Sigma(\mathfrak{B})$ finden kann und auf $\mathfrak{A}\in \mathrm{HSP}\mathfrak{B}\subseteq \mathrm{HSP}\mathcal{K}$ schließt.
 \end{proof}
