@@ -1,0 +1,33 @@
+\section{Einführung}
+
+\begin{definition}
+    Sei $L$ ein Körper. Wir nennen $K \subseteq L$ einen \emph{Unterköper}\index{Unterkörper}, wenn $1 \in K$ und $K$ ein Körper ist. Dafür schreiben wir auch $K \leq L$. In diesem Kontext heißt $L$ auch \emph{Oberkörper}\index{Oberkörper} von $K$.
+
+    Wir nennen
+    $$ \bigcap \{ U \leq L \mid U \text{ Unterkörper von } L \} $$
+    den \emph{Primkörper}\index{Primkörper} von L.
+
+    Sei $K \leq L, S \subseteq L$ so definieren wir die \emph{Körpererweiterung von $K$ um $S$}\index{Körpererweiterung} durch
+    $$ K(S) := \bigcap \{ U \mid K \leq U \leq L, U \supset S \}. $$
+    Ist $S = \{ \alpha_1, \hdots, \alpha_n \}$, so schreiben wir auch $K[\alpha_1, \hdots, \alpha_n]$.
+\end{definition}
+
+\begin{remark}
+    Beispielsweise gilt $\mathbb{R}(i) = \mathbb{C}$, wie wir später noch sehen werden.
+\end{remark}
+
+\begin{remark}
+    Sei $K$ ein Körper, dann ist $K$ ein Unterkörper des Quotientenkörpers $Q$ von $K[x]$. Also ist $K \leq Q$ eine Körpererweiterung.
+\end{remark}
+
+\begin{definition}
+    Ein Körper $K$ heißt \emph{Primkörper}\index{Primkörper}, wenn $K$ keine echten Unterkörper hat.
+\end{definition}
+
+\begin{theorem}
+    Sei $K$ ein Primkörper.
+    \begin{itemize}
+        \item Ist $\chara K = 0$, so ist $K \cong \mathbb{Q}$.
+        \item Ist $\chara K = p \in \mathbb{P}$, so ist $K \cong \mathbb{Z}_p$.
+    \end{itemize}
+\end{theorem}
