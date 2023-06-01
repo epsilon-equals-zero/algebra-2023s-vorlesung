@@ -13,11 +13,11 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
         \item $a'$ \emph{linksinvers}\index{invers!links-} zu $a$, wenn $a' \cdot a = e$ und
         \item $a'$ \emph{rechtsinvers}\index{invers!rechts-} zu $a$, wenn $a \cdot a' = e$ gilt.
     \end{itemize}
-    Ist $a'$ links- und rechtsinvers zu $a$ so nennt man $a'$ \emph{invers} zu $a$ und $a$ heißt \emph{Einheit}\index{Einheit}.
+    Ist $a'$ links- und rechtsinvers zu $a$ so nennt man $a'$ \emph{invers}\index{invers} zu $a$ und $a$ heißt \emph{Einheit}\index{Einheit}.
 \end{definition}
 
 \begin{lemma}
-    Neutrale und inverse Elemente auf Halbgruppen sind eindeutig.
+    Neutrale Elemente in Halbgruppen und inverse Elemente in Monoiden sind eindeutig.
 \end{lemma}
 
 \begin{proof}
@@ -33,14 +33,14 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
 \begin{example}
     $\mathfrak{H} = (\mathbb{R}^{2\times 2}, \cdot)$ ist eine Halbgruppe. Die Einheitsmatrix $I_2 := \left(\begin{matrix}
         1 & 0 \\ 0 & 1
-    \end{matrix}\right)$ ist ein neutrales Element, womit $(\mathbb{R}^{2\times 2}, \cdot, I_2)$ ein Monoid ist. Die Menge der invertierbaren reellen $2 \times 2$ Matrizen ist die Menge aller Einheiten von $\mathfrak{H}$.
+    \end{matrix}\right)$ ist ein neutrales Element, womit $(\mathbb{R}^{2\times 2}, \cdot, I_2)$ ein Monoid ist. Die Menge der invertierbaren reellen $2 \times 2$ Matrizen ist definitionsgemäß die Menge aller Einheiten von $\mathfrak{H}$.
 \end{example}
 
 \begin{proposition}\label{prop:halbgruppe-monoid-einbettung}
     Sei $(H, \cdot)$ eine Halbgruppe und $e \not\in H$. Wir definieren $H' := H \cup \{e\}$ und $$\overline{\cdot}: (H')^2 \to H', (h_1, h_2) \mapsto \left\{\begin{array}{ll}
         h_1 \cdot h_2, & \;\text{wenn}\; h_1, h_2 \in H, \\
-        h_1, & \;\text{wenn}\; h_1 = e, \\
-        h_2, & \;\text{sonst}.
+        h_2, & \;\text{wenn}\; h_1 = e, \\
+        h_1, & \;\text{wenn}\; h_2 = e.
     \end{array}\right.$$
 
     Dann ist $(H', \overline{\cdot}, e)$ ein Monoid und es gilt $\overline{\cdot}\vert_{H^2} = \cdot$.
@@ -51,22 +51,22 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
 \end{remark}
 
 \begin{remark}
-    Betrachten wir das freie Monoid über $X^{(1)} = \{x_1\}$. Wir erhalten damit $x_1$ als einzigen Term 0-ter Stufe, $e, x_1 \cdot x_1$ als Terme 1-ter Stufe, $e \cdot x_1, (x_1 \cdot x_1), \ldots$ als Terme 2-ter Stufe etc. Nach Faktorisieren wie in \cref{theorem:freie_faktoralgebra} erhalten wir die Repräsentanten $e, x_1, x_1^2, x_1^3, \ldots$, womit klarerweise das hier erhaltene freie Monoid kommutativ ist. Da Monoide i. A. aber nicht kommutativ sind, erhalten wir, dass freie Algebren mehr Gesetze erfüllen können, als in der gesamten Varietät gelten. 
+    Betrachten wir das freie Monoid über $X^{(1)} = \{x_1\}$. Wir erhalten damit $x_1$ als einzigen Term 0-ter Stufe, $e, x_1 \cdot x_1$ als Terme 1-ter Stufe, $e \cdot x_1, (x_1 \cdot x_1), \ldots$ als Terme 2-ter Stufe etc. Nach Faktorisieren wie im Beweis von \cref{theorem:freie_faktoralgebra} erhalten wir die Repräsentanten $e, x_1, x_1^2, x_1^3, \ldots$, womit klarerweise das hier erhaltene freie Monoid kommutativ ist. Da Monoide i. A. aber nicht kommutativ sind, erhalten wir, dass freie Algebren mehr Gesetze erfüllen können, als in der gesamten Varietät gelten. 
     
     Betrachten wir allerdings das freie Monoid über $X^{(2)} = \{x_1, x_2\}$, so ist dieses nicht mehr kommutativ, also ``freier'' als das über $X^{(1)}$. 
 
-    Ist der Generator (die Variablenmenge) $X$ mindestens abzählbar unendlich, so ist das erzeugte Monoid \emph{total frei}\index{Monoid!total frei} über $X$, also es gelten genau die Gesetze, die in der Varietät gelten.
+    Ist der Generator (die Variablenmenge) $X$ unendlich, so ist das erzeugte Monoid \emph{total frei}\index{Monoid!total frei} über $X$, das heißt es gelten genau die Gesetze, die in der Varietät gelten.
 \end{remark}
 
 \begin{remark}
-    Aus der vorherigen Bemerkung erhalten wir die folgende Beobachtung:
+   Es gilt für eine beliebige Variablenmenge $X$ die folgende Beobachtung:
 
     Ist $\mathcal{K}$ eine Varietät, $\mathfrak{F}$ frei über $X$ in $\mathcal{K}$, dann gilt $$\forall s,t \in T(X): \mathfrak{F} \models s\approx t \Leftrightarrow \left(\forall \mathfrak{A} \in \mathcal{K}: \mathfrak{A} \models s \approx t\right).$$ 
     Ist allerdings $Y \supsetneq X$ und sind $s,t \in T(Y)$, so erhalten wir keine ähnliche Aussage über $\mathfrak{F} \models s \approx t$.
 \end{remark}
 
 \begin{theorem}[Darstellungssatz von Cayley für Monoide]\label{theorem:darstellungssatz-cayley-monoid}\index{Satz!von Cayley (Monoide)}
-    Sei $\mathfrak{M} = (M, \cdot, e)$ ein Monoid, so existiert ein injektiver Homomorphismus $\varphi: \mathfrak{M} \to (M^M, \circ, \id_M)$.
+    Sei $\mathfrak{M} = (M, \cdot, e)$ ein Monoid, so existiert ein injektiver Homomorphismus $\varphi: \mathfrak{M} \to (M^M, \circ, \id_M)$\footnote{Wie man leicht nachrechnet ist $(M^M,\circ,M)$ für jede beliebige nicht leere Menge $M$ ein Monoid.}.
 \end{theorem}
 \begin{proof}
     Wähle für $a \in M$ die Funktion $f_a: M \to M, b \mapsto a \cdot b$ und sei $\varphi: M \to M^M, a \mapsto f_a$. Zeigen wir nun, dass $\varphi$ ein injektiver Homomorphismus von $\mathfrak{M}$ nach $(M^M, \circ, \id_M)$ ist. Seien $a_1, a_2 \in M$, so gilt $$\varphi(a_1 \cdot a_2) = f_{a_1 \cdot a_2} = (M \to M, b \mapsto a_1 \cdot a_2 \cdot b) = f_{a_1} \circ f_{a_2} = \varphi(a_1) \circ \varphi(a_2)$$
@@ -75,30 +75,30 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
 
 \begin{theorem}[Fundamentalsatz der Arithmetik]\label{theorem:fundamentalsatz-der-arithmetik}\index{Fundamentalsatz!der Arithmetik}
     Sei $\mathfrak{S} = (S, +^{\mathfrak{S}}, 0^{\mathfrak{S}}) \le \prod_{p \in \mathbb{P}} (\mathbb{N}, +, 0)$ definiert durch
-    $$ S = \{(s_p)_{p \in \mathbb{P}} \in \prod_{p \in \mathbb{P}} \mathbb{N} \mid s_p = 0 \;\text{für fast alle}\; p \in \mathbb{P}\}, $$
+    $$ S = \{(s_p)_{p \in \mathbb{P}} \in \prod_{p \in \mathbb{P}} \mathbb{N} \mid s_p = 0 \;\text{für fast alle}\; p \in \mathbb{P}\footnote{Mit $\mathbb{P}$ bezeichnen wir die Menge der Primzahlen.}\}, $$
     dann ist $\mathfrak{S} \cong (\mathbb{N}\setminus\{0\}, \cdot, 1)$.
 \end{theorem}
 
-\begin{proof} Definieren wir $\varphi: S \to \mathbb{N}, (s_p)_{p \in \mathbb{P}} \mapsto \prod_{p \in \mathbb{P}} p^{s_p}$ und zeigen, dass dieses $\varphi$ ein Isomorphismus ist.
+\begin{proof} Definieren wir $\varphi: S \to \mathbb{N}\setminus\{0\}, (s_p)_{p \in \mathbb{P}} \mapsto \prod_{p \in \mathbb{P}} p^{s_p}$ und zeigen, dass dieses $\varphi$ ein Isomorphismus ist.
     \begin{itemize}[topsep=0cm, label={--}]
         \item $\varphi$ ist wohldefiniert, da für fast alle $p \in \mathbb{P}: s_p = 0$ ist und $\varphi$ damit nur auf endliche Produkte abbildet.
         
-        \item Homomorphismus: Seien $(s_p)_{p \in \mathbb{P}}, (t_p)_{p \in \mathbb{P}} \in S$. Dann erhalten wir $\varphi((s_p)_{p \in \mathbb{P}} +^\mathfrak{S} (t_p)_{p \in \mathbb{P}}) = \prod_{p \in \mathbb{P}} p^{s_p + t_p} = \prod_{p \in \mathbb{P}} p^{s_p} \cdot \prod_{p \in \mathbb{P}} p^{t_p}$.
+        \item Homomorphismus: Seien $(s_p)_{p\in\mathbb{P}}, (t_p)_{p\in\mathbb{P}} \in S$. Dann erhalten wir $\varphi((s_p)_{p\in\mathbb{P}} +^\mathfrak{S} (t_p)_{p\in\mathbb{P}}) = \prod_{p\in\mathbb{P}} p^{s_p + t_p} = \prod_{p\in\mathbb{P}} p^{s_p} \cdot \prod_{p\in\mathbb{P}} p^{t_p}$.
         
-        \item Surjektivität: Zeigen wir mittel Induktion nach $n$ die Existenz eines Elements $\vec{s}$ aus $S$, sodass $\varphi(\vec{s}) = n$.
+        \item Surjektivität: Zeigen wir mittels Induktion nach $n$ die Existenz eines Elements $\vec{s}$ aus $S$, sodass $\varphi(\vec{s}) = n$.
         
         Induktionsanfang ($n=1$): Es ist $n = \varphi(0^\mathfrak{S})$.
 
-        Induktionsschritt ($k<n \implies n$): Ist $n \in \mathbb{P}$, so kann $\vec{s} = (\delta_{n,p})_{p \in \mathbb{P}}$ gewählt werden und damit ist $\varphi(\vec{s}) = p$. Betrachten wir nun noch den Fall $p \not\in \mathbb{P}$. Wir wissen, dass es $i, j \le n$ gibt, sodass $i \cdot j = n$. Nach der Induktionsvoraussetzung existieren $\vec s^{(i)}, \vec s^{(j)} \in S$ mit $\varphi(\vec s^{(i)}) = i$ und $\varphi(\vec s^{(j)}) = j$. Sei $\vec s := \vec s^{(i)} + \vec s^{(j)}$, dann gilt $\varphi(\vec s) = \varphi(\vec s^{(i)} + \vec s^{(j)}) = \varphi(\vec s^{(i)}) \cdot \varphi(\vec s^{(j)}) = i \cdot j = n$, weil $\varphi$ ein Homomorphismus ist.
+        Induktionsschritt ($k<n \implies n$): Ist $n \in \mathbb{P}$, so kann $\vec{s} = (\delta_{n,p})_{p \in \mathbb{P}}$ gewählt werden und damit ist $\varphi(\vec{s}) = p$. Betrachten wir nun den Fall $n \not\in \mathbb{P}$. Wir wissen, dass es $i, j \le n$ gibt, sodass $i \cdot j = n$. Nach der Induktionsvoraussetzung existieren $\vec s^{(i)}, \vec s^{(j)} \in S$ mit $\varphi(\vec s^{(i)}) = i$ und $\varphi(\vec s^{(j)}) = j$. Sei $\vec s := \vec s^{(i)} + \vec s^{(j)}$, dann gilt $\varphi(\vec s) = \varphi(\vec s^{(i)} + \vec s^{(j)}) = \varphi(\vec s^{(i)}) \cdot \varphi(\vec s^{(j)}) = i \cdot j = n$, weil $\varphi$ ein Homomorphismus ist.
 
         \notedate{29.03.2023}
-        \item Injektivität: Zu zeigen ist, dass es für alle $n \in \mathbb{N} \setminus \{0\}$ höchstens eine Primfaktorenzerlegung gibt. Wir wenden Induktion nach $n$ an:
+        \item Injektivität: Zu zeigen ist, dass es für alle $n \in \mathbb{N} \setminus \{0\}$ bis auf Reihenfolge der Faktoren höchstens eine Primfaktorenzerlegung gibt. Wir wenden Induktion nach $n$ an:
         
         Induktionsanfang ($n=1$): Klarerweise hat $1$ nur die ``triviale'' Primfaktorenzerlegung, nämlich $0 \in S$, da jedes andere Produkt echt größer als $1$ ist.
 
-        Induktionsschritt ($k<n \implies n$): Sei indirekt angenommen $n$ hätte zwei Zerlegungen $n = p_1 \cdot ... \cdot p_e = q_1 \cdot ... \cdot q_m$, wobei $p_i, q_i \in \mathbb{P}$. Gibt es nun $i,j$ mit $p_i = q_j$, so betrachten wir
+        Induktionsschritt ($k<n \implies n$): Sei indirekt angenommen $n$ hätte zwei Zerlegungen $n = p_1 \cdot ... \cdot p_\ell = q_1 \cdot ... \cdot q_m$, wobei $p_i, q_i \in \mathbb{P}$. Gibt es nun $i,j$ mit $p_i = q_j$, so betrachten wir
         $$ \frac{n}{p_i} = p_1 \cdot ... \cdot p_{i-1} \cdot p_{i+1} \cdot ... \cdot p_\ell = q_1 \cdot ... \cdot q_{j-1} \cdot q_{j+1} \cdot ... \cdot q_m, $$
-        womit folgt, dass die Zerlegungen bereits gleich sind (bis auf Reihenfolge). Damit können wir von nun an annehmen, dass $p_i \neq q_j$ für alle $i, j$ gilt -- \obda sei $p_1 < q_1$. Wir betrachten
+        womit folgt, dass die Zerlegungen bereits gleich sind (bis auf Reihenfolge der Faktoren). Damit können wir von nun an annehmen, dass $p_i \neq q_j$ für alle $i, j$ gilt -- \obda sei $p_1 < q_1$. Wir betrachten
         $$ n' := q_1 \cdot ... \cdot q_m - p_1 \cdot q_2 \cdot ... \cdot q_m < n, $$
         so gilt insbesondere
         $$ n' = p_1 \cdot ... \cdot p_\ell - p_1 \cdot q_2 \cdot ... \cdot q_m $$
@@ -119,7 +119,7 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
     \begin{align*}
         f \vee g &:= (p \mapsto \max(f(p),g(p))), \\ f \wedge g &:= (p \mapsto \min(f(p),g(p)))
     \end{align*}
-    wird $S$ also zu einem Verband $(S, \vee, \wedge)$.
+    wird $S$ also zu einem Verband $(S, \land, \lor)$.
 \end{remark}
 
 \begin{remark}
@@ -129,47 +129,49 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
 \end{remark}
 
 \begin{corollary}
-    $(\mathbb{N}, \mid)$ ist ein Verband.
+    $(\mathbb{N}\setminus\{0\}, \mid)$ ist ein Verband.
 \end{corollary}
 
 \begin{proof}
-    Seien $n,m \in \mathbb{N} \setminus \{0\}$ und definiere
+    Seien $n,m \in \mathbb{N} \setminus \{0\}$ und definiere für obiges $\varphi:S \to \mathbb{N}\setminus\{0\}$
     $$ n \vee m := \varphi(\varphi^{-1}(n) \vee \varphi^{-1}(m)) = \textrm{kgV}(n,m) $$
     $$ n \wedge m := \varphi(\varphi^{-1}(n) \wedge \varphi^{-1}(m)) = \textrm{ggT}(n,m). $$
 \end{proof}
 
-\begin{definition}\index{kürzbar!links-}\index{kürzbar!rechts-}
+\begin{definition}
     Sei $H$ ein Monoid und $a \in H$. Gilt für alle $b, b' \in H$
     \begin{itemize}
-        \item $ a \cdot b = a \cdot b' \implies b = b', $ so heißt $a$ \emph{linkskürzbar}.
-        \item $ b \cdot a = b' \cdot a \implies b = b', $ so heißt $a$ \emph{rechtskürzbar}.
+        \item $ a \cdot b = a \cdot b' \implies b = b', $ so heißt $a$ \emph{linkskürzbar}.\index{kürzbar!links-}
+        \item $ b \cdot a = b' \cdot a \implies b = b', $ so heißt $a$ \emph{rechtskürzbar}.\index{kürzbar!rechts-}
+        \item Ist $a$ links- und rechtskürzbar, so heißt $a$ \emph{kürzbar}.\index{kürzbar}
     \end{itemize}
 \end{definition}
 
 \begin{remark}
-    Es stellt sich die Frage ob es möglich ist ein Monoid $(H, \cdot, e)$ in eine Gruppe einzubetten. Wir beobachten, dass in einer Gruppe für alle Elemente sowohl links-, als auch rechtskürzbar sind. Notwendig für Einbettbarkeit von einem Monoid $\mathfrak{H} = (H, \cdot, e)$ in eine Gruppe ist also jedenfalls, dass für alle $a \in H$ $a$ sowohl links- als auch rechtskürzbar ist.
+    Es stellt sich die Frage ob es möglich ist ein Monoid $(H, \cdot, e)$ in eine Gruppe einzubetten. Wir beobachten, dass in einer Gruppe alle Elemente sowohl links-, als auch rechtskürzbar sind. Notwendig für Einbettbarkeit von einem Monoid $\mathfrak{H} = (H, \cdot, e)$ in eine Gruppe ist also jedenfalls, dass für alle $a \in H$ $a$ sowohl links- als auch rechtskürzbar ist.
 
-    Hinreichend hingegen ist die obige Kürzbarkeit mit der zusätzlichen Forderung das $\mathfrak{H}$ kommutativ ist. Es sei angemerkt, dass, obwohl dies hinreichend ist, die Kommutativität im Allgemeinen nicht notwenig ist.
+    Hinreichend hingegen ist die obige Kürzbarkeit mit der zusätzlichen Forderung das $\mathfrak{H}$ kommutativ ist (siehe Satz \ref{theorem:monoid-gruppe-einbettung}). Es sei angemerkt, dass, obwohl dies hinreichend ist, die Kommutativität im Allgemeinen nicht notwendig ist.
 \end{remark}
 
 \begin{example} {\ }
     \begin{enumerate}
         \item Betrachte $\Gl_2(\mathbb{R})$ und das (nicht kommutative) Untermonoid $\mathfrak{H} := \Gl_2(\mathbb{R}) \cap \mathbb{Z}^{2 \times 2}$.
-        \item Betrachte die freie Gruppe über $\{x,y\}$, so erhalten wir Wörter wie $x^{n_1} y^{m_1} \cdot ... \cdot x^{n_l} y^{m_l}$ ($n_i, m_i \geq 0$).
+        \item Betrachten wir die freie Gruppe über $\{x,y\}$, so erhalten wir mit Wörtern wie $x^{n_1} y^{m_1} \cdot ... \cdot x^{n_l} y^{m_l}$ ($n_i, m_i \geq 0$)
+        ein nicht kommutatives Untermonoid. Das Beispiel zeigt, ebenfalls, dass Kommutativität nicht notwendig ist.
     \end{enumerate}
 \end{example}
 
 \begin{theorem}\label{theorem:monoid-gruppe-einbettung}
     Sei $\mathfrak{H} = (H, \cdot, e)$ ein kommutatives Monoid und jedes $a \in H$ kürzbar\footnote{Aufgrund der Kommutativität reicht es sogar lediglich Links- oder Rechtskürzbarkeit zu fordern.}. Dann gilt
     \begin{enumerate}
-        \item $\sim\; \subseteq (H^2)^2$
+        \item $\sim\; \subseteq (H^2)^2$ mit
         $$ (a,b) \sim (c,d) :\Leftrightarrow a \cdot d = b \cdot c $$
         ist eine Kongruenzrelation auf $\mathfrak{H}^2$.
         \item $\mathfrak{H}^2 /_\sim$ ist eine Gruppe.
         \item Die Abbildung
         $$ \varphi :\; \mathfrak{H} \to \mathfrak{H}^2 /_\sim, \;a \mapsto [(a,e)]_\sim $$
-        ist eine \emph{Einbettung}, also ein injektiver Homomorphismus.
-        \item Sei $\mathfrak{G}$ eine Gruppe, so gibt es für alle $\psi : \mathfrak{H} \to \mathfrak{G}$ einen injektiven Homomorphismus $\overline{\psi} : \mathfrak{H}^2 /_\sim \to \mathfrak{G}$ mit $\overline{\psi} \circ \varphi = \psi$.
+        ist eine \emph{Einbettung}\index{Einbettung}, also ein injektiver Homomorphismus.
+        \item Sei $\mathfrak{G}$ eine Gruppe, so gibt es für alle injekten Homomorphismen $\psi : \mathfrak{H} \to \mathfrak{G}$ einen injektiven Homomorphismus $\overline{\psi} : \mathfrak{H}^2 /_\sim \to \mathfrak{G}$ mit $\overline{\psi} \circ \varphi = \psi$.
     \end{enumerate}
 
     \begin{figure}[H]
@@ -205,13 +207,13 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
             \item reflexiv: Es gilt $(a, b) \sim (a, b)$, da $a b = a b$.
             \item symmterisch: Es gilt
             $$ (a, b) \sim (c, d) \Leftrightarrow a d = b c \Leftrightarrow b c = a d \Leftrightarrow (c, d) \sim (a, b). $$
-            \item transitiv: Seien $(a, b) \sim (c, d) \sim (u, v)$, es gilt also $ad = bc$ und $cv = du$. Dann folgt
+            \item transitiv: Seien $(a, b) \sim (c, d) \sim (u, v)$, dann ist $ad = bc$ und $cv = du$. Dann folgt
             $$ (av)(cd) = addu = bcdu = (bu)(cd) $$
             und damit $av = bu$ und $(a, b) \sim (a, v)$ aus der Kürzbarkeit.
         \end{enumerate}
         Seien $(a_1, b_1) \sim (c_1, d_1), (a_2, b_2) \sim (c_2, d_2)$, also $a_1 d_1 = c_1 b_1$ und $a_2 d_2 = c_2 b_2$ und damit $a_1 a_2 d_1 d_2 = c_1 c_2 b_1 b_2$, also $(a_1 a_2, b_1 b_2) \sim (c_1 c_2, d_1 d_2)$, womit $\sim$ auch eine Kongruenzrelation ist.
 
-        \item Wir bemerken, dass $(a, b) \sim (e, e) \Leftrightarrow ae = be \Leftrightarrow a = b$, also ist $[(e,e)]_\sim = \{ (a, a) \mid a \in H \}$ unser neutrales Element in $\mathfrak{H}^2 /_\sim$.
+        \item Wir bemerken, dass $(a, b) \sim (e, e) \Leftrightarrow ae = be \Leftrightarrow a = b$, dann ist $[(e,e)]_\sim = \{ (a, a) \mid a \in H \}$ unser neutrales Element in $\mathfrak{H}^2 /_\sim$.
         
         Wegen
         $$ [(a,b)]_\sim \cdot [(b,a)]_\sim = [(ab, ab)]_\sim = [(e,e)]_\sim $$
@@ -221,11 +223,11 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
         $$ \varphi(e) = [(e,e)]_\sim \quad \textrm{neutral in } \mathfrak{H}^2 /_\sim, $$
         sowie für $a, b \in H$
         $$ \varphi(ab) = [(ab, e)]_\sim = [(a,e)]_\sim \cdot [(b,e)]_\sim = \varphi(a) \cdot \varphi(b), $$
-        womit $\varphi$ eine Homomorphismus ist.
+        womit $\varphi$ ein Homomorphismus ist.
 
         Seien nun $a,b \in H$ mit $\varphi(a) = \varphi(b)$, also $[(a,e)]_\sim = [(b,e)]_\sim$, so folgt $a = ae = eb = b$, womit $\varphi$ injektiv ist.
 
-        \item Sei \obda $\psi = \id_H$ und definiere $ \overline{\psi} :\; \mathfrak{H}^2 /_\sim \to \mathfrak{G}, \;[(a,b)]_\sim \mapsto a \cdot b^{-1} $.
+        \item Sei \obda $\psi = \id_H$\footnote{Diese Einschränkung ist möglich, da $\psi$ ein injektiver Homomrophismus ist.} und definiere $ \overline{\psi} :\; \mathfrak{H}^2 /_\sim \to \mathfrak{G}, \;[(a,b)]_\sim \mapsto a \cdot b^{-1} $.
         
         Seien $a,b,c,d \in H$ beliebig mit $a b^{-1} = c d^{-1}$, so folgt $ad = bc$, also $[(a,b)]_\sim = [(c,d)]_\sim$, womit $\overline{\psi}$ injektiv ist.
 
