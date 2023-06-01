@@ -9,7 +9,7 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
 
 \begin{definition}
     Sei $\mathfrak{M} = (M, \cdot, e)$ ein Monoid und $a, a' \in M$, dann heißt
-    \begin{itemize}[topsep=0pt, label={--}]
+    \begin{itemize}
         \item $a'$ \emph{linksinvers}\index{invers!links-} zu $a$, wenn $a' \cdot a = e$ und
         \item $a'$ \emph{rechtsinvers}\index{invers!rechts-} zu $a$, wenn $a \cdot a' = e$ gilt.
     \end{itemize}
@@ -80,7 +80,7 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
 \end{theorem}
 
 \begin{proof} Definieren wir $\varphi: S \to \mathbb{N}\setminus\{0\}, (s_p)_{p \in \mathbb{P}} \mapsto \prod_{p \in \mathbb{P}} p^{s_p}$ und zeigen, dass dieses $\varphi$ ein Isomorphismus ist.
-    \begin{itemize}[topsep=0cm, label={--}]
+    \begin{itemize}
         \item $\varphi$ ist wohldefiniert, da für fast alle $p \in \mathbb{P}: s_p = 0$ ist und $\varphi$ damit nur auf endliche Produkte abbildet.
         
         \item Homomorphismus: Seien $(s_p)_{p\in\mathbb{P}}, (t_p)_{p\in\mathbb{P}} \in S$. Dann erhalten wir $\varphi((s_p)_{p\in\mathbb{P}} +^\mathfrak{S} (t_p)_{p\in\mathbb{P}}) = \prod_{p\in\mathbb{P}} p^{s_p + t_p} = \prod_{p\in\mathbb{P}} p^{s_p} \cdot \prod_{p\in\mathbb{P}} p^{t_p}$.

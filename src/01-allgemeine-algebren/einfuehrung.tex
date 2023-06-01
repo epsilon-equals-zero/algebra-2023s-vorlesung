@@ -18,7 +18,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 
 \begin{definition}\label{def:halbgruppe}
     Eine Algebra $\mathfrak{A} = (A, +)$ vom Typ $\tau = (2)$ heißt \emph{Halbgruppe}\index{Halbgruppe}, wenn 
-    \begin{itemize}[topsep=0pt, label={--}]
+    \begin{itemize}
         \item $\forall x,y,z \in A: (x + y) + z = x + (y + z)$ \tab (\emph{Assoziativität}\index{Assoziativität} von $+$)
     \end{itemize}
     gilt.
@@ -29,7 +29,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 
 \begin{definition}\label{def:monoid}
     Eine Algebra $\mathfrak{A} = (A, +, e)$ vom Typ $\tau = (2,0)$ heißt \emph{Monoid}\index{Monoid}, wenn
-    \begin{itemize}[topsep=0pt, label={--}]
+    \begin{itemize}
         \item $(A, +)$ eine Halbgruppe ist und
         \item $\forall x \in A: e + x = x + e = x$ \tab ($e$ ist \emph{neutrales Element}\index{neutrales Element} bezüglich $+$)
     \end{itemize}
@@ -42,7 +42,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 
 \begin{definition}\label{def:gruppe}
     Eine Algebra $\mathfrak{A} = (A, +, e, -)$ vom Typ $\tau = (2,0,1)$ heißt \emph{Gruppe}\index{Gruppe}, wenn
-    \begin{itemize}[topsep=0pt, label={--}]
+    \begin{itemize}
         \item $(A, +, e)$ ein Monoid ist und
         \item $\forall x \in A: x + (-x) = (-x) + x = e$ \tab ($-$ bildet ab auf \emph{inverse Elemente}\index{invers!inverses Element})
     \end{itemize}
@@ -55,7 +55,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 
 \begin{remark}\label{rem:alternativegruppe}
     Manchmal werden Gruppen auch als Algebra $\mathfrak{A} = (A, +)$ vom Typ $\tau = (2)$ definiert, für die
-    \begin{itemize}[topsep=0pt, label={--}]
+    \begin{itemize}
         \item $\forall x,y,z \in A: (x + y) + z = x + (y + z)$,
         \item $\exists e \in A \forall x \in A: e + x = x + e = x$ und 
         \item $\forall x \in A \exists (-x) \in A: x + (-x) = (-x) + x = e$
@@ -66,7 +66,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 
 \begin{definition}
     Eine Halbgruppe / Monoid / Gruppe $\mathfrak{A} = (A, +, \cdots)$ heißt \emph{kommutativ}\index{kommutativ}\index{Gruppe!kommutativ} oder \emph{abelsch}\index{abelsch}\index{Gruppe!abelsch}, wenn für die zweistellige Operation $+$ 
-    \begin{itemize}[topsep=0pt, label={--}]
+    \begin{itemize}
         \item $\forall x, y \in A: x + y = y + x$
     \end{itemize}
     gilt.
@@ -74,7 +74,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 
 \begin{definition}
     Eine Algebra $\mathfrak{A} = (A, +, 0, \cdot)$ vom Typ $\tau = (2,0,2)$ heißt \emph{Halbring}\index{Halbring}, wenn
-    \begin{itemize}[topsep=0pt, label={--}]
+    \begin{itemize}
         \item $(A, +, 0)$ ein kommutatives Monoid,
         \item $(A, \cdot)$ eine Halbgruppe ist und
         \item $\forall x, y, z \in A: (x+y)\cdot z = x \cdot z + y \cdot z$ \tab ($\cdot$ ist \emph{rechtsdistributiv}\index{distributiv!rechts-} über $+$)\\
@@ -91,7 +91,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 
 \begin{definition} \label{def:ring}
     Eine Algebra $\mathfrak{A} = (A, +, 0, -, \cdot)$ vom Typ $\tau = (2,0,1,2)$ heißt \emph{Ring}\index{Ring}, wenn
-    \begin{itemize}[topsep=0pt, label={--}]
+    \begin{itemize}
         \item $(A, +, -, 0)$ eine kommutative Gruppe,
         \item $(A, \cdot)$ eine Halbgruppe und
         \item $\cdot$ links- und rechtsdistributiv über $+$ ist.
@@ -107,7 +107,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 \begin{samepage}
 \begin{definition}
     Ist $\mathfrak{A} = (A,+,0,-,1,\cdot)$ ein kommutativer Ring mit 1, so heißt $\mathfrak{A}$ \emph{Körper}\index{Körper}, wenn
-    \begin{itemize}[topsep=0pt, label={--}]
+    \begin{itemize}
         \item $\forall x \in A\backslash \{0\} \exists y \in A: x\cdot y = 1$
     \end{itemize}
     Ist $\cdot$ nicht kommutativ, so nennen wir $\mathfrak{A}$ \emph{Schiefkörper}\index{Schiefkörper} oder \emph{Divisionsring}\index{Divisonsring}.
@@ -120,7 +120,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 
 \begin{definition}
     Seien $\mathfrak{R} = (R, +, 0, -, \cdot)$ ein Ring, $\mathfrak{G} = (G, \widetilde{+}, \widetilde{0}, \widetilde{-})$ eine abelsche Gruppe und $\odot: R \times G \to G, (a, v) \mapsto a \odot v$ und gelte
-    \begin{itemize}[topsep=0pt, label={--}]
+    \begin{itemize}
         \item $\forall a,b \in R \forall u \in G: (a \cdot b)\odot u = a \odot (b \odot u),$
         \item $\forall a,b \in R \forall u \in G: (a + b) \cdot u = (a \cdot u) \;\widetilde{+}\; (b \cdot u),$
         \item $\forall a \in R \forall u,v \in G: a \odot (u \;\widetilde{+}\; v) = (a \odot u) \;\widetilde{+}\; (a \odot v),$
@@ -140,7 +140,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 
 \begin{definition}
     Eine Algebra $\mathfrak{A} = (A, \wedge)$ vom Typ $\tau = (2)$ heißt \emph{Halbverband}\index{Halbverband}, wenn
-    \begin{itemize}[topsep=0pt, label={--}]
+    \begin{itemize}
         \item $\mathfrak{A}$ eine kommutative Halbgruppe ist und
         \item $\forall x \in A: x \wedge x = x$. \tab ($\wedge$ ist \emph{idempotent}\index{idempotent})
     \end{itemize}
@@ -153,7 +153,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 
 \begin{definition}
     Eine Algebra $\mathfrak{A} = (A, \wedge, \vee)$ vom Typ $\tau = (2, 2)$ heißt \emph{Verband (im algebraischen Sinn)}\index{Verband}, wenn
-    \begin{itemize}[topsep=0pt, label={--}]
+    \begin{itemize}
         \item $(A, \wedge)$, $(A, \vee)$ Halbverbände sind, 
         \item $\forall a,b \in A: a \wedge (a \vee b) = a$ und
         \item $\forall a,b \in A: a \vee (a \wedge b) = a$
@@ -164,7 +164,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
     Ein Verband heißt \emph{distributiv}\index{Verband!distributiv}, wenn $\wedge$ distributiv\footnote{Es ist ausreichend Rechts- bzw. Linksdistributivität zu fordern, da die jeweilig andere Distributivität aus der Kommutativität folgt.} über $\vee$ und $\vee$ distributiv über $\wedge$ ist.
 
     Eine Algebra $\mathfrak{A} = (A, \wedge, \vee, 0, 1)$ vom Typ $\tau = (2,2,0,0)$ heißt \emph{beschränkter Verband}\index{Verband!beschränkt}, wenn
-    \begin{itemize}[topsep=0pt, label={--}]
+    \begin{itemize}
         \item $(A, \wedge, \vee)$ ein Verband ist,
         \item $\forall a \in A: a \wedge 0 = 0$ und
         \item $\forall a \in A: a \vee 1 = 1$
@@ -205,7 +205,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 
 \begin{definition}
     Eine Algebra $\mathfrak{A} = (A, \wedge, \vee, 0, 1, \,')$ vom Typ $\tau = (2,2,0,0,1)$ heißt \emph{Boole'sche Algebra}\index{Boole'sche Algebra}, wenn
-    \begin{itemize}[topsep=0pt, label={--}]
+    \begin{itemize}
         \item $(A, \wedge, \vee, 0, 1)$ ein beschränkter distributiver Verband ist,
         \item $\forall x \in A: x \wedge x' = 0$ und
         \item $\forall x \in A: x \vee x' = 1$
