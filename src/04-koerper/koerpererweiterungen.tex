@@ -18,7 +18,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \end{proof}
 
 \begin{definition}
-    Sei $K \leq L, \alpha \in L$. Dann nennen wir \emph{$\alpha$ algebraisch über $K$} (kurz $\alpha \text{ alg.}/_K$), wenn
+    Sei $K \leq L, \alpha \in L$. Dann nennen wir \emph{$\alpha$ algebraisch über $K$}\index{algebraisch} (kurz $\alpha \text{ alg.}/_K$), wenn
     $$ \exists f \in K[x] \setminus \{0\}: f(\alpha) = 0. $$
 \end{definition}
 
@@ -35,13 +35,13 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \end{example}
 
 \begin{definition}
-    Wir nennen \emph{$\alpha$ transzendent über $K$} (kurz $\alpha \text { transz.}/_K$) genau dann, wenn $\alpha$ nicht algebraisch über $K$ ist.
+    Wir nennen \emph{$\alpha$ transzendent über $K$}\index{transzendent} (kurz $\alpha \text { transz.}/_K$) genau dann, wenn $\alpha$ nicht algebraisch über $K$ ist.
 \end{definition}
 
 \begin{remark}
     Ist $\alpha$ algebraisch über $K$, so können wir das nichttriviale Ideal
     $$ I := \{ f \in K[x] \mid f(\alpha) = 0 \} \vartriangleleft K[x] $$
-    wählen. Nun gibt es ein $\mu_\alpha \in K[x]$ normiert, mit $I = (\mu_a)$, da $K[x]$ ein Hauptidealring ist. Dieses ist eindeutig, denn ist $I = (\mu_\alpha) = (g)$, so gilt $\mu_\alpha \mid g$ und $g \mid \mu_\alpha$, womit $g \sim \mu_\alpha$. Dieses $\mu_\alpha$ nennen wir das \emph{Minimalpolynom von $\alpha$ über $K$}. Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem Fall stimmen jedoch die jeweiligen Körpererweiterungen überein, wie wir in folgender Proposition sehen werden.
+    wählen. Nun gibt es ein $\mu_\alpha \in K[x]$ normiert, mit $I = (\mu_a)$, da $K[x]$ ein Hauptidealring ist. Dieses ist eindeutig, denn ist $I = (\mu_\alpha) = (g)$, so gilt $\mu_\alpha \mid g$ und $g \mid \mu_\alpha$, womit $g \sim \mu_\alpha$. Dieses $\mu_\alpha$ nennen wir das \emph{Minimalpolynom von $\alpha$ über $K$}\index{Minimalpolynom}. Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem Fall stimmen jedoch die jeweiligen Körpererweiterungen überein, wie wir in folgender Proposition sehen werden.
 \end{remark}
 
 \begin{proposition}
@@ -86,7 +86,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \subsection{Nicht-einfache algebraische Erweiterungen}
 
 \begin{definition}
-    Wir nennen $K \leq L$ \emph{(rein) algebraisch}, wenn
+    Wir nennen $K \leq L$ \emph{(rein) algebraisch}\index{Körpererweiterung!rein algebraisch}\index{algebraisch}, wenn
     $$ \forall \alpha \in L: \alpha \text{ ist algebraisch über } K. $$
 \end{definition}
 
@@ -134,11 +134,11 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \begin{definition}
     Sei $K \leq E$.
     \begin{itemize}
-        \item Sei $S \subseteq E$. Wir nennen $S$ \emph{algebraisch abhängig über $K$}, wenn
+        \item Sei $S \subseteq E$. Wir nennen $S$ \emph{algebraisch abhängig über $K$}\index{algebraisch abhängig}, wenn
         $$ \exists a_1, \hdots, a_n \in S \exists f(x_1, \hdots, x_n) \in K[x_1, \hdots, x_n], f \neq 0 : f(a_1, \hdots, a_n) = 0. $$
         Sonst nennen wir $S$ algebraisch unabhängig.
-        \item Wir $E$ \emph{rein transzendent über $K$}, wenn es eine algebraisch unabhängige Teilmenge $S \subseteq E$ gibt mit $E = K(S)$.
-        \item Sei $S \subseteq E$. Wir nennen $S$ \emph{Transzendenzbasis von $E$ über $K$}, wenn $S$ maximal algebraisch unabhängig ist.
+        \item Wir $E$ \emph{rein transzendent über $K$}\index{transzendent!rein}, wenn es eine algebraisch unabhängige Teilmenge $S \subseteq E$ gibt mit $E = K(S)$.
+        \item Sei $S \subseteq E$. Wir nennen $S$ \emph{Transzendenzbasis von $E$ über $K$}\index{Transzendenzbasis}, wenn $S$ maximal algebraisch unabhängig ist.
     \end{itemize}
 \end{definition}
 
@@ -182,9 +182,9 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \end{corollary}
 
 \begin{definition}
-    Sei $K \leq E, A \subseteq E$. Dann definieren wir die \emph{algebraische Hülle von $A$} als
+    Sei $K \leq E, A \subseteq E$. Dann definieren wir die \emph{algebraische Hülle von $A$}\index{algebraische Hülle} als
     $$ [A] := \{ b \in E \mid b \text{ ist algebraisch über } K(A) \}. $$
-    Gilt $E = [A]$, so heißt $A$ \emph{algebraisches Erzeugendensystem von $E$ über $K$}.
+    Gilt $E = [A]$, so heißt $A$ \emph{algebraisches Erzeugendensystem von $E$ über $K$}\index{algebraisches Erzeugendensystem}.
 \end{definition}
 
 \begin{lemma}
@@ -242,7 +242,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \end{proof}
 
 \begin{definition}
-    Sei $K \leq E$. Wir definieren den \emph{Transzendenzgrad von $E$ über $K$} als $\vert B \vert$, wobei $B \subseteq E$ eine beliebige Transzendenzbasis ist.
+    Sei $K \leq E$. Wir definieren den \emph{Transzendenzgrad von $E$ über $K$}\index{Transzendenzgrad} als $\vert B \vert$, wobei $B \subseteq E$ eine beliebige Transzendenzbasis ist.
 \end{definition}
 
 \subsection{Adjunktion einer Nullstelle}
