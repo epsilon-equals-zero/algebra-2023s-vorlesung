@@ -7,24 +7,23 @@
 \end{example}
 
 \begin{definition}
-    Sei $R$ ein Integritätsbereichs-Ring. Dieser heißt \emph{euklidischer Ring}\index{Ring!euklidischer}, wenn es eine Funktion $H:R\setminus\{0\}\to\mathbb{N}$ mit
-    $$\forall a\in R\setminus\{0\},b\in R:\exists\footnote{Diese Elemente müssen nicht eindeutig sein!} q,r\in R:b=aq+r \quad \land \quad (r=0\lor H(r)<H(a))$$ gibt. Die Funktion $H$ heißt \emph{euklidische Bewertung}\index{euklidische Bewertung}.
+    Sei $R$ ein Ring und Integritätsbereich. Dieser heißt \emph{euklidischer Ring}\index{Ring!euklidisch}, wenn es eine Funktion $H:R\setminus\{0\}\to\mathbb{N}$ mit
+    $$\forall a\in R\setminus\{0\},b\in R\exists\footnote{Diese Elemente müssen nicht eindeutig sein!} q,r\in R:b=aq+r \quad \land \quad (r=0\lor H(r)<H(a))$$ gibt. Die Funktion $H$ heißt \emph{euklidische Bewertung}\index{euklidische Bewertung}.
 \end{definition}
 
 \begin{example}
     Ein Beispiel für einen euklidischen Ring ist $\mathbb{Z}$ mit $H(x)=|x|$.
-    Weiters ist für einen Körper $K[x]$ ein euklidischer Ring gegeben, wobei die Bewertung der Grad ist. Jeder Körper $K$ mit einer beliebigen Funktion $H:R\setminus\{0\}\to\mathbb{N}$ ist ein triviales Beispiel, da man immer $0$ als Divisionsrest erhalten kann.
+    Weiters ist für einen Körper $K$ der Polynomring $K[x]$ ein euklidischer Ring, wobei die Bewertung der Grad ist. Jeder Körper $K$ mit einer beliebigen Funktion $H:R\setminus\{0\}\to\mathbb{N}$ ist ein triviales Beispiel, da man immer $0$ als Divisionsrest erhalten kann.
 \end{example}
 
 \begin{example}
-    Wir wir gleich sehen werden, ist jeder euklidische Ring auch ein Hauptidealring. Da
+    Wie wir gleich sehen werden, ist jeder euklidische Ring auch ein Hauptidealring. Da
     $\mathbb{Z}[x]$ kein Hauptidealring ist, ist $\mathbb{Z}[x]$ insbesondere kein euklidischer Ring. Ein Beispiel für einen Hauptidealring der kein euklidischer Ring ist, wäre $\mathbb{Z}[\frac{1+\sqrt{-19}}{2}]\subseteq \mathbb{C}$ (ohne Beweis).
 \end{example}
 
 \begin{theorem}
     Jeder euklidische Ring ist ein Hauptidealring.
 \end{theorem}
-
 \begin{proof}
     Sei $R$ ein euklidischer Ring und $I$ ein Ideal. Falls $I=\{0\}$ ist, so gilt trivialerweise $I=(0)$. Falls $I\neq \{0\}$ gilt, so muss ein $a\in R$ mit $I=(a)=\{aq\mid q\in R\}$ gefunden werden. Wähle daher $a\in I\setminus\{0\}$ mit $H(a)=\min\{H(x)\mid x\in I\}$. Dieses Minimum existiert, da jede nichtleere Teilmenge natürlicher Zahlen ein Minimum hat. Offensichtlich gilt $(a)\subseteq I$.
 
@@ -32,7 +31,7 @@
     folgt, dass $r=0$ gilt, also $b=aq$ und $b\in (a)$.
 \end{proof}
 
-\begin{theorem}[Euklidischer Algorithmus]\label{theorem:euklidischer-algorithmus}
+\begin{theorem}[Euklidischer Algorithmus]\label{theorem:euklidischer-algorithmus}\index{euklidischer Algorithmus}
     Seien $a,b\in R, a\neq 0$. Wähle $q_1,r_1\in R:b=aq_1+r_1$ mit $r_1=0\lor H(r_1)<H(a)$. Wenn $r_1=0$ ist, dann terminiert der Algorithmus. Ansonsten wählt man $q_2,r_2\in R$ mit
     $a=r_1q_2+r_2$ und $r_2=0\lor H(r_2)<H(r_1)$. Falls $r_2=0$ ist, so terminiert der Algorithmus, ansonsten verfahren wir induktiv. Wenn $r_i, r_{i+1}$ und $q_{i+1}$ bereits gewählt sind, dann wählt man $q_{i+2},r_{i+2}$ mit $r_i=r_{i+1}q_{i+2}+r_{i+2}$ mit $r_{i+2}=0\lor H(r_{i+2})<H(r_{i+1})$. Aufgrund der Schachtelung $H(a)>H(r_1)>H(r_2)$ terminiert der Algorithmus, das heißt es ist $r_k=0$ für ein $k\in\mathbb{N}$. Dann ist $r_{k_1}$ der letzte von $0$ verschieden Rest und es gilt $r_{k-1}=\mathrm{ggT}(a,b)$.
 \end{theorem}
@@ -51,7 +50,7 @@
     Eine Anwendung des euklidischen Algorithmus ist die Berechnung von Koeffizienten $x,y$ mit
     $ax+by=\mathrm{ggT}(a,b)$. Mit der Notation aus Satz \ref{theorem:euklidischer-algorithmus} folgt
     \begin{align*}
-        \mathrm{ggT}(a,b)=&r_{k-1}\\
+        \mathrm{ggT}(a,b)&=r_{k-1}\\
         &=r_{k-3}-r_{k-2}q_{k-1}\\
         &=r_{k-3}-(r_{k-4}-r_{k-3}q_{k-2})q_{k-1}\\
         &=r_{k-4}(-q_{k-1})+r_{k-3}(1+q_{k-2}q_{k-1})\\
@@ -120,18 +119,18 @@
 
 \begin{lemma}
     Sei $R$ faktoriell, $f, g \in R[x]$, $p \in R$ prim. Dann gilt
-    $$ p \mid f \cdot g \implies p \mid f \lor p \mid g. $$
+    $$ p \mid f g \Rightarrow p \mid f \lor p \mid g. $$
 \end{lemma}
 
 \begin{proof}
     Wir zeigen die Aussage mittels Induktion nach $\deg fg = n+m$, wobei
-    $$ f = \sum_{i=0}^n a_i x^i, g = \sum_{j=0}^n b_j x^j. $$
+    $$ f = \sum_{i=0}^n a_i x^i,\quad g = \sum_{j=0}^n b_j x^j. $$
 
-    Ist $n+m=0$, so sind also $f, g \in R$, womit folgt $p \mid f \lor p \mid g$, da $p$ prim in $R$ ist.
+    Induktionsanfang ($n+m=0$): Es sind $f, g \in R$, womit aus $p \mid fg$ folgt $p \mid f \lor p \mid g$, da $p$ prim in $R$ ist.
 
-    Gilt $p \mid fg$, so folgt $p \mid a_n b_m$ und damit, da $p$ prim in $R$ ist, $p \mid a_n \lor p \mid b_m$. Nehmen wir \obda $p \mid a_n$ an. Schreiben wir nun $f = a_n x^n + f'$. Es gilt
+    Induktionsschritt ($n+m \to n+m+1$): Gilt $p \mid fg$, so gilt $p \mid a_n b_m$, da $a_n b_m$ der Leitkoeffizient ist und damit, da $p$ prim in $R$ ist, $p \mid a_n \lor p \mid b_m$. Nehmen wir \obda $p \mid a_n$ an. Schreiben wir nun $f = a_n x^n + f'$. Es gilt
     $$ fg = a_n x^n g + f' g. $$
-    Nun teilt $p$ jedoch $fg, a_n, f' g$. Nach Induktionsvoraussetzung gilt damit $p \mid f' \lor p \mid g$, und damit $p \mid a_n, p \mid f'$ und damit $p \mid f$.
+    Nun teilt $p$ jedoch $fg, a_n$ und damit auch $f' g$. Nach Induktionsvoraussetzung gilt damit $p \mid f' \lor p \mid g$, und damit entweder direkt die Beauptung oder $p \mid a_n, p \mid f'$ und damit $p \mid f$.
 \end{proof}
 
 \begin{corollary}
@@ -142,7 +141,7 @@
     Sei $R$ faktoriell, $Q$ der Quotientenkörper von $R$ und $f \in Q[x]$. Dann existieren $c_f \in Q, f_0 \in R[x]$ leer, mit
     $$ f = c_f \cdot f_0. $$
 
-    Diese Darstellung ist eindeutig bis auf Äquivalenz, die Konstanten unterscheiden sich also lediglich um eine Einheit.
+    Diese Darstellung ist eindeutig bis Multiplikation mit einer Einheit (aus $R$).
 
     Weiters gibt es zu $f, g \in Q[x]$ eine Einheit $e \in R$ mit
     $$ c_{f \cdot g} = e \cdot c_f \cdot c_g. $$
@@ -151,10 +150,10 @@
 \begin{proof}
     Die Koeffizienten von $f$ in $Q$ haben eine Darstellung als Quotient mit teilerfremden Elementen aus dem Ring, wir können also schreiben
     $$ f = \sum_{i=0}^\ell a_i x^i = \sum_{i=0}^\ell \frac{z_i}{n_i} x^i = \frac{\mathrm{ggT}(z_0, \hdots, z_n)}{\mathrm{kgV}(n_0, \hdots, n_\ell)} \sum_{i=0}^\ell b_i x^i, $$
-    wobei $b_i \in R$ und sich somit sofort die geforderte Darstellung ergibt.
+    wobei $b_i \in R$ teilerfremd und sich somit sofort die geforderte Darstellung ergibt.
 
     Seien nun $c_f \cdot f_0 = f = d \cdot g$ zwei Darstellungen. Schreiben wir
-    $$ f_0 = \sum_{i=0}^\ell b_i x^i, g = \sum_{i=0}^\ell t_i x^i, $$
+    $$ f_0 = \sum_{i=0}^\ell b_i x^i,\quad g = \sum_{i=0}^\ell t_i x^i, $$
     so folgt durch Koeffizientenvergleich, dass für alle $i$ gilt $c_f \cdot b_i = d \cdot t_i$. Schreiben wir $c_f = \frac{c_f^z}{c_f^n}, d = \frac{d^z}{d^n}$. Damit gilt $c_f^z b_i d^n = d^z t_i c_f^n$, aufgrund der Eindeutigkeit des ggT's (bis auf Assoziiertheit) folgt $c_f^z d^n \sim d^z c_f^n$ und damit die Existenz einer Einheit $e$ mit $e \cdot c_f = d$.
 
     Sind nun $f = c_f \cdot f_0, g = c_g \cdot g_0$, so folgt
@@ -163,7 +162,7 @@
 \end{proof}
 
 \begin{lemma}
-    Sei $R$ faktoriell, $Q$ der Quotientenkörper von $R$. Sei $f \in R[x]$ irreduzibel in $R[x]$, $\deg f \geq 1$, so ist $f$ irreduzibel in $Q[x]$.
+    Sei $R$ faktoriell und $Q$ der Quotientenkörper von $R$. Sei $f \in R[x]$ irreduzibel in $R[x]$, $\deg f \geq 1$, so ist $f$ irreduzibel in $Q[x]$.
 \end{lemma}
 
 \begin{proof}
