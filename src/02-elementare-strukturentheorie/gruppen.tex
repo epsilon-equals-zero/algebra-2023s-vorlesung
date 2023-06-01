@@ -35,7 +35,7 @@
 
 \begin{definition}
     Seien $G$ eine Gruppe, $U \le G$ eine Untergruppe und $g \in G$. Wir definieren 
-    \begin{itemize}[topsep=0cm, label={--}]
+    \begin{itemize}
         \item die \emph{Linksnebenklasse von $g$ nach $U$}\index{Linksnebenklasse} $gU := \{gu \mid u \in U\}$ und
         \item die \emph{Rechtsnebenklasse von $g$ nach $U$}\index{Rechtsnebenklasse} $Ug := \{ug \mid u \in U\}$.
     \end{itemize}
@@ -104,7 +104,7 @@
 
 \begin{theorem}[Lagrange]\index{Satz!von Lagrange}
     Sei $G$ eine endliche Gruppe, $U \le G$ eine Untergruppe und $g \in G$. Dann gilt
-    \begin{itemize}[topsep=0cm, label={--}]
+    \begin{itemize}
         \item $\vert U \vert$ teilt $\vert G \vert$ und
         \item $\ord(g)$ teilt $\vert G \vert $.
     \end{itemize}
@@ -185,14 +185,14 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
         
         \item[\ref*{item:theorem:normalteiler_equiv_4'} $\Rightarrow$ \ref*{item:theorem:normalteiler_equiv_1}:]  
         Zeigen wir zuerst die Eindeutigkeit: Sei angenommen es gibt eine Kongruenzrelation $\sim$ auf $G$ mit $N = [e]_\sim$. Für $x, y\in G$ gilt dann 
-        \begin{itemize}[label={--}]
+        \begin{itemize}
             \item $x \sim y \;\Rightarrow\; x^{-1}x \sim x^{-1}y \; \Leftrightarrow\; e \sim x^{-1}y \;\Leftrightarrow\; x^{-1}y \in [e]_\sim = N$ und
             \item $x^{-1}y \in N = [e]_\sim \;\Leftrightarrow\; e \sim x^{-1}y \;\Leftrightarrow\; x = xe \sim x(x^{-1}y) = y$.
         \end{itemize}
         Es ist dann also $x \sim y \Leftrightarrow x^{-1}y \in N$. 
         
         Zeigen wir nun noch, dass dieses $\sim$ eine Kongruenzrelation auf $G$ ist. Nach \cref{lemma:euqivrel_linksnebenklassen} ist $\sim$ eine Äquivalenzrelation, bleibt also noch die Invarianz unter $G$ zu zeigen. 
-        \begin{itemize}[label={--}]
+        \begin{itemize}
             \item Zeigen wir für $x,x',y,y' \in G$ mit $x \sim y, x' \sim y'$, dass $xx'\sim yy'$. Es gilt 
             $$ xx'\sim yy' \;\Leftrightarrow\; x'^{-1}\underbrace{x^{-1}y}_{=: n \in N} y' = \underbrace{x'^{-1} n}_{\in x'^{-1}N \subseteq Nx'^{-1}} y' \overset{(*)}{=} n'\underbrace{x'^{-1}y'}_{\in N} \in N, $$
             wobei wir bei $(*)$ verwenden, dass nach \ref*{item:theorem:normalteiler_equiv_4'} ein $n' \in N$ existiert, sodass $x'{-1} n = n' x'{-1}$.
@@ -205,10 +205,10 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
 
 \begin{remark}
     \cref{theorem:normalteiler_equiv} beschreibt einige Eigenschaften von Normalteilern.
-    \begin{itemize}[label={--}]
+    \begin{itemize}
         \item \ref*{item:theorem:normalteiler_equiv_1}, \ref*{item:theorem:normalteiler_equiv_1'} liefern den bijektiven Zusammenhang von Normalteilern und Kongruenzrelation. Betrachtet man die Verbände von Normalteilern bzw. Kongruenzrelationen, so stellt diese Bijektion einen Verbandsisomorphismus dar.
         \item \ref*{item:theorem:normalteiler_equiv_2}, \ref*{item:theorem:normalteiler_equiv_2'} beschreiben die Darstellung des Normalteilers über den Kern eines Homomorphismus $\varphi: G \to H$. Es ist $\ker \varphi = \{g \in G \mid \varphi(g) = e_H\} = \varphi^{-1}(\{e_H\}) = N$.
-        \item \ref*{item:theorem:normalteiler_equiv_3}, \ref*{item:theorem:normalteiler_equiv_3'} liefern direkt, dass Normalteiler unter Abbildungen $\pi_x: G \to G, g \mapsto xgx^{-1}$ abgeschlossen sind. So eine Abbildung nennt man \emph{inneren Automorphismus}.
+        \item \ref*{item:theorem:normalteiler_equiv_3}, \ref*{item:theorem:normalteiler_equiv_3'} liefern direkt, dass Normalteiler unter Abbildungen $\pi_x: G \to G, g \mapsto xgx^{-1}$ abgeschlossen sind. So eine Abbildung nennt man \emph{inneren Automorphismus}\index{innerer Automorphismus}.
         \item \ref*{item:theorem:normalteiler_equiv_4}, \ref*{item:theorem:normalteiler_equiv_4'} besagen, dass die Links- und Rechtsnebenklassen einer Untergruppe genau dann gleich sind, wenn die Untergruppe ein Normalteiler ist.
     \end{itemize}
 
@@ -316,12 +316,12 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
 \subsection{Innere direkte Produkte}
 
 \begin{definition}
-    Sei $G$ eine Gruppe, $U_1, U_2 \subseteq G$, so definieren wir das \emph{Komplexprodukt}
+    Sei $G$ eine Gruppe, $U_1, U_2 \subseteq G$, so definieren wir das \emph{Komplexprodukt}\index{Komplexprodukt}
     $$ U_1 \cdot U_2 = \{ u_1 \cdot u_2 \mid u_1 \in U_1, u_2 \in U_2 \}. $$
 \end{definition}
 
 \begin{definition} \label{def:direktes-inneres-produkt}
-    Sei $G$ eine Gruppe, $U_1, \hdots, U_n \leq G$. Wir nennen $G$ ein \emph{inneres direktes Produkt} von $(U_1, \hdots, U_n)$, wenn die Abbildung
+    Sei $G$ eine Gruppe, $U_1, \hdots, U_n \leq G$. Wir nennen $G$ ein \emph{inneres direktes Produkt}\index{inneres direktes Produkt} von $(U_1, \hdots, U_n)$, wenn die Abbildung
     $$ \varphi : U_1 \times \hdots \times U_n \to G, (u_1, \hdots u_n) \mapsto u_1 \cdot \hdots \cdot u_n $$
     ein Isomorphismus ist. In diesem Fall schreiben wir $G = U_1 \odot \hdots \odot U_n$.
 \end{definition}
@@ -520,7 +520,7 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
 \end{proof}
 
 \begin{remark}
-    Es ist die \emph{alternierende Gruppe} $A_n := \ker \sgn \vartriangleleft S_n$ ein Normalteiler der symmetrischen Gruppe. Mit dem Homomorphiesatz erhält man, dass $S_n/A_n \cong \ran \sgn = (\{-1,1\}, \cdot)$.
+    Es ist die \emph{alternierende Gruppe}\index{alternierende Gruppe} $A_n := \ker \sgn \vartriangleleft S_n$ ein Normalteiler der symmetrischen Gruppe. Mit dem Homomorphiesatz erhält man, dass $S_n/A_n \cong \ran \sgn = (\{-1,1\}, \cdot)$.
 \end{remark}
 
 \notedate{26.04.2023}

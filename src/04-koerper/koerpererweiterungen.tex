@@ -5,12 +5,12 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \subsection{Einfache algebraische Erweiterungen}
 
 \begin{definition}
-    Sei $K \leq L$, so definieren wir $[L:K]$ als die Dimension von $L$ über $K$ als Vektorraum.
+    Sei $K \leq L$, so definieren wir $[L:K]$ als die Dimension von $L$ als Vektorraum über $K$.
 \end{definition}
 
 \begin{theorem}[Gradsatz]
     Sei $K \leq E \leq L$, $[L:E],[E:K] < \infty$. Dann ist
-    $$ [L:K] = [L:E] [E:K] < \infty. $$
+    $$ [L:K] = [L:E] \cdot [E:K] < \infty. $$
 \end{theorem}
 
 \begin{proof}
@@ -18,7 +18,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \end{proof}
 
 \begin{definition}
-    Sei $K \leq L, \alpha \in L$. Dann nennen wir \emph{$\alpha$ algebraisch über $K$} (kurz $\alpha \text{ alg.}/_K$), wenn
+    Sei $K \leq L, \alpha \in L$. Dann nennen wir \emph{$\alpha$ algebraisch über $K$}\index{algebraisch} (kurz $\alpha \text{ alg.}/_K$), wenn
     $$ \exists f \in K[x] \setminus \{0\}: f(\alpha) = 0. $$
 \end{definition}
 
@@ -27,21 +27,21 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \end{example}
 
 \begin{example}
-    Betrachte $\mathbb{R} \leq \mathbb{C}$. Dann ist $i \in \mathbb{C}$ algebraisch, da wir $f(x) = x^2 + 1$ wählen können.
+    Betrachte $\mathbb{R} \leq \mathbb{C}$. Dann ist $i \in \mathbb{C}$ algebraisch$/_\mathbb{R}$, da wir $f(x) = x^2 + 1$ wählen können.
 \end{example}
 
 \begin{example}
-    Betrachte $\mathbb{Q} \leq \mathbb{R}$. Dann ist $\sqrt{2} \in \mathbb{R}$ algebraisch. Jedoch sind $\pi, e \in \mathbb{R}$ nicht algebraisch.
+    Betrachte $\mathbb{Q} \leq \mathbb{R}$. Dann ist $\sqrt{2} \in \mathbb{R}$ algebraisch$/_\mathbb{Q}$. Jedoch sind $\pi, e \in \mathbb{R}$ nicht algebraisch$/_\mathbb{Q}$.
 \end{example}
 
 \begin{definition}
-    Wir nennen \emph{$\alpha$ transzendent über $K$} (kurz $\alpha \text { transz.}/_K$) genau dann, wenn $\alpha$ nicht algebraisch über $K$ ist.
+    Wir nennen \emph{$\alpha$ transzendent über $K$}\index{transzendent} (kurz $\alpha \text { transz.}/_K$) genau dann, wenn $\alpha$ nicht algebraisch über $K$ ist.
 \end{definition}
 
 \begin{remark}
     Ist $\alpha$ algebraisch über $K$, so können wir das nichttriviale Ideal
     $$ I := \{ f \in K[x] \mid f(\alpha) = 0 \} \vartriangleleft K[x] $$
-    wählen. Nun gibt es ein $\mu_\alpha \in K[x]$ normiert, mit $I = (\mu_a)$, da $K[x]$ ein Hauptidealring ist. Dieses ist eindeutig, denn ist $I = (\mu_\alpha) = (g)$, so gilt $\mu_\alpha \mid g$ und $g \mid \mu_\alpha$, womit $g \sim \mu_\alpha$. Dieses $\mu_\alpha$ nennen wir das \emph{Minimalpolynom von $\alpha$ über $K$}. Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem Fall stimmen jedoch die jeweiligen Körpererweiterungen überein, wie wir in folgender Proposition sehen werden.
+    wählen. Nun gibt es ein $\mu_\alpha \in K[x]$ normiert, mit $I = (\mu_a)$, da $K[x]$ ein Hauptidealring ist. Dieses ist eindeutig bis auf Assoziiertheit, denn ist $I = (\mu_\alpha) = (g)$, so gilt $\mu_\alpha \mid g$ und $g \mid \mu_\alpha$, womit $g \sim \mu_\alpha$. Dieses $\mu_\alpha$ nennen wir das \emph{Minimalpolynom von $\alpha$ über $K$}\index{Minimalpolynom}. Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem Fall stimmen jedoch die jeweiligen Körpererweiterungen überein, wie wir in folgender Proposition sehen werden.
 \end{remark}
 
 \begin{proposition}
@@ -50,7 +50,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
         \item Die Abbildung $\varphi : K[x]/_{(\mu_\alpha)} \to K[\alpha], f + (\mu_\alpha) \mapsto f(\alpha)$ ist ein Ring-Isomorphismus.
         \item $K[\alpha] = K(\alpha)$
         \item $\forall \beta \in K(\alpha) \exists ! a_0, \hdots, a_{k-1} \in K: \beta = \sum_{i=0}^{k-1}a_i x^i$
-        \item $\alpha^0, \hdots, \alpha^{k-1}$ sind eine Basis von $K(\alpha)/_K$ als Vektorraum.
+        \item $\alpha^0, \hdots, \alpha^{k-1}$ bildet eine Basis von $K(\alpha)/_K$ als Vektorraum.
         \item $[K(\alpha) : K] = k$
         \item Ist $\beta \in L, \mu_\alpha = \mu_\beta$, so existiert ein eindeutiger Isomorphismus $\psi : K(\alpha) \to K(\beta)$ mit $\psi(\alpha) = \beta$ und $\psi\vert_K = \id_K$.
     \end{enumerate}
@@ -60,7 +60,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
     \begin{enumerate}
         \item Folgt sofort aus dem Homomorphiesatz, angewandt auf den Einsetzungshomomorphismus.
         
-        \item Es ist $K[\alpha]$ ein Unterring von $L$ und damit ein Integritätsbereich. Nach (1) ist also auch $K[x]/_{(\mu_\alpha)}$ ein Integritätsbereich, womit $(\mu_\alpha)$ prim ist. Damit ist $\mu_\alpha$ prim, insbesondere irreduzibel. Wir behaupten nun, dass $(\mu_\alpha)$ ein maximal Ideal ist. Um dies einzusehen sei $J$ ein echtes Ideal von $K[x]$ mit $(\mu_\alpha) \subseteq J$. Dann gibt es ein $g \in K[x]$ mit $J = (g)$, also $(\mu_\alpha) \subseteq (g)$, womit $g \mid \mu_\alpha$ folgt. Da $\mu_\alpha$ irreduzibel ist folgt dadurch $g \sim \mu_\alpha$ und damit $J = (\mu_\alpha)$. Also ist $(\mu_\alpha)$ maximal. Damit ist jedoch $K[x]/_{(\mu_\alpha)}$ ein Körper und nach (1) isomorph zu $K[\alpha]$, womit $K[\alpha] = K(\alpha)$ folgt.
+        \item Es ist $K[\alpha]$ ein Unterring von $L$ und damit ein Integritätsbereich. Nach (1) ist also auch $K[x]/_{(\mu_\alpha)}$ ein Integritätsbereich, womit $(\mu_\alpha)$ prim ist. Damit ist $\mu_\alpha$ prim, insbesondere irreduzibel. Wir behaupten nun, dass $(\mu_\alpha)$ ein maximales Ideal ist. Um dies einzusehen sei $J$ ein echtes Ideal von $K[x]$ mit $(\mu_\alpha) \subseteq J$. Dann gibt es ein $g \in K[x]$ mit $J = (g)$, also $(\mu_\alpha) \subseteq (g)$, womit $g \mid \mu_\alpha$ folgt. Da $\mu_\alpha$ irreduzibel ist folgt dadurch $g \sim \mu_\alpha$ und damit $J = (\mu_\alpha)$. Also ist $(\mu_\alpha)$ maximal. Damit ist jedoch $K[x]/_{(\mu_\alpha)}$ ein Körper und nach (1) isomorph zu $K[\alpha]$, womit $K[\alpha] = K(\alpha)$ folgt.
         
         \item Existenz: Nach (1) und (2) gibt es ein $f \in K[x]$ mit $\varphi(f + (\mu_\alpha)) = f(\alpha) = \beta$. Nun ist $f = g \cdot \mu_\alpha + f'$ mit einem Polynom $f'$ mit Grad kleiner $k$. Damit ist $f'(\alpha) = f(\alpha) = \beta$.
         
@@ -70,13 +70,13 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
         
         \item Folgt sofort aus (4).
         
-        \item \underline{Existenz:} Nach (1) gibt und (2) gibt es Isomorphismen
+        \item {Existenz:} Nach (1) gibt und (2) gibt es Isomorphismen
         $\varphi:K[x]/_{(\mu_\alpha)}\to K(\alpha)$ und $\varphi':K[x]/_{(\mu_\alpha)}\to K(\beta)$
         welche $\varphi\vert_K=\id_K$ und $\varphi'\vert_K=\id_K$ erfüllen. Wegen $\varphi(x+(\mu_\alpha))=\alpha$
         und $\varphi'(x+(\mu_\alpha))=\beta$ liefert $\varphi'\circ\varphi^{-1}:K(\alpha)\to K(\beta)$
         einen gewünschten Isomorphismus.
 
-        \underline{Eindeutigkeit:} Sei $\psi:K(\alpha)\to K(\beta)$ ein Isomorphismus mit $\psi(\alpha)=\beta$
+        {Eindeutigkeit:} Sei $\psi:K(\alpha)\to K(\beta)$ ein Isomorphismus mit $\psi(\alpha)=\beta$
         und $\psi\vert_K=\id_K$. Dann gilt insbesondere $\psi(\alpha^i)=\beta^i$, da $\psi$ ein Körperautomorphismus
         ist. Daher ist $\psi$ als lineare Abbildung von $K(\alpha)$ als Vektorraum über $K$ in den Vektorraum $K(\beta)$
         bereits auf einer Basis eindeutig festgelegt, womit $\psi$ istbesondere als Körperautomorphismus eindeutig ist.
@@ -86,7 +86,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \subsection{Nicht-einfache algebraische Erweiterungen}
 
 \begin{definition}
-    Wir nennen $K \leq L$ \emph{(rein) algebraisch}, wenn
+    Wir nennen $K \leq L$ \emph{(rein) algebraisch}\index{Körpererweiterung!rein algebraisch}\index{algebraisch}, wenn
     $$ \forall \alpha \in L: \alpha \text{ ist algebraisch über } K. $$
 \end{definition}
 
@@ -94,7 +94,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
     \begin{enumerate}
         \item Sei $K \leq L$. Gilt $[L:K] < \infty$, so ist $K \leq L$ algebraisch.
         \item Sei $K \leq K(\alpha)$ algebraisch, so ist $[K(\alpha) : K] < \infty$.
-        \item Ist $K \leq L$ algebraisch und $L \leq M$ algebraisch, so ist $K \leq M$ algebraisch.
+        \item Sei $K \leq L$ algebraisch und $L \leq M$ algebraisch, so ist $K \leq M$ algebraisch.
         \item Sei $K \leq L$ und $S := \{ \alpha \in L \mid \alpha \text{ ist algebraisch über } K \}$, so ist $K \leq S \leq L$.
     \end{enumerate}
 \end{proposition}
@@ -134,11 +134,11 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \begin{definition}
     Sei $K \leq E$.
     \begin{itemize}
-        \item Sei $S \subseteq E$. Wir nennen $S$ \emph{algebraisch abhängig über $K$}, wenn
+        \item Sei $S \subseteq E$. Wir nennen $S$ \emph{algebraisch abhängig über $K$}\index{algebraisch abhängig}, wenn
         $$ \exists a_1, \hdots, a_n \in S \exists f(x_1, \hdots, x_n) \in K[x_1, \hdots, x_n], f \neq 0 : f(a_1, \hdots, a_n) = 0. $$
-        Sonst nennen wir $S$ algebraisch unabhängig.
-        \item Wir $E$ \emph{rein transzendent über $K$}, wenn es eine algebraisch unabhängige Teilmenge $S \subseteq E$ gibt mit $E = K(S)$.
-        \item Sei $S \subseteq E$. Wir nennen $S$ \emph{Transzendenzbasis von $E$ über $K$}, wenn $S$ maximal algebraisch unabhängig ist.
+        Sonst nennen wir $S$ \emph{algebraisch unabhängig}\index{algebraisch unabhängig}.
+        \item Wir $E$ \emph{rein transzendent über $K$}\index{transzendent!rein}, wenn es eine algebraisch unabhängige Teilmenge $S \subseteq E$ gibt mit $E = K(S)$.
+        \item Sei $S \subseteq E$. Wir nennen $S$ \emph{Transzendenzbasis von $E$ über $K$}\index{Transzendenzbasis}, wenn $S$ maximal algebraisch unabhängig ist.
     \end{itemize}
 \end{definition}
 
@@ -182,9 +182,9 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \end{corollary}
 
 \begin{definition}
-    Sei $K \leq E, A \subseteq E$. Dann definieren wir die \emph{algebraische Hülle von $A$} als
+    Sei $K \leq E, A \subseteq E$. Dann definieren wir die \emph{algebraische Hülle von $A$}\index{algebraische Hülle} als
     $$ [A] := \{ b \in E \mid b \text{ ist algebraisch über } K(A) \}. $$
-    Gilt $E = [A]$, so heißt $A$ \emph{algebraisches Erzeugendensystem von $E$ über $K$}.
+    Gilt $E = [A]$, so heißt $A$ \emph{algebraisches Erzeugendensystem von $E$ über $K$}\index{algebraisches Erzeugendensystem}.
 \end{definition}
 
 \begin{lemma}
@@ -218,7 +218,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \end{proof}
 
 \begin{corollary}
-    Seien $B, C$ Transzendenzbasen von $E$ über $K$. Dann gibt es für alle $b \in b$ ein $c \in C$, sodass $(B \setminus \{b\}) \cup \{c\}$ eine Transzendenzbasis ist.
+    Seien $B, C$ Transzendenzbasen von $E$ über $K$. Dann gibt es für alle $b \in B$ ein $c \in C$, sodass $(B \setminus \{b\}) \cup \{c\}$ eine Transzendenzbasis ist.
 \end{corollary}
 
 \begin{proof}
@@ -226,7 +226,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \end{proof}
 
 \begin{lemma}
-    Seien $K \leq E, B, C$ Transzendenzbasen und $B$ endlich. Dann ist $\vert B \vert = \vert C \vert$.
+    Seien $K \leq E$, $B, C$ Transzendenzbasen und $B$ endlich. Dann ist $\vert B \vert = \vert C \vert$.
 \end{lemma}
 
 \begin{proof}
@@ -234,7 +234,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \end{proof}
 
 \begin{theorem}
-    Seien $K \leq E, B, C$ Transzendenzbasen. Dann ist $\vert B \vert = \vert C \vert$.
+    Seien $K \leq E$, $B, C$ Transzendenzbasen. Dann ist $\vert B \vert = \vert C \vert$.
 \end{theorem}
 
 \begin{proof}
@@ -242,7 +242,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \end{proof}
 
 \begin{definition}
-    Sei $K \leq E$. Wir definieren den \emph{Transzendenzgrad von $E$ über $K$} als $\vert B \vert$, wobei $B \subseteq E$ eine beliebige Transzendenzbasis ist.
+    Sei $K \leq E$. Wir definieren den \emph{Transzendenzgrad von $E$ über $K$}\index{Transzendenzgrad} als $\vert B \vert$, wobei $B \subseteq E$ eine beliebige Transzendenzbasis ist.
 \end{definition}
 
 \subsection{Adjunktion einer Nullstelle}

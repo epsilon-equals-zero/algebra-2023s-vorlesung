@@ -1,18 +1,18 @@
 \section{Einführung}
 
 \begin{definition}
-    Sei $L$ ein Körper. Wir nennen $K \subseteq L$ einen Unterkörper, wenn $1 \in K$ und $K$ ein Körper ist. Dafür schreiben wir auch $K \leq L$. In diesem Kontext heißt $L$ auch Oberkörper von $K$.
+    Sei $L$ ein Körper. Wir nennen $K \subseteq L$ einen \emph{Unterköper}\index{Unterkörper}, wenn $1 \in K$ und $K$ ein Körper ist. Dafür schreiben wir auch $K \leq L$. In diesem Kontext heißt $L$ auch \emph{Oberkörper}\index{Oberkörper} von $K$.
 
     Wir nennen
     $$ \bigcap \{ U \leq L \mid U \text{ Unterkörper von } L \} $$
-    den \emph{Primkörper} von L.
+    den \emph{Primkörper}\index{Primkörper} von L.
 
-    Sei $K \leq L, S \subseteq L$ so definieren wir die \emph{Körpererweiterung von $K$ um $S$} durch
+    Sei $K \leq L, S \subseteq L$ so definieren wir die \emph{Körpererweiterung von $K$ um $S$}\index{Körpererweiterung} durch
     $$ K(S) := \bigcap \{ U \mid K \leq U \leq L, U \supset S \}. $$
     Ist $S = \{ \alpha_1, \hdots, \alpha_n \}$, so schreiben wir auch $K(\alpha_1, \hdots, \alpha_n)$.
     
-    Im Gegensatz dazu ist die \emph{Ringerweiterung von $K$ um $S$} definiert:
-    $$ K[S] := \bigcap \{ U \mid U \mathrm{ Ring }\land K \subseteq U \subseteq L, U \supset S \}. $$
+    Im Gegensatz dazu ist die \emph{Ringerweiterung von $K$ um $S$}\index{Ringerweiterung} definiert:
+    $$ K[S] := \bigcap \{ U \mid U \;\mathrm{Ring}\land K \subseteq U \subseteq L, U \supset S \}. $$
     Ist $S = \{ \alpha_1, \hdots, \alpha_n \}$, so schreiben wir auch $K[\alpha_1, \hdots, \alpha_n]$.
 \end{definition}
 
@@ -25,14 +25,14 @@
 \end{remark}
 
 \begin{definition}
-    Ein Körper $K$ heißt \emph{Primkörper}, wenn $K$ keine echten Unterkörper hat.
+    Ein Körper $K$ heißt \emph{Primkörper}\index{Primkörper}\index{Köper!Prim-}, wenn $K$ keine echten Unterkörper hat.
 \end{definition}
 
 \begin{theorem}
     Sei $K$ ein Primkörper.
     \begin{itemize}
-        \item Ist $\mathrm{char} K = 0$, so ist $K \cong \mathbb{Q}$.
-        \item Ist $\mathrm{char} K = p \in \mathbb{P}$, so ist $K \cong \mathbb{Z}_p$.
+        \item Ist $\chara K = 0$, so ist $K \cong \mathbb{Q}$.
+        \item Ist $\chara K = p \in \mathbb{P}$, so ist $K \cong \mathbb{Z}_p$.
     \end{itemize}
 \end{theorem}
 
@@ -48,7 +48,7 @@
     also $K\cong \mathbb{Q}$.
 
     Der Beweis, dass $K\cong\mathbb{Z}_p$ für $\mathrm{char}(K)=p$ gilt, verläuft ähnlich.
-    Dieses Mal definieren wir $\varphi:\mathbb{Z_p}\to K$ durch $\varphi(i):=\overbrace{1+\ldots+1}^{i}$.
+    Dieses Mal definieren wir $\varphi:\mathbb{Z}_p\to K$ durch $\varphi(i):=\overbrace{1+\ldots+1}^{i}$.
     Zunächst zeigen wir dieses Mal, dass $\varphi$ ein Homomorphismus ist:
     Für die Addition müssen zwei Fälle unterschieden werden: Falls $i+j<p$ gilt, so folgt klarerweise die
     Verträglichkeit. Ansonsten gilt $i+j=k+p$ mit $0\le k< p$ und wir folgern 

@@ -9,11 +9,11 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
 
 \begin{definition}
     Sei $\mathfrak{M} = (M, \cdot, e)$ ein Monoid und $a, a' \in M$, dann heißt
-    \begin{itemize}[topsep=0pt, label={--}]
+    \begin{itemize}
         \item $a'$ \emph{linksinvers}\index{invers!links-} zu $a$, wenn $a' \cdot a = e$ und
         \item $a'$ \emph{rechtsinvers}\index{invers!rechts-} zu $a$, wenn $a \cdot a' = e$ gilt.
     \end{itemize}
-    Ist $a'$ links- und rechtsinvers zu $a$ so nennt man $a'$ \emph{invers} zu $a$ und $a$ heißt \emph{Einheit}\index{Einheit}.
+    Ist $a'$ links- und rechtsinvers zu $a$ so nennt man $a'$ \emph{invers}\index{invers} zu $a$ und $a$ heißt \emph{Einheit}\index{Einheit}.
 \end{definition}
 
 \begin{lemma}
@@ -80,7 +80,7 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
 \end{theorem}
 
 \begin{proof} Definieren wir $\varphi: S \to \mathbb{N}\setminus\{0\}, (s_p)_{p \in \mathbb{P}} \mapsto \prod_{p \in \mathbb{P}} p^{s_p}$ und zeigen, dass dieses $\varphi$ ein Isomorphismus ist.
-    \begin{itemize}[topsep=0cm, label={--}]
+    \begin{itemize}
         \item $\varphi$ ist wohldefiniert, da für fast alle $p \in \mathbb{P}: s_p = 0$ ist und $\varphi$ damit nur auf endliche Produkte abbildet.
         
         \item Homomorphismus: Seien $(s_p)_{p\in\mathbb{P}}, (t_p)_{p\in\mathbb{P}} \in S$. Dann erhalten wir $\varphi((s_p)_{p\in\mathbb{P}} +^\mathfrak{S} (t_p)_{p\in\mathbb{P}}) = \prod_{p\in\mathbb{P}} p^{s_p + t_p} = \prod_{p\in\mathbb{P}} p^{s_p} \cdot \prod_{p\in\mathbb{P}} p^{t_p}$.
@@ -138,12 +138,12 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
     $$ n \wedge m := \varphi(\varphi^{-1}(n) \wedge \varphi^{-1}(m)) = \textrm{ggT}(n,m). $$
 \end{proof}
 
-\begin{definition}\index{kürzbar!links-}\index{kürzbar!rechts-}
+\begin{definition}
     Sei $H$ ein Monoid und $a \in H$. Gilt für alle $b, b' \in H$
     \begin{itemize}
-        \item $ a \cdot b = a \cdot b' \implies b = b', $ so heißt $a$ \emph{linkskürzbar}.
-        \item $ b \cdot a = b' \cdot a \implies b = b', $ so heißt $a$ \emph{rechtskürzbar}.
-        \item Ist $a$ links- und rechtskürzbar, so heißt $a$ \emph{kürzbar}
+        \item $ a \cdot b = a \cdot b' \implies b = b', $ so heißt $a$ \emph{linkskürzbar}.\index{kürzbar!links-}
+        \item $ b \cdot a = b' \cdot a \implies b = b', $ so heißt $a$ \emph{rechtskürzbar}.\index{kürzbar!rechts-}
+        \item Ist $a$ links- und rechtskürzbar, so heißt $a$ \emph{kürzbar}.\index{kürzbar}
     \end{itemize}
 \end{definition}
 
@@ -170,7 +170,7 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
         \item $\mathfrak{H}^2 /_\sim$ ist eine Gruppe.
         \item Die Abbildung
         $$ \varphi :\; \mathfrak{H} \to \mathfrak{H}^2 /_\sim, \;a \mapsto [(a,e)]_\sim $$
-        ist eine \emph{Einbettung}, also ein injektiver Homomorphismus.
+        ist eine \emph{Einbettung}\index{Einbettung}, also ein injektiver Homomorphismus.
         \item Sei $\mathfrak{G}$ eine Gruppe, so gibt es für alle injekten Homomorphismen $\psi : \mathfrak{H} \to \mathfrak{G}$ einen injektiven Homomorphismus $\overline{\psi} : \mathfrak{H}^2 /_\sim \to \mathfrak{G}$ mit $\overline{\psi} \circ \varphi = \psi$.
     \end{enumerate}
 
