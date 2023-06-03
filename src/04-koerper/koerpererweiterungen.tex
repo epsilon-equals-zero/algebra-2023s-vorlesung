@@ -265,14 +265,16 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
         \item $K[x] /_{(f)} =: L$ ist ein Körper.
         \item Die Abbildung $\varphi : K \to L, c \mapsto c + (f)$ ist eine Körpereinbettung.
         \item Es gibt eine eindeutige Ringbettung $\overline{\varphi} : K[x] \to L[x]$ mit $\overline{\varphi} \vert_K = \varphi, \overline{\varphi}(x) = x$.
-        \item $x + (f) \in L$ ist eine Nullstelle von $\overline{\varphi}(f)$.
+        \item identifiziert man $K[x]$ mit $\varphi(K[x])$ und $K$ mit $\varphi(K)$, so ist
+        $x + (f) \in L$  eine Nullstelle von $f$ (formal von $\overline{\varphi}(f)$).
         \item $[L : K] = \deg f < \infty$, insbesondere ist $L$ algebraisch über $K$.
     \end{enumerate}
 \end{proposition}
-
+\notedate{01.06.2023}
+ 
 \begin{proof}{\ }
     \begin{enumerate}
-        \item Es ist nur zu zeigen, dass $f$ ein maximales Ideal ist, da dann bereits die Aussage folgt. In Hauptidealringen sind die maximalen Ideale gerade die von den irreduziblen Elementen erzeugten Ideale -- da $K[x]$ ein Hauptidealring ist, folgt also das zu Zeigende.
+        \item Es ist nur zu zeigen, dass $f$ ein maximales Ideal ist, da dann bereits die Aussage aus \cref*{prop:ringideale} folgt. In Hauptidealringen sind die maximalen Ideale gerade die von den irreduziblen Elementen erzeugten Ideale -- da $K[x]$ ein Hauptidealring ist, folgt also das zu Zeigende.
         \item Klarerweise ist $\varphi$ ein Homomorphismus. Für die Injektivität betrachten wir $c + (f) = d + (f)$. Es ist also $c - d \in (f)$, also $f \mid c - d$, womit jedoch bereits $c = d$ folgt.
         \item Klarerweise ist $\overline{\varphi}$ ein Homomorphismus. Für die Injektivität betrachten wir $\overline{\varphi}(g) = \overline{\varphi}(h)$, wegen Koeffizientenvergleich müssen dann jedoch bereits die Polynome übereinstimmen, es gilt also $g = h$. Für die Eindeutigkeit bemerken wir, dass $K[x]$ von $K \cup \{ x \}$ erzeugt wird. Quasi ist $K[x]$ also frei erzeugt von $x$ über $K$.
         \item Es ist $f(x + (f)) = f(x) + (f) = 0 + (f) = 0_L$, da $f(x) \in (f)$.
