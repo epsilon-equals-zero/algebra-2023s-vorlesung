@@ -233,6 +233,11 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
     Wir nehmen \obda $B \cap C = \emptyset$ an, da wir sonst einfach $K' := K(B \cap C), B' := B \setminus (B \cap C), C' := C \setminus(B \cap C)$ betrachten. Wir verfahren nun induktiv. Sei $K_0 := K, C_0 := C, B_0 := B$. Wähle $c_0 \in C_0$ beliebig, so gibt es nach obigem Korollar ein $b_0 \in B_0$, sodass $(C_0 \setminus \{ b_0 \} ) \cup \{ b_0 \}$ eine Transzendenzbasis ist. Definiere damit $C_1 := C_0 \setminus \{ c_0 \}, B_1 := B_0 \setminus \{ b_0 \}, K_1 := K_0(c_0)$. Nun sind $C_1, B_1$ Transzendenzbasen von $E$ über $K_1$. Verfahren wir induktiv, so wird eine der beiden Basen nach endlichen vielen Schritten leer. Klarerweise muss dies im selben Schritt geschehen, womit $\vert B \vert = \vert C \vert$ folgt.
 \end{proof}
 
+\begin{proof}
+    Wir tauschen induktiv Basisvektoren aus. Dazu sei $B_0:=B=\{b_1,\ldots,b_n\}$. Wähle $c_0 \in C_0$, sodass $B_{1}:=B\setminus\{b_0\}\cup\{c_0\}$ eine Transzendenzbasis ist. Es ist $c_0\not\in B\setminus\{b_0\}$, da sonst $B$ keine Transzendenzbasis wäre. Fährt man induktiv fort, so erhält man nach $n$-Schritten, dass $B_n\subseteq C$ eine Transzendenzbasis ist, also folgt
+    $|B|=|B_n|=|C|$.
+\end{proof}
+
 \begin{theorem}
     Seien $K \leq E$, $B, C$ Transzendenzbasen. Dann ist $\vert B \vert = \vert C \vert$.
 \end{theorem}
