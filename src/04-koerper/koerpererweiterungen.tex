@@ -265,7 +265,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
         \item $K[x] /_{(f)} =: L$ ist ein Körper.
         \item Die Abbildung $\varphi : K \to L, c \mapsto c + (f)$ ist eine Körpereinbettung.
         \item Es gibt eine eindeutige Ringbettung $\overline{\varphi} : K[x] \to L[x]$ mit $\overline{\varphi} \vert_K = \varphi, \overline{\varphi}(x) = x$.
-        \item identifiziert man $K[x]$ mit $\varphi(K[x])$ und $K$ mit $\varphi(K)$, so ist
+        \item Identifiziert man $K[x]$ mit $\varphi(K[x])$ und $K$ mit $\varphi(K)$, so ist
         $x + (f) \in L$  eine Nullstelle von $f$ (formal von $\overline{\varphi}(f)$).
         \item $[L : K] = \deg f < \infty$, insbesondere ist $L$ algebraisch über $K$.
     \end{enumerate}
@@ -285,7 +285,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \begin{definition}
     Sei $K \leq E$ und $P \subseteq K[x]$.
     \begin{itemize}
-        \item $E$ heißt \emph{Nullstellenkörper} von $P$ (über $K$), wenn jedes $f \in P$ über $E$ in Linearfaktoren zerfällt, es gibt also $\alpha_1, \hdots, \alpha_n \in E, a \in K$ mit $f(x) = a(x - \alpha_1) \hdots (x - \alpha_n)$, wobei die Linearfaktoren nicht paarweise verschieden sein müssen.
+        \item $E$ heißt \emph{Nullstellenkörper} von $P$ (über $K$), wenn jedes $f \in P$ über $E$ in Linearfaktoren zerfällt, das heißt es gibt $\alpha_1, \hdots, \alpha_n \in E, a \in K$ mit $f(x) = a(x - \alpha_1) \hdots (x - \alpha_n)$, wobei die Linearfaktoren nicht paarweise verschieden sein müssen.
         \item Wenn $E$ minimal mit dieser Eigenschaft ist (das heißt, dass $E$ von $K$ und den Nullstellen von $f \in P$ erzeugt wird), dann heißt $E$ \emph{Zerfällungskörper} von $P$ (über $K$).
         \item $K$ heißt \emph{algebraisch abgeschlossen}, wenn jedes nichtkonstante Polynom in $K[x]$ über $K$ in Linearfaktoren zerfällt.
         \item Ein \emph{algebraischer Abschluss} von $K$ ist ein Erweiterungskörper $L$, sodass $K \leq L$ algebraisch und $L$ algebraisch abgeschlossen ist.
@@ -295,7 +295,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \begin{example}
     Betrachte $K = \mathbb{Q}, P = \{ x^2 - 2 \}$, so ist $E = \mathbb{Q}(\sqrt{2})$ ein Zerfällungskörper.
     
-    Mit $P = \{ x^3 - 2 \}$ ist beispielsweise $\mathbb{C}$ ein Nullstellenkörper. Es ist $\mathbb{Q}(\sqrt[3]{2})$ \emph{kein} Zerfällungskörper, da die komplexen Wurzeln fehlen. Deswegen ist $\mathbb{Q}(\sqrt[3]{2}, \sqrt[3]{2} e^{\frac{2 \pi i}{3}}, \sqrt[3]{2} e^{\frac{4 \pi i}{3}})$ ein Zerfällungskörper.
+    Mit $P = \{ x^3 - 2 \}$ ist beispielsweise $\mathbb{C}$ ein Nullstellenkörper. Es ist $\mathbb{Q}(\sqrt[3]{2})$ \emph{kein} Zerfällungskörper und auch kein Nullstellenkörper, da die komplexen Wurzeln fehlen. $\mathbb{Q}(\sqrt[3]{2}, \sqrt[3]{2} e^{\frac{2 \pi i}{3}}, \sqrt[3]{2} e^{\frac{4 \pi i}{3}})$ hingegen ist ein Zerfällungskörper.
 \end{example}
 
 \begin{remark}
@@ -336,13 +336,13 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \end{proposition}
 
 \begin{proof}
-    Betrachte
+    Wir geben einen Beweis an, welcher die Idee besonders gut widerspriegelt, allerdings technisch nicht korrekt ist, siehe dazu auch die nächste Bemerkung. Betrachte
     $$ \mathcal{S} := \{ E \mid E \text{ ist Körper}, K \leq E \text{ algebraische Erweiterung } \}. $$
-    Darauf ist $(\mathcal{S}, \leq)$ eine Halbordnung. Klarerweise ist $\mathcal{S} \neq \emptyset$, weiters sind alle Ketten beschränkt. Um dies einzusehen, sei $\mathcal{K} = \{ E_i \mid i \in I \}$ eine Kette in $\mathcal{S}$. Wir wollen ein $E \in \mathcal{S}$ finden mit $E_i \leq E$ für alle $i \in I$. Wähle dazu $E := \bigcup_{i \in I} E_i$. Wie man (aufgrund der Ketteneigenschaft) verifiziert, ist $E$ ein Körper. Klarerweise gilt auch $K \leq E$. Da alle Elemente der Vereinigung algebraisch sind, ist auch $E$ algebraisch, womit tatsächlich $E \in \mathcal{S}$ folgt. Mit dem Lemma von Zorn erhalten wir also ein maximales $E \in \mathcal{S}$. Wir wollen zeigen, dass $E$ algebraisch abgeschlossen ist, da dann $E$ bereits der Zerfällungskörper ist. Sei dazu $f \in E[x]$ irreduzibel, wir wollen zeigen, dass $f$ eine Nullstelle in $E$ hat. Nach Kronecker gibt es ein $E_1 \in \mathcal{S}$ sodass $E \leq E_1$ eine algebraische Erweiterung ist und $f$ eine Nullstelle in $E_1$ hat. Da $E$ maximal ist folgt jedoch $E_1 = E$, womit das zu Zeigende folgt.
+    Dann ist $(\mathcal{S}, \leq)$ eine Halbordnung. Klarerweise ist $\mathcal{S} \neq \emptyset$, da zumindest $K\in \mathcal{S}$ gilt, weiters sind alle Ketten beschränkt. Um dies einzusehen, sei $\mathcal{K} = \{ E_i \mid i \in I \}$ eine Kette in $\mathcal{S}$. Wir wollen ein $E \in \mathcal{S}$ finden mit $E_i \leq E$ für alle $i \in I$. Wähle dazu $E := \bigcup_{i \in I} E_i$. Wie man (aufgrund der Ketteneigenschaft) verifiziert, ist $E$ ein Oberkörper, wobei $x+y:=x+^{E_i}y$ mit einem $i\in I$ sodass $x,y\in E_i$ gilt definiert wird. Aufgrund der Ketteneigenschaft ist die Definition unabhängig von der Wahl von $i$, das heißt die Addition auf $E$ ist wohldefiniert, die anderen Operationen definiert man analog. Klarerweise gilt auch $K \leq E$. Da alle Elemente der Vereinigung algebraisch sind, ist auch $E$ algebraisch, womit tatsächlich $E \in \mathcal{S}$ folgt. Mit dem Lemma von Zorn erhalten wir also ein maximales $E \in \mathcal{S}$. Wir wollen zeigen, dass $E$ algebraisch abgeschlossen ist, da dann $E$ bereits der Zerfällungskörper ist. Sei dazu $f \in E[x]$ irreduzibel, wir wollen zeigen, dass $f$ eine Nullstelle in $E$ hat. Nach Kronecker gibt es ein $E_1 \in \mathcal{S}$ sodass $E \leq E_1$ eine algebraische Erweiterung ist und $f$ eine Nullstelle in $E_1$ hat. Da $E$ maximal ist folgt jedoch $E_1 = E$, womit das zu Zeigende folgt.
 \end{proof}
 
 \begin{remark}
-    Streng genommen ist der obige Beweis ``falsch'', da $\mathcal{S}$ keine Menge sein muss. Da es unendlich viele isomorphe algebraische Körpererweiterungen gibt (mittels Umbenennung) könnte $\mathcal{S}$ eine Klasse sein, womit wir das Lemma von Zorn nicht mehr anwenden können.
+    Streng genommen ist der obige Beweis ``falsch'', da $\mathcal{S}$ keine Menge sein muss. Da es beliebig viele isomorphe algebraische Körpererweiterungen gibt (mittels Umbenennung) ist $\mathcal{S}$ im Allgemeinen eine echte Klasse, womit wir das Lemma von Zorn nicht mehr anwenden können.
 
     Wir reparieren dies, indem wir stattdessen definieren
     $$ \mathcal{S} = \{ E \mid E \text{ ist Körper}, K \leq E \text{ algebraische Erweiterung}, E \subseteq X \} $$
@@ -352,7 +352,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 
     Bleibt zu klären was $X$ sein soll. Wir wählen $X$ als eine beliebige Menge mit $\vert X \vert > \max(\vert K \vert, \vert \mathbb{N} \vert)$. Beispielsweise könnte man $X = K \cup \mathcal{P}(K) \cup \mathbb{R}$ wählen.
 
-    Weiters muss man noch darauf achten, dass $E_1$ hier nicht unbedingt in $\mathcal{S}$ sein muss. Da $E_1$ jedoch vergleichsweise ``klein'' ist können wir $E_1$ jedoch problemlos in eine Menge $\widetilde{E_1} \in \mathcal{S}$ umbenennen.
+    Weiters muss man noch darauf achten, dass $E_1$ hier nicht unbedingt in $\mathcal{S}$ sein muss. Da $E_1$ jedoch vergleichsweise ``klein'' ist können wir $E_1$ problemlos in eine Menge $\widetilde{E_1} \in \mathcal{S}$ umbenennen.
 \end{remark}
 
 \begin{proposition}
