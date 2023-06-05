@@ -230,7 +230,8 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \end{lemma}
 
 \begin{proof}
-    Wir nehmen \obda $B \cap C = \emptyset$ an, da wir sonst einfach $K' := K(B \cap C), B' := B \setminus (B \cap C), C' := C \setminus(B \cap C)$ betrachten. Wir verfahren nun induktiv. Sei $K_0 := K, C_0 := C, B_0 := B$. Wähle $c_0 \in C_0$ beliebig, so gibt es nach obigem Korollar ein $b_0 \in B_0$, sodass $(C_0 \setminus \{ b_0 \} ) \cup \{ b_0 \}$ eine Transzendenzbasis ist. Definiere damit $C_1 := C_0 \setminus \{ c_0 \}, B_1 := B_0 \setminus \{ b_0 \}, K_1 := K_0(c_0)$. Nun sind $C_1, B_1$ Transzendenzbasen von $E$ über $K_1$. Verfahren wir induktiv, so wird eine der beiden Basen nach endlichen vielen Schritten leer. Klarerweise muss dies im selben Schritt geschehen, womit $\vert B \vert = \vert C \vert$ folgt.
+    Wir tauschen induktiv Basisvektoren aus. Dazu sei $B_0:=B=\{b_1,\ldots,b_n\}$. Wähle $c_0 \in C_0$, sodass $B_{1}:=B\setminus\{b_0\}\cup\{c_0\}$ eine Transzendenzbasis ist. Es ist $c_0\not\in B\setminus\{b_0\}$, da sonst $B$ keine Transzendenzbasis wäre. Fährt man induktiv fort, so erhält man nach $n$-Schritten, dass $B_n\subseteq C$ eine Transzendenzbasis ist, also folgt
+    $|B|=|B_n|=|C|$.
 \end{proof}
 
 \begin{theorem}
@@ -263,9 +264,106 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
     Sei $f \in K[x]$ irreduzibel. Dann gilt:
     \begin{enumerate}
         \item $K[x] /_{(f)} =: L$ ist ein Körper.
-        \item Die Abbildung $\varphi : K \to L, c \mapsto c + (f)$ ist eine Einbettung.
+        \item Die Abbildung $\varphi : K \to L, c \mapsto c + (f)$ ist eine Körpereinbettung.
         \item Es gibt eine eindeutige Ringbettung $\overline{\varphi} : K[x] \to L[x]$ mit $\overline{\varphi} \vert_K = \varphi, \overline{\varphi}(x) = x$.
-        \item $x + (f) \in L$ ist eine Nullstelle von $\overline{\varphi}(f)$.
-        \item $[L : K] = \deg f$, also ist $L$ algebraisch über $K$.
+        \item Identifiziert man $K[x]$ mit $\varphi(K[x])$ und $K$ mit $\varphi(K)$, so ist
+        $x + (f) \in L$  eine Nullstelle von $f$ (formal von $\overline{\varphi}(f)$).
+        \item $[L : K] = \deg f < \infty$, insbesondere ist $L$ algebraisch über $K$.
     \end{enumerate}
 \end{proposition}
+\notedate{01.06.2023}
+ 
+\begin{proof}{\ }
+    \begin{enumerate}
+        \item Es ist nur zu zeigen, dass $f$ ein maximales Ideal ist, da dann bereits die Aussage aus \cref*{prop:ringideale} folgt. In Hauptidealringen sind die maximalen Ideale gerade die von den irreduziblen Elementen erzeugten Ideale -- da $K[x]$ ein Hauptidealring ist, folgt also das zu Zeigende.
+        \item Klarerweise ist $\varphi$ ein Homomorphismus. Für die Injektivität betrachten wir $c + (f) = d + (f)$. Es ist also $c - d \in (f)$, also $f \mid c - d$, womit jedoch bereits $c = d$ folgt.
+        \item Klarerweise ist $\overline{\varphi}$ ein Homomorphismus. Für die Injektivität betrachten wir $\overline{\varphi}(g) = \overline{\varphi}(h)$, wegen Koeffizientenvergleich müssen dann jedoch bereits die Polynome übereinstimmen, es gilt also $g = h$. Für die Eindeutigkeit bemerken wir, dass $K[x]$ von $K \cup \{ x \}$ erzeugt wird. Quasi ist $K[x]$ also frei erzeugt von $x$ über $K$.
+        \item Es ist $f(x + (f)) = f(x) + (f) = 0 + (f) = 0_L$, da $f(x) \in (f)$.
+        \item Es gilt $L = K(x + (f))$, da $K[x]$ von $K \cup \{x\}$ erzeugt wird. Weiters ist gerade $f$ das Minimalpolynom von $x + (f)$ über $K$, womit $[L : K] = \deg f$ folgt.
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}
+    Sei $K \leq E$ und $P \subseteq K[x]$.
+    \begin{itemize}
+        \item $E$ heißt \emph{Nullstellenkörper} von $P$ (über $K$), wenn jedes $f \in P$ über $E$ in Linearfaktoren zerfällt, das heißt es gibt $\alpha_1, \hdots, \alpha_n \in E, a \in K$ mit $f(x) = a(x - \alpha_1) \hdots (x - \alpha_n)$, wobei die Linearfaktoren nicht paarweise verschieden sein müssen.
+        \item Wenn $E$ minimal mit dieser Eigenschaft ist (das heißt, dass $E$ von $K$ und den Nullstellen von $f \in P$ erzeugt wird), dann heißt $E$ \emph{Zerfällungskörper} von $P$ (über $K$).
+        \item $K$ heißt \emph{algebraisch abgeschlossen}, wenn jedes nichtkonstante Polynom in $K[x]$ über $K$ in Linearfaktoren zerfällt.
+        \item Ein \emph{algebraischer Abschluss} von $K$ ist ein Erweiterungskörper $L$, sodass $K \leq L$ algebraisch und $L$ algebraisch abgeschlossen ist.
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    Betrachte $K = \mathbb{Q}, P = \{ x^2 - 2 \}$, so ist $E = \mathbb{Q}(\sqrt{2})$ ein Zerfällungskörper.
+    
+    Mit $P = \{ x^3 - 2 \}$ ist beispielsweise $\mathbb{C}$ ein Nullstellenkörper. Es ist $\mathbb{Q}(\sqrt[3]{2})$ \emph{kein} Zerfällungskörper und auch kein Nullstellenkörper, da die komplexen Wurzeln fehlen. $\mathbb{Q}(\sqrt[3]{2}, \sqrt[3]{2} e^{\frac{2 \pi i}{3}}, \sqrt[3]{2} e^{\frac{4 \pi i}{3}})$ hingegen ist ein Zerfällungskörper.
+\end{example}
+
+\begin{remark}
+    Wie wir später sehen werden sind Zerfällungskörper (bis auf Isomorphie) eindeutig -- es macht also durchaus Sinn von \emph{dem} Zerfällungskörper zu sprechen.
+\end{remark}
+
+\begin{proposition}
+    Sei $K$ ein Körper, dann sind äquivalent:
+    \begin{enumerate}
+        \item $K$ ist algebraisch abgeschlossen.
+        \item Jedes nicht konstante Polynom in $K[x]$ hat eine Nullstelle in $K$.
+        \item Jedes nicht konstante irreduzible Polynom in $K[x]$ hat eine Nullstelle in $K$.
+        \item Jedes nicht konstante irreduzible Polynom in $K[x]$ hat Grad 1.
+        \item Für jede algebraische Erweiterung $L \geq K$ gilt $L = K$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Übungsaufgabe.
+\end{proof}
+
+\begin{proposition}
+    Sei $K \leq L$, dann sind äquivalent:
+    \begin{enumerate}
+        \item $L$ ist ein algebraischer Abschluss von $K$.
+        \item $L$ ist ein Nullstellenkörper von $K[x]$ und $L$ ist algebraisch über $K$.
+        \item $L$ ist ein Zerfällungskörper von $K[x]$.
+        \item $L$ ist algebraisch über $K$ und für alle $L' \geq L$ gilt, dass wenn $L'$ algebraisch über $K$ ist, dann ist bereits $L' = L$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Übungsaufgabe.
+\end{proof}
+
+\begin{proposition}
+    Sei $K$ ein Körper. Dann gibt es einen Zerfällungskörper von $K[x]$ über $K$. Dieser ist insbesondere algebraisch. Damit gibt es insbesondere einen algebraischen Abschluss von $K$.
+\end{proposition}
+
+\begin{proof}
+    Wir geben einen Beweis an, welcher die Idee besonders gut widerspriegelt, allerdings technisch nicht korrekt ist, siehe dazu auch die nächste Bemerkung. Betrachte
+    $$ \mathcal{S} := \{ E \mid E \text{ ist Körper}, K \leq E \text{ algebraische Erweiterung } \}. $$
+    Dann ist $(\mathcal{S}, \leq)$ eine Halbordnung. Klarerweise ist $\mathcal{S} \neq \emptyset$, da zumindest $K\in \mathcal{S}$ gilt, weiters sind alle Ketten beschränkt. Um dies einzusehen, sei $\mathcal{K} = \{ E_i \mid i \in I \}$ eine Kette in $\mathcal{S}$. Wir wollen ein $E \in \mathcal{S}$ finden mit $E_i \leq E$ für alle $i \in I$. Wähle dazu $E := \bigcup_{i \in I} E_i$. Wie man (aufgrund der Ketteneigenschaft) verifiziert, ist $E$ ein Oberkörper, wobei $x+y:=x+^{E_i}y$ mit einem $i\in I$ sodass $x,y\in E_i$ gilt definiert wird. Aufgrund der Ketteneigenschaft ist die Definition unabhängig von der Wahl von $i$, das heißt die Addition auf $E$ ist wohldefiniert, die anderen Operationen definiert man analog. Klarerweise gilt auch $K \leq E$. Da alle Elemente der Vereinigung algebraisch sind, ist auch $E$ algebraisch, womit tatsächlich $E \in \mathcal{S}$ folgt. Mit dem Lemma von Zorn erhalten wir also ein maximales $E \in \mathcal{S}$. Wir wollen zeigen, dass $E$ algebraisch abgeschlossen ist, da dann $E$ bereits der Zerfällungskörper ist. Sei dazu $f \in E[x]$ irreduzibel, wir wollen zeigen, dass $f$ eine Nullstelle in $E$ hat. Nach Kronecker gibt es ein $E_1 \in \mathcal{S}$ sodass $E \leq E_1$ eine algebraische Erweiterung ist und $f$ eine Nullstelle in $E_1$ hat. Da $E$ maximal ist folgt jedoch $E_1 = E$, womit das zu Zeigende folgt.
+\end{proof}
+
+\begin{remark}
+    Streng genommen ist der obige Beweis ``falsch'', da $\mathcal{S}$ keine Menge sein muss. Da es beliebig viele isomorphe algebraische Körpererweiterungen gibt (mittels Umbenennung) ist $\mathcal{S}$ im Allgemeinen eine echte Klasse, womit wir das Lemma von Zorn nicht mehr anwenden können.
+
+    Wir reparieren dies, indem wir stattdessen definieren
+    $$ \mathcal{S} = \{ E \mid E \text{ ist Körper}, K \leq E \text{ algebraische Erweiterung}, E \subseteq X \} $$
+    mit einer festen Menge $X$. Dann ist nämlich
+    $$ \mathcal{S} \subseteq \mathcal{P}(X) \times \mathcal{P}((X \times X) \times X) \times \hdots, $$
+    wobei die Potenzmengen gerade die Körperoperationen umfangen, und damit eine Menge.
+
+    Bleibt zu klären was $X$ sein soll. Wir wählen $X$ als eine beliebige Menge mit $\vert X \vert > \max(\vert K \vert, \vert \mathbb{N} \vert)$. Beispielsweise könnte man $X = K \cup \mathcal{P}(K) \cup \mathbb{R}$ wählen.
+
+    Weiters muss man noch darauf achten, dass $E_1$ hier nicht unbedingt in $\mathcal{S}$ sein muss. Da $E_1$ jedoch vergleichsweise ``klein'' ist können wir $E_1$ problemlos in eine Menge $\widetilde{E_1} \in \mathcal{S}$ umbenennen.
+\end{remark}
+
+\begin{proposition}
+    Sei $K \leq L$ algebraisch. Dann gilt $\vert L \vert \leq \max(\vert K \vert, \vert \mathbb{N} \vert)$.
+\end{proposition}
+
+\begin{proof}
+    Sei $a \in L$, dann gibt es ein $f \in K[x] \setminus \{0\}$ mit $f(\alpha) = 0$. Nun ist
+    $$ N_f := \{ \beta \in L \mid f(\beta) = 0 \} $$
+    endlich. Weiters ist
+    $$ L \subseteq \bigcup_{f \in K[x] \setminus \{0\}} N_f, $$
+    womit wegen $\vert K[x] \vert = \max(\vert K \vert, \vert \mathbb{N} \vert)$ folgt $\vert L \vert \leq \vert K[x] \vert \cdot \vert \mathbb{N} \vert = \max(\vert K \vert, \vert \mathbb{N} \vert)$.
+\end{proof}
