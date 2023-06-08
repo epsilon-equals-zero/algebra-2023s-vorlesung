@@ -75,7 +75,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \begin{definition}
     Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $S\subseteq A$. Die Menge $S_\infty$ ist rekursiv
     definiert durch
-    \[S_0:=S, \quad S_{k+1}:=S_k\cup\{f^\mathfrak{A}_i(a_1,\ldots,a_{n_i} \mid i\in I\land a_1,\ldots a_{n_i}\in S_k)\},\quad S_\infty:=\bigcup_{k\geq 0}S_k.\]
+    \[S_0:=S, \quad S_{k+1}:=S_k\cup\{f^\mathfrak{A}_i(a_1,\ldots,a_{n_i}) \mid i\in I\land a_1,\ldots a_{n_i}\in S_k\},\quad S_\infty:=\bigcup_{k\geq 0}S_k.\]
 \end{definition}
 
 \begin{example}
@@ -266,7 +266,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
 \begin{remark}
     Ist $\mathfrak{A}=\prod_{j\in J}\mathfrak{A}_j$ eine Produktalgebra und $j\in J$, so ist durch die Projektionsabbildung
-    $\pi_j:\mathfrak{A}\to \mathfrak{A}_j, (a_j)_{j \in J}\mapsto a_j$ ein surjektiver Homomorphismus gegeben.
+    $\pi_k:\mathfrak{A}\to \mathfrak{A}_j, (a_j)_{j \in J}\mapsto a_k$ ein surjektiver Homomorphismus gegeben.
 \end{remark}
 
 \begin{proposition}
@@ -470,7 +470,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     Wohldefiniertheit: Es ist zu zeigen, dass die Definition von $\varphi$ unabhängig von der Wahl der Darstellung ist.
     Das heißt, wenn $u,v$ beliebige Terme und $a_1,\ldots,a_n,a_1',\ldots,a_m'\in A$ sind, sodass $u^\mathfrak{S}(\pi_{a_1},\ldots,\pi_{a_n})=v^\mathfrak{S}(\pi_{a_1'},\ldots,\pi_{a_m'})$ gilt,
     dann soll auch $u^\mathfrak{A}(a_1,\ldots,a_n)=v^\mathfrak{A}(a_1',\ldots,a_m')$ gelten.
-    Dafür werden $x_i:=a_i$ und $x_i':=a_i$ als Variablen eingeführt. Es ist nun hinreichend zu zeigen, dass
+    Dafür werden $x_i:=a_i$ und $x_i':=a_i'$ als Variablen eingeführt. Es ist nun hinreichend zu zeigen, dass
     $\mathfrak{B}\models u(x_1,\ldots,x_n)\approx v(x_1',\ldots,x_m')$ gilt, da dieses Gesetz wegen $\Sigma(\mathfrak{B})\subseteq \Sigma(\mathfrak{A})$
     dann auch in $\mathfrak{A}$ gilt, was insbesondere $u^\mathfrak{A}(a_1,\ldots,a_n)=v^\mathfrak{A}(a_1',\ldots,a_m')$ bedingen würde.
     Sind $b_i,b_i'\in B$ beliebige Werte für die Variablen $x_i$ respektive $x_i'$, so muss $u^\mathfrak{B}(b_1,\ldots,b_n)=v^\mathfrak{B}(b_1',\ldots,b_m')$
@@ -485,7 +485,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
     Homomorphismus: Es bleibt noch zu zeigen, dass $\varphi$ ein Homomorphismus ist.
     Sei $i\in I$ beliebig und seien $g_1,\ldots,g_{n_i}\in S$ beliebig. Zu zeigen ist $\varphi(f^\mathfrak{S}_i(g_1,\ldots,g_{n_i}))=f^\mathfrak{A}_i(\varphi(g_1),\ldots,\varphi(g_{n_i}))$.
-    Für jedes $j\in 1,\ldots,n$ können ein Term $t_j$ sowie $a_1^{(j)},\ldots,a_{m_j}^{(j)}\in A$ gewählt werden,
+    Für jedes $j\in \{1,\ldots,n\}$ können ein Term $t_j$ sowie $a_1^{(j)},\ldots,a_{m_j}^{(j)}\in A$ gewählt werden,
     sodass $g_j=t^\mathfrak{S}_j(\pi_{a_1^{(j)}},\ldots,\pi_{a_{m_j}^{(j)}})$ gilt. Nun wird $t:=f^\mathfrak{T}_i(t_1,\ldots,t_{n_i})$ als neuer Term definiert und es folgt
     \begin{align*}
         \varphi(f^\mathfrak{S}_i(g_1,\ldots,g_{n_i}))&=\varphi(f^\mathfrak{S}_i(t^\mathfrak{S}_1(\pi_{a_1^{(1)}},\ldots,\pi_{a_{m_1}^{(1)}}),\ldots,t^\mathfrak{S}_{n_i}(\pi_{a_1^{(n_i)}},\ldots,\pi_{a_{m_{n_i}}^{(n_i)}})))=\\

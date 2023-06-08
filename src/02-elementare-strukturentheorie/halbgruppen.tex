@@ -105,8 +105,7 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
         und damit $p_1 \mid n'$. Jedoch gilt $p_1 \nmid q_1 - p_1$, da $q_1 \in \mathbb{P}$. Zerlegen wir nun
         $$ q_1 - p_1 = r_1 \cdot ... \cdot r_s $$
         in Primfaktoren, so erhalten wir
-        $$ n' = (q_1 - p_1) \cdot q_2 \cdot ... \cdot q_m = r_1 \cdot ... \cdot r_s \cdot q_2 \cdot ... \cdot q_m $$
-        eine Primfaktorenzerlegung von $n'$, wobei für alle $i$ $r_i \neq p_1, q_i \neq p_1$. Damit haben wir zwei verschiedene Primfaktorenzerlegungen von $n' < n$, im Widerspruch zu unserer Induktionsvoraussetzung.
+        $$ n' = (q_1 - p_1) \cdot q_2 \cdot ... \cdot q_m = r_1 \cdot ... \cdot r_s \cdot q_2 \cdot ... \cdot q_m $$ eine Primfaktorenzerlegung von $n'$, wobei für alle $i$ $r_i \neq p_1, q_i \neq p_1$. Da auch $n'=p_1\cdot(p_2\cdots p_l-q_2\cdots q_m)$ gilt und sich der zweite Faktor in Primfaktoren zerlegen lässt, haben wir zwei verschiedene Primfaktorenzerlegungen von $n' < n$ gefunden, im Widerspruch zu unserer Induktionsvoraussetzung.
     \end{itemize}
 \end{proof}
 
@@ -129,7 +128,7 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
 \end{remark}
 
 \begin{corollary}
-    $(\mathbb{N}\setminus\{0\}, \mid)$ ist ein Verband.
+    $(\mathbb{N}\setminus\{0\}, \mid)$ ist eine Halbordnung und induziert einen Verband.
 \end{corollary}
 
 \begin{proof}
@@ -227,7 +226,7 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
 
         Seien nun $a,b \in H$ mit $\varphi(a) = \varphi(b)$, also $[(a,e)]_\sim = [(b,e)]_\sim$, so folgt $a = ae = eb = b$, womit $\varphi$ injektiv ist.
 
-        \item Sei \obda $\psi = \id_H$\footnote{Diese Einschränkung ist möglich, da $\psi$ ein injektiver Homomrophismus ist.} und definiere $ \overline{\psi} :\; \mathfrak{H}^2 /_\sim \to \mathfrak{G}, \;[(a,b)]_\sim \mapsto a \cdot b^{-1} $.
+        \item Sei \obda $\psi = \id_H$\footnote{Diese Einschränkung ist möglich, da $\psi$ ein injektiver Homomorphismus ist.} und definiere $ \overline{\psi} :\; \mathfrak{H}^2 /_\sim \to \mathfrak{G}, \;[(a,b)]_\sim \mapsto a \cdot b^{-1} $.
         
         Seien $a,b,c,d \in H$ beliebig mit $a b^{-1} = c d^{-1}$, so folgt $ad = bc$, also $[(a,b)]_\sim = [(c,d)]_\sim$, womit $\overline{\psi}$ injektiv ist.
 

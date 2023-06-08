@@ -92,6 +92,10 @@
             \node at (0.75, 2.25) {$U = eU$};
             \node at (2.25, 2.25) {$g_1U$};
             \node at (3.75, 2.25) {$g_2U$};
+            \node at (5.25, 2.25) {$g_3U$};
+            \node at (0.75, 0.75) {$g_4U$};
+            \node at (2.25, 0.75) {$g_5U$};
+            \node at (3.75, 0.75) {$g_6U$};
             \node at (5.25, 0.75) {$g_7U$};
         \end{tikzpicture}
         \caption{Nebenklassenzerlegung einer endlichen Gruppe}
@@ -303,7 +307,7 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
 
     Um (3) einzusehen sei $N \vartriangleleft G$, so folgt mit obiger Bemerkung sofort
     \begin{align*}
-        G/_N \textrm{ abelsch} &\Leftrightarrow \forall a, b: (aN)(bN) = (bN)(aN) \Leftrightarrow \\ &\Leftrightarrow \forall a, b: a^{-1}b^{-1} a b \in N \Leftrightarrow \forall a, b: [a, b] \in N \Leftrightarrow N \subseteq G'.
+        G/_N \textrm{ abelsch} &\Leftrightarrow \forall a, b: (aN)(bN) = (bN)(aN) \Leftrightarrow \\ &\Leftrightarrow \forall a, b: a^{-1}b^{-1} a b \in N \Leftrightarrow \forall a, b: [a, b] \in N \Leftrightarrow N \supseteq G'.
     \end{align*}
 
     Zeigen wir nun (1). Sei $h : G \to G$ ein beliebiger Endomorphismus, dann gilt für alle $a, b \in G$, dass $h([a,b]) = [h(a), h(b)]$, also $h(G') \subseteq G'$. Für beliebiges $x \in G$ definieren wir
@@ -398,7 +402,7 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
 
 \begin{proposition}\label{prop:zyklische_gruppen_1} Für eine Gruppe $G$ gilt:
     \begin{enumerate}
-        \item $G\;\text{zyklisch} \Leftrightarrow \exists h: \mathbb{Z} \to G\;\text{surjektiver Homomorphisus}$
+        \item $G\;\text{zyklisch} \Leftrightarrow \exists h: \mathbb{Z} \to G\;\text{surjektiver Homomorphismus}$
         \item $G\;\text{zyklisch} \Rightarrow G\;\text{abelsch}$
         \item $G\;\text{zyklisch} \Rightarrow \forall F \in \textrm{H}(\{G\}): F\;\text{zyklisch}$
         \item $G\;\text{zyklisch} \Rightarrow \forall F \in \textrm{S}(\{G\}): F\;\text{zyklisch}$
@@ -492,7 +496,7 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
 \end{proposition}
 \begin{proof}{\ }
     \begin{enumerate}
-        \item Wir beweisen mittels vollständiger Induktion, dass es $n!$ Bijektionen zwischen zwei $n$-elementigen Mengen $X_n = \{x_1, \ldots, x_n\}, Y_n = \{y_1, \ldots, y_n$ gibt.
+        \item Wir beweisen mittels vollständiger Induktion, dass es $n!$ Bijektionen zwischen zwei $n$-elementigen Mengen $X_n = \{x_1, \ldots, x_n\}, Y_n = \{y_1, \ldots, y_n\}$ gibt.
         
         Induktionsanfang ($n = 1$): Es gibt genau eine (bijektive) Abbildung $f: \{x_1\} \to \{y_1\}$.\\
         Induktionsschritt ($n \to n+1$): Für $i \in \{1, \ldots, n+1\}$ gibt es wegen der Induktionsvoraussetzung genau $n!$ Bijektionen von $X_n$ nach $\{y_1, \ldots, y_{i-1}, y_{i+1}, \ldots, y_{n+1}\}$ gibt, also gibt es $n!$ Bijektionen zwischen $X_{n+1}$ und $Y_{n+1}$ mit $f(x_{n+1}) = y_i$. Da nun $i$ aus $n+1$ Zahlen gewählt werden kann, gibt es $(n+1)n! = (n+1)!$ Bijektionen zwischen $X_{n+1}$ und $Y_{n+1}$.
@@ -532,7 +536,8 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
     $$ (n \ast m) \odot g = g^{n \ast m} = (g^m)^n = n \odot (m \odot g), $$
     $$ (n+m) \odot g = g^{n+m} = g^n \cdot g^m = (n \odot g) \cdot (m \odot g), $$
     $$ n \odot (g \cdot h) = (g \cdot h)^n = g^n \cdot h^n = (n \odot g) \cdot (n \odot h), $$
-    wobei wir bei der letzten Zeile verwenden, dass $G$ abelsch ist.
+    $$1\cdot g=g^1=g$$
+    wobei wir bei der vorletzten Zeile verwenden, dass $G$ abelsch ist.
 
     Es stellt sich die Frage ob $G$ auch ein Modul über einem anderen Ring ist. Sei angenommen es gäbe ein $m \in \mathbb{Z}$, sodass für alle $g \in G$ gilt $g^m = e$. Dann ist $G$ ein unitärer Modul über $(\mathbb{Z}_m, +, 0, -, \ast, 1)$. Indirekt angenommen es gäbe ein $g \in G$ mit $g^m \neq e$, so wäre $g^0 = e$ ein Widerspruch.
 
@@ -546,7 +551,7 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
 \end{definition}
 
 \begin{remark}
-    Ist $G$ also eine abelsche Gruppe mit $\exp(G) = m < \infty$, so ist $G$ ein unitärer $\mathbb{Z}_m$-Modul vermöge $k \cdot g := g^k$ für $k \in \mathbb{Z}_m$.
+    Ist $G$ also eine abelsche Gruppe mit $\exp(G) = m < \infty$, so ist $G$ ein unitärer $\mathbb{Z}_m$-Modul vermöge $k \odot g := g^k$ für $k \in \mathbb{Z}_m$.
 \end{remark}
 
 \begin{definition}
