@@ -122,7 +122,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
     Seien $\mathfrak{R} = (R, +, 0, -, \cdot)$ ein Ring, $\mathfrak{G} = (G, \widetilde{+}, \widetilde{0}, \widetilde{-})$ eine abelsche Gruppe und $\odot: R \times G \to G, (a, v) \mapsto a \odot v$ und gelte
     \begin{itemize}
         \item $\forall a,b \in R \forall u \in G: (a \cdot b)\odot u = a \odot (b \odot u),$
-        \item $\forall a,b \in R \forall u \in G: (a + b) \cdot u = (a \cdot u) \;\widetilde{+}\; (b \cdot u),$
+        \item $\forall a,b \in R \forall u \in G: (a + b) \odot u = (a \odot u) \;\widetilde{+}\; (b \odot u),$
         \item $\forall a \in R \forall u,v \in G: a \odot (u \;\widetilde{+}\; v) = (a \odot u) \;\widetilde{+}\; (a \odot v),$
     \end{itemize}
     so heißt $\mathfrak{G}$ mit $\odot$ \emph{Modul über $\mathfrak{R}$}\index{Modul} oder \emph{$\mathfrak{R}$-Modul}.
@@ -131,7 +131,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 \end{definition}
 
 \begin{remark}
-    Ein $\mathfrak{R}$-Modul ist ein Vektorraum (über $\mathfrak{R}$), wenn $\mathfrak{R}$ ein Körper ist.
+    Ein $\mathfrak{R}$-Modul $\mathfrak{V}$ ist ein Vektorraum (über $\mathfrak{R}$), wenn $\mathfrak{R}$ ein Körper ist und $1\odot u=u$ für alle $u\in V$ gilt.
 \end{remark}
 
 \begin{example}

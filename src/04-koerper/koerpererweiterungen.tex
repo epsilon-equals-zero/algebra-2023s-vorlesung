@@ -49,7 +49,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
     \begin{enumerate}
         \item Die Abbildung $\varphi : K[x]/_{(\mu_\alpha)} \to K[\alpha], f + (\mu_\alpha) \mapsto f(\alpha)$ ist ein Ring-Isomorphismus.
         \item $K[\alpha] = K(\alpha)$
-        \item $\forall \beta \in K(\alpha) \exists ! a_0, \hdots, a_{k-1} \in K: \beta = \sum_{i=0}^{k-1}a_i x^i$
+        \item $\forall \beta \in K(\alpha) \exists ! a_0, \hdots, a_{k-1} \in K: \beta = \sum_{i=0}^{k-1}a_i \alpha^i$
         \item $\alpha^0, \hdots, \alpha^{k-1}$ bildet eine Basis von $K(\alpha)/_K$ als Vektorraum.
         \item $[K(\alpha) : K] = k$
         \item Ist $\beta \in L, \mu_\alpha = \mu_\beta$, so existiert ein eindeutiger Isomorphismus $\psi : K(\alpha) \to K(\beta)$ mit $\psi(\alpha) = \beta$ und $\psi\vert_K = \id_K$.
@@ -134,8 +134,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \begin{definition}
     Sei $K \leq E$.
     \begin{itemize}
-        \item Sei $S \subseteq E$. Wir nennen $S$ \emph{algebraisch abhängig über $K$}\index{algebraisch abhängig}, wenn
-        $$ \exists a_1, \hdots, a_n \in S \exists f(x_1, \hdots, x_n) \in K[x_1, \hdots, x_n], f \neq 0 : f(a_1, \hdots, a_n) = 0. $$
+        \item Sei $S \subseteq E$. Wir nennen $S$ \emph{algebraisch abhängig über $K$}\index{algebraisch abhängig}, wenn es $a_1,\hdots,a_n\in S$ paarweise verschieden und $ f(x_1, \hdots, x_n) \in K[x_1, \hdots, x_n], f \neq 0$ mit $f(a_1,\hdots,a_n)=0$ gibt.
         Sonst nennen wir $S$ \emph{algebraisch unabhängig}\index{algebraisch unabhängig}.
         \item Wir $E$ \emph{rein transzendent über $K$}\index{transzendent!rein}, wenn es eine algebraisch unabhängige Teilmenge $S \subseteq E$ gibt mit $E = K(S)$.
         \item Sei $S \subseteq E$. Wir nennen $S$ \emph{Transzendenzbasis von $E$ über $K$}\index{Transzendenzbasis}, wenn $S$ maximal algebraisch unabhängig ist.
@@ -178,7 +177,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \end{proof}
 
 \begin{corollary}
-    Sei $K \leq E$ und $S \leq E$ eine Transzendenzbasis von $E$ über $K$. Dann ist $K \leq K(S) \leq E$, wobei der erste Schritt (von $K$ auf $K(S)$) rein transzendent und der zweite Schritt (von $K(S)$ auf $E$) rein algebraisch ist.
+    Sei $K \leq E$ und $S \subseteq E$ eine Transzendenzbasis von $E$ über $K$. Dann ist $K \leq K(S) \leq E$, wobei der erste Schritt (von $K$ auf $K(S)$) rein transzendent und der zweite Schritt (von $K(S)$ auf $E$) rein algebraisch ist.
 \end{corollary}
 
 \begin{definition}
@@ -332,7 +331,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
     Übungsaufgabe.
 \end{proof}
 
-\begin{proposition}
+\begin{proposition}\label{prop:alg_abschluss}
     Sei $K$ ein Körper. Dann gibt es einen Zerfällungskörper von $K[x]$ über $K$. Dieser ist insbesondere algebraisch. Damit gibt es insbesondere einen algebraischen Abschluss von $K$.
 \end{proposition}
 
@@ -366,4 +365,112 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
     endlich. Weiters ist
     $$ L \subseteq \bigcup_{f \in K[x] \setminus \{0\}} N_f, $$
     womit wegen $\vert K[x] \vert = \max(\vert K \vert, \vert \mathbb{N} \vert)$ folgt $\vert L \vert \leq \vert K[x] \vert \cdot \vert \mathbb{N} \vert = \max(\vert K \vert, \vert \mathbb{N} \vert)$.
+\end{proof}
+
+\notedate{07.06.2023}
+
+\begin{theorem}\label{theorem:zerfaellungskoerper_existenz}
+    Sei $K$ ein Köper, dann gilt:
+    \begin{enumerate}
+        \item $\forall P \subseteq K[x] \exists Z_P \ge K \;\text{Zerfällungskörper}\;\land Z_P \;\text{alg.}/_K$
+        \item $Z := Z_{K[x]}$ ist algebraisch abgeschlossen.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Die zweite Behauptung wird in \cref{prop:alg_abschluss} gezeigt. Zeigen wir also noch die erste Aussage. Sei $P \subseteq K[x]$ beliebig und definieren wir $Z_P := K(S)$ mit $S := \{\alpha \in Z_{K[x]} \mid \exists f \in P\setminus\{0\}: f(\alpha) = 0 \}$. $Z_P$ ist ein Nullstellenkörper von P, da er um genau um die Nullstellen erweitert wird. Die Minimalität von $Z_P$ folgt aus der Konstruktion.
+\end{proof}
+
+\begin{theorem}\label{theorem:zerfaellungskoerper_isomorph}
+    Seien $K$ ein Körper, $P \subseteq K[x]$ und $Z_1, Z_2$ Zerfällungskörper von $P$ über $K$. Es gibt dann einen Isomorphismus $\varphi: Z_1 \to Z_2$ mit $\varphi\vert_K = \id_K$. 
+\end{theorem}
+
+\begin{remark}
+    Im Allgemeinen ist der Isomorphismus aus \cref{theorem:zerfaellungskoerper_isomorph} nicht eindeutig.
+
+    Betrachten wir zum Beispiel $\mathbb{R} \le \mathbb{C}$ und $\varphi: \mathbb{C} \to \mathbb{C}, z \to \overline{z}$, so ist $\varphi$ ein Automorphismus mit $\varphi\vert_\mathbb{R} = \id_\mathbb{R}$. Die Identität ist allerdings ein zweiter Isomorphismus der $\mathbb{R}$ festhält.
+
+    Es ist für einen Körper $K$ und einen algebraischen Abschluss $\overline{K}$ die Menge $\Aut_K(\overline{K})\footnote{Diese Gruppe wird auch als Galoisgruppe bezeichnet} = \{ \varphi \in \Aut(\overline{K}) \mid \varphi\vert_K = \id_K \}$  mit der Komposition eine Gruppe. Die Galoistheorie stellt einen Zusammenhang zwischen dieser Gruppe und den Körpererweiterungen her.
+\end{remark}
+
+\begin{proof}[Beweis von \cref{theorem:zerfaellungskoerper_isomorph}]
+    Betrachten wir $$\mathcal{S} := \{\widetilde{\varphi} \mid L\le \dom \widetilde\varphi \le Z_1, K\le \ran \widetilde\varphi \le Z_2, \widetilde\varphi\;\text{Isomorphismus}\;, \widetilde\varphi\vert_K = \id_K \},$$
+    so stellen wir fest, dass $(\mathcal{S}, \subseteq)$ eine Halbordnung ist, $\mathcal{S} \neq \emptyset$, da $\id_K \in \mathcal{S}$ und für jede Kette $K \subset \mathcal{S}$ auch $\bigcup K \in \mathcal{S}$ ist. Nach dem Lemma von Zorn folgt die Existenz eines maximalen Elements $\varphi$ in $\mathcal{S}$.
+
+    Wir zeigen, dass für $\widetilde\varphi \in \mathcal{S}$ mit $\dom \widetilde\varphi \neq Z_1$ ein $\widehat\varphi \in \mathcal{S}$ existiert mit $\widehat\varphi \supsetneq \widetilde\varphi$.
+    
+    Es ist $Z_1$ ein minimaler Nullstellenkörper von $P$, also existieren $f \in P$ und $\alpha \in Z_1\setminus\dom \widetilde{\varphi}$ mit $f(\alpha) = 0$. Sei $\mu_\alpha$ das Minimalpolynom von $\alpha$ über $\dom \widetilde\varphi$, also $\mu_\alpha \in (\dom \widetilde\varphi)[x]$. Als Minimalpolynom ist $\mu_\alpha$ irreduzibel über $\dom \widetilde\varphi$. Wenden wir nun $\widetilde\varphi$ auf die Koeffizienten von $\mu_\alpha$ an und schreiben dafür $\widetilde\varphi(\mu_\alpha)$, dann ist auch $\widetilde\varphi(\mu_\alpha)$ irreduzibel in $\ran \widetilde\varphi$ und aus $\mu_\alpha \mid f$ folgt $\widetilde\varphi(\mu_\alpha) \mid f$. 
+    Es zerfällt $f$ über $Z_2$ in Linearfaktoren (da $f \in P$) und wegen $\widetilde\varphi(\mu_\alpha) \mid f$ zerfällt damit auch $\widetilde\varphi(\mu_\alpha)$ über $Z_2$ in Linearfaktoren. Es gibt daher ein $\beta \in Z_2$ mit $\widetilde\varphi(\mu_\alpha)(\beta) = 0$. Da $\widetilde\varphi(\mu_\alpha)$ als Minimalpolynom irreduzibel über $\ran \widetilde\varphi$ ist, erhält man $\beta \not\in \ran \widetilde\varphi$.  $\widetilde\varphi(\mu_\alpha)$ ist also das Minimalpolynom von $\beta$, womit es ein $\widehat\varphi: (\dom \widetilde\varphi)(\alpha) \to (\ran \widetilde\varphi)(\beta)$ mit $\widehat\varphi\vert_{\dom \widetilde\varphi} = \widetilde\varphi$ und $\widehat\varphi(\alpha) = \beta$ gibt.
+
+    Es muss nun also $\varphi$ auf ganz $Z_1$ definiert sein, da wir es sonst wie eben gezeigt erweitern könnten, was ein Widerspruch zur Maximalität wäre. Dass $\ran \varphi = Z_2$ ist erhält man entweder indem man den Beweis mit vertauschten Rollen wiederholt oder mit folgendem Widerspruch. Sei indirekt angenommen $\ran \varphi \subsetneq Z_2$. Es ist $\ran \varphi$ ein Nullstellenkörper, da er isomorph zu $Z_1$ ist. Dies ist ein Widerspruch zur Minimalität von $Z_2$ als Zerfällungskörper.
+\end{proof}
+
+\begin{corollary}
+    Sei $K$ ein Körper, $Z \ge K$ Zerfällungskörper von $P \subseteq K[x]$, dann ist $Z$ algebraisch über $K$.
+\end{corollary}
+\begin{proof}
+    Wir kennen einen algebraischen Zerfällungskörper und da alle anderen isomorph zu diesem sind, sind alle algebraisch.
+\end{proof}
+
+\begin{remark}
+    Die \cref{theorem:zerfaellungskoerper_existenz,theorem:zerfaellungskoerper_isomorph} liefern die Existenz und Eindeutigkeit bis auf Isomorphie von algebraischen Abschlüssen. Damit ist die folgende Definition sinnvoll.
+\end{remark}
+
+\begin{definition}
+    Sei $K$ ein Körper, dann schreiben wir $\overline{K}$ für den algebraischen Abschluss.
+\end{definition}
+
+\begin{remark}
+    Es gilt $\mathbb{Q} \le \overline{\mathbb{Q}} \le \mathbb{C}$. Die erste Erweiterung ist eine algebraische, abzählbare Erweiterung von $\mathbb{Q}$. Die zweite Erweiterung ist transzendent und überabzählbar.
+\end{remark}
+
+\subsection{Mehrfache Nullstellen}
+Es stellt sich die Frage, wann ein irreduzibles $f \in K[x]$ in $\overline{K}$ mehrfache Nullstellen hat.
+
+\begin{definition}
+    Sei $p \in K[x]$ mit einer Darstellung
+    $$ p(x) = q(x) \cdot \prod_{i=1}^n (x-\alpha_i)^{e_i} $$
+    mit paarweise verschiedenen $\alpha_i$, $e_i \in \mathbb{N}^+$ und $q \in K[x]$ ohne Nullstellen. Wir nennen $e_i$ die \emph{Vielfachheit}\index{Vielfachheit} der Nullstelle $\alpha_i$. Ist $e_i > 1$, so nennen wir $\alpha_i$ \emph{mehrfache Nullstelle}\index{mehrfache Nullstelle}.
+\end{definition}
+
+% TODO:
+\begin{example}
+    Sei $f(x) = x^p - 1$ mit $p \in \mathbb{P}$.
+
+    Betrachten wir $K = \mathbb{Q}$: $e^\frac{2 \pi i k}{p}$ mit $k = 0, \ldots p-1$ sind verschiedene (einfache) Nullstellen und bereits alle.
+
+    Betrachten wir $K$ mit $\chara K = p$. Es ist $x^p - 1 = x^p - 1^p = (x-1)^p$. Es gibt also nur die $p$-fache Nullstelle $1$.
+\end{example}
+
+\begin{definition}
+    Sei $K$ ein Körper, $f(x) = \sum_{i=0}^n a_i x^i \in K[x]$, dann definieren wir die \emph{formale Ableitung}\index{formale Ableitung}
+    $$ f'(x) := \sum_{i=0}^n \underbrace{i\cdot a_i}_{\underbrace{a_i + \ldots + a_i}_{i-mal}} x^{i-1}. $$
+\end{definition}
+\begin{remark}
+    Die allgemein bekannten Rechenregeln für Ableitungen (wie zum Beispiel Linearität oder Produktregel) gelten auch für die formale Ableitung.
+\end{remark}
+
+\begin{lemma}
+    Seien $K$ ein Körper, $f \in K[x]$ und $\alpha \in \overline{K}$. Es sind folgende Aussagen äquivalent:
+    \begin{enumerate}
+        \item $\alpha$ ist mehrfache Nullstelle von $f$.
+        \item $\ggT(f, f')(\alpha) = 0.$
+    \end{enumerate}
+\end{lemma}
+% TODO: schön umformulieren
+\begin{proof}{\ }
+    \begin{enumerate} 
+        \item[$\Rightarrow$:] Es gibt ein $g \in \overline{K}[x]$ mit $f = (x-\alpha)^2 g$. Es ist dann $f' = 2(x-\alpha)g + (x-\alpha)^2g'$, also $f'(\alpha) = 0$. Es gilt also $\mu_\alpha \mid f', f$ also weiter $\mu_\alpha \mid \ggT(f, f')$ und damit $\ggT(f, f')(\alpha) = 0$. 
+         
+        \item[$\Leftarrow$:] Nehmen wir an $\ggT(f, f')(\alpha) = 0$. Da $\alpha$ eine Nullstelle von $\ggT(f, f')$ ist, ist auch $f(\alpha) = 0$ und es gibt ein $g \in \overline{K}[x]$ mit $f = (x-\alpha)g$. Damit ist $f' = g + (x-\alpha)g'$. Es ist $0 = f'(\alpha) = g(\alpha) + 0$. Damit gibt es $h \in \overline{K}[x]$ mit $g = (x-\alpha)h$ und daher ist $f = (x-\alpha)^2h$, also $\alpha$ eine mehrfache Nullstelle von $f$.
+    \end{enumerate}
+\end{proof}
+
+\begin{lemma}
+    Seien $K$ ein Körper und $f \in K[x]$ irreduzibel. Dann hat $f$ genau dann eine mehrfache Nullstelle in $\overline{K}$, wenn $\chara{K} = p\in\mathbb{P}$ und $\exists g \in K[x]: f(x) = g(x^p)\footnote{Wir setzen hier $x^p$ für $x$ in $g$ ein.}$.
+\end{lemma}
+\begin{proof}{\ }
+    \begin{enumerate}
+        \item[$\Rightarrow$:] Sei angenommen $f$ hat eine mehrfache Nullstelle in $\overline{K}$. $f$ ist irreduzibel, also wissen wir $\ggT(f,f') \in \{1,f\}$. Nach obigem Lemma hat $\ggT(f,f')$ eine Nullstelle womit wir $\ggT(f, f') = f$ erhalten. Es gilt daher $f \mid f'$ und wegen $\deg f' < \deg f$ gilt $f' = 0$. Wir erhalten daraus direkt, dass $\chara K = p \in \mathbb{P}$. Schreiben wir $f(x) = \sum_{i=0}^n a_i x^i$, dann ist $0 = f'(x) = \sum_{i=1}^n i a_i x^{i-1}$. Wir erhalten also, dass $p \mid i a_i$, womit also für $a_i \not= 0 \mod p$ folgt, dass $p \mid i$. Das liefert die Darstellung $f = g(x^p)$.
+        \item[$\Leftarrow$:] Sei angenommen $f(x) = g(x^p)$ und $\chara K = p \in \mathbb{P}$. Es gilt dann $f' = 0$, da alle $p \mid i$ wenn $a_i \not= 0$. Daher ist $\ggT(f, f') = \ggT(f, 0) = f$. In $\overline{K}$ hat $f$ eine Nullstelle, womit $\ggT(f, f')$ eine Nullstelle hat und nach obigem Lemma $f$ damit eine mehrfache Nullstelle hat.
+    \end{enumerate}
 \end{proof}

@@ -28,9 +28,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \end{definition}
 
 \begin{remark}
-    Ein Ideal $I$ eines Rings $R$ ist definitionsgemäß eine Untergruppe der additiven Gruppe $(R, +, 0, -)$.
-
-    Weiters ist $I$ sogar ein Unterring von $R$, da $I$ nach Definition unter $\cdot$ abgeschlossen ist.
+    Ein Ideal $I$ eines Ringes $R$ ist ein Unterring von $R$, da $I$ nach Definition unter der Multiplikation abgeschlossen ist.
 \end{remark}
 
 \begin{remark}\label{remark:ideal-mit-1-trivial}
@@ -163,7 +161,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
     Sei $R$ ein kommutativer Ring mit 1 und $I \vartriangleleft R$. Dann gilt:
     \begin{itemize}
         \item $R /_{I} \text{ ist Körper} \Leftrightarrow I \text{ ist maximal}$
-        \item $R /_{I} \text{ ist prim} \Leftrightarrow I \text{ ist prim}$
+        \item $R /_{I} \text{ ist Integritätsbereich} \Leftrightarrow I \text{ ist prim}$
         \item $I \text{ ist maximal} \Rightarrow I \text{ ist prim}$
         \item $I \text{ ist echt} \Rightarrow \exists J \supseteq I: J \vartriangleleft R \text{ ist maximal}$
     \end{itemize}
@@ -199,7 +197,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
     Betrachte den Ring $\mathbb{Z}$, $p \in \mathbb{P}$ und $p \mathbb{Z} \vartriangleleft \mathbb{Z}$, so erhalten wir $\mathbb{Z}/_{p\mathbb{Z}} = \mathbb{Z}_p$.
     $p\mathbb{Z}$ ist dabei ein Primideal und $\mathbb{Z}_p$ ein Körper.
 
-    Für ein $m \in \mathbb{N}$ betrachte $m \mathbb{Z} \vartriangleleft \mathbb{Z}$, so ist zwar $\mathbb{Z} /_{m\mathbb{Z}} = \mathbb{Z}_m$, jedoch kein Integritätsbereich,
+    Für ein $m \in \mathbb{N}\setminus\mathbb{P}$ betrachte $m \mathbb{Z} \vartriangleleft \mathbb{Z}$, so ist $\mathbb{Z} /_{m\mathbb{Z}} = \mathbb{Z}_m$ kein Integritätsbereich,
     also insbesondere kein Körper.
 \end{example}
 
@@ -226,7 +224,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \end{example}
 
 \begin{proposition}
-    Sei $R$ ein Ring mit 1, $\chara R = p \in \mathbb{P}$. Dann ist
+    Sei $R$ ein kommutativer Ring mit 1, $\chara R = p \in \mathbb{P}$. Dann ist
     $$ \varphi : R \to R, x \mapsto x^{p^k} $$
     ein Homomorphismus.
 \end{proposition}
@@ -252,36 +250,36 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
     Nicht notwendig (da es aus der vorigen Bedingung folgt), aber interessant ist die Tatsache, dass wenn $R$ ein Integritätsbereich ist, jedes Element außer $0$ bereits kürzbar ist.
     Denn für $r,x,y\in R,r\neq 0$ gilt $rx=ry\Rightarrow r(x-y)=0\Rightarrow x-y=0\Rightarrow x=y$.
 
-    Es ist $R^* := R \setminus \{0\}$ ein kommutatives Monoid mit der Operation $\cdot$. Definiere eine Äquivalenz\-relation $\sim \subseteq (R \times R^*)^2, (a, b) \sim (c, d) :\Leftrightarrow ad = bc$. Wie man nachrechnet ist dies sogar eine Kongruenzrelation. Dann ist $((R \times R^*)/_\sim, \cdot, [(1,1)]_\sim) =: M$ ein Monoid, wobei jedes $[(x,y)]_\sim$ mit $x \neq 0$ ein Inverses besitzt.
+    Es ist $R^\times := R \setminus \{0\}$ ein kommutatives Monoid mit der Operation $\cdot$. Definiere eine Äquivalenz\-relation $\sim \subseteq (R \times R^\times)^2, (a, b) \sim (c, d) :\Leftrightarrow ad = bc$. Wie man nachrechnet ist dies sogar eine Kongruenzrelation. Dann ist $((R \times R^\times)/_\sim, \cdot, [(1,1)]_\sim) =: M$ ein Monoid, wobei jedes $[(x,y)]_\sim$ mit $x \neq 0$ ein Inverses besitzt.
     
     Dann ist
     $$ \varphi : R \to M, x \mapsto [(x, 1)]_\sim $$
     eine homomorphe Einbettung von $R$ in $M$.
 
     Für jedes multiplikative Monoid $N$ mit einer Einbettung $\psi : R \to N$ und der Eigenschaft
-    $$\forall x\in R^*\exists y\in N:y\varphi(x)=\varphi(x)y=1$$
+    $$\forall x\in R^\times\exists y\in N:y\varphi(x)=\varphi(x)y=1$$
     gibt es eine Einbettung $\bar{\psi} : M \to N$ mit $\bar{\psi} \circ \varphi = \psi$.
 
     Auf $M$ definieren wir nun eine Addition
     $$ (a,b) + (c,d) := (ad+bc, bd), \quad -(a,b) := (-a, b), $$
-    so ist $(R \times R^*, +, (0,1), -)$ eine Gruppe.
+    so ist $(R \times R^\times, +, (0,1), -)$ eine Gruppe.
 \end{remark}
 
 \begin{lemma}
-    Die in \cref{rem:ring-koerper} definierte Äquivalenzrelation $\sim \subset (R \times R^*)^2$ ist eine Kongruenzrelation bezüglich $+$.
+    Die in \cref{rem:ring-koerper} definierte Äquivalenzrelation $\sim \subset (R \times R^\times)^2$ ist eine Kongruenzrelation bezüglich $+$.
 \end{lemma}
 
 \begin{proof}
-    Seien $(z_1,n_1),(z_1',n_1'),(z_2,n_2),(z_2',n_2')\in R\times R^*$ mit $(z_1,n_1)\sim (z_1',n_1')$ und $(z_2,n_2)\sim (z_2',n_2')$ gegeben.
+    Seien $(z_1,n_1),(z_1',n_1'),(z_2,n_2),(z_2',n_2')\in R\times R^\times$ mit $(z_1,n_1)\sim (z_1',n_1')$ und $(z_2,n_2)\sim (z_2',n_2')$ gegeben.
     Dann ist zu zeigen, dass $(z_1n_2+z_2n_1,n_1n_2)\sim (z_1'n_2'+z_2'n_1',n_1'n_2')$ gilt. Die Behauptung folgt durch Einsetzen
     in die Definition:
     $$(z_1n_2+z_2n_1)n_1'n_2'=\overbrace{z_1n_1'}^{z_1'n_1}n_2n_2'+\overbrace{z_2n_2'}^{z_2'n_2}n_1n_1'=(z_1'n_2'+z_2'n_1')n_1n_2$$
 \end{proof}
 
 \begin{theorem}\label{theorem:Quotientenkoerper}
-    Sei $R$ ein kommutativer Ring mit $1 \neq 0$, der zusätzlich ein Integritätsbereich ist. Sei weiters $\sim \subseteq (R \times R^*)^2$ wie in \cref{rem:ring-koerper} definiert. Dann gilt:
+    Sei $R$ ein kommutativer Ring mit $1 \neq 0$, der zusätzlich ein Integritätsbereich ist. Sei weiters $\sim \subseteq (R \times R^\times)^2$ wie in \cref{rem:ring-koerper} definiert. Dann gilt:
     \begin{enumerate}
-        \item $K := (R \times R^*)/_\sim $ mit $+, \cdot$ aus \cref{rem:ring-koerper} ist ein Körper.
+        \item $K := (R \times R^\times)/_\sim $ mit $+, \cdot$ aus \cref{rem:ring-koerper} ist ein Körper.
         \item $\varphi : R \to K, x \mapsto [(x, 1)]_\sim$ ist eine Einbettung.
         \item Für alle Einbettungen $\psi : R \to L$ in einen Körper $L$ gibt es eine Einbettung $\bar{\psi} : K \to L$ mit $\bar{\psi} \circ \varphi = \psi$.
     \end{enumerate}
@@ -292,7 +290,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 
     Wir wissen $(K, \cdot, [(1,1)]_\sim)$ ist ein kommutatives Monoid.
 
-    Weiters ist $(K \setminus \{ [(0,1)]_\sim \}, \cdot, [(1, 1)]_\sim) = (R^* \times R^*)/_\sim$ eine kommutative Gruppe, genauso auch $(K, +, [(0,1)]_\sim, -)$.
+    Weiters ist $(K \setminus \{ [(0,1)]_\sim \}, \cdot, [(1, 1)]_\sim) = (R^\times \times R^\times)/_\sim$ eine kommutative Gruppe, genauso auch $(K, +, [(0,1)]_\sim, -)$.
 
     Das Distributivgesetz verifiziert man unmittelbar durch Nachrechnen.
 
@@ -331,7 +329,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 
 \begin{definition}
     Sei $R$ ein kommutativer Ring mit $1\neq 0$ und ein Integritätsbereich. Dann wird der Körper
-    $(R\times R^*)/_\sim$ aus Satz \ref{theorem:Quotientenkoerper} \emph{Quotientenk\"orper von $R$}\index{Quotientenkörper} genannt.
+    $(R\times R^\times)/_\sim$ aus Satz \ref{theorem:Quotientenkoerper} \emph{Quotientenk\"orper von $R$}\index{Quotientenkörper} genannt.
     Für $[(z,n)]_\sim$ schreibt man auch $\frac{z}{n}$.
 \end{definition}
 
@@ -376,7 +374,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
     Sei $R$ ein kommutativer Ring mit $1$. Dann gilt:
     \begin{itemize}
         \item $R[{x}]$ ist ein kommutativer Ring mit $1$.
-        \item $R[x]\subseteq R[[x]]$
+        \item $R[x]\le R[[x]]$
         \item $R$ ist in $R[x]$ eingebettet vermöge $r\mapsto \sum_{i=0}^0rx^i$
         \item $R$ ist ein Integritätsbereich $\Leftrightarrow$ $R[x]$ und $R[[x]]$ sind Integritätsbereiche.
     \end{itemize}
@@ -442,7 +440,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
     Wir sagen auch \emph{$r$ ist $s$ modulo $I$}\index{modulo}.
 \end{definition}
 
-\begin{theorem}[Chinesischer Restsatz, allgmeien]\index{Chinesischer Restsatz!allgemein}
+\begin{theorem}[Chinesischer Restsatz, allgemein]\index{Chinesischer Restsatz!allgemein}
     Seien $R$ ein kommutativer Ring mit 1 und $I_1,\ldots,I_n\vartriangleleft R$ mit $\forall i\neq j\Rightarrow I_i+I_j=R$.
     
     Dann wird $I:=\bigcap_{i=1}^nI_i$ definiert und es gilt:

@@ -150,6 +150,8 @@
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\ran}{ran}
 \DeclareMathOperator{\chara}{char}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\ggT}{ggT}
 
 %% OTHER COMMANDS %%
 
