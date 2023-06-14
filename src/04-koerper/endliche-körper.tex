@@ -13,16 +13,17 @@
         \item Betrachte
         $$ f(x) = x(x^{p^n - 1} - 1), $$
         so ist
-        $$ f'(x) = p^n x^{p^n - 1} - 1 = 1, $$
-        also folgt $\ggT(f, f') = 1$, womit die Nullstellen von $f$ paarweise verschieden sind. Wähle
+        $$ f'(x) = p^n x^{p^n - 1} - 1 = -1, $$
+        also folgt $\ggT(f, f') = 1$, womit die Nullstellen von $f$ nach \cref*{lemma:mehrfache_nullstellen} paarweise verschieden sind. Wähle
         $$ N := \{ \alpha \in Z_{\{f\}}(\mathbb{Z}_p) \mid f(\alpha) = 0 \}, $$
-        so gilt gerade $\vert N \vert = p^n = \deg f$. Wir behaupten, dass $N$ ein Körper ist.
-        Klarerweise sind $0, 1 \in N$. Sind $\alpha, \beta \in N$, so ist $\alpha^{p^n} = \alpha, \beta^{p^n} = \beta$, also ist $(\alpha + \beta)^{p^n} = \alpha^{p^n} \in \beta^{p^n} = \alpha + \beta$. Damit ist $\alpha + \beta \in N$. Entsprechend verifiziert man $-, \cdot, {}^{-1}$.
+        so gilt gerade $\vert N \vert = p^n = \deg f$. Wir behaupten, dass $N$ ein Körper ist. Klarerweise sind $0, 1 \in N$. Sind $\alpha, \beta \in N$, so ist $\alpha^{p^n} = \alpha, \beta^{p^n} = \beta$, also ist $(\alpha + \beta)^{p^n} = \alpha^{p^n} \in \beta^{p^n} = \alpha + \beta$. Damit ist $\alpha + \beta \in N$. 
+        Ist $\alpha\in N$, so gilt $(-\alpha)^{p^n}=(-1)^{p^n}(\alpha)^{p^n}=(-1)^{p^n}\alpha$. Falls $p=2$ ist, so gilt $-1=1$ und daher folgt $-\alpha\in N$. Andernfalls ist $p^n$ ungerade und daher folgt ebenfalls $-\alpha\in N$.
+        Entsprechend verifiziert man $\cdot$ und ${}^{-1}$.
     \end{enumerate}
 \end{proof}
 
 \begin{remark}
-    Für diesen eindeutigen Körper in dem obigen Satz schreiben wir auf $\mathrm{GF}(p^n)$. Tatächlich gilt der Satz von Wedderburn -- jeder endliche Schiefkörper ist ein Körper, also $\mathrm{GF}(p^n)$.
+    Für diesen eindeutigen Körper im obigen Satz schreiben wir auch $\mathrm{GF}(p^n)$. Tatächlich gilt der Satz von Wedderburn -- jeder endliche Schiefkörper ist ein Körper, also $\mathrm{GF}(p^n)$ für ein $p\in\mathbb{P}$ und $n\in\mathbb{n}$.
 \end{remark}
 
 \begin{lemma}
@@ -36,7 +37,7 @@
 
 \begin{proof}{\ }
     \begin{enumerate}
-        \item $(x^n - 1) = (x^k - 1)(x^{n-k} + x^{n - 2k} + \hdots + x^k + 1)$
+        \item Es gilt $(x^n - 1) = (x^k - 1)(x^{n-k} + x^{n - 2k} + \hdots + x^k + 1)$, da man durch ausmultiplizieren eine Teleskopsumme erhält. 
         \item Folgt aus (1) mit dem Einsetzungshomomorphismus.
         \item Folgt direkt aus (1) und (2).
     \end{enumerate}
@@ -59,7 +60,7 @@
 
     ``$\impliedby$'': Es gilt $g := x^{p^k - 1} - 1 \mid x^{p^n - 1} - 1 =: f$.
     Damit folgt
-    $$ \mathbb{Z}_p \leq \mathrm{GF}(p^k) = Z_{\{q\}}(\mathbb{Z}_p) \leq Z_{\{f\}}(\mathbb{Z}_p) = \mathrm{GF}(p^n). $$
+    $$ \mathbb{Z}_p \leq \mathrm{GF}(p^k) = Z_{\{g\}}(\mathbb{Z}_p) \leq Z_{\{f\}}(\mathbb{Z}_p) = \mathrm{GF}(p^n). $$
 \end{proof}
 
 \begin{lemma}
@@ -82,7 +83,7 @@
             \item Es gilt $[Z_{\{f\}}(\mathbb{Z}_p) : \mathbb{Z}_p] = n$ und damit $Z_{\{f\}}(\mathbb{Z}_p) = \mathrm{GF}(p^n)$.
             \item Sei $f(\alpha) = 0$. Da $f$ irreduzibel ist folgt $f = \mu_\alpha$. Dann bilden $\alpha^0, \alpha^, \hdots, \alpha^{n-1}$ eine Basis von $\mathrm{GF}(p^n)$ über $\mathbb{Z}_p$, also folgt bereits $\mathbb{Z}_p(\alpha) = \mathrm{GF}(p^n)$.
             \item Sei $\alpha \in \mathrm{GF}(p^n), f(\alpha) = 0$, so gilt $f = \mu_\alpha$ und $\alpha^{p^n} - \alpha = 0$, also gilt $f \mid x^{p^n} - x$.
-            \item Aus (c) erhalten wir $f \mid x^{p^n} - x$, wobei $x^{p^n} - x$ nur einfache Nullstellen hat.
+            \item Aus (c) erhalten wir $f \mid x^{p^n} - x$, wobei $x^{p^n} - x$ nur einfache Nullstellen hat, also hat auch $f$ nur einfache Nullstellen.
         \end{enumerate}
         \item ``$\implies$'': Es gilt $\mathbb{Z}_p \leq Z_{\{g\}}(\mathbb{Z}_p) \leq \mathrm{GF}(p^n)$. Nach (1a) gilt $Z_{\{g\}}(\mathbb{Z}_p) = \mathrm{GF}(p^k)$, womit $k \mid n$ folgt.
         

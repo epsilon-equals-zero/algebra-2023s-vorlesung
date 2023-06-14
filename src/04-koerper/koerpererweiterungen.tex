@@ -449,7 +449,7 @@ Es stellt sich die Frage, wann ein irreduzibles $f \in K[x]$ in $\overline{K}$ m
     Die allgemein bekannten Rechenregeln für Ableitungen (wie zum Beispiel Linearität oder Produktregel) gelten auch für die formale Ableitung.
 \end{remark}
 
-\begin{lemma}
+\begin{lemma}\label{lemma:mehrfache_nullstellen}
     Seien $K$ ein Körper, $f \in K[x]$ und $\alpha \in \overline{K}$. Es sind folgende Aussagen äquivalent:
     \begin{enumerate}
         \item $\alpha$ ist mehrfache Nullstelle von $f$.
@@ -482,17 +482,17 @@ Es stellt sich die Frage, wann ein irreduzibles $f \in K[x]$ in $\overline{K}$ m
 \end{theorem}
 
 \begin{proof}
-    Sei $L = K(u_1, \hdots, u_r)$ und $r$ entsprechend minimal. Wir zeigen die Aussage mittels Induktion nach $r$. Ist $r = 1$ so ist die Aussage trivial. Sonst ist $L = K(u_1, \hdots, u_{r+1}) = K(u_1, \hdots, u_r)(u_{r+1}) = K(\alpha)(u_{r+1})$. Nennen wir $\beta := u_{r+1}$. Wir müssen also nur die Existenz eines $\delta \in L$ zeigen mit $K(\delta) = K(\alpha, \beta)$. Betrachte
-    $$ \mu_\alpha = (x - \alpha_1) \hdots (x - \alpha_s) $$
-    in $\overline{K}$, entsprechend
-    $$ \mu_\beta = (x - \beta_1) \hdots (x - \beta_t). $$
-    \obda sei $\alpha = \alpha_1, \beta = \beta_1$. Wegen $\chara K = 0$ sind alle obigen Nullstellen paarweise verschieden in den jeweiligen Polynomen. Betrachten wir nun Gleichungen der Form
+    Sei $L = K(u_1, \hdots, u_r)$ und $r$ entsprechend minimal. Wir zeigen die Aussage mittels Induktion nach $r$. Ist $r = 1$ so ist die Aussage trivial. Sonst ist $L = K(u_1, \hdots, u_{r+1}) = K(u_1, \hdots, u_r)(u_{r+1}) = K(\alpha)(u_{r+1})$. Nennen wir $\beta := u_{r+1}$. Wir müssen also nur die Existenz eines $\delta \in L$ zeigen mit $K(\delta) = K(\alpha, \beta)$. Betrachte in $\overline{K}[x]$:
+    $$ \mu_\alpha = (x - \alpha_1) \hdots (x - \alpha_s) \quad \mathrm{und}\quad
+     \mu_\beta = (x - \beta_1) \hdots (x - \beta_t), $$ \obda sei $\alpha = \alpha_1, \beta = \beta_1$. Wegen $\chara K = 0$ sind alle obigen Nullstellen paarweise verschieden in den jeweiligen Polynomen. Betrachten wir nun Gleichungen der Form
     $$ \alpha_i + x \beta_j = \alpha + x \beta, $$
-    wobei $i \geq 1, j \geq 2$. Für diese existiert ein $c \in K$ sodass für alle solchen gilt
-    $$ \alpha_i + c \beta_j \neq \alpha + c \beta. $$
+    wobei $i \geq 1, j \geq 2$. Jede dieser Gleichungen besitzt höchstens eine Lösung, da der Körper $K$ wegen $\chara K=0$ unendlich ist, existiert ein $c \in K$ sodass für alle solchen gilt $$ \alpha_i + c \beta_j \neq \alpha + c \beta. $$
     Definiere $\delta := \alpha + c \beta \in K(\alpha, \beta)$. Es bleibt $\alpha, \beta \in K(\delta)$ zu zeigen. Definiere
     $$ f(x) := \mu_\alpha (\delta - cx) \in K(\delta)[x]. $$
-    Dann ist $f(\beta) = \mu_\alpha(\delta - c \beta) = \mu_\alpha(\alpha) = 0$. Für $j \geq 2$ ist $f(\beta_j) = \mu_\alpha(\delta - c \beta_j) \neq 0$. Also gilt $(x - \beta) \mid f, (\mu_\beta)$, sowie für $j \geq 2$ $(x-\beta_j) \nmid f$ (aber $\mid \mu_\beta$). Betrachte $\ggT(f_i, \mu_\beta)$ in $K(\delta)[x]$. Diesen können wir nun als Produkt von Linearfaktoren mit Nullstellen in $\mu_\beta$ schreiben. Wegen $f(\beta_j) \neq 0$ für $j \geq 2$ kommt höchstens $x-\beta$ vor. Tatsächlich ist der $\ggT$ gerade $x-\beta$, wäre er nämlich 1, so würde Einsetzen von $\beta$ den Widerspruch $1 = 0$ ergeben. Damit ist $x - \beta$ eine Linearkombination von $f, \mu_\beta$, womit $(x - \beta) \in K(\delta)[x]$ folgt und damit $\beta \in K(\delta)$, womit auch $\alpha \in K(\delta)$ folgt und damit die Behauptung.
+    Dann ist $f(\beta) = \mu_\alpha(\delta - c \beta) = \mu_\alpha(\alpha) = 0$. Für $j \geq 2$ ist $f(\beta_j) = \mu_\alpha(\delta - c \beta_j) \neq 0$. Also gilt $(x - \beta) \mid f, (\mu_\beta)$, sowie für $j \geq 2$ $(x-\beta_j) \nmid f$ (aber $\mid \mu_\beta$), es folgt $\ggT(f,\mu_\beta)=(x-\beta)$ in $\overline{K}[x]$. Betrachte $\ggT(f, \mu_\beta)$ in $K(\delta)[x]$. Wegen $K(\delta)[x]\leq\overline{K}[x]$ ist jeder ggT von $f$ und $\mu_\beta$ in $K(\delta)[x]$ ein Teiler von $(x-\beta)$.
+    
+    Sei $d$ ein ggT von $f,\mu_\beta$ in $K(\delta)[x]$. Nach dem Lemma von Bezout existieren $p,q\in K(\delta)[x]$ mit $d=pf+q\mu_\beta$. Da der Polynomring $K(\delta)[x]$ die Voraussetzungen von \cref*{lemma:minimaliaet_ggt_als_linearkombination} erfüllt, hat $d$ minimalen Grad in $(\{f,\mu_\beta\})\triangleleft K(\delta)[x]$.
+    Sei $\overline{d}$ ein ggT von $f,\mu_\beta$ in $\overline{K}[x]$. Die Analoge Argumentation liefert, dass $x-\beta$ minimalen Grad im von $f$ und $\mu_\beta$ erzeugten Ideal in $\overline{K}[x]$ haben muss. Da dieses Ideal klarerweise größer ist, folgt $\deg(x-\beta)\leq \deg(d)$ und wegen $d\mid x-\beta$ schließlich $d\sim (x-\beta)$. Wegen $-\beta=\ggT(f,\mu_\beta)(0)$ und $\alpha = \delta -c\beta$ gilt schließlich $\alpha,\beta\in K(\delta)$ und damit die Behauptung.
 \end{proof}
 
 \begin{remark}
