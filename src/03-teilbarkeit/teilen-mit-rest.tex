@@ -86,6 +86,31 @@
     von $p'\sim p''$ und $q'\sim q''$ ebenfalls mithilfe der Primfaktorenzerlegung in $R$.
 \end{proof}
 
+\begin{remark}
+    Die folgenden beiden Lemmata waren nicht Teil der Vorlesung und wurden nachträglich ergänzt. Sie dienen als Hilfestellung für den Beweis von \cref*{theorem:primitives_element} (Satz vom primitiven Element).
+\end{remark}
+
+\begin{lemma}
+    Sei $R$ ein euklidischer Ring. Dann existiert eine euklidische Bewertung $H':R\setminus\{0\}\to \mathbb{N}$ mit $\forall a,b\in R\setminus\{0\}:H'(ab)\geq H'(a)$.
+\end{lemma}
+
+\begin{proof}
+    Sei $H$ eine euklidische Bewertung auf $R$ und definiere $H'(a):=\min_{x\in R\setminus\{0\}}H(ax)$ für $a\in R\setminus\{0\}$. Seien nun $a,b\in R, b\neq 0$ beliebig. Dann existieren $q,r\in R$ mit $b=aq+r$ und $r=0$ oder $H(r)<H(a)$. Nun gilt nach Definition $H'(a)=H(ax)$ für ein $x\in R\setminus\{0\}$.Wieder existieren $q',r'$ mit $b=(ax)q'+r'$ und $r'=0$ oder $H(r')<H(ax)$. Insgesamt folgt also $b=a(xq')+r'$ mit $r'=0$ oder $H'(r')\leq H(r')< H(ax) = H'(a)$, also ist $H'$ eine euklidische Bewertung. Die Ungleichung $H'(a)\le H'(ab)$ gilt offensichtlich, da wegen $bR\setminus\{0\}\subseteq R\setminus\{0\}$ das Minimum auf der rechten Seite über eine kleinere Menge gebildet wird.
+\end{proof}
+
+\begin{lemma}\label{lemma:minimaliaet_ggt_als_linearkombination}
+    Sei $R$ ein euklidischer Ring, $x,y\in R$, $(\{x,y\})=:I$ und $d\in I\setminus\{0\}$. Sei weiters $H$ eine euklidische Bewertung mit $H(ab)\geq H(a)$ für alle $a,b\in R\setminus\{0\}$. Dann gilt: $d$ ist genau dann ein ggT von $x$ und $y$, wenn $H(d)=\min\{H(z):z\in I\setminus\{0\}\}$ gilt.
+\end{lemma}
+
+\begin{proof}
+    Sei $d$ ein ggT von $x,y$ und sei $z\in I\setminus\{0\}$ beliebig. Da $d$ jede Linearkombination von $x$ und $y$ teilt, gilt $d\mid z$, das heißt es existiert ein $c$ mit $z=cd$. Laut Voraussetzung gilt nun $H'(z)=H'(cd)\geq H'(d)$. Da $d\in I\setminus\{0\}$ nach dem Lemma von Bezout erfüllt ist, folgt
+    dass bei $H$ bei $d$ auf $I\setminus\{0\}$ das Minimum annimmt.
+
+    Sei nun $d\in I\setminus\{0\}$ ein Element mit $H(d)=\min\{H(I\setminus\{0\})\}$. Es ist zu zeigen, dass $d$ ein Teiler von einem beliebigen ggT ist, da diese dann assoziert sind, also auch $d$ ein ggT ist. Sei daher $d'$ ein ggT von $x,y$. Aufgrund von \cref{remark:darstellung_ideal} existieren $a,b\in R$ mit $d=ax+by$. Nach dem Lemma von Bezout existieren $a',b'\in R$ mit $d'=a'x+b'y$. Die Division mit Rest von $d'$ durch $d$ liefert die Existenz von $q,r\in R$ mit $d'=qd+r$ und $r=0$ oder $H(r)<H(d)$. Im Fall $r=0$ sind wir fertig, daher zeigen wir dass der andere Fall nicht eintreten kann. Es gilt
+    $r=d'-qd=(a'x+b'y)-q(ax+by)=(a'-qa)x+(b'-qb)y\in I$ und wegen der Minimalität von $H(d)$ muss $r=0$
+    gelten.
+\end{proof}
+
 \notedate{24.05.2023}
 
 \section{Der Satz von Gauß}

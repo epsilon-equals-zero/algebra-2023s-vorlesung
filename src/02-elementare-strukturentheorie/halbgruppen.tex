@@ -66,7 +66,7 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
 \end{remark}
 
 \begin{theorem}[Darstellungssatz von Cayley für Monoide]\label{theorem:darstellungssatz-cayley-monoid}\index{Satz!von Cayley (Monoide)}
-    Sei $\mathfrak{M} = (M, \cdot, e)$ ein Monoid, so existiert ein injektiver Homomorphismus $\varphi: \mathfrak{M} \to (M^M, \circ, \id_M)$\footnote{Wie man leicht nachrechnet ist $(M^M,\circ,M)$ für jede beliebige nicht leere Menge $M$ ein Monoid.}.
+    Sei $\mathfrak{M} = (M, \cdot, e)$ ein Monoid, so existiert ein injektiver Homomorphismus $\varphi: \mathfrak{M} \to (M^M, \circ, \id_M)$\footnote{Wie man leicht nachrechnet ist $(M^M,\circ,\mathrm{id}_M)$ für jede beliebige nicht leere Menge $M$ ein Monoid.}.
 \end{theorem}
 \begin{proof}
     Wähle für $a \in M$ die Funktion $f_a: M \to M, b \mapsto a \cdot b$ und sei $\varphi: M \to M^M, a \mapsto f_a$. Zeigen wir nun, dass $\varphi$ ein injektiver Homomorphismus von $\mathfrak{M}$ nach $(M^M, \circ, \id_M)$ ist. Seien $a_1, a_2 \in M$, so gilt $$\varphi(a_1 \cdot a_2) = f_{a_1 \cdot a_2} = (M \to M, b \mapsto a_1 \cdot a_2 \cdot b) = f_{a_1} \circ f_{a_2} = \varphi(a_1) \circ \varphi(a_2)$$
@@ -203,12 +203,12 @@ Zu Beginn wollen wir auf die \cref{def:halbgruppe,def:monoid,def:gruppe} hinweis
     \begin{enumerate}
         \item Prüfen wir zunächst, dass $\sim$ eine Äquivalenzrelation ist.
         \begin{enumerate}
-            \item reflexiv: Es gilt $(a, b) \sim (a, b)$, da $a b = a b$.
+            \item reflexiv: Es gilt $(a, b) \sim (a, b)$, da $a b = b a$.
             \item symmterisch: Es gilt
-            $$ (a, b) \sim (c, d) \Leftrightarrow a d = b c \Leftrightarrow b c = a d \Leftrightarrow (c, d) \sim (a, b). $$
+            $$ (a, b) \sim (c, d) \Leftrightarrow a d = b c \Leftrightarrow c b = d a \Leftrightarrow (c, d) \sim (a, b). $$
             \item transitiv: Seien $(a, b) \sim (c, d) \sim (u, v)$, dann ist $ad = bc$ und $cv = du$. Dann folgt
             $$ (av)(cd) = addu = bcdu = (bu)(cd) $$
-            und damit $av = bu$ und $(a, b) \sim (a, v)$ aus der Kürzbarkeit.
+            und damit $av = bu$ und $(a, b) \sim (u, v)$ aus der Kürzbarkeit.
         \end{enumerate}
         Seien $(a_1, b_1) \sim (c_1, d_1), (a_2, b_2) \sim (c_2, d_2)$, also $a_1 d_1 = c_1 b_1$ und $a_2 d_2 = c_2 b_2$ und damit $a_1 a_2 d_1 d_2 = c_1 c_2 b_1 b_2$, also $(a_1 a_2, b_1 b_2) \sim (c_1 c_2, d_1 d_2)$, womit $\sim$ auch eine Kongruenzrelation ist.
 
