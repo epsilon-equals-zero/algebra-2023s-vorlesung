@@ -132,7 +132,7 @@
 \end{remark}
 
 \begin{theorem}[Indexsatz]\index{Indexsatz}
-    Sei $G$ eine Gruppe und seien $U \le V \le G$ Untergruppen, dann ist $$[G:V] = [G:U] \cdot [U:V].$$ 
+    Sei $G$ eine Gruppe und seien $V \le U \le G$ Untergruppen, dann ist $$[G:V] = [G:U] \cdot [U:V].$$ 
 \end{theorem}
 \begin{proof}
     Wurde in der Übung bewiesen.
@@ -457,7 +457,7 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
 \end{theorem}
 \begin{proof}
     Definieren wir die Abbildungen $$f_g: G \to G, h \mapsto gh \quad\text{und}\quad \varphi: G \to G^G, g \mapsto f_g.$$
-    Im Beweis von \cref{theorem:darstellungssatz-cayley-monoid} wurde bereits gezeigt, dass $\varphi$ ein Monoid-Homomorphismus bezüglich $\cdot / \circ$ ist. Sei nun $g \in G$ beliebig, dann gilt $$ \id_G = f_e = \varphi(e) = \varphi(g g^{-1}) = \varphi(g) \circ \varphi(g^{-1}) = f_g \circ f_{g^{-1}}$$
+    Im Beweis von \cref{theorem:darstellungssatz-cayley-monoid} wurde bereits gezeigt, dass $\varphi$ ein injektiver Monoid-Homomorphismus bezüglich $\cdot / \circ$ ist. Sei nun $g \in G$ beliebig, dann gilt $$ \id_G = f_e = \varphi(e) = \varphi(g g^{-1}) = \varphi(g) \circ \varphi(g^{-1}) = f_g \circ f_{g^{-1}}$$
     und analog $f_{g^{-1}} \circ f_g = \id_G$, also sind diese invers zueinander und somit Bijektionen. Wir erhalten daraus nun, dass $\varphi(g)^{-1} = \varphi(g^{-1})$ gilt, also $\varphi$ ein Gruppenhomomorphismus ist und, dass $\varphi(G) \le S_G$.
 \end{proof}
 
@@ -499,7 +499,7 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
         \item Wir beweisen mittels vollständiger Induktion, dass es $n!$ Bijektionen zwischen zwei $n$-elementigen Mengen $X_n = \{x_1, \ldots, x_n\}, Y_n = \{y_1, \ldots, y_n\}$ gibt.
         
         Induktionsanfang ($n = 1$): Es gibt genau eine (bijektive) Abbildung $f: \{x_1\} \to \{y_1\}$.\\
-        Induktionsschritt ($n \to n+1$): Für $i \in \{1, \ldots, n+1\}$ gibt es wegen der Induktionsvoraussetzung genau $n!$ Bijektionen von $X_n$ nach $\{y_1, \ldots, y_{i-1}, y_{i+1}, \ldots, y_{n+1}\}$ gibt, also gibt es $n!$ Bijektionen zwischen $X_{n+1}$ und $Y_{n+1}$ mit $f(x_{n+1}) = y_i$. Da nun $i$ aus $n+1$ Zahlen gewählt werden kann, gibt es $(n+1)n! = (n+1)!$ Bijektionen zwischen $X_{n+1}$ und $Y_{n+1}$.
+        Induktionsschritt ($n \to n+1$): Für $i \in \{1, \ldots, n+1\}$ gibt es wegen der Induktionsvoraussetzung genau $n!$ Bijektionen von $X_n$ nach $\{y_1, \ldots, y_{i-1}, y_{i+1}, \ldots, y_{n+1}\}$, also gibt es $n!$ Bijektionen zwischen $X_{n+1}$ und $Y_{n+1}$ mit $f(x_{n+1}) = y_i$. Da nun $i$ aus $n+1$ Zahlen gewählt werden kann, gibt es $(n+1)n! = (n+1)!$ Bijektionen zwischen $X_{n+1}$ und $Y_{n+1}$.
 
         Mit $X_n = Y_n = \{1, \ldots, n\}$ folgt die Behauptung.
 
@@ -580,7 +580,7 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
         $$ a_1^{r \cdot m_2} = a_1^{r \cdot m_2} \cdot a_2^{r \cdot m_2} = (a_1 \cdot a_2)^{r \cdot m_2} = e $$
         und wir schließen $m_1 \mid r \cdot m_2$. Da $m_1, m_2$ teilerfremd sind folgt damit $m_1 \mid r$. Analog erhalten wir $m_2 \mid r$ und damit $m_1 \cdot m_2 \mid r$. Nach \ref*{item:lemma:abelsch-torsion-lemma-1} gilt $r \mid m_1 \cdot m_2$, insgesamt folgt also $r = m_1 \cdot m_2$. Der Induktionsschritt $n \to n+1$ folgt nun sofort mit der Induktionsvoraussetzung und dem Fall $n=2$.
 
-        \item Wir zeigen die Aussage wieder mittels Induktion nach $n$. Der Induktionsanfang $n=1$ ist trivial. Betrachten wir also wieder zunächst $n=2$. Setze $m_i := \ord(a_i)$. Wir können nun $\mathrm{kgV}(m_1, m_2) = r_1 \cdot r_2$ schreiben, wobei $\mathrm{ggT}(r_1, r_2) = 1, r_1 \mid m_1, r_2 \mid m_2$. Betrachte nun $b_i := a_i^{m_i / r_i}$, so ist $\ord(b_i) = r_i$. Da $r_1, r_2$ teilerfremd sind, folgt durch \ref*{item:lemma:abelsch-torsion-lemma-2} $\ord(b_1 \cdot b_2) = \ord(b_1) \ord(b_2) = r_1 \cdot r_2 = \mathrm{kgV}(m_1, m_2)$. Wieder folgt der Induktionsschritt $n \to n+1$ sofort mit der Induktionsvoraussetzung und dem Fall $n=2$. 
+        \item Wir zeigen die Aussage wieder mittels Induktion nach $n$. Der Induktionsanfang $n=1$ ist trivial. Betrachten wir also wieder zunächst $n=2$. Setze $m_i := \ord(a_i)$. Wir können nun $\mathrm{kgV}(m_1, m_2) = r_1 \cdot r_2$ schreiben, wobei $\mathrm{ggT}(r_1, r_2) = 1, r_1 \mid m_1, r_2 \mid m_2$. Betrachte nun $b_i := a_i^{m_i / r_i}$, so ist $\ord(b_i) = r_i$. Da $r_1, r_2$ teilerfremd sind, folgt aus dem zweiten Punkt $\ord(b_1 \cdot b_2) = \ord(b_1) \ord(b_2) = r_1 \cdot r_2 = \mathrm{kgV}(m_1, m_2)$. Wieder folgt der Induktionsschritt $n \to n+1$ sofort mit der Induktionsvoraussetzung und dem Fall $n=2$. 
     \end{enumerate}
 \end{proof}
 
@@ -657,7 +657,7 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
         \item Sei $\langle a \rangle \neq G$ angenommen und $c \in G \setminus \langle a \rangle$ beliebig. Wir wissen, dass $c^{(p^n)} = e \in \langle a \rangle$. Sei $j \geq 1$ minimal mit $c^{(p^j)} \in \langle a \rangle$, also ist
             $c^{(p^j)} = a^\ell$ für ein $\ell\in\mathbb{Z}$. Betrachte $b := c^{(p^{j-1})} \cdot a^{-\ell / p}$. Damit dies wohldefiniert ist müssen wir zunächst $p \mid \ell$ zeigen. Wäre dies nicht so, so wäre $\mathrm{ggT}(\ell, p^n) = 1$, also $\langle a \rangle = \langle a^\ell \rangle \subsetneq \langle c \rangle$, womit $\ord(c) > \ord(a)$ wäre, im Widerspruch dazu, dass $a$ maximale Ordnung hat.
             
-            Nun gilt $b^p = c^{(p^j)} \cdot a^{- \ell} = e$. Da $c^{(p^{j-1})} \neq \langle a \rangle, a^{-\ell / p} \in \langle a \rangle$ folgt also $b \not\in \langle a \rangle$, inbesondere ist $b \neq e$. Damit erhalten wir $\ord(b) = p$ und damit $\langle b \rangle \cong \mathbb{Z}_p$. Sei indirekt angenommen es gäbe ein $x \in (\langle a \rangle \cap \langle b \rangle) \setminus \{e\}$, dann wäre $b \in \langle x \rangle$, damit $b \in \langle a \rangle$, im Widerspruch. Also folgt $\langle a \rangle \cap \langle b \rangle = \{e\}$.
+            Nun gilt $b^p = c^{(p^j)} \cdot a^{- \ell} = e$. Da $c^{(p^{j-1})} \not\int \langle a \rangle, a^{-\ell / p} \in \langle a \rangle$ folgt also $b \not\in \langle a \rangle$, inbesondere ist $b \neq e$. Damit erhalten wir $\ord(b) = p$ und damit $\langle b \rangle \cong \mathbb{Z}_p$. Sei indirekt angenommen es gäbe ein $x \in (\langle a \rangle \cap \langle b \rangle) \setminus \{e\}$, dann wäre $b \in \langle x \rangle$, damit $b \in \langle a \rangle$, im Widerspruch. Also folgt $\langle a \rangle \cap \langle b \rangle = \{e\}$.
 
         \item Sei $U \leq G$ maximal mit $U \cap \langle a \rangle = \{e\}$, vermöge Lemma von Zorn angewandt auf $(\{ U \leq G \mid U \cap \langle a \rangle = \{e\} \}, \subseteq)$.
         

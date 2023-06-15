@@ -5,7 +5,7 @@
 
 Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 
-\begin{example} Ringe sind unter anderen
+\begin{example} Ringe sind unter anderem
     \begin{itemize}
         \item der kommutative Ring mit 1 der ganzen Zahlen $(\mathbb{Z}, +, 0, -, \cdot, 1)$,
         \item der kommutative Ring mit 1 der reellen Polynomfunktionen $(P, +, 0, - \cdot, 1)$, wobei $P \subseteq \mathbb{R}^\mathbb{R}$ die Menge aller Polynomfunktionen ist, $+, \cdot$ punktweise Operationen sind und $0, 1$ konstante Polynome mit entsprechendem Wert,
@@ -42,7 +42,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \begin{example}
     Es ist $m \mathbb{Z} \subseteq (\mathbb{Z}, +, 0, -, \cdot, 1)$ ein Ideal. Sei $P$ der Ring der reellen Polynomfunktionen. Dann ist $(x^2 + 1) \cdot P \vartriangleleft P$. Dies ist ein allgemeines Prinzip, wie wir später noch sehen werden.
 
-    Sei $M$ eine Menge und betrachte den Ring $(\mathcal{P}(M), \triangle, \emptyset, \id_{\mathcal{P}(M)}, \cap, M)$. Sei $A \subseteq M$ beliebig, so ist $\mathcal{P}(A) \vartriangleleft \mathcal{P}(M)$. Weiters kann $(\mathcal{P}(A), \triangle, \emptyset, \id_{\mathcal{P}(A)}, \cap, A)$ zu einem Ring mit 1 gemacht werden. Es handelt sich dabei um keinen Widerspruch zu \cref{remark:ideal-mit-1-trivial}, da hier ein anders Einselement gefunden wird als im ursprünglichen Ring.
+    Sei $M$ eine Menge und betrachte den Ring $(\mathcal{P}(M), \triangle, \emptyset, \id_{\mathcal{P}(M)}, \cap, M)$. Sei $A \subseteq M$ beliebig, so ist $\mathcal{P}(A) \vartriangleleft \mathcal{P}(M)$. Weiters kann $(\mathcal{P}(A), \triangle, \emptyset, \id_{\mathcal{P}(A)}, \cap, A)$ zu einem Ring mit 1 gemacht werden. Es handelt sich dabei um keinen Widerspruch zu \cref{remark:ideal-mit-1-trivial}, da hier ein anderes Einselement gefunden wird als im ursprünglichen Ring.
 \end{example}
 
 \begin{remark}\label{remark:ideal-congrel}
@@ -82,7 +82,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
     Man beachte dass $(A)$ und $(a)$ tatsächlich Ideale sind, da Ideale unter Schnitten abgeschlossen sind.
 \end{remark}
 
-\begin{remark}
+\begin{remark}\label{remark:darstellung_ideal}
     Wir bemerken, dass gilt
     $$ (A) = \left\{ \sum_i r_i a_i s_i + \sum_j r_j' a_j' + \sum_k a_k'' s_k'' + \sum_\ell a_\ell''' \mid a_i, a_j', a_k'' \in A, a_\ell''' \in A \cup (-A), r_i, r_j', s_i, s_k'' \in R \right\}. $$
 
@@ -257,7 +257,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
     eine homomorphe Einbettung von $R$ in $M$.
 
     Für jedes multiplikative Monoid $N$ mit einer Einbettung $\psi : R \to N$ und der Eigenschaft
-    $$\forall x\in R^\times\exists y\in N:y\varphi(x)=\varphi(x)y=1$$
+    $$\forall x\in R^\times\exists y\in N:y\psi(x)=\psi(x)y=1$$
     gibt es eine Einbettung $\bar{\psi} : M \to N$ mit $\bar{\psi} \circ \varphi = \psi$.
 
     Auf $M$ definieren wir nun eine Addition
@@ -317,9 +317,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 
 \begin{proof}
     Gegeben sind also $\varphi:R\to K$ und $\varphi_0:R\to L$ jeweils mit Eigenschaft (3).
-    Daher existieren $\bar{\varphi}:L\to K$ mit $\bar{\varphi}\circ \varphi_0=\varphi$ und ${\varphi_0}:K\to L$
-    mit $\bar{\varphi_0}\circ \varphi=\varphi_0$.
-    Wir zeigen zuerst die folgenden Behauptung. Für jeden injektiven Homomorphismus
+    Daher existieren $\bar{\varphi}:L\to K$ mit $\bar{\varphi}\circ \varphi_0=\varphi$ und $\bar{\varphi_0}:K\to L$ mit $\bar{\varphi_0}\circ \varphi=\varphi_0$. Wir zeigen zuerst die folgenden Behauptung. Für jeden injektiven Homomorphismus
     $\xi:K\to K$ mit $\xi|_{\varphi(R)}=\id_R$ folgt $\xi=\id$. Dies folgt aus der folgenden Rechnung:
     $$
         \xi([(a,b)]_\sim)=\xi([(a,1)]_\sim)\xi([1,b]_\sim)=[(a,1)]_\sim\cdot [(b,1)]_\sim^{-1}=[(a,b)]_\sim.
@@ -435,7 +433,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 
 
 \begin{definition}
-    Sei $R$ eine Ring und $I\vartriangleleft R$. Dann definieren wir für $r,s\in R$:
+    Sei $R$ ein Ring und $I\vartriangleleft R$. Dann definieren wir für $r,s\in R$:
     $$r\equiv s\mod I:\Leftrightarrow r-s\in I.$$
     Wir sagen auch \emph{$r$ ist $s$ modulo $I$}\index{modulo}.
 \end{definition}
@@ -461,7 +459,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
     $R=R\cdot R$. Nun kann die Induktionsannahme auf den ersten Faktor und die Voraussetzung des Satzes auf den zweiten Faktor angewendet werden,
     woraus man $R\cdot R=(I_1+(I_2\cap\ldots\cap I_i))\cdot(I_1+I_{i+1})$ erhält. Das ist offensichtlich eine Teilmenge
     von $I_1+(I_2\cap\ldots\cap I_i)\cdot I_{i+1}$. Der zweite Summand ist eine Teilmenge von $I_{i+1}$, da
-    $I_{i+1}$ ein (Links-)Ideal ist. Gleichzeitig ist er eine Teilmenge von $I_2\cap\ldots \cap _i$, da diese Menge ein (Rechts-)Ideal ist.
+    $I_{i+1}$ ein (Links-)Ideal ist. Gleichzeitig ist er eine Teilmenge von $I_2\cap\ldots \cap I_i$, da diese Menge ein (Rechts-)Ideal ist.
     Damit folgt, dass $R=R\cdot R$ schon in $I_1+(I_2\cap\ldots \cap I_{i+1})$ enthalten sein muss, also die Gleichheit.
 
     Analog gilt mit der Definition $I_i':=\bigcap_{j\neq i}I_j$, dass für alle $i\in\{1,\ldots,n\}$

@@ -1,0 +1,92 @@
+\section{Endliche Körper}
+
+\begin{theorem}{\ }
+    \begin{enumerate}
+        \item Sei $K$ ein endlicher Körper mit $\chara K = p \in \mathbb{P}$, so gibt es ein $n \geq 1$ mit $\vert K \vert = p^n$.
+        \item Für alle $p \in \mathbb{P}$ und $n \geq 1$ gibt es einen eindeutigen Körper $K$ mit $\chara K = p$ und $\vert K \vert = p^n$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}{\ }
+    \begin{enumerate}
+        \item Sei $K \geq \mathbb{Z}_p$ und wähle $n := [K : \mathbb{Z}_p]$, so gilt klarerweise $\vert K \vert = p^n$.
+        \item Betrachte
+        $$ f(x) = x(x^{p^n - 1} - 1), $$
+        so ist
+        $$ f'(x) = p^n x^{p^n - 1} - 1 = -1, $$
+        also folgt $\ggT(f, f') = 1$, womit die Nullstellen von $f$ nach \cref*{lemma:mehrfache_nullstellen} paarweise verschieden sind. Wähle
+        $$ N := \{ \alpha \in Z_{\{f\}}(\mathbb{Z}_p) \mid f(\alpha) = 0 \}, $$
+        so gilt gerade $\vert N \vert = p^n = \deg f$. Wir behaupten, dass $N$ ein Körper ist. Klarerweise sind $0, 1 \in N$. Sind $\alpha, \beta \in N$, so ist $\alpha^{p^n} = \alpha, \beta^{p^n} = \beta$, also ist $(\alpha + \beta)^{p^n} = \alpha^{p^n} \in \beta^{p^n} = \alpha + \beta$. Damit ist $\alpha + \beta \in N$. 
+        Ist $\alpha\in N$, so gilt $(-\alpha)^{p^n}=(-1)^{p^n}(\alpha)^{p^n}=(-1)^{p^n}\alpha$. Falls $p=2$ ist, so gilt $-1=1$ und daher folgt $-\alpha\in N$. Andernfalls ist $p^n$ ungerade und daher folgt ebenfalls $-\alpha\in N$.
+        Entsprechend verifiziert man $\cdot$ und ${}^{-1}$.
+    \end{enumerate}
+\end{proof}
+
+\begin{remark}
+    Für diesen eindeutigen Körper im obigen Satz schreiben wir auch $\mathrm{GF}(p^n)$. Tatächlich gilt der Satz von Wedderburn -- jeder endliche Schiefkörper ist ein Körper, also $\mathrm{GF}(p^n)$ für ein $p\in\mathbb{P}$ und $n\in\mathbb{n}$.
+\end{remark}
+
+\begin{lemma}
+    Seien $k, n \geq 1, k \mid n$ und $p \in \mathbb{P}$. Dann gilt:
+    \begin{enumerate}
+        \item $(x^k - 1) \mid (x^n - 1)$
+        \item $(p^k - 1) \mid (p^n - 1)$
+        \item $(x^{p^k - 1} - 1) \mid (x^{p^n - 1} - 1)$
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}{\ }
+    \begin{enumerate}
+        \item Es gilt $(x^n - 1) = (x^k - 1)(x^{n-k} + x^{n - 2k} + \hdots + x^k + 1)$, da man durch ausmultiplizieren eine Teleskopsumme erhält. 
+        \item Folgt aus (1) mit dem Einsetzungshomomorphismus.
+        \item Folgt direkt aus (1) und (2).
+    \end{enumerate}
+\end{proof}
+
+\begin{lemma}
+    Seien $K_1, K_2 \leq L, \vert K_1 \vert = \vert K_2 \vert$. Dann gilt sogar $K_1 = K_2$.
+\end{lemma}
+
+\begin{proof}
+    Wähle $p^n := \vert K_1 \vert = \vert K_2 \vert$ mit $p \in \mathbb{P}, n \geq 1$, so ist $\mathbb{Z}_p \leq K_1, K_2$. Nun ist $K_1$ der Zerfällungskörper von $x^{p^n} - x$, ebenso $K_2$. Nun gilt für alle $\alpha \in K_{1,2}$, dass $\alpha$ eine Nullstelle des besagten Polynoms ist, womit bereits $K_1 = K_2$ folgt.
+\end{proof}
+
+\begin{proposition}
+    Seien $k, n \geq 1$ und $p \in \mathbb{P}$. Dann existiert ein $K \leq \mathrm{GF}(p^n), \vert K \vert = p^k$ genau dann wenn $k \mid n$.
+\end{proposition}
+
+\begin{proof}{\ } \\
+    ``$\implies$'': Es gilt $n = [\mathrm{GF}(p^n) : \mathbb{Z}_p] = [\mathrm{GF}(p^n) : K] \cdot [K : \mathbb{Z}_p] = [\mathrm{GF}(p^n) : K] \cdot k$.
+
+    ``$\impliedby$'': Es gilt $g := x^{p^k - 1} - 1 \mid x^{p^n - 1} - 1 =: f$.
+    Damit folgt
+    $$ \mathbb{Z}_p \leq \mathrm{GF}(p^k) = Z_{\{g\}}(\mathbb{Z}_p) \leq Z_{\{f\}}(\mathbb{Z}_p) = \mathrm{GF}(p^n). $$
+\end{proof}
+
+\begin{lemma}
+    Sei $n \geq 1, p \in \mathbb{P}$. Dann gilt:
+    \begin{enumerate}
+        \item Für alle $f \in \mathbb{Z}_p[x]$ irreduzibel, $\deg f = n$, gilt:
+        \begin{enumerate}
+            \item $\mathrm{GF}(p^n) = Z_{\{f\}}(\mathbb{Z}_p)$
+            \item Für alle $\alpha \in \mathrm{GF}(p^n)$ mit $f(\alpha) = 0$ folgt $\mathrm{GF}(p^n) = \mathbb{Z}_p(\alpha)$.
+            \item $f \mid x^{p^n} - x$
+            \item $f$ hat nur einfache Nullstellen.
+        \end{enumerate}
+        \item Ist $g \in \mathbb{Z}_p[x]$ irreduzibel, $\deg g = k$, so gilt $g \mid x^{p^n} - x$ genau dann wenn $k \mid n$. Weiters gilt $g^2 \nmid x^{p^n} - x$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}{\ }
+    \begin{enumerate}
+        \item \begin{enumerate}
+            \item Es gilt $[Z_{\{f\}}(\mathbb{Z}_p) : \mathbb{Z}_p] = n$ und damit $Z_{\{f\}}(\mathbb{Z}_p) = \mathrm{GF}(p^n)$.
+            \item Sei $f(\alpha) = 0$. Da $f$ irreduzibel ist folgt $f = \mu_\alpha$. Dann bilden $\alpha^0, \alpha^, \hdots, \alpha^{n-1}$ eine Basis von $\mathrm{GF}(p^n)$ über $\mathbb{Z}_p$, also folgt bereits $\mathbb{Z}_p(\alpha) = \mathrm{GF}(p^n)$.
+            \item Sei $\alpha \in \mathrm{GF}(p^n), f(\alpha) = 0$, so gilt $f = \mu_\alpha$ und $\alpha^{p^n} - \alpha = 0$, also gilt $f \mid x^{p^n} - x$.
+            \item Aus (c) erhalten wir $f \mid x^{p^n} - x$, wobei $x^{p^n} - x$ nur einfache Nullstellen hat, also hat auch $f$ nur einfache Nullstellen.
+        \end{enumerate}
+        \item ``$\implies$'': Es gilt $\mathbb{Z}_p \leq Z_{\{g\}}(\mathbb{Z}_p) \leq \mathrm{GF}(p^n)$. Nach (1a) gilt $Z_{\{g\}}(\mathbb{Z}_p) = \mathrm{GF}(p^k)$, womit $k \mid n$ folgt.
+        
+        ``$\impliedby$'': Nach (1c) gilt $g \mid x^{p^k} - x \mid x^{p^n} - x$. Weiters gilt $g^2 \nmid x^{p^n} - x$, da $x^{p^n} - x$ nur einfache Nullstellen hat.
+    \end{enumerate}
+\end{proof}
