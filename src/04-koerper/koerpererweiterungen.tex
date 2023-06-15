@@ -477,6 +477,14 @@ Es stellt sich die Frage, wann ein irreduzibles $f \in K[x]$ in $\overline{K}$ m
 
 \notedate{14.06.2023}
 
+\begin{lemma}
+    Seien $K\le K'$ Körper und $s,t\in K[x]$. Dann gilt $\ggT_{K[x]}(s,t)\sim\ggT_{K'[x]}(s,t)$.
+\end{lemma}
+
+\begin{proof}
+    Sei $d$ ein ggT in $K[x]$ und $d'$ ein ggT in $K'[x]$, beide von $(s,t)$. Klarerweise gilt $d\mid d'$ (in $K'[x]$). Nun existieren nach dem Lemma von Bezout $u,v\in K[x]$ mit $d=us+vt$. Wegen $d'\mid s$ und $d'\mid t$ existieren $s',t'\in K[x]$ mit $s=d's'$ und $t=d's'$. Also folgt $d=us+vt=u(d's')+v(d't')=d'(us'+vs')$, daher gilt auch $d'\mid d$ (wieder in $K'[x]$). Also folgt die Behauptung $d\sim d'$.
+\end{proof}
+
 \begin{theorem}[vom primitiven Element]\label{theorem:primitives_element}
     Sei $K \leq L$ eine endlichdimensionale Erweiterung mit $\chara K = 0$, so gibt es ein $\alpha \in L$, sodass $L = K(\alpha)$.
 \end{theorem}
@@ -489,10 +497,7 @@ Es stellt sich die Frage, wann ein irreduzibles $f \in K[x]$ in $\overline{K}$ m
     wobei $i \geq 1, j \geq 2$. Jede dieser Gleichungen besitzt höchstens eine Lösung, da der Körper $K$ wegen $\chara K=0$ unendlich ist, existiert ein $c \in K$ sodass für alle solchen gilt $$ \alpha_i + c \beta_j \neq \alpha + c \beta. $$
     Definiere $\delta := \alpha + c \beta \in K(\alpha, \beta)$. Es bleibt $\alpha, \beta \in K(\delta)$ zu zeigen. Definiere
     $$ f(x) := \mu_\alpha (\delta - cx) \in K(\delta)[x]. $$
-    Dann ist $f(\beta) = \mu_\alpha(\delta - c \beta) = \mu_\alpha(\alpha) = 0$. Für $j \geq 2$ ist $f(\beta_j) = \mu_\alpha(\delta - c \beta_j) \neq 0$. Also gilt $(x - \beta) \mid f, (\mu_\beta)$, sowie für $j \geq 2$ $(x-\beta_j) \nmid f$ (aber $\mid \mu_\beta$), es folgt $\ggT(f,\mu_\beta)=(x-\beta)$ in $\overline{K}[x]$. Betrachte $\ggT(f, \mu_\beta)$ in $K(\delta)[x]$. Wegen $K(\delta)[x]\leq\overline{K}[x]$ ist jeder ggT von $f$ und $\mu_\beta$ in $K(\delta)[x]$ ein Teiler von $(x-\beta)$.
-    
-    Sei $d$ ein ggT von $f,\mu_\beta$ in $K(\delta)[x]$. Nach dem Lemma von Bezout existieren $p,q\in K(\delta)[x]$ mit $d=pf+q\mu_\beta$. Da der Polynomring $K(\delta)[x]$ die Voraussetzungen von \cref*{lemma:minimaliaet_ggt_als_linearkombination} erfüllt, hat $d$ minimalen Grad in $(\{f,\mu_\beta\})\triangleleft K(\delta)[x]$.
-    Sei $\overline{d}$ ein ggT von $f,\mu_\beta$ in $\overline{K}[x]$. Die Analoge Argumentation liefert, dass $x-\beta$ minimalen Grad im von $f$ und $\mu_\beta$ erzeugten Ideal in $\overline{K}[x]$ haben muss. Da dieses Ideal klarerweise größer ist, folgt $\deg(x-\beta)\leq \deg(d)$ und wegen $d\mid x-\beta$ schließlich $d\sim (x-\beta)$. Wegen $-\beta=\ggT(f,\mu_\beta)(0)$ und $\alpha = \delta -c\beta$ gilt schließlich $\alpha,\beta\in K(\delta)$ und damit die Behauptung.
+    Dann ist $f(\beta) = \mu_\alpha(\delta - c \beta) = \mu_\alpha(\alpha) = 0$. Für $j \geq 2$ ist $f(\beta_j) = \mu_\alpha(\delta - c \beta_j) \neq 0$. Also gilt $(x - \beta) \mid f, (\mu_\beta)$, sowie für $j \geq 2$ $(x-\beta_j) \nmid f$ (aber $\mid \mu_\beta$), es folgt $\ggT(f,\mu_\beta)=(x-\beta)$ in $\overline{K}[x]$ und wegen dem letzten Lemma auch in $\overline{K}(\delta)[x]$. Damit muss $x-\beta\in K(\delta)[x]$ gelten, also $\beta\in K(\delta)$ und auch $\alpha=\delta-c\beta\in K(\delta)$.
 \end{proof}
 
 \begin{remark}
