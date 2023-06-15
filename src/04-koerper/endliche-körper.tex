@@ -23,7 +23,7 @@
 \end{proof}
 
 \begin{remark}
-    Für diesen eindeutigen Körper im obigen Satz schreiben wir auch $\mathrm{GF}(p^n)$. Tatächlich gilt der Satz von Wedderburn -- jeder endliche Schiefkörper ist ein Körper, also $\mathrm{GF}(p^n)$ für ein $p\in\mathbb{P}$ und $n\in\mathbb{n}$.
+    Für diesen eindeutigen Körper im obigen Satz schreiben wir auch $\mathrm{GF}(p^n)$. Tatächlich gilt der Satz von Wedderburn -- jeder endliche Schiefkörper ist ein Körper, also $\mathrm{GF}(p^n)$ für ein $p\in\mathbb{P}$ und $n\in\mathbb{N}$.
 \end{remark}
 
 \begin{lemma}
@@ -56,9 +56,9 @@
 \end{proposition}
 
 \begin{proof}{\ } \\
-    ``$\implies$'': Es gilt $n = [\mathrm{GF}(p^n) : \mathbb{Z}_p] = [\mathrm{GF}(p^n) : K] \cdot [K : \mathbb{Z}_p] = [\mathrm{GF}(p^n) : K] \cdot k$.
+    ``$\Rightarrow$'': Es gilt $n = [\mathrm{GF}(p^n) : \mathbb{Z}_p] = [\mathrm{GF}(p^n) : K] \cdot [K : \mathbb{Z}_p] = [\mathrm{GF}(p^n) : K] \cdot k$.
 
-    ``$\impliedby$'': Es gilt $g := x^{p^k - 1} - 1 \mid x^{p^n - 1} - 1 =: f$.
+    ``$\Leftarrow$'': Es gilt $g := x^{p^k - 1} - 1 \mid x^{p^n - 1} - 1 =: f$.
     Damit folgt
     $$ \mathbb{Z}_p \leq \mathrm{GF}(p^k) = Z_{\{g\}}(\mathbb{Z}_p) \leq Z_{\{f\}}(\mathbb{Z}_p) = \mathrm{GF}(p^n). $$
 \end{proof}
@@ -85,8 +85,65 @@
             \item Sei $\alpha \in \mathrm{GF}(p^n), f(\alpha) = 0$, so gilt $f = \mu_\alpha$ und $\alpha^{p^n} - \alpha = 0$, also gilt $f \mid x^{p^n} - x$.
             \item Aus (c) erhalten wir $f \mid x^{p^n} - x$, wobei $x^{p^n} - x$ nur einfache Nullstellen hat, also hat auch $f$ nur einfache Nullstellen.
         \end{enumerate}
-        \item ``$\implies$'': Es gilt $\mathbb{Z}_p \leq Z_{\{g\}}(\mathbb{Z}_p) \leq \mathrm{GF}(p^n)$. Nach (1a) gilt $Z_{\{g\}}(\mathbb{Z}_p) = \mathrm{GF}(p^k)$, womit $k \mid n$ folgt.
+        \item ``$\Rightarrow$'': Es gilt $\mathbb{Z}_p \leq Z_{\{g\}}(\mathbb{Z}_p) \leq \mathrm{GF}(p^n)$. Nach (1a) gilt $Z_{\{g\}}(\mathbb{Z}_p) = \mathrm{GF}(p^k)$, womit $k \mid n$ folgt.
         
-        ``$\impliedby$'': Nach (1c) gilt $g \mid x^{p^k} - x \mid x^{p^n} - x$. Weiters gilt $g^2 \nmid x^{p^n} - x$, da $x^{p^n} - x$ nur einfache Nullstellen hat.
+        ``$\Leftarrow$'': Nach (1c) gilt $g \mid x^{p^k} - x \mid x^{p^n} - x$. Weiters gilt $g^2 \nmid x^{p^n} - x$, da $x^{p^n} - x$ nur einfache Nullstellen hat.
     \end{enumerate}
 \end{proof}
+
+\notedate{15.06.2023}
+
+\begin{definition}
+    Ein irreduzibles Polynom $f \in \mathbb{Z}_p[x]$, $\deg f =: n$ heißt \emph{primitiv}\index{Polynom!primitiv}, wenn 
+    $$\exists \alpha \in \mathrm{GF}(p^n): f(\alpha) \land \mathrm{GF}(p^n)\setminus\{0\} = \{\alpha^0, \alpha^1, \ldots \}. $$
+\end{definition}
+
+\begin{lemma}
+    Sei $K$ ein Körper, $G \le (K \setminus \{0\}, \cdot, 1, {}^{-1})$ eine endliche Untergruppe, dann ist $G$ zyklisch.
+\end{lemma}
+\begin{proof}
+    Es gibt ein $g \in \mathbb{G}$, dass für alle $h \in \mathbb{G}$ gilt $\ord h \mid \ord g =: \ell \mid \vert G \vert$. Nun ist $h \in \mathbb{G}$ eine Nullstelle von $x^\ell-1$ und da dieses nur $\ell$ Nullstellen haben kann, ist $\ell > \vert G\vert$. Es gilt daher $\ord g = \vert G \vert$, womit $G$ zyklisch ist.
+\end{proof}
+
+\begin{corollary}
+    Für $n \in \mathbb{N}$ gibt es ein primitives Polynom in $f \in \mathbb{Z}_p[x]$ vom Grad $n$.
+\end{corollary}
+\begin{proof}
+    Es ist $(\mathrm{GF}(p^n)\setminus\{0\}, \cdot, 1, {}^{-1})$ nach dem vorherigen Lemma zyklisch, womit es ein $\alpha$ gibt, mit $\mathrm{GF}(p^n)\setminus\{0\} = \{\alpha^0, \alpha^1, \ldots\}$. Dann ist $\mu_\alpha$ primitiv.
+\end{proof}
+
+\begin{lemma}
+    Sei $f \in \mathbb{Z}_p[x]$ irreduzibel, $n := \deg f$, $\alpha_1, \ldots, \alpha_n \in \mathrm{GF}(p^n)$ Nullstellen von $f$. Dann gilt
+    \begin{enumerate}
+        \item $\forall \varphi \in \Aut(\mathrm{GF}(p^n)): \varphi\vert_{\{\alpha_1, \ldots, \alpha_n\}}$ ist eine Permutation von $\{\alpha_1, \ldots, \alpha_n\}$.
+        \item Für alle $i \in \{1, \ldots, n\}$ existiert ein eindeutiger Automorphismus $\varphi_i$ mit $\varphi_i(\alpha_1) = \alpha_i$.
+    \end{enumerate}
+\end{lemma}
+\begin{proof}{\ }
+    \begin{enumerate}
+        \item Es ist $\varphi \in \Aut(\mathrm{GF}(p^n))$, also gilt $\forall \alpha: f(\alpha) = 0 \Rightarrow f(\varphi(\alpha)) = \varphi(f)(\varphi(\alpha)) = 0$. Da $\varphi\vert_{\{\alpha_1, \ldots, \alpha_n\}}$ injektiv ist und $\{\alpha_1, \ldots, \alpha_n\}$ endlich ist, ist $\varphi\vert_{\{\alpha_1, \ldots, \alpha_n\}}$ surjektiv und damit eine Permutation.
+        \item Es ist $f = \mu_{\alpha_1} = \mu_{\alpha_i}$, also gibt es einen eindeutigen Isomorphismus $\varphi_i: \mathbb{Z}_p(\alpha_1) \to \mathbb{Z}_p(\alpha_i)$ mit $\varphi_i\vert_{\mathbb{Z}_p} = \id_{\mathbb{Z}_p}$ und $\varphi_i(\alpha_1) = \alpha_i$. Da $\mathrm{GF}(p^n) = \mathbb{Z}_p(\alpha_1) = \mathbb{Z}_p(\alpha_i)$ folgt die Aussage.
+     \end{enumerate}
+\end{proof}
+
+\begin{theorem}{\ }
+    \begin{enumerate}
+        \item $\varphi_k: \mathrm{GF}(p^n) \to \mathrm{GF}(p^n), x \mapsto x^{p^n} \in \Aut(p^n)$ für alle $k$.
+        \item $\forall \varphi \in \Aut(\mathrm{GF(p^n)}) \exists k < n: \varphi = \varphi_k$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}{\ }
+    \begin{enumerate}
+        \item Es ist einfach nachzurechnen, dass die obigen Abbildungen Homomorphismen sind. Da $\ker \varphi_i = \{0\}$\footnote{Der Kern ist ein Ideal und wir wissen dass $\mathrm{GF}(p^n)$ keine nichttrivialen Ideale hat. Die Nullabbildung ist kein Körperautomorphismus, wodurch die Behauptung folgt.} ist, ist $\varphi_i$ injektiv und da $\mathrm{GF}(p^n)$ endlich ist damit auch surjektiv.
+        
+        \item Das vorherige Lemma liefert $\vert \Aut(\mathrm{GF}(p^n)) \vert = n$. Wir müssen nun noch zeigen, dass für $i, j < n$, $i \not= j$ auch $\varphi_i \not= \varphi_j$ gilt. Sei nun $f \in \mathbb{Z}_p[x]$ ein primitives Polynom vom Grad $n$ und $\alpha$ mit $f(\alpha) = 0$, dann wissen wir $\mathrm{GF}(p^n)\setminus\{0\} = \{\alpha^0, \alpha^1, \ldots\}$. Es ist nun $\alpha^{p^i} \not= \alpha^{p^j}$, womit $\varphi_i(\alpha) \not= \varphi_j(\alpha)$ ist.
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}
+    Wir definieren 
+        $$ \mathrm{GF}\left(p^\infty\right) := \bigcup_{k \ge 1} \mathrm{GF}\left(p^{k!}\right). $$
+\end{definition}
+\begin{remark}
+    $\mathrm{GF}(p^\infty)$ ist ein Körper, algebraisch über $\mathbb{Z}_p$. Der Beweis davon verläuft analog wie im Beweis der Existenz des algebraischen Abschlussen. Weiter ist $\mathrm{GF}(p^\infty)$ algebraisch abgeschlossen, denn sei $f \in \mathrm{GF}(p^\infty)[x]$ nicht konstant, dann gibt es ein $k$, sodass $f \in \mathrm{GF}(p^{k!})[x]$ und ein $\mathbb{\ell}$, sodass $Z_\{f\}(\mathbb{Z}_p) \le \mathrm{GF}(p^{l!})$. Daher hat $f$ eine Nullstelle in $\mathrm{GF}(p^\infty)$.
+\end{remark}
