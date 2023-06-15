@@ -3,22 +3,33 @@
 Zuerst sei an die \cref{def:boolsche_algebra} einer \emph{Booleschen Algebra} erinnert.
 
 \begin{example}
-    Für eine Menge $M$ ist $(\mathcal{P}(M), \cap, \cup, \emptyset, M, \overline{\cdot})$ eine boolsche Algebra. $\{A \subseteq M \mid \vert A\vert < \infty \lor \vert \overline{A} \vert < \infty\}$ ist eine Unteralgebra davon.
+    Für eine Menge $M$ ist $(\mathcal{P}(M), \cap, \cup, \emptyset, M, \overline{\cdot})$ eine boolsche Algebra. $\{A \subseteq M \mid \vert A\vert < \infty \lor \vert \overline{A} \vert < \infty\}$ ist eine Unteralgebra davon. Im Fall, dass $|M|=|\mathbb{N}|$ gilt, liefert das zweite Beispiel eine abzählbare boolsche Algebra, während die $\mathcal{P}(M)$ dann überabzählbar ist.
 \end{example}
 \begin{example}
-    $\mathfrak{B}_2 = ({0,1}, \land, \lor, 0, 1, \lnot)$ ist eine boolsche Algebra.
+    $\mathfrak{B}_2 = ({0,1}, \land, \lor, 0, 1, \lnot)$ ist eine boolsche Algebra. Diese ist offensichtlich die einzige zweielementige Boolesche Algebra und erzeugt die gesamte Varietät der boolschen Algebren. Mithilfe von Produktbildung erhält man eine zu $(\mathcal{P},\cap,\cup,\emptyset,M,\overline{\cdot})$ isomorphe Algebra. Nach dem nochfolgenden Darstellungssatz ist jede boolesche Algebra isomorph zu einer Unteralgebra einer Boolschen Algebra von diesem Typ. Das heißt wenn $\mathcal{K}$ die Varietät der Booleschen Algebren bezeichnet, so gilt $\mathcal{K}=SP(\mathfrak{B}_2)$. Insbesondere gelten in $\mathfrak{B}_2$ genau alle Gesetze die in der gesamten Varietät gelten.
+\end{example}
+
+\begin{example}
+    Für einen beliebigen topologischen Raum bilden die clopen Mengen (also jene die sowohl offen als auch abgeschlossen sind) eine Boolesche Algebra, analog wie beim ersten Beispiel.
+\end{example}
+
+\begin{example}
+    Die freie Boolesche Algebra über der Variablenmenge $\{x_1,x_2,\ldots\}$ bildet ebenfalls eine interessante Boolesche Algebra. Sie ist bis auf Isomorphie die einzige abzählbare Boolesche Algebra ohne Atome, das heißt für jeden Term $t\neq 0$ (wobei die Terme nach den Gesetzen der Varietät faktorisiert werden) existiert ein Element $s\neq 0$ das in der induzierten Halbordnung unter $t$ liegt. Insbesondere existieren auch keine Co-Atome.
 \end{example}
 
 \begin{lemma}
     Sei $\mathfrak{B}$ eine boolesche Algebra und $a,b \in B$.
     \begin{enumerate}
-        \item Gilt $a \lor b = 1, a \land b = 0$, dann gilt $a' = b$.
+        \item Gilt $a \lor b = 1, a \land b = 0$, dann gilt $a' = b$ (das heißt die Abbildung $'$ ist eindeutig festgelegt).
         \item Es ist $a'' = a$.
         \item $0' = 1, 1' = 0$.
         \item $(a \lor b)' = a' \land b'$, $(a \land b)' = a' \lor b'$.
     \end{enumerate}
 \end{lemma}
 \begin{proof}{\ }
-    Wir zeigen 1., der Rest folgt daraus.
-    % TODO
+    Wir zeigen zunächst den ersten Punkt. Es gilt $\overbrace{(a\lor b)}^{=1}\land a'=a'$. Nach dem Distributivgesetz gilt aber auch $(a\lor b)\land a'=(a\land a')\lor (b\land a')=b\land a'$. Insgesamt folgt also $a'=b\land a'$ und daher in der induzierten Halbordnung gilt $a'\le b$. Analog zeigt man $b\leq a'$ und es folgt $a'=b$.
+
+    Wendet man das gezeigt auf $a'$ und $a$ an, so erhält man $a=a''$. Offensichtlich aus dem ersten Punkt auch sofort $0'=1$ und $1'=0$.
+
+    Wegen $(a\lor b)\lor (a'\land b')=((a\lor b)\lor a') \land ((a\lor b)\lor b')=1\land 1=1$ und $(a\lor b)\land (a'\land b')=(a\land (a'\land b'))\lor (b\land(a'\land b))=0\lor 0=0$ folgt wieder aus dem ersten Punkt $(a\lor b)'=a'\land b'$. Das zweite Gesetz folgt aus diesem gemeinsam mit dem zweiten Punkt.
 \end{proof}

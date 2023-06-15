@@ -60,12 +60,12 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \end{remark}
 
 \begin{definition}
-    Sei $R$ ein Ring, $I \vartriangleleft G$ ein Ideal, dann definieren wir für $a \in R$ die \emph{Nebenklasse von a modulo I}\index{Nebenklasse} als 
+    Sei $R$ ein Ring, $I \vartriangleleft R$ ein Ideal, dann definieren wir für $a \in R$ die \emph{Nebenklasse von a modulo I}\index{Nebenklasse} als 
     $$a+I := \{ a + r \mid r \in I \}.$$
 \end{definition}
 
 \begin{definition}
-    Sei $R$ eine Ring, $I \vartriangleleft G$ ein Ideal und $\sim$ die wie in \cref{remark:ideal-congrel} vom Ideal induzierte Kongruenzrelation. Wir definieren den \emph{Faktorring} \index{Ring!Faktor-}
+    Sei $R$ eine Ring, $I \vartriangleleft R$ ein Ideal und $\sim$ die wie in \cref{remark:ideal-congrel} vom Ideal induzierte Kongruenzrelation. Wir definieren den \emph{Faktorring} \index{Ring!Faktor-}
     $$ R/_I := R/_\sim = \{ a + I \mid a \in R\}.$$
     Dabei ist
     $$ (a + I) + (b + I) := (a + b) + I \quad\text{und}\quad (a + I)\cdot(b+I) = (a\cdot b) + I. $$
@@ -139,6 +139,15 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
         \item[$\Rightarrow$:] Sei $I \neq \{0\}, x \in I, x \neq 0$, so ist $1 = x^{-1} x \in I$, also $I = R$.
         \item[$\Leftarrow$:] Sei $R$ kein Körper, so gibt es ein $x \in R \setminus \{0\}$ sodass für alle $y \in R$ gilt $xy \neq 1$. Setze $I := (x) \vartriangleleft R$, so gilt wegen $x \in I$ dass $I \neq \{0\}$. Wegen $1 \notin I$ ist auch $I \neq R$.
     \end{itemize}
+\end{proof}
+
+\begin{corollary}\label{corollary:koerperhomom_injektiv}
+    Seien $K, L$ Körper und $\varphi:K\to L$ ein Körperhomomorphismus. Dann ist $\varphi$ injektiv.
+\end{corollary}
+
+\begin{proof}
+    Es ist $\ker\varphi\triangleleft K$ ein Ideal mit $1\not\in\ker\varphi$.
+    Da der Körper $K$ nur die trivialen Ideale hat, folgt $\ker\varphi=\{0\}$ und $\varphi$ ist injektiv.
 \end{proof}
 
 \begin{definition}
@@ -223,7 +232,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
     $(\mathbb{Z}_m)^{\mathbb{N}}$ ist beispielsweise ein unendlicher Ring mit Charakteristik $m$.
 \end{example}
 
-\begin{proposition}
+\begin{proposition}\label{prop:frob_ringhomom}
     Sei $R$ ein kommutativer Ring mit 1, $\chara R = p \in \mathbb{P}$. Dann ist
     $$ \varphi : R \to R, x \mapsto x^{p^k} $$
     ein Homomorphismus.
