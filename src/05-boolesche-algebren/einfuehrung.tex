@@ -33,3 +33,101 @@ Zuerst sei an die \cref{def:boolsche_algebra} einer \emph{Booleschen Algebra} er
 
     Wegen $(a\lor b)\lor (a'\land b')=((a\lor b)\lor a') \land ((a\lor b)\lor b')=1\land 1=1$ und $(a\lor b)\land (a'\land b')=(a\land (a'\land b'))\lor (b\land(a'\land b))=0\lor 0=0$ folgt wieder aus dem ersten Punkt $(a\lor b)'=a'\land b'$. Das zweite Gesetz folgt aus diesem gemeinsam mit dem zweiten Punkt.
 \end{proof}
+
+\notedate{21.06.2023}
+
+\begin{definition}
+    Sei $R$ ein kommutativer Ring mit 1, dann heißt $R$ \emph{Boolesch}, wenn
+    $$ \forall x \in R : x \cdot x = x. $$
+\end{definition}
+
+\begin{lemma}
+    Sei $R$ ein Boolescher Ring, dann gilt
+    $$ \forall x \in R : x = -x. $$
+\end{lemma}
+
+\begin{proof}
+    Es gilt
+    $$ 1 + x = (1+x)(1+x) = x \cdot x + x + x + 1 = x + x + x + 1, $$
+    womit durch Kürzen $ 0 = x + x $ folgt.
+\end{proof}
+
+\begin{proposition}{\ }
+    \begin{enumerate}
+        \item Sei $R$ ein Boolescher Ring. Dann definieren wir die Operationen\footnote{Mit dem obigen Lemma sehen wir $x \lor y = x + y - x \cdot y$.}
+        $$ x \land y := x \cdot y, \quad x \lor y := x + y + x \cdot y, \quad x' := -x. $$
+        Dann ist $(R, \land, \lor, 0, 1, ')$ eine Boolesche Algebra.
+
+        \item Sei $B$ eine Boolesche Algebra. Dann definieren wir die Operationen
+        $$ x \cdot y := x \land y, \quad x + y := (x \land y') \lor (y \land x') =: x \Delta y, \quad -x := x. $$
+        Dann ist $(B, +, 0, -, \cdot, 1)$ ein Boolescher Ring.
+
+        \item Die durch die obigen Operationen beschriebenen Übersetzungen von Booleschen Ringen auf Boolesche Algebren und umgekehrt sind zueinander invers.
+
+        \item Die Homomorphismen auf den Strukturen übersetzen sich (muss ma sich überlegen wie ma des aufschreibt)
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}{\ }
+    \begin{enumerate}
+        \item Folgt durch Nachrechnen.
+        \item Folgt durch Nachrechnen.
+        \item Folgt durch Nachrechnen.
+        \item Es gilt $T(R_1) = T(B_1)$. Da die Eigenschaft ein Homomorphismus zu sein lediglich von den Termfunktionen abhängt, und die Termfunktionen übereinstimmen, ist auch der \\ Homomorphismus-Begriff derselbe.
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}
+    Sei $\mathfrak{V}$ ein Verband und sei $\emptyset \neq A \subseteq \mathfrak{V}$. Dann heißt $A$ \emph{Filter}, wenn
+    \begin{itemize}
+        \item $\forall x \in A \forall y \in \mathfrak{V} : ( x \leq y \implies y \in A )$,
+        \item $\forall x, y \in A : x \land y \in A$.
+    \end{itemize}
+    Ist $A$ ein Filter, so nennen wir $A$ \emph{prim}, wenn
+    $$ \forall x ,y \in \mathfrak{V} : ( x \lor y \in A \implies x \in A \lor y \in A ). $$
+    
+\end{definition}
+
+\begin{definition}
+    Sei $\mathfrak{V}$ ein Verband und sei $\emptyset \neq A \subseteq \mathfrak{V}$. Dann heißt $A$ \emph{Ideal}, wenn
+    \begin{itemize}
+        \item $\forall x \in A \forall y \in \mathfrak{V} : ( y \leq x \implies y \in A )$,
+        \item $\forall x, y \in A : x \lor y \in A$.
+    \end{itemize}
+    Ist $A$ ein Ideal, so nennen wir $A$ \emph{prim}, wenn
+    $$ \forall x, y \in \mathfrak{V} : ( x \land y \in A \implies x \in A \lor y \in A ). $$
+\end{definition}
+
+\begin{proposition}
+    Seien $R$ und $B$ die zueinander ``assoziierten'' Booleschen Ringe, beziehungsweise Boolesche Algebren. Ist $I \subseteq B$ ein Ideal von $B$, so ist $I$ ein Ideal von $R$. Ist entsprechend $I \subseteq R$ ein Ideal von $R$, so ist $I$ ein Ideal von $B$.
+\end{proposition}
+
+\begin{proof}{\ }
+    \begin{enumerate}
+        \item Seien $x, y \in I$. Dann ist $x + y = (x \land y') \lor (y \land x') \in I$.
+
+        Sind $x \in I, y \in R$, so ist $x \cdot y = x \land y \in I$.
+
+        \item Seien $x, y \in I$. Dann ist $x \lor y = x + y + x \cdot y \in I$.
+        
+        Sind $x \in I, y \leq x$, so ist $y = y \land x = y \cdot x \in I$.
+    \end{enumerate}
+\end{proof}
+
+\begin{remark}
+    Sei $B$ eine Boolesche Algebra und $F \subseteq B$ ein Filter. Dann ist
+    $$ \{ a' \mid a \in F \} $$
+    ein Ideal.
+\end{remark}
+
+\begin{theorem}[Homomorphiesatz für Boolesche Algebren]
+    Seien $B_1, B_2$ Boolesche Algebren und $f : B_1 \to B_2$ ein surjektiver Homomorphismus. Dann induziert dies einen Isomorphismus $ \widetilde{f} : B_1 /_{\ker f} \to B_2 $.
+\end{theorem}
+
+\begin{example}
+    Betrachte $\mathcal{P}(\mathbb{N})$ und $I := \{ A \in \mathcal{P}(\mathbb{N}) \mid A \text{ endlich} \}$, so ist $I$ ein Ideal. Da $I$ abzählbar ist, ist jedoch $\mathcal{P}(\mathbb{N}) /_I$ immer noch ``groß''.
+\end{example}
+
+\begin{definition}
+    Sei $B$ eine Boolesche Algebra. Dann heißt $a \in B$ \emph{Atom}, wenn $a \neq 0$ und $\forall b \in B, b \neq 0, b \neq a: b \nleq a$. $a$ ist also ein minimales Element, wenn wir die 0 nicht berücksichtigen.
+\end{definition}
