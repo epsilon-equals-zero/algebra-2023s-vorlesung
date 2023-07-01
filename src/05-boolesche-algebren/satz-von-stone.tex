@@ -12,7 +12,9 @@
 \end{corollary}
 
 \begin{proof}
-    todo
+    Diese Aussage folgt sofort aus dem Darstellungssatz von Stone, mit der Bemerkung, dass $\prod_{m\in M}\mathfrak{B}_2=\mathfrak{B}_2^M$ isomorph zu $\mathcal{P}(M)$ ist. Dazu betrachte man die Abbildung die jede Menge auf ihre Indikatorfunktion abbildet, also $\varphi:\mathcal{P}(M)\to B_2^M, A\mapsto \chi_A$, wobei $\chi_A$ wie folgt definiert ist:$$\chi_A:M\to\{0,1\}, x\mapsto\begin{cases}
+        1, & x\in A,\\ 0,& x \not\in A.
+    \end{cases}$$
 \end{proof}
 
 \begin{lemma}
@@ -21,7 +23,7 @@
 \end{lemma}
 
 \begin{proof}{\ } \\
-    ``$\Leftarrow$'': Sei $I \subsetneq J$, dann gibt es ein $a$ mit $a \in I \land a' \in I$, womit $1 \in I$ ist und damit $I$ nicht echt.
+    ``$\Leftarrow$'': Sei $I \subsetneq J$, dann gibt es ein $a$ mit $a \in I \land a' \in I$, womit $1 \in I$ ist und damit $I$ nicht echt ist.
 
     ``$\Rightarrow$'': Angenommen es gäbe ein $a \in B$ mit $a \notin I, a' \notin I$. Betrachte
     $$ J := \{ x \in B \mid \exists y \in I: x \leq y \lor a \}. $$
@@ -56,7 +58,7 @@
 
     $ x \leq y $: Wir wählen $F$ mit $x' \land y \in F$. Dies ist möglich, da der einzige Problemfall $x' \land y = 0$ ist. In diesem Fall wäre jedoch $y \lor x = x$, im Widerspruch zu $x \leq y$.
 
-    $ y \leq x $: Analog.
+    $ y \leq x $: Analog mit vertauschten Rollen.
 
     $ x \nleq y, y \nleq x $: Wähle $F$ wie im ersten Fall.
 
@@ -65,17 +67,18 @@
         \item $f(1) = M$
         \item $f(0) = \emptyset$
         \item $x \in B: f(x') = M \setminus f(x)$
-        \item $x, y \in B: f(x \lor y) = \{ F \in M \mid x \lor y \in F \} = \{ F \in M \mid x \in F \lor y \in F \} = f(x) \cup f(y)$
+        \item $x, y \in B: f(x \lor y) = \{ F \in M \mid x \lor y \in F \} \stackrel{(*)}{=} \{ F \in M \mid x \in F \lor y \in F \} = f(x) \cup f(y)$
         \item $x, y \in B: f(x \land y) = \{ F \in M \mid x \land y \in F \} = \{ F \in M \mid x \in F \land y \in F \} = f(x) \cap f(y)$
     \end{itemize}
+    An der mit $(*)$ markierten Stelle wurde in der Mengeninklusion \glqq$\subseteq$\grqq{} verwendet, dass Ultrafilter insbesondere prim sind. An allen anderen Stellen wurden nur die Filteraxiome verwendet.
 
     Sei nun $B$ endlich. Wir bemerken, dass wenn $a$ ein Atom ist, dann ist
     $$ F_a := \{ b \in B \mid b \geq a \} $$
-    ein Ultrafilter, da wenn $b \notin F_a$, also wenn $b \ngeq a$, dann ist $b \land a = 0$ und damit $b' \in F_a$.
+    ein Ultrafilter, da wenn $b \notin F_a$, also wenn $b \ngeq a$ erfüllt ist, dann ist $b \land a = 0$ und damit $b' \in F_a$.
 
     Sei $x \in B$, dann ist
     $$ f(x) = \{ F_a \mid a \leq x \}. $$
     Jedes $F \in M$ ist von der Form $F_a$, indem wir $a := \bigcap F$ setzen.
 
-    \textit{$f$ ist surjektiv:} Seien $F_{a_1}, \hdots, F_{a_n} \in M$ beliebig. Wähle $x := a_1 \lor \hdots \lor a_n$. Dann gilt zunächst sicher $F_{a_1}, \hdots, F_{a_n} \in f(x)$. Sei angenommen $a$ ist ein Atom und $F_a \in f(x)$, dann ist $a \leq x = a_1 \lor \hdots \lor a_n$. Schneiden mit $a$ liefert $a \leq (a_1 \land a) \lor (a_2 \land a) \lor \hdots (a_n \land a)$. Falls für alle $i$ gilt $a_i \neq a$ ist damit $a \leq 0 \lor \hdots \lor 0$, im Widerspruch.
+    \textit{$f$ ist surjektiv:} Seien $F_{a_1}, \hdots, F_{a_n} \in M$ beliebig. Wähle $x := a_1 \lor \hdots \lor a_n$. Dann gilt zunächst sicher $F_{a_1}, \hdots, F_{a_n} \in f(x)$. Sei angenommen $a$ ist ein Atom und $F_a \in f(x)$, dann ist $a \leq x = a_1 \lor \hdots \lor a_n$. Schneiden mit $a$ liefert $a \leq (a_1 \land a) \lor (a_2 \land a) \lor \hdots (a_n \land a)$. Falls $a_i \neq a$ für alle $i=1,\ldots,n$ gilt, so ist $a \leq 0 \lor \hdots \lor 0$ ein Widerspruch.
 \end{proof}

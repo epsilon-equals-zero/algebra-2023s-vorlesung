@@ -180,7 +180,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
 \begin{remark}
     Für eine beliebige Algebra ist mit $\Sub(\mathfrak{A}):=\{\mathfrak{U}\mid \mathfrak{U}\le \mathfrak{A}\}$ durch
-    $(\Sub(\mathfrak{A}),\subseteq)$ eine Halbordnung gegeben. Weiter ist $(\Sub(\mathfrak{A},\land,\lor))$,
+    $(\Sub(\mathfrak{A}),\subseteq)$ eine Halbordnung gegeben. Weiter ist $(\Sub(\mathfrak{A}),\land,\lor)$,
     wobei $U_1\land U_2:=U_1\cap U_2$ und $U_1\lor U_2:=\langle U_1\cup U_2\rangle$, ein Verband.
 \end{remark}
 
@@ -411,7 +411,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \begin{proof}
     Seien $x_1,\ldots,x_n$ Variablen mit $\var(s)\cup\var(t)\subseteq\{x_1,\ldots,x_n\}$ und seien
     $[a_1],\ldots,[a_n] \in A/_\sim$. Laut Voraussetzung gilt $s^\mathfrak{A}(a_1,\ldots,a_n)=t^\mathfrak{A}(a_1,\ldots,a_n)$, woraus
-    $s^{\mathfrak{A}/_\sim}([a_1],\ldots,[a_n])=[s^\mathfrak{A}(a_1,\ldots,a_n)]=[t^\mathfrak{A}(a_,1\ldots,a_n)]=t^{\mathfrak{A}/_\sim}([a_1],\ldots,[a_n])$ folgt.
+    $s^{\mathfrak{A}/_\sim}([a_1],\ldots,[a_n])=[s^\mathfrak{A}(a_1,\ldots,a_n)]=[t^\mathfrak{A}(a_1,\ldots,a_n)]=t^{\mathfrak{A}/_\sim}([a_1],\ldots,[a_n])$ folgt.
     Inbesondere ist also $\mathfrak{A}/_\sim\models s\approx t$ erfüllt.
 \end{proof}
 
@@ -490,7 +490,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     \begin{align*}
         \varphi(f^\mathfrak{S}_i(g_1,\ldots,g_{n_i}))&=\varphi(f^\mathfrak{S}_i(t^\mathfrak{S}_1(\pi_{a_1^{(1)}},\ldots,\pi_{a_{m_1}^{(1)}}),\ldots,t^\mathfrak{S}_{n_i}(\pi_{a_1^{(n_i)}},\ldots,\pi_{a_{m_{n_i}}^{(n_i)}})))=\\
         &=\varphi(t^\mathfrak{S}(\pi_{a_1^{(1)}},\ldots,\pi_{a_{m_{n_i}}^{(n_i)}}))\stackrel{(*)}{=}t^\mathfrak{A}(a_1^{(1)},\ldots,a_{m_{n_i}}^{(n_i)})=\\
-        &=f^\mathfrak{A}_i(t^\mathfrak{A}_1(a_1^{(1)},\ldots,a_{m_1}^{(1)}),\ldots,t^\mathfrak{A}(a_1^{n_i},\ldots,a_{m_{n_i}}^{(n_i)}))\stackrel{(*)}{=}f^\mathfrak{A}_i(\varphi(g_1),\ldots,\varphi(g_{n_i})).
+        &=f^\mathfrak{A}_i(t^\mathfrak{A}_1(a_1^{(1)},\ldots,a_{m_1}^{(1)}),\ldots,t^\mathfrak{A}(a_1^{(n_i)},\ldots,a_{m_{n_i}}^{(n_i)}))\stackrel{(*)}{=}f^\mathfrak{A}_i(\varphi(g_1),\ldots,\varphi(g_{n_i})).
     \end{align*}
     An den Stellen die mit $(*)$ markiert sind, wurde die Definition von $\varphi$ verwendet.
 

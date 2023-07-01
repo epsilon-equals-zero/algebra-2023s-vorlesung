@@ -64,7 +64,7 @@ Zuerst sei an die \cref{def:boolsche_algebra} einer \emph{Booleschen Algebra} er
 
         \item Die durch die obigen Operationen beschriebenen Übersetzungen von Booleschen Ringen auf Boolesche Algebren und umgekehrt sind zueinander invers.
 
-        \item Die Homomorphismen auf den Strukturen übersetzen sich (muss ma sich überlegen wie ma des aufschreibt)
+        \item Die Homomorphismen auf den Strukturen übersetzen sich, das heißt eine Abbildung $\varphi$ von einer Booleschen Ring $R_1$ in einen Booleschen Ring $R_2$ ist genau dann ein Ring-Homomorphismus, wenn sie ein Homomorphismus bezüglich der zugehörigen Booleschen Algebren ist.
     \end{enumerate}
 \end{proposition}
 
@@ -73,7 +73,7 @@ Zuerst sei an die \cref{def:boolsche_algebra} einer \emph{Booleschen Algebra} er
         \item Folgt durch Nachrechnen.
         \item Folgt durch Nachrechnen.
         \item Folgt durch Nachrechnen.
-        \item Es gilt $T(R_1) = T(B_1)$. Da die Eigenschaft ein Homomorphismus zu sein lediglich von den Termfunktionen abhängt, und die Termfunktionen übereinstimmen, ist auch der \\ Homomorphismus-Begriff derselbe.
+        \item Für jeden Term $t$ gilt $t^{R_1}=t^{B_1}$. Da die Eigenschaft ein Homomorphismus zu sein lediglich von den Termfunktionen abhängt, und die Termfunktionen übereinstimmen, ist auch der Homomorphismus-Begriff derselbe.
     \end{enumerate}
 \end{proof}
 
@@ -99,7 +99,7 @@ Zuerst sei an die \cref{def:boolsche_algebra} einer \emph{Booleschen Algebra} er
 \end{definition}
 
 \begin{proposition}
-    Seien $R$ und $B$ die zueinander ``assoziierten'' Booleschen Ringe, beziehungsweise Boolesche Algebren. Ist $I \subseteq B$ ein Ideal von $B$, so ist $I$ ein Ideal von $R$. Ist entsprechend $I \subseteq R$ ein Ideal von $R$, so ist $I$ ein Ideal von $B$.
+    Seien $R$ und $B$ die zueinander ``assoziierten'' Booleschen Ringe, beziehungsweise Booleschen Algebren. Ist $I \subseteq B$ ein Ideal von $B$, so ist $I$ ein Ideal von $R$. Ist entsprechend $I \subseteq R$ ein Ideal von $R$, so ist $I$ ein Ideal von $B$.
 \end{proposition}
 
 \begin{proof}{\ }
@@ -120,14 +120,14 @@ Zuerst sei an die \cref{def:boolsche_algebra} einer \emph{Booleschen Algebra} er
     ein Ideal.
 \end{remark}
 
-\begin{theorem}[Homomorphiesatz für Boolesche Algebren]
-    Seien $B_1, B_2$ Boolesche Algebren und $f : B_1 \to B_2$ ein surjektiver Homomorphismus. Dann induziert dies einen Isomorphismus $ \widetilde{f} : B_1 /_{\ker f} \to B_2 $.
-\end{theorem}
-
-\begin{example}
-    Betrachte $\mathcal{P}(\mathbb{N})$ und $I := \{ A \in \mathcal{P}(\mathbb{N}) \mid A \text{ endlich} \}$, so ist $I$ ein Ideal. Da $I$ abzählbar ist, ist jedoch $\mathcal{P}(\mathbb{N}) /_I$ immer noch ``groß''.
-\end{example}
+\begin{remark}[Homomorphiesatz für Boolesche Algebren]
+    Seien $B_1, B_2$ Boolesche Algebren und $f : B_1 \to B_2$ ein surjektiver Homomorphismus. Dann induziert dies einen Isomorphismus $ \widetilde{f} : B_1 /_{\ker f} \to B_2 $. In diesem gilt $(x,y)\in\ker f$ genau dann, wenn $x+y\in f^{-1}({0})$.
+\end{remark}
 
 \begin{definition}
-    Sei $B$ eine Boolesche Algebra. Dann heißt $a \in B$ \emph{Atom}, wenn $a \neq 0$ und $\forall b \in B, b \neq 0, b \neq a: b \nleq a$. $a$ ist also ein minimales Element, wenn wir die 0 nicht berücksichtigen.
+    Sei $B$ eine Boolesche Algebra. Dann heißt $a \in B$ \emph{Atom}, wenn $a \neq 0$ und $\forall b \in B\setminus\{0\}: b \le a\Rightarrow b=a$. $a$ ist also ein minimales Element, wenn wir die 0 nicht berücksichtigen.
 \end{definition}
+
+\begin{example}
+    Betrachte $\mathcal{P}(\mathbb{N})$ und $I := \{ A \in \mathcal{P}(\mathbb{N}) \mid A \text{ endlich} \}$, so ist $I$ ein Ideal. Da $I$ abzählbar ist, ist jedoch $\mathcal{P}(\mathbb{N}) /_I$ immer noch überabzählbar. Es handelt sich dabei außerdem um ein weiteres Beispiel einer atomfreien Booleschen Algebra.
+\end{example}

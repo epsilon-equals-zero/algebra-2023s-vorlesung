@@ -8,7 +8,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \begin{example} Ringe sind unter anderem
     \begin{itemize}
         \item der kommutative Ring mit 1 der ganzen Zahlen $(\mathbb{Z}, +, 0, -, \cdot, 1)$,
-        \item der kommutative Ring mit 1 der reellen Polynomfunktionen $(P, +, 0, - \cdot, 1)$, wobei $P \subseteq \mathbb{R}^\mathbb{R}$ die Menge aller Polynomfunktionen ist, $+, \cdot$ punktweise Operationen sind und $0, 1$ konstante Polynome mit entsprechendem Wert,
+        \item der kommutative Ring mit 1 der reellen Polynomfunktionen $(P, +, 0, -, \cdot, 1)$, wobei $P \subseteq \mathbb{R}^\mathbb{R}$ die Menge aller Polynomfunktionen ist, $+, \cdot$ punktweise Operationen sind und $0, 1$ konstante Polynome mit entsprechendem Wert,
         \item der (nicht kommutative) Ring mit 1 der reellen $2 \times 2$ Matrizen $(\mathbb{R}^{2 \times 2}, +, (0)_{2 \times 2}, -, \cdot, E_2)$ und
         \item der kommutative Ring $(m\mathbb{Z}, +, 0, -, \cdot), m \geq 2$ der kein Einselement enthält.
     \end{itemize}
@@ -90,14 +90,6 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
     $$ (A) = \left\{ \sum_i r_i a_i \mid r_i \in R, a_i \in A \right\}. $$
 \end{remark}
 
-\begin{definition}
-    Sei $R$ ein Ring. Wir nennen $I \vartriangleleft R$ \emph{Hauptideal}\index{Hauptideal}, wenn gilt
-    $$ \exists a \in R: I = (a). $$
-
-    Weiters nennen wir $R$ einen \emph{Hauptidealring}\index{Hauptideal!-ring}\index{Ring!Hauptideal-}, wenn gilt
-    $$ \forall I \vartriangleleft R : I \text{ ist Hauptideal}. $$
-\end{definition}
-
 \begin{example}
     Es ist $(\mathbb{Z}, +, 0, -, \cdot, 1)$ ein Hauptidealring, da alle Unterringe von der Form $m \mathbb{Z} = (m)$ sind.
 \end{example}
@@ -118,6 +110,14 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
     Es ist $(\mathbb{Z}, +, 0, -, \cdot, 1)$ ein Integritätsbereich, jedoch kein Körper.
 \end{example}
 
+\begin{definition}
+    Sei $R$ ein Ring. Wir nennen $I \vartriangleleft R$ \emph{Hauptideal}\index{Hauptideal}, wenn gilt
+    $$ \exists a \in R: I = (a). $$
+
+    Weiters nennen wir $R$ einen \emph{Hauptidealring}\index{Hauptideal!-ring}\index{Ring!Hauptideal-}, wenn $R$ ein Integritätsbereich ist und
+    $$ \forall I \vartriangleleft R : I \text{ ist Hauptideal}. $$
+\end{definition}
+
 \begin{proposition}
     Ist $R$ ein Integritätsbereich und endlich, so ist $R$ ein Körper.
 \end{proposition}
@@ -130,7 +130,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \end{proof}
 
 \begin{proposition}
-    Sei $R$ ein kommutativer Ring mit 1, dann ist $R$ ein Körper genau dann, wenn
+    Sei $R$ ein kommutativer Ring mit $1\neq 0$, dann ist $R$ ein Körper genau dann, wenn
     $$ \forall I \vartriangleleft R: (I = \{0\} \lor I = R). $$
 \end{proposition}
 
@@ -212,7 +212,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 
 \begin{example}
     Sei $P$ die Menge der Polynomfunktionen auf $\mathbb{R}$ und $(x^2+1) \cdot P \vartriangleleft P$, so ist dies ein Primideal, und $P/_{(x^2+1) \cdot P}$ sogar ein Integritätsbereich. Jedoch ist es kein Körper, da $(x^2+1) \cdot P$ nicht maximal ist -- betrachte dazu beispielsweise
-    $$ (x^2 + 1) \cdot P \subsetneq (x^2+1) \cdot P + x \cdot P \vartriangleleft P $$.
+    $$ (x^2 + 1) \cdot P \subsetneq (x^2+1) \cdot P + x \cdot P \vartriangleleft P .$$
 
     Das Ideal $I := (x^2 - 1) \cdot P \vartriangleleft P$ ist kein Primideal, da $(x-1)\notin I, (x+1) \notin I$, aber $(x-1)(x+1) = x^2 - 1 \in I$.
 \end{example}
@@ -269,7 +269,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
     $$\forall x\in R^\times\exists y\in N:y\psi(x)=\psi(x)y=1$$
     gibt es eine Einbettung $\bar{\psi} : M \to N$ mit $\bar{\psi} \circ \varphi = \psi$.
 
-    Auf $M$ definieren wir nun eine Addition
+    Auf $(R\times R^\times)$ definieren wir nun eine Addition
     $$ (a,b) + (c,d) := (ad+bc, bd), \quad -(a,b) := (-a, b), $$
     so ist $(R \times R^\times, +, (0,1), -)$ eine Gruppe.
 \end{remark}
@@ -286,7 +286,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \end{proof}
 
 \begin{theorem}\label{theorem:Quotientenkoerper}
-    Sei $R$ ein kommutativer Ring mit $1 \neq 0$, der zusätzlich ein Integritätsbereich ist. Sei weiters $\sim \subseteq (R \times R^\times)^2$ wie in \cref{rem:ring-koerper} definiert. Dann gilt:
+    Sei $R$ ein Integritätsbereich mit $1 \neq 0$ und sei weiters $\sim \subseteq (R \times R^\times)^2$ wie in \cref{rem:ring-koerper} definiert. Dann gilt:
     \begin{enumerate}
         \item $K := (R \times R^\times)/_\sim $ mit $+, \cdot$ aus \cref{rem:ring-koerper} ist ein Körper.
         \item $\varphi : R \to K, x \mapsto [(x, 1)]_\sim$ ist eine Einbettung.
@@ -341,8 +341,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \end{definition}
 
 \begin{remark}
-    Die letzten beiden Theoreme liefern uns folgendes Ergebnis: Zu einem kommutativen Ring mit $1\neq 0$ der ein Integritätsbereich
-    ist, kann der Quotientenk\"orper konstruiert werden. Dieser ist (bis auf Isomorphie) eindeutig bestimmt und der kleinste Körper
+    Die letzten beiden Theoreme liefern uns folgendes Ergebnis: Zu einem Integritätsbereich mit $1\neq 0$, kann der Quotientenk\"orper konstruiert werden. Dieser ist (bis auf Isomorphie) eindeutig bestimmt und der kleinste Körper
     der $R$ enthält.
 \end{remark}
 
@@ -389,13 +388,13 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 
 \notedate{10.05.2023}
 \begin{definition}
-    Sei $R$ ein Ring mit $1\neq 0$ und ein Integritätsbereich. Dann nennen wir den Quotientenkörper von $R[x]$ 
+    Sei $R$ ein Integritätsbereich mit $1\neq 0$. Dann nennen wir den Quotientenkörper von $R[x]$ 
     $$R(x):=\left\{\frac{p(x)}{q(x)}\;\middle|\;p(x),q(x)\in R[x],q(x)\neq 0\middle\}\right/_\sim$$
     mit der üblichen Relation $\frac{p}{q}\sim \frac{r}{s}\Leftrightarrow sp=qr$ den Körper der \emph{gebrochen rationalen Funktionen}\index{gebrochen rationale Funktion}.
 \end{definition}
 
 \begin{remark}
-    Ist $R$ ein Ring mit $1\neq 0$ und ein Integritätsbereich so kann der Quotientenk\"orper $K$ und dann von diesem
+    Ist $R$ ein Integritätsbereich mit $1\neq 0$, so kann der Quotientenk\"orper $K$ und dann von diesem
     der Polynomring $K[x]$ betrachten werden. Dieser besitzt nun einen Quotientenk\"orper $K(x)$. Andererseits
     kann man auch den Quotientenk\"orper des Polynomrings über $R$ betrachten und erhält durch $R(x)$ einen dazu isomorphen Körper,
     also $K(x)\cong R(x)$.
@@ -476,7 +475,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
     mit $r_i=a_i+a_i'$. Definiert man nun $r:=\sum_{i=1}^na_i'$, so erhält man für alle $i\in\{1,\ldots,n\}$, dass
     $r\equiv a_i'\equiv r_i \text{ mod }I_i$ gilt, also die Existenz.
 
-    Dieses Element ist eindeutig modulo $I$ bestimmt, denn falls $r'$ und $r$ beide die gewünschte Eigenshaft haben,
+    Dieses Element ist eindeutig modulo $I$ bestimmt, denn falls $r'$ und $r$ beide die gewünschte Eigenschaft haben,
     so folgt $r'-r\in I_i$ für alle $i$, also $r'-r\in\bigcap_{i=1}^nI_i=I$.
 
     Schließlich ist die Abbildung $\varphi$ laut Definition wohldefiniert. Die Surjektivität ist die Existenz vonb $r$ im ersten Punkt,
