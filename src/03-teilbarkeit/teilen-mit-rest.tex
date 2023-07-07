@@ -33,7 +33,7 @@
 
 \begin{theorem}[Euklidischer Algorithmus]\label{theorem:euklidischer-algorithmus}\index{euklidischer Algorithmus}
     Seien $a,b\in R, a\neq 0$. Wähle $q_1,r_1\in R:b=aq_1+r_1$ mit $r_1=0\lor H(r_1)<H(a)$. Wenn $r_1=0$ ist, dann terminiert der Algorithmus. Ansonsten wählt man $q_2,r_2\in R$ mit
-    $a=r_1q_2+r_2$ und $r_2=0\lor H(r_2)<H(r_1)$. Falls $r_2=0$ ist, so terminiert der Algorithmus, ansonsten verfahren wir induktiv. Wenn $r_i, r_{i+1}$ und $q_{i+1}$ bereits gewählt sind, dann wählt man $q_{i+2},r_{i+2}$ mit $r_i=r_{i+1}q_{i+2}+r_{i+2}$ mit $r_{i+2}=0\lor H(r_{i+2})<H(r_{i+1})$. Aufgrund der Schachtelung $H(a)>H(r_1)>H(r_2)$ terminiert der Algorithmus, das heißt es ist $r_k=0$ für ein $k\in\mathbb{N}$. Dann ist $r_{k_1}$ der letzte von $0$ verschieden Rest und es gilt $r_{k-1}=\mathrm{ggT}(a,b)$.
+    $a=r_1q_2+r_2$ und $r_2=0\lor H(r_2)<H(r_1)$. Falls $r_2=0$ ist, so terminiert der Algorithmus, ansonsten verfahren wir induktiv. Wenn $r_i, r_{i+1}$ und $q_{i+1}$ bereits gewählt sind, dann wählt man $q_{i+2},r_{i+2}$ mit $r_i=r_{i+1}q_{i+2}+r_{i+2}$ mit $r_{i+2}=0\lor H(r_{i+2})<H(r_{i+1})$. Aufgrund der Schachtelung $H(a)>H(r_1)>H(r_2)$ terminiert der Algorithmus, das heißt es ist $r_k=0$ für ein $k\in\mathbb{N}$. Dann ist $r_{k-1}$ der letzte von $0$ verschiedene Rest und es gilt $r_{k-1}=\mathrm{ggT}(a,b)$.
 \end{theorem}
 
 \begin{proof}
@@ -81,7 +81,7 @@
 
 \begin{proof}
     Mit $p':=\frac{p}{\mathrm{ggT}(p,q)}$ und $q':=\frac{q}{\mathrm{ggT}(p,q)}$ folgt die Existenz,
-    wobei man $\frac{p'}{q'}=\frac{p}{q}$ über die Primfaktorenzerlegung nachweist.
+    wobei $\frac{p'}{q'}=\frac{p}{q}$ nach Definition gilt und man $\mathrm{(ggT)}(p,q)=1$ über die Primfaktorenzerlegung nachweist.
     Ist $\frac{p''}{q''}$ ebenfalls eine solche Darstellung von $\frac{p}{q}$, so überzeugt man sich
     von $p'\sim p''$ und $q'\sim q''$ ebenfalls mithilfe der Primfaktorenzerlegung in $R$.
 \end{proof}
@@ -155,7 +155,7 @@
 
     Induktionsschritt ($n+m \to n+m+1$): Gilt $p \mid fg$, so gilt $p \mid a_n b_m$, da $a_n b_m$ der Leitkoeffizient ist und damit, da $p$ prim in $R$ ist, $p \mid a_n \lor p \mid b_m$. Nehmen wir \obda $p \mid a_n$ an. Schreiben wir nun $f = a_n x^n + f'$. Es gilt
     $$ fg = a_n x^n g + f' g. $$
-    Nun teilt $p$ jedoch $fg, a_n$ und damit auch $f' g$. Nach Induktionsvoraussetzung gilt damit $p \mid f' \lor p \mid g$, und damit entweder direkt die Beauptung oder $p \mid a_n, p \mid f'$ und damit $p \mid f$.
+    Nun teilt $p$ jedoch $fg, a_n$ und damit auch $f' g$. Nach Induktionsvoraussetzung gilt damit $p \mid f' \lor p \mid g$, und damit entweder direkt die Behauptung oder $p \mid a_n, p \mid f'$ und damit $p \mid f$.
 \end{proof}
 
 \begin{corollary}
@@ -166,7 +166,7 @@
     Sei $R$ faktoriell, $Q$ der Quotientenkörper von $R$ und $f \in Q[x]$. Dann existieren $c_f \in Q, f_0 \in R[x]$ leer, mit
     $$ f = c_f \cdot f_0. $$
 
-    Diese Darstellung ist eindeutig bis Multiplikation mit einer Einheit (aus $R$).
+    Diese Darstellung ist eindeutig bis auf Multiplikation mit einer Einheit (aus $R$).
 
     Weiters gibt es zu $f, g \in Q[x]$ eine Einheit $e \in R$ mit
     $$ c_{f \cdot g} = e \cdot c_f \cdot c_g. $$
@@ -175,7 +175,7 @@
 \begin{proof}
     Die Koeffizienten von $f$ in $Q$ haben eine Darstellung als Quotient mit teilerfremden Elementen aus dem Ring, wir können also schreiben
     $$ f = \sum_{i=0}^\ell a_i x^i = \sum_{i=0}^\ell \frac{z_i}{n_i} x^i = \frac{\mathrm{ggT}(z_0, \hdots, z_n)}{\mathrm{kgV}(n_0, \hdots, n_\ell)} \sum_{i=0}^\ell b_i x^i, $$
-    wobei $b_i \in R$ teilerfremd und sich somit sofort die geforderte Darstellung ergibt.
+    wobei die $b_i \in R$ teilerfremd sind und sich somit sofort die geforderte Darstellung ergibt.
 
     Seien nun $c_f \cdot f_0 = f = d \cdot g$ zwei Darstellungen. Schreiben wir
     $$ f_0 = \sum_{i=0}^\ell b_i x^i,\quad g = \sum_{i=0}^\ell t_i x^i, $$
@@ -191,7 +191,7 @@
 \end{lemma}
 
 \begin{proof}
-    Sei $f = g \cdot h$, $g, h \in Q[x]$. Gilt $\deg g = 0 \lor \deg h = 0$, so folgt sofort die Assoziiertheit von $g$ oder $h$ zu $1$ in $Q[x]$. Sind $\deg f, \deg h \geq 1$, so schreibe mit obigem Lemma $g = c_g \cdot g_0, h = c_h \cdot h_0$. Wir nehmen \obda $c_f = c_g \cdot c_h$ an. $f$ ist irreduzibel in $R[x]$, insbesondere ist $f$ also leer. Wir können also \obda $c_f = 1$ annehmen. Damit ist also
+    Sei $f = g \cdot h$, $g, h \in Q[x]$. Gilt $\deg g = 0 \lor \deg h = 0$, so folgt sofort die Assoziiertheit von $g$ oder $h$ zu $1$ in $Q[x]$. Sind $\deg g, \deg h \geq 1$, so schreibe mit obigem Lemma $g = c_g \cdot g_0, h = c_h \cdot h_0$. Wir nehmen \obda $c_f = c_g \cdot c_h$ an. $f$ ist irreduzibel in $R[x]$, insbesondere ist $f$ also leer. Wir können also \obda $c_f = 1$ annehmen. Damit ist also
     $$ f = g \cdot h = c_g \cdot g_0 \cdot c_h \cdot h_0 = g_0 \cdot h_0, $$
     im Widerspruch dazu, dass $f$ irreduzibel in $R[x]$ ist.
 \end{proof}

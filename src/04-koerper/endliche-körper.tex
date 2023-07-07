@@ -16,7 +16,7 @@
         $$ f'(x) = p^n x^{p^n - 1} - 1 = -1, $$
         also folgt $\ggT(f, f') = 1$, womit die Nullstellen von $f$ nach \cref*{lemma:mehrfache_nullstellen} paarweise verschieden sind. Wähle
         $$ N := \{ \alpha \in Z_{\{f\}}(\mathbb{Z}_p) \mid f(\alpha) = 0 \}, $$
-        so gilt gerade $\vert N \vert = p^n = \deg f$. Wir behaupten, dass $N$ ein Körper ist. Klarerweise sind $0, 1 \in N$. Sind $\alpha, \beta \in N$, so ist $\alpha^{p^n} = \alpha, \beta^{p^n} = \beta$, also ist $(\alpha + \beta)^{p^n} = \alpha^{p^n} \in \beta^{p^n} = \alpha + \beta$. Damit ist $\alpha + \beta \in N$. 
+        so gilt gerade $\vert N \vert = p^n = \deg f$. Wir behaupten, dass $N$ ein Körper ist. Klarerweise sind $0, 1 \in N$. Sind $\alpha, \beta \in N$, so ist $\alpha^{p^n} = \alpha, \beta^{p^n} = \beta$, also ist $(\alpha + \beta)^{p^n} = \alpha^{p^n} + \beta^{p^n} = \alpha + \beta$. Damit ist $\alpha + \beta \in N$. 
         Ist $\alpha\in N$, so gilt $(-\alpha)^{p^n}=(-1)^{p^n}(\alpha)^{p^n}=(-1)^{p^n}\alpha$. Falls $p=2$ ist, so gilt $-1=1$ und daher folgt $-\alpha\in N$. Andernfalls ist $p^n$ ungerade und daher folgt ebenfalls $-\alpha\in N$.
         Entsprechend verifiziert man $\cdot$ und ${}^{-1}$.
     \end{enumerate}
@@ -44,7 +44,7 @@
 \end{proof}
 
 \begin{lemma}
-    Seien $K_1, K_2 \leq L, \vert K_1 \vert = \vert K_2 \vert$. Dann gilt sogar $K_1 = K_2$.
+    Seien $K_1, K_2 \leq L, \vert K_1 \vert = \vert K_2 \vert<\infty$. Dann gilt sogar $K_1 = K_2$.
 \end{lemma}
 
 \begin{proof}
@@ -99,7 +99,7 @@
 \end{definition}
 
 \begin{remark}
-    In der Tat ist die Forderung $\exists \alpha\in \mathrm{GF}(p^n):f(\alpha)\land \mathrm{GF}(p^n)\setminus\{0\}=\{\alpha^0,\alpha^1,\ldots\}$ in der Definition des primitiven Polynom äquivalent zu $\forall\alpha\in\mathrm{GF}(p^n):(f(\alpha)=0\Rightarrow GF(p^n)\setminus\{0\}=\{\alpha^0,\alpha^1,\ldots\})$. 
+    In der Tat ist die Forderung $\exists \alpha\in \mathrm{GF}(p^n):f(\alpha)=0\land \mathrm{GF}(p^n)\setminus\{0\}=\{\alpha^0,\alpha^1,\ldots\}$ in der Definition des primitiven Polynom äquivalent zu $\forall\alpha\in\mathrm{GF}(p^n):(f(\alpha)=0\Rightarrow GF(p^n)\setminus\{0\}=\{\alpha^0,\alpha^1,\ldots\})$. 
 \end{remark}
 
 \begin{lemma}
@@ -134,7 +134,7 @@
 \begin{theorem}{\ }
     \begin{enumerate}
         \item Für alle $k\in\mathbb{N}$ ist die Abbildung $\varphi_k: \mathrm{GF}(p^n) \to \mathrm{GF}(p^n), x \mapsto x^{p^n}$ ein Automorphismus (genannt \emph{Frobniusautomorphismus}). 
-        \item $\forall \varphi \in \Aut(\mathrm{GF(p^n)}) \exists k < n: \varphi = \varphi_k$.
+        \item $\forall \varphi \in \Aut(\mathrm{GF}(p^n)) \exists k < n: \varphi = \varphi_k$.
     \end{enumerate}
 \end{theorem}
 \begin{proof}{\ }

@@ -61,7 +61,7 @@
 \end{proposition}
 
 \begin{proof}
-    Sei $r \in R$ irreduzibel, wir zeigen, dass $r$ prim ist. Wir bemerken, dass $ (r) \vartriangleleft R $ echt ist, womit es ein maximales, echtes Ideal gibt mit $(r) \subseteq I \vartriangleleft R$. Da $R$ ein Hauptidealring ist gibt es ein $c \in R$ mit $I = (c)$. $c$ ist prim, da $I$ maximal und damit prim ist. Nun gilt $r \in (c)$, womit $c \mid r$ folgt. Da $r$ irreduzibel ist folgt $r \mid c$, also folgt $r \sim c$ und damit, dass $r$ prim ist.
+    Sei $r \in R$ irreduzibel, wir zeigen, dass $r$ prim ist. Wir bemerken, dass $ (r) \vartriangleleft R $ echt ist, womit es ein maximales, echtes Ideal gibt mit $(r) \subseteq I \vartriangleleft R$. Da $R$ ein Hauptidealring ist gibt es ein $c \in R$ mit $I = (c)$. $c$ ist prim, da $I$ maximal und damit prim ist. Nun gilt $r \in (c)$, womit $c \mid r$ folgt. Da $r$ irreduzibel und $c\not\sim 1$ ist, folgt $r \mid c$, also folgt $r \sim c$ und damit, dass $r$ prim ist.
 
     Sei nun $r \in R \setminus \{0\}, r \not\sim 1$, wir suchen eine Zerlegung in irreduzible Elemente. Ist $r$ nicht irreduzibel, so können wir $r = r_0 \cdot r_1$ schreiben, wobei $r_0, r_1 \not\sim 1$. Entsprechend können wir, wenn $r_0$ beziehungsweise $r_1$ nicht irreduzibel sind $r_{00}, r_{01}$ finden. Induktiv zerlegen wir also
     $$ r_{i_1 \hdots i_n} = r_{i_1 \hdots i_n 0} \cdot r_{i_1 \hdots i_n 1}. $$
@@ -73,7 +73,7 @@
 \end{proof}
 
 \begin{example}
-    Betrachte $\mathbb{Z}[x]$. Sei $a \in \mathbb{Z}, a \not\sim 1, a \neq 0$. Betrachte $(\{a,x\}) \vartriangleleft \mathbb{Z}[x]$, was zwar echt aber kein Hauptideal ist. Wäre nämlich $(\{a,x\}) = (b)$, so würde wegen $a \in (b)$ direkt $\deg b = 0$ folgen. Wegen $x \in (b)$ folgt dadurch $b = 1$, im Widerspruch.
+    Betrachte $\mathbb{Z}[x]$. Sei $a \in \mathbb{Z}, a \not\sim 1, a \neq 0$. Betrachte $(\{a,x\}) \vartriangleleft \mathbb{Z}[x]$, was zwar echt aber kein Hauptideal ist. Wäre nämlich $(\{a,x\}) = (b)$, so würde wegen $a \in (b)$ direkt $\deg b = 0$ folgen. Wegen $x \in (b)$ folgt dadurch $b\sim1$, im Widerspruch.
 
     Es ist aber $\mathbb{Z}[x]$ sehr wohl faktoriell, wie wir später noch sehen werden.
 \end{example}

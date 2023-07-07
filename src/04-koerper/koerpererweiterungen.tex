@@ -41,7 +41,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \begin{remark}
     Ist $\alpha$ algebraisch über $K$, so können wir das nichttriviale Ideal
     $$ I := \{ f \in K[x] \mid f(\alpha) = 0 \} \vartriangleleft K[x] $$
-    wählen. Nun gibt es ein $\mu_\alpha \in K[x]$ normiert, mit $I = (\mu_a)$, da $K[x]$ ein Hauptidealring ist. Dieses ist eindeutig bis auf Assoziiertheit, denn ist $I = (\mu_\alpha) = (g)$, so gilt $\mu_\alpha \mid g$ und $g \mid \mu_\alpha$, womit $g \sim \mu_\alpha$. Dieses $\mu_\alpha$ nennen wir das \emph{Minimalpolynom von $\alpha$ über $K$}\index{Minimalpolynom}. Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem Fall stimmen jedoch die jeweiligen Körpererweiterungen überein, wie wir in folgender Proposition sehen werden.
+    wählen. Nun gibt es ein $\mu_\alpha \in K[x]$ normiert, mit $I = (\mu_a)$, da $K[x]$ ein Hauptidealring ist. Diese Erzeuger sind eindeutig bis auf Assoziiertheit, denn ist $I = (\mu_\alpha) = (g)$, so gilt $\mu_\alpha \mid g$ und $g \mid \mu_\alpha$, womit $g \sim \mu_\alpha$. Insbesondere ist das normierte Polynom $\mu_\alpha$ mit dieser Eigenschaft eindeutig und wir nennen es das \emph{Minimalpolynom von $\alpha$ über $K$}\index{Minimalpolynom}. Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem Fall stimmen jedoch die jeweiligen Körpererweiterungen überein, wie wir in folgender Proposition sehen werden.
 \end{remark}
 
 \begin{proposition}
@@ -79,7 +79,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
         {Eindeutigkeit:} Sei $\psi:K(\alpha)\to K(\beta)$ ein Isomorphismus mit $\psi(\alpha)=\beta$
         und $\psi\vert_K=\id_K$. Dann gilt insbesondere $\psi(\alpha^i)=\beta^i$, da $\psi$ ein Körperautomorphismus
         ist. Daher ist $\psi$ als lineare Abbildung von $K(\alpha)$ als Vektorraum über $K$ in den Vektorraum $K(\beta)$
-        bereits auf einer Basis eindeutig festgelegt, womit $\psi$ istbesondere als Körperautomorphismus eindeutig ist.
+        bereits auf einer Basis eindeutig festgelegt, womit $\psi$ insbesondere als Körperautomorphismus eindeutig ist.
     \end{enumerate}
 \end{proof}
 
@@ -101,7 +101,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 
 \begin{proof}{\ }
     \begin{enumerate}
-        \item Sei $\alpha \in L \setminus \{0\}$. Da die Dimension der Erweiterung endlich ist, ist die Folge der Potenzen $\alpha^0, \alpha^1, \hdots$ linear abhängig über K. Es gibt also $a_0, \hdots, a_n \in K$ mit $\sum_{i=0}^n a_i \alpha^i = 0$, womit wir $f(x) = \sum_{i=0}^n a_i x^i$ wählen können. Es ist $f(\alpha) = 0$, womit $\alpha$ algebraisch ist.
+        \item Sei $\alpha \in L \setminus \{0\}$. Da die Dimension der Erweiterung endlich ist, ist die Folge der Potenzen $\alpha^0, \alpha^1, \hdots$ linear abhängig über K. Es gibt also $a_0, \hdots, a_n \in K$ mit $\sum_{i=0}^n a_i \alpha^i = 0$, womit wir $f(x) = \sum_{i=0}^n a_i x^i$ wählen können. Es ist $f(\alpha) = 0$ und $f\neq 0$, womit $\alpha$ algebraisch ist.
         
         \item Es gilt $[K(\alpha) : K] = \deg \mu_\alpha < \infty$.
         
@@ -111,9 +111,9 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
             &= [K(\alpha, a_0, \hdots, a_n) : K(a_0, \hdots, a_n)] \cdot [K(a_0, \hdots, a_n) : K] = \\
             &= [K(\alpha, a_0, \hdots, a_n) : K(a_0, \hdots, a_n)] \cdot \hdots \cdot [K(a_n) : K] < \infty
         \end{align*}
-        und nach (1) ist $K$ algebraisch.
+        und nach (1) ist $K(\alpha)$ algebraisch über $K$, also insbesondere $\alpha$ über $K$.
 
-        \item Seien $\alpha, \beta \in S$. Dann gilt auch $\alpha, \beta \in K(\alpha, \beta) \subseteq S$. Nach (1) ist $K \leq K(\alpha)$ algebraisch, genauso ist $K(\alpha) \leq K(\alpha, \beta)$ algebraisch, wobei letzteres ein Körper ist, womit $\alpha \cdot \beta, \alpha + \beta, \alpha^{-1} \in K(\alpha, \beta)$ folgt und wir damit nach (3) algebraisch über K sind.
+        \item Seien $\alpha, \beta \in S$, es reicht $\alpha\cdot\beta,\alpha+\beta,\alpha^{-1}\in S$ zu zeigen. Nach (1) ist $K \leq K(\alpha)$ algebraisch, genauso ist $K(\alpha) \leq K(\alpha, \beta)$ algebraisch, wobei letzteres ein Körper ist, womit $\alpha \cdot \beta, \alpha + \beta, \alpha^{-1} \in K(\alpha, \beta)$ folgt und diese damit nach (3) algebraisch über $K$ sind, also in $S$ liegen.
     \end{enumerate}
 \end{proof}
 
@@ -136,7 +136,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
     \begin{itemize}
         \item Sei $S \subseteq E$. Wir nennen $S$ \emph{algebraisch abhängig über $K$}\index{algebraisch abhängig}, wenn es $a_1,\hdots,a_n\in S$ paarweise verschieden und $ f(x_1, \hdots, x_n) \in K[x_1, \hdots, x_n], f \neq 0$ mit $f(a_1,\hdots,a_n)=0$ gibt.
         Sonst nennen wir $S$ \emph{algebraisch unabhängig}\index{algebraisch unabhängig}.
-        \item Wir $E$ \emph{rein transzendent über $K$}\index{transzendent!rein}, wenn es eine algebraisch unabhängige Teilmenge $S \subseteq E$ gibt mit $E = K(S)$.
+        \item Wir nennen $E$ \emph{rein transzendent über $K$}\index{transzendent!rein}, wenn es eine algebraisch unabhängige Teilmenge $S \subseteq E$ gibt mit $E = K(S)$.
         \item Sei $S \subseteq E$. Wir nennen $S$ \emph{Transzendenzbasis von $E$ über $K$}\index{Transzendenzbasis}, wenn $S$ maximal algebraisch unabhängig ist.
     \end{itemize}
 \end{definition}
@@ -172,8 +172,8 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 
 \begin{proof}
     Betrachte
-    $$ S := \{ S \subseteq E \mid S \text{ ist algebraisch unabhängig über } K \}. $$
-    Ist $S = \emptyset$ so ist $\emptyset$ bereits eine Transzendenzbasis. Sonst ist $(S, \subseteq)$ eine Halbordnung und ist $K \subseteq S$ eine Kette, so ist $\bigcup K \in S$. Nach dem Lemma von Zorn gibt es ein maximales Element, welches gerade unsere Transzendenzbasis darstellt.
+    $$ \mathcal{S} := \{ S \subseteq E \mid S \text{ ist algebraisch unabhängig über } K \}. $$
+    Wegen $\emptyset\in\mathcal{S}$ ist $\mathcal{S}$ nicht leer und daher $(\mathcal{S}, \subseteq)$ eine Halbordnung. Ist $K \subseteq \mathcal{S}$ eine beliebige Kette, so ist $\bigcup K \in \mathcal{S}$. Nach dem Lemma von Zorn gibt es ein maximales Element, welches gerade unsere Transzendenzbasis darstellt.
 \end{proof}
 
 \begin{corollary}
@@ -221,7 +221,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \end{corollary}
 
 \begin{proof}
-    Zunächst gibt es ein $c \in C$ mit $c \notin [B \setminus \{b\}]$, da wir sonst eine kleinere Transzendenzbasis hätten. Wegen $c \in [B]$ folgt mit dem Austauschlemma, dass $b \in [(B \setminus \{b\}) \cup \{c\}]$. Damit ist $E$ algebraisch über $[(B \setminus \{b\}) \cup \{c\}]$. Weiters ist $[(B \setminus \{b\}) \cup \{c\}]$ algebraisch unabhängig.
+    Zunächst gibt es ein $c \in C$ mit $c \notin [B \setminus \{b\}]$, da wir sonst eine kleinere Transzendenzbasis hätten. Wegen $c \in [B]$ folgt mit dem Austauschlemma, dass $b \in [(B \setminus \{b\}) \cup \{c\}]$. Damit ist $E$ algebraisch über $K((B \setminus \{b\}) \cup \{c\})$. Weiters ist $(B \setminus \{b\}) \cup \{c\}$ algebraisch unabhängig.
 \end{proof}
 
 \begin{lemma}
@@ -450,7 +450,7 @@ Es stellt sich die Frage, wann ein irreduzibles $f \in K[x]$ in $\overline{K}$ m
 \end{remark}
 
 \begin{lemma}\label{lemma:mehrfache_nullstellen}
-    Seien $K$ ein Körper, $f \in K[x]$ und $\alpha \in \overline{K}$. Es sind folgende Aussagen äquivalent:
+    Seien $K$ ein Körper, $f \in K[x]\setminus\{0\}$ und $\alpha \in \overline{K}$. Es sind folgende Aussagen äquivalent:
     \begin{enumerate}
         \item $\alpha$ ist mehrfache Nullstelle von $f$.
         \item $\ggT(f, f')(\alpha) = 0.$
@@ -470,7 +470,7 @@ Es stellt sich die Frage, wann ein irreduzibles $f \in K[x]$ in $\overline{K}$ m
 \end{lemma}
 \begin{proof}{\ }
     \begin{enumerate}
-        \item[$\Rightarrow$:] Sei angenommen $f$ hat eine mehrfache Nullstelle in $\overline{K}$. $f$ ist irreduzibel, also wissen wir $\ggT(f,f') \in \{1,f\}$. Nach obigem Lemma hat $\ggT(f,f')$ eine Nullstelle womit wir $\ggT(f, f') = f$ erhalten. Es gilt daher $f \mid f'$ und wegen $\deg f' < \deg f$ gilt $f' = 0$. Wir erhalten daraus direkt, dass $\chara K = p \in \mathbb{P}$. Schreiben wir $f(x) = \sum_{i=0}^n a_i x^i$, dann ist $0 = f'(x) = \sum_{i=1}^n i a_i x^{i-1}$. Wir erhalten also, dass $p \mid i a_i$, womit also für $a_i \not= 0 \mod p$ folgt, dass $p \mid i$. Das liefert die Darstellung $f = g(x^p)$.
+        \item[$\Rightarrow$:] Sei angenommen $f$ hat eine mehrfache Nullstelle in $\overline{K}$. $f$ ist irreduzibel, also wissen wir $\ggT(f,f') \in \{1,f\}$. Nach obigem Lemma hat $\ggT(f,f')$ eine Nullstelle womit wir $\ggT(f, f') = f$ erhalten. Es gilt daher $f \mid f'$ und wegen $\deg f' < \deg f$ gilt $f' = 0$. Wir erhalten daraus direkt, dass $\chara K = p \in \mathbb{P}$. Schreiben wir $f(x) = \sum_{i=0}^n a_i x^i$, dann ist $0 = f'(x) = \sum_{i=1}^n i a_i x^{i-1}$. Wir erhalten also, dass $i a_i=0$ gilt, womit also für $a_i \not= 0$ folgt, dass $p \mid i$. Das liefert die Darstellung $f = g(x^p)$.
         \item[$\Leftarrow$:] Sei angenommen $f(x) = g(x^p)$ und $\chara K = p \in \mathbb{P}$. Es gilt dann $f' = 0$, da alle $p \mid i$ wenn $a_i \not= 0$. Daher ist $\ggT(f, f') = \ggT(f, 0) = f$. In $\overline{K}$ hat $f$ eine Nullstelle, womit $\ggT(f, f')$ eine Nullstelle hat und nach obigem Lemma $f$ damit eine mehrfache Nullstelle hat.
     \end{enumerate}
 \end{proof}
@@ -501,5 +501,5 @@ Es stellt sich die Frage, wann ein irreduzibles $f \in K[x]$ in $\overline{K}$ m
 \end{proof}
 
 \begin{remark}
-    Sei $K < Z \leq K(x)$ eine transzendente Erweiterung. Dann besagt der Satz von Lüroth (welcher hier nicht bewiesen wird), dass $K \leq Z$ auch eine einfache, transzendente Erweiterung ist.
+    Sei $K < Z \leq K(x)$ eine einfache transzendente Erweiterung. Dann besagt der Satz von Lüroth (welcher hier nicht bewiesen wird), dass $K \leq Z$ auch eine einfache, transzendente Erweiterung ist.
 \end{remark}

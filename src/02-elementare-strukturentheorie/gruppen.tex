@@ -420,7 +420,7 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
         \item Sei $F \in \mathrm{S}(\{G\})$ beliebig, also $F \le G$. Weiter sei $h: \mathbb{Z} \to G$ ein nach 1. existierender surjektiver Homomorphismus.
         Wir wählen nun $U := h^{-1}(F) \le \mathbb{Z}$ und $m := \min\{n > 0 \mid n \in U\}$ bzw. $0$, falls die Menge leer ist. 
         
-        Wir behaupten nun, dass $U = m \mathbb{Z}$. Sei zuerst $mk \in m\mathbb{Z}$, dann folgt, da $m \in U$ und $U$ als Untergruppe unter Addition und Inversenbildung abgeschlossen ist, induktiv auch $mk \in U$. Es gilt also $U \subseteq m\mathbb{Z}$. Sei nun $n \in U$ und \obda $n > 0$. Es gibt dann $k \in \mathbb{N}$ und $r \in \{0, \ldots, m-1\}$, sodass $n = mk+r$. Durch Umformen erhalten wir $r = n - mk \in U$. Aufgrund der Wahl von $m$ folgt nun, dass $r = 0$, da es sonst ein kleineres positives Element als $m$ in $G$ gäbe, im Widerspruch zur Minimalität von $m$. Es ist also $n = mk \in m\mathbb{Z}$, womit $U = m\mathbb{Z}$ folgt.
+        Wir behaupten nun, dass $U = m \mathbb{Z}$. Sei zuerst $mk \in m\mathbb{Z}$, dann folgt, da $m \in U$ und $U$ als Untergruppe unter Addition und Inversenbildung abgeschlossen ist, induktiv auch $mk \in U$. Es gilt also $U \supseteq m\mathbb{Z}$. Sei nun $n \in U$ und \obda $n > 0$. Es gibt dann $k \in \mathbb{N}$ und $r \in \{0, \ldots, m-1\}$, sodass $n = mk+r$. Durch Umformen erhalten wir $r = n - mk \in U$. Aufgrund der Wahl von $m$ folgt nun, dass $r = 0$, da es sonst ein kleineres positives Element als $m$ in $G$ gäbe, im Widerspruch zur Minimalität von $m$. Es ist also $n = mk \in m\mathbb{Z}$, womit $U = m\mathbb{Z}$ folgt.
 
         Betrachten wir nun den surjektiven Homomorphismus $h\vert_{m\mathbb{Z}}: m\mathbb{Z} \to F$. Da $m\mathbb{Z} = \langle\{m\}\rangle$ und $m\mathbb{Z}$ damit zyklisch ist, folgt aus 1., dass $F$ zyklisch ist.
     \end{enumerate}
@@ -466,17 +466,19 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
 \end{definition}
 
 \begin{remark}
-   Eine andere Gruppenaktionen von $G$ nach $G$ als die Linkstranslation $\varphi$. Eine weitere ist die aus dem Beweis von \cref{satz:darstellungssatz-cayley-gruppen} bekannte Abbildung
+   Ein Beispiel einer Gruppenaktionen von $G$ nach $G$ ist also die Linkstranslation $\varphi$ aus dem Beweis von \cref{satz:darstellungssatz-cayley-gruppen}. Eine weitere bekannte Gruppenaktion ist die Abbildung
    \begin{equation*}
         \Psi: G \to G^G, g \mapsto [\psi_g: G \to G, h \mapsto ghg^{-1}]. \tag*{(Konjugation)}
    \end{equation*}
 
    Ist $G$ abelsch, so ist $\Psi(G) = \{\id_G\}$. Außerdem ist 
    $$ \ker \Psi = \{g \in G \mid \psi_g = \id_G\} = \{g \in G \mid \forall h \in G: ghg^{-1} = h\} = \{g \in G \mid \forall h \in G: gh = hg\}. $$
-
-   Wir definieren das \emph{Zentrum von $G$}\index{Gruppe!Zentrum} als
-   $$ Z(G) := \{ g \in G \mid \forall h \in G: gh = hg\}. $$ 
 \end{remark}
+
+\begin{definition}
+    Sei $G$ eine Gruppe. Dann ist das \emph{Zentrum von $G$}\index{Gruppe!Zentrum} definiert als
+   $$ Z(G) := \{ g \in G \mid \forall h \in G: gh = hg\}. $$ 
+\end{definition}
 
 \begin{definition}
     Eine \emph{Permutation}\index{Permutation} ist eine bijektive Abbildung $\pi: \{1, \ldots, n\} \to \{1, \ldots, n\}$. Eine Darstellung von Permutationen ist die sogenannte \emph{Zyklenschreibweise}\index{Zyklenschreibweise}. Es wird die Permutation dabei dargestellt als
@@ -536,7 +538,7 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
     $$ (n \ast m) \odot g = g^{n \ast m} = (g^m)^n = n \odot (m \odot g), $$
     $$ (n+m) \odot g = g^{n+m} = g^n \cdot g^m = (n \odot g) \cdot (m \odot g), $$
     $$ n \odot (g \cdot h) = (g \cdot h)^n = g^n \cdot h^n = (n \odot g) \cdot (n \odot h), $$
-    $$1\cdot g=g^1=g$$
+    $$1\odot g=g^1=g$$
     wobei wir bei der vorletzten Zeile verwenden, dass $G$ abelsch ist.
 
     Es stellt sich die Frage ob $G$ auch ein Modul über einem anderen Ring ist. Sei angenommen es gäbe ein $m \in \mathbb{Z}$, sodass für alle $g \in G$ gilt $g^m = e$. Dann ist $G$ ein unitärer Modul über $(\mathbb{Z}_m, +, 0, -, \ast, 1)$. Indirekt angenommen es gäbe ein $g \in G$ mit $g^m \neq e$, so wäre $g^0 = e$ ein Widerspruch.
@@ -557,7 +559,7 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
 \begin{definition}
     Sei $G$ eine Gruppe, $g \in G, p \in \mathbb{P}$, so nennen wir $g$ ein \emph{$p$-Element}\index{Gruppe!$p$-Element}, wenn es ein $k \in \mathbb{N}$ mit $\ord(g) = p^k$ gibt. Weiters definieren wir den \emph{$p$-Anteil}\index{Gruppe!$p$-Anteil} von $G$ als
     $$ G_p := \{ g \in G \mid g \textrm{ ist $p$-Element } \}. $$
-    Hier sei daran erinnert, dass $g$ \emph{Torsionselement}\index{Gruppe!Torsionselement} heißt, wenn es ein $k \in \mathbb{Z} \setminus \{ 0 \}$ mit $g^k = e$ gibt. Wir definieren
+    Hier sei daran erinnert, dass $g$ \emph{Torsionselement}\index{Gruppe!Torsionselement} heißt, wenn es ein $k \in \mathbb{Z} \setminus \{ 0 \}$ mit $g^k = e$ gibt. Wir definieren die \emph{Torsionsgruppe von $G$}\index{Gruppe!Torsionsgruppe}:
     $$ G_t := \{ g \in G \mid g \textrm{ ist Torsionselement } \}. $$
 \end{definition}
 
@@ -635,7 +637,7 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
 \notedate{27.04.2023}
 
 \begin{theorem}
-    Sei $G$ eine abelsche Torsionsgruppe. Dann ist $G = \bigodot_{p \in \mathbb{P}} G_p$.
+    Sei $G$ eine abelsche Torsionsgruppe. Dann ist $G = \stackrel{w}{\prod}_{p \in \mathbb{P}} G_p$.
 \end{theorem}
 
 \begin{proof}
@@ -657,7 +659,7 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
         \item Sei $\langle a \rangle \neq G$ angenommen und $c \in G \setminus \langle a \rangle$ beliebig. Wir wissen, dass $c^{(p^n)} = e \in \langle a \rangle$. Sei $j \geq 1$ minimal mit $c^{(p^j)} \in \langle a \rangle$, also ist
             $c^{(p^j)} = a^\ell$ für ein $\ell\in\mathbb{Z}$. Betrachte $b := c^{(p^{j-1})} \cdot a^{-\ell / p}$. Damit dies wohldefiniert ist müssen wir zunächst $p \mid \ell$ zeigen. Wäre dies nicht so, so wäre $\mathrm{ggT}(\ell, p^n) = 1$, also $\langle a \rangle = \langle a^\ell \rangle \subsetneq \langle c \rangle$, womit $\ord(c) > \ord(a)$ wäre, im Widerspruch dazu, dass $a$ maximale Ordnung hat.
             
-            Nun gilt $b^p = c^{(p^j)} \cdot a^{- \ell} = e$. Da $c^{(p^{j-1})} \not\int \langle a \rangle, a^{-\ell / p} \in \langle a \rangle$ folgt also $b \not\in \langle a \rangle$, inbesondere ist $b \neq e$. Damit erhalten wir $\ord(b) = p$ und damit $\langle b \rangle \cong \mathbb{Z}_p$. Sei indirekt angenommen es gäbe ein $x \in (\langle a \rangle \cap \langle b \rangle) \setminus \{e\}$, dann wäre $b \in \langle x \rangle$, damit $b \in \langle a \rangle$, im Widerspruch. Also folgt $\langle a \rangle \cap \langle b \rangle = \{e\}$.
+            Nun gilt $b^p = c^{(p^j)} \cdot a^{- \ell} = e$. Da $c^{(p^{j-1})} \not\in \langle a \rangle, a^{-\ell / p} \in \langle a \rangle$ folgt also $b \not\in \langle a \rangle$, inbesondere ist $b \neq e$. Damit erhalten wir $\ord(b) = p$ und damit $\langle b \rangle \cong \mathbb{Z}_p$. Sei indirekt angenommen es gäbe ein $x \in (\langle a \rangle \cap \langle b \rangle) \setminus \{e\}$, dann wäre $b \in \langle x \rangle$, damit $b \in \langle a \rangle$, im Widerspruch. Also folgt $\langle a \rangle \cap \langle b \rangle = \{e\}$.
 
         \item Sei $U \leq G$ maximal mit $U \cap \langle a \rangle = \{e\}$, vermöge Lemma von Zorn angewandt auf $(\{ U \leq G \mid U \cap \langle a \rangle = \{e\} \}, \subseteq)$.
         
