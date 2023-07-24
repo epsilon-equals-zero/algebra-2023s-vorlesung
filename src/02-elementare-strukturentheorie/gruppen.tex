@@ -216,7 +216,7 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
         \item \ref*{item:theorem:normalteiler_equiv_4}, \ref*{item:theorem:normalteiler_equiv_4'} besagen, dass die Links- und Rechtsnebenklassen einer Untergruppe genau dann gleich sind, wenn die Untergruppe ein Normalteiler ist.
     \end{itemize}
 
-    Inbesondere sind alle Äquivalenzklassen einer Kongruenzrelation gleich groß, da sie lediglich ``Verschiebungen'' der Äquivalenzklasse des neutralen Elements sind.
+    Insbesondere sind alle Äquivalenzklassen einer Kongruenzrelation gleich groß, da sie lediglich ``Verschiebungen'' der Äquivalenzklasse des neutralen Elements sind.
 \end{remark}
 
 \begin{corollary} \label{corollary:abelsch-normalteiler-untergruppe}
@@ -510,7 +510,7 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
         Induktionsanfang ($n = 2$): Es ist $S_n = \{ \id_{\{1,2\}}, (1\; 2) \}$, wobei $\id_{\{1,2\}} = (1\; 2) \circ (1\; 2)$.\\
         Induktionsschritt ($n \to n+1$): Sei $\pi \in S_{n+1}$. Falls $\pi(n+1) \not= n+1$ wählen wir die (selbstinverse) Transposition $\tau = (\pi(n+1)\; n+1)$. Wählen wir nun $\tilde{\pi} := \tau \circ \pi$ oder $\tilde{\pi} = \pi$ falls $\pi(n+1) = n+1$. Es ist dann $\tilde{\pi}\vert_{\{1,\ldots,n\}} \in S_n$, womit es nach der Induktionsvoraussetzung eine Darstellung als Produkt von Transpositionen gibt. Da $\pi = \tilde\pi$ oder $\pi = \tau\tilde\pi$ gibt es nun also auch für $\pi$ eine solche Darstellung.
 
-        \item Sei $\pi \in S_n$ mit zwei Darstellungen $\pi = (i_1\; j_1) \hdots (i_k\; j_k) = (a_1\; b_1) \hdots (a_\ell\; b_\ell)$. Transposition sind selbstinvers, wir haben also
+        \item Sei $\pi \in S_n$ mit zwei Darstellungen $\pi = (i_1\; j_1) \hdots (i_k\; j_k) = (a_1\; b_1) \hdots (a_\ell\; b_\ell)$. Transpositionen sind selbstinvers, wir haben also
         $$ (a\ell\; b_\ell) \hdots (a_1\; b_1) (i_1\; j_1) \hdots (i_k\; j_k) = \id_{\{1,\hdots,n\}}. $$
         Es reicht also zu zeigen, dass die Identität keine ungerade Darstellung besitzt. Dazu bemerken wir, dass $S_n$ auf der Menge $M := \{ (i, j) \mid 1 \leq i, j \leq n, i \neq j \}$ als Gruppenaktion agiert, und zwar durch
         $$ \pi((i, j)) := (\pi(i), \pi(j)). $$
@@ -659,7 +659,7 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
         \item Sei $\langle a \rangle \neq G$ angenommen und $c \in G \setminus \langle a \rangle$ beliebig. Wir wissen, dass $c^{(p^n)} = e \in \langle a \rangle$. Sei $j \geq 1$ minimal mit $c^{(p^j)} \in \langle a \rangle$, also ist
             $c^{(p^j)} = a^\ell$ für ein $\ell\in\mathbb{Z}$. Betrachte $b := c^{(p^{j-1})} \cdot a^{-\ell / p}$. Damit dies wohldefiniert ist müssen wir zunächst $p \mid \ell$ zeigen. Wäre dies nicht so, so wäre $\mathrm{ggT}(\ell, p^n) = 1$, also $\langle a \rangle = \langle a^\ell \rangle \subsetneq \langle c \rangle$, womit $\ord(c) > \ord(a)$ wäre, im Widerspruch dazu, dass $a$ maximale Ordnung hat.
             
-            Nun gilt $b^p = c^{(p^j)} \cdot a^{- \ell} = e$. Da $c^{(p^{j-1})} \not\in \langle a \rangle, a^{-\ell / p} \in \langle a \rangle$ folgt also $b \not\in \langle a \rangle$, inbesondere ist $b \neq e$. Damit erhalten wir $\ord(b) = p$ und damit $\langle b \rangle \cong \mathbb{Z}_p$. Sei indirekt angenommen es gäbe ein $x \in (\langle a \rangle \cap \langle b \rangle) \setminus \{e\}$, dann wäre $b \in \langle x \rangle$, damit $b \in \langle a \rangle$, im Widerspruch. Also folgt $\langle a \rangle \cap \langle b \rangle = \{e\}$.
+            Nun gilt $b^p = c^{(p^j)} \cdot a^{- \ell} = e$. Da $c^{(p^{j-1})} \not\in \langle a \rangle, a^{-\ell / p} \in \langle a \rangle$ folgt also $b \not\in \langle a \rangle$, insbesondere ist $b \neq e$. Damit erhalten wir $\ord(b) = p$ und damit $\langle b \rangle \cong \mathbb{Z}_p$. Sei indirekt angenommen es gäbe ein $x \in (\langle a \rangle \cap \langle b \rangle) \setminus \{e\}$, dann wäre $b \in \langle x \rangle$, damit $b \in \langle a \rangle$, im Widerspruch. Also folgt $\langle a \rangle \cap \langle b \rangle = \{e\}$.
 
         \item Sei $U \leq G$ maximal mit $U \cap \langle a \rangle = \{e\}$, vermöge Lemma von Zorn angewandt auf $(\{ U \leq G \mid U \cap \langle a \rangle = \{e\} \}, \subseteq)$.
         

@@ -311,7 +311,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
     Sei $\psi : R \to L$ eine Einbettung in einen Körper $L$. Nach der Monoidkonstruktion gibt es eine Einbettung $\bar{\psi} : K \to L$ bezüglich $\cdot$ mit $\bar{\psi} \circ \varphi = \psi$.
     Wir verifizieren nun, dass $\bar{\psi}$ mit der Addition verträglich ist:
     \begin{align*}
-        \bar{\psi} ([(z_1, u_1)]_\sim + [(z_2, u_2)]_\sim) &= \bar{\psi} ([(z_1 u_2 + z_2 u_1, u_1 u_2)]_\sim) \\
+        \bar{\psi} ([(z_1, n_1)]_\sim + [(z_2, n_2)]_\sim) &= \bar{\psi} ([(z_1 n_2 + z_2 n_1, n_1 n_2)]_\sim) \\
         &= \bar{\psi}([(z_1n_2+z_2n_1,1)]_\sim)\cdot \bar{\psi}([(1,n_1n_2)]_\sim)\\
         &= \overbrace{\bar{\psi}\circ\varphi}^{=\psi}(z_1n_2+z_2n_1)\cdot \bar{\psi}([(1,n_1n_2)]_\sim)\\
         &= \big(\overbrace{\psi}^{\bar{\psi}\circ\varphi}(z_1n_2)+\overbrace{\psi}^{\bar{\psi}\circ\varphi}(z_2n_1)\big)\cdot \bar{\psi}([(1,n_1n_2)]_\sim)\\
@@ -326,7 +326,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 
 \begin{proof}
     Gegeben sind also $\varphi:R\to K$ und $\varphi_0:R\to L$ jeweils mit Eigenschaft (3).
-    Daher existieren $\bar{\varphi}:L\to K$ mit $\bar{\varphi}\circ \varphi_0=\varphi$ und $\bar{\varphi_0}:K\to L$ mit $\bar{\varphi_0}\circ \varphi=\varphi_0$. Wir zeigen zuerst die folgenden Behauptung. Für jeden injektiven Homomorphismus
+    Daher existieren $\bar{\varphi}:L\to K$ mit $\bar{\varphi}\circ \varphi_0=\varphi$ und $\bar{\varphi_0}:K\to L$ mit $\bar{\varphi_0}\circ \varphi=\varphi_0$. Wir zeigen zuerst die folgende Behauptung. Für jeden injektiven Homomorphismus
     $\xi:K\to K$ mit $\xi|_{\varphi(R)}=\id_R$ folgt $\xi=\id$. Dies folgt aus der folgenden Rechnung:
     $$
         \xi([(a,b)]_\sim)=\xi([(a,1)]_\sim)\xi([1,b]_\sim)=[(a,1)]_\sim\cdot [(b,1)]_\sim^{-1}=[(a,b)]_\sim.
@@ -346,7 +346,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \end{remark}
 
 \begin{definition}\label{def:polynomring}
-    Sei $R$ eine Ring mit $1$. Wir definieren den \emph{Polynomring über $R$}\index{Polynomring}
+    Sei $R$ ein Ring mit $1$. Wir definieren den \emph{Polynomring über $R$}\index{Polynomring}
     $$R[x]:=\left\{(x_n)_{n\in \mathbb{N}} \in R^\mathbb{N} \;\middle|\; \vert\{x_n\neq 0\mid n\in \mathbb{N}\}\vert<\infty\right\}$$
     mit den Operationen
     \begin{align*}
@@ -478,7 +478,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
     Dieses Element ist eindeutig modulo $I$ bestimmt, denn falls $r'$ und $r$ beide die gewünschte Eigenschaft haben,
     so folgt $r'-r\in I_i$ für alle $i$, also $r'-r\in\bigcap_{i=1}^nI_i=I$.
 
-    Schließlich ist die Abbildung $\varphi$ laut Definition wohldefiniert. Die Surjektivität ist die Existenz vonb $r$ im ersten Punkt,
+    Schließlich ist die Abbildung $\varphi$ laut Definition wohldefiniert. Die Surjektivität ist die Existenz von $r$ im ersten Punkt,
     die Injektivität ist die Eindeutigkeit modulo $I$. Für die Homomorphiebedingung rechnen wir exemplarisch nach, dass
     $\varphi$ mit der Addition verträglich ist:
     $$\varphi(r+I+s+I)=\varphi((r+s)+I)=((r+s)+I_1,\ldots,(r+s)+I_n)=\varphi(r+I)+\varphi(s+I).$$

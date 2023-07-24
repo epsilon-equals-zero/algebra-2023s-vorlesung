@@ -1,20 +1,20 @@
 \section{Terme und Termalgebra}
 
 \begin{definition}
-    Sei $X$ eine beliebige Menge und seien $(f_i)_{i \in I}$ Funktionssymbole mit Aritäten $(n_i)_{i \in I}$. Die Menge $T(X) := T$ ist rekursiv definiert durch $$T_0 := X ,\quad T_{k+1} := T_k \cup \{f_i(t_1, \ldots t_{n_i}) \mid i \in I \land t_1, \ldots, t_{n_i} \in T_k\},\quad T := \bigcup_{i \ge 0} T_i.$$ 
+    Sei $X$ eine beliebige Menge und seien $(f_i)_{i \in I}$ Funktionssymbole mit Aritäten $(n_i)_{i \in I}$. Die Menge $T(X) := T$\footnote{Hier gilt es zu beachten, dass die Notation $T(X)$ die Funktionssymbole zwar nicht beinhaltet, aber die Menge der Terme dennoch von der Sprache $(f_i)_{i\in I}$ abhängt.} ist rekursiv definiert durch $$T_0 := X ,\quad T_{k+1} := T_k \cup \{f_i(t_1, \ldots t_{n_i}) \mid i \in I \land t_1, \ldots, t_{n_i} \in T_k\},\quad T := \bigcup_{i \ge 0} T_i.$$ 
     
-    Ein Element $t \in T$ heißt \emph{Term}\index{Term}, die Elemente aus $X$ \emph{Variablen}\index{Variable}, $(f_i)_{i \in I}$ \emph{Sprache}\index{Sprache} und die Menge $T$ beschreibt alle \emph{Terme über $(X, (f_i)_{i \in I})$}.
+    Ein Element $t \in T$ heißt \emph{Term}\index{Term}, die Elemente aus $X$ \emph{Variablen}\index{Variable}, $(f_i)_{i \in I}$ \emph{Sprache} oder \emph{Signatur}\footnote{Wegen \cref{definition:termalgebra} ist diese erneute Belegung der Begriffe \emph{Sprache} und \emph{Signatur} aus \cref{def:algebra} gerechtfertigt.} und die Menge $T$ beschreibt alle \emph{Terme über $(X, (f_i)_{i \in I})$}.
     Für einen Term $t \in T$ heißt $\lvl(t) := \min\{k \mid t \in T_k\}$ die \emph{Stufe von $t$}\index{Term!Stufe}. 
     
-    Weiter werden die \emph{Variablen eines Terms}\index{Term!Variablen} rekursiv definiert. Für $x \in X$ ist $\var(x) := \{x\}$ und für $t = f_i(t_1, \ldots, t_{n_i})$ ist $\var(t) := \bigcup_{j \in \{1, \ldots, n_i\}} \var(t_j)$.
+    Weiter werden die \emph{Variablen eines Terms}\index{Term!Variablen} rekursiv definiert. Für $x \in X$ ist $\var(x) := \{x\}$ und für $t = f_i(t_1, \ldots, t_{n_i})$ ist $\var(t) := \bigcup_{j \in \{1, \ldots, n_i\}} \var(t_j)$. Für einen Term $t$ werden wir auch $t(\var(t))$ beziehungsweise im Fall $\var(t)=\{x_1,\ldots,x_n\}$ auch $t(x_1,\ldots,x_n)$ schreiben.
 \end{definition}
 
 \begin{example}
     Seien $X = \{x,y,z\}$ und $(f_1, f_2, f_3) = (+, \cdot, -)$ mit Aritäten $(2,2,1)$. Damit erhält man $x,y,z$ als Terme 0-ter Stufe, $-x, x+x, x\cdot z, z + x, \ldots$ als Terme 1-ter Stufe, $(-x) + y, (x \cdot z) - y, \ldots$ als Terme 2-ter Stufe etc.
 \end{example}
 
-\begin{definition}
-    Sei $T$ die Menge aller Terme über $(X, (f_i)_{i \in I})$. Es ist dann $\mathfrak{T}(X, (f_i)_{i \in I}) := (T, (f_i^\mathfrak{T}))$, die \emph{(erzeugte) Termalgebra}\index{Termalgebra}, eine Algebra vom Typ $\tau = (n_i)_{i \in I}$, wobei $f_i^\mathfrak{T}: T^{n_i} \to T, (t_1, \ldots, t_{n_i}) \mapsto f_i(t_1, \ldots, t_{n_i})$.
+\begin{definition}\label{definition:termalgebra}
+    Sei $T$ die Menge aller Terme über $(X, (f_i)_{i \in I})$. Es ist dann $\mathfrak{T}(X, (f_i)_{i \in I}) := (T, (f_i^\mathfrak{T})_{i\in I})$, die \emph{(erzeugte) Termalgebra}\index{Termalgebra}, eine Algebra vom Typ $\tau = (n_i)_{i \in I}$, wobei $f_i^\mathfrak{T}: T^{n_i} \to T, (t_1, \ldots, t_{n_i}) \mapsto f_i(t_1, \ldots, t_{n_i})$.
 \end{definition}
 
 \begin{theorem}\label{theorem:variablenmenge_frei}
@@ -36,9 +36,9 @@
 \vspace*{-\lineskip}
 
 \begin{definition}
-    Seien $X^{(k)} = \{x_1, \ldots, x_k\} \subseteq X$ eine Teilmenge der Variablenmenge, $\mathfrak{T}^{(k)} = \mathfrak{T}(X^{(k)}, (f_i)_{i \in I}) = (T^{(k)}, (f_i^\mathfrak{T})_{i \in I})$ die erzeugte Termalgebra und $\mathfrak{A} = (A, (f_i^\mathfrak{A})_{i \in I})$ eine Algebra vom selben Typ. Für $a_1, \ldots, a_k \in A$ heißt $\alpha_{a_1, \ldots, a_k}: X^{(k)} \to A, x_j \mapsto a_j$ eine \emph{Variablenbelegung}\index{Variablenbelegung}. Nach \Cref{theorem:variablenmenge_frei} kann diese nun zum \emph{Einsetzungshomomorphismus}\index{Einsetzungshomomorphismus} $\overline{\alpha}_{a_1, \ldots, a_k}: T^{(k)} \to A$ fortgesetzt werden.
+    Seien $X^{(k)} = \{x_1, \ldots, x_k\} \subseteq X$ eine Teilmenge der Variablenmenge, $\mathfrak{T}^{(k)} = \mathfrak{T}(X^{(k)}, (f_i)_{i \in I}) = (T^{(k)}, (f_i^\mathfrak{T})_{i \in I})$\footnote{Streng genommen müsste $(f_i^{\mathfrak{T}^{(k)}})_{i\in I}$ in der Definition stehen, wegen $f_i^{\mathfrak{T}^{(k)}}=f_i^\mathfrak{T}\vert_{T^{(k)}(X)}$ ist auch die hier gegebene Notation sinnvoll, welche wir zwecks besserer Lesbarkeit verwenden werden.} die erzeugte Termalgebra und $\mathfrak{A} = (A, (f_i^\mathfrak{A})_{i \in I})$ eine Algebra vom selben Typ. Für $a_1, \ldots, a_k \in A$ heißt $\alpha_{a_1, \ldots, a_k}: X^{(k)} \to A, x_j \mapsto a_j$ eine \emph{Variablenbelegung}\index{Variablenbelegung}. Nach \Cref{theorem:variablenmenge_frei} kann diese nun zum \emph{Einsetzungshomomorphismus}\index{Einsetzungshomomorphismus} $\overline{\alpha}_{a_1, \ldots, a_k}: T^{(k)} \to A$ fortgesetzt werden.
 
-    Für einen beliebigen Term $t \in T^{(k)}$ ist die \emph{durch $t$ in $\mathfrak{A}$ induzierte Termoperation}\index{Termoperation} als $t^\mathfrak{A}: A^k \to A, (a_1, \ldots, a_k) \mapsto \overline{\alpha}_{a_1, \ldots a_k}(t)$ definiert. Damit wird aus einem abstrakten Term eine Funktion auf $A$.
+    Für einen beliebigen Term $t \in T^{(k)}$ ist die \emph{durch $t$ in $\mathfrak{A}$ induzierte Termoperation}\index{Termoperation} oder auch \emph{Termfunktion}\index{Termfunktion} als $t^\mathfrak{A}: A^k \to A, (a_1, \ldots, a_k) \mapsto \overline{\alpha}_{a_1, \ldots a_k}(t)$ definiert. Damit wird aus einem abstrakten Term eine Funktion auf $A$.
 \end{definition}
 
 \begin{example}

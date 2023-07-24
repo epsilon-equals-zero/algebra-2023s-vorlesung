@@ -4,7 +4,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
 \subsection{Unteralgebren}
 
-\begin{definition}
+\begin{definition}\label{definition:unterstruktur}
     Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $S\subseteq A$. Dann heißt das Tupel $\mathfrak{S}=(S,(f^\mathfrak{A}_i|_{S^{n_i}})_{i\in I})$\footnote{Zwecks besserer Lesbarkeit werden wir dafür meist $\mathfrak{S}=(S,(f^\mathfrak{S}_i)_{i\in I})$ schreiben.}
     \emph{Subalgebra}\index{Subalgebra} oder \emph{Unteralgebra}\index{Unteralgebra} von $\mathfrak{A}$, wenn
     \begin{itemize}
@@ -17,7 +17,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     Sei $\mathfrak{V}=(V,+,0,-,(m_k)_{k\in\mathfrak{K}})$ ein Vektorraum über einem Körper $\mathfrak{K}$. Dann gilt für
     jeden Untervektorraum $U$ von $V$: $\mathfrak{U}=(U,+,0,-,(m_k)_{k\in\mathfrak{K}})\le \mathfrak{V}$. 
     
-    Weitere Beispiele für Unteralgebren sind $(\mathbb{N},+)\le(\mathbb{Z},+)$ und $(\Sl_n(K),\cdot)\le (\Gl_n(K),\cdot)$.
+    Weitere Beispiele für Unteralgebren sind $(\mathbb{N},+)\le(\mathbb{Z},+)$ und die spezielle lineare Gruppe (das sind alle $n\times n$-Matrizen mit Determinante 1) als Untergruppe der allgemeinen linearen Gruppe $(\Sl_n(K),\cdot)\le (\Gl_n(K),\cdot)$.
 \end{example}
 
 \begin{proposition}\label{prop:unteralgebra}
@@ -32,7 +32,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
 \begin{remark}
     Sei $\mathfrak{V}=(V,+,0,-,(m_k)_{k\in\mathfrak{K}})$ ein Vektorraum über einem Körper $\mathfrak{K}$.
-    Dann ist $x\approx 0$ ein Gesetz, welches in $(\{0\},+,0,-)$ erfüllt ist, jedoch nicht in $\mathfrak{V}$.
+    Dann ist $x\approx 0$ ein Gesetz, welches in $(\{0\},+,0,-,(m_k)_{k\in\mathfrak{K}})$ erfüllt ist, jedoch nicht in $\mathfrak{V}$.
     Wir sehen also, dass die Umkehrung von Proposition \ref{prop:unteralgebra} nicht gilt.
 \end{remark}
 
@@ -68,14 +68,13 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
 \begin{corollary}
     Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $S\subseteq A$. Dann ist die von $S$ \emph{erzeugte Unteralgebra}\index{erzeugte Unteralgebra}\index{Unteralgebra!erzeugte} von 
-    $\mathfrak{A}$ definiert durch $\langle S\rangle:=\bigcap\{\mathfrak{U} \mid S\subseteq U\land \mathfrak{U} = (U,(f^\mathfrak{A}_i)_{i\in I})\le \mathfrak{A}\}$
-    die kleinste $S$ enthaltende Unteralgebra von $\mathfrak{A}$.
+    $\mathfrak{A}$ definiert durch $\langle S\rangle\footnote{Die hier gegebene Notation $\langle S\rangle$ ist nur dann sinnvoll, wenn die Algebra $\mathfrak{A}$ im Kontext klar ist. Ansonsten sollte die Notation $\langle S\rangle_\mathfrak{A}$ verwendet werden.}:=\bigcap\{\mathfrak{U} \mid S\subseteq U\land \mathfrak{U} = (U,(f^\mathfrak{A}_i\vert_{U^{n_i}})_{i\in I})\le \mathfrak{A}\}$ die kleinste $S$ enthaltende Unteralgebra von $\mathfrak{A}$.
 \end{corollary}
 
 \begin{definition}
     Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und $S\subseteq A$. Die Menge $S_\infty$ ist rekursiv
     definiert durch
-    \[S_0:=S, \quad S_{k+1}:=S_k\cup\{f^\mathfrak{A}_i(a_1,\ldots,a_{n_i}) \mid i\in I\land a_1,\ldots a_{n_i}\in S_k\},\quad S_\infty:=\bigcup_{k\geq 0}S_k.\]
+    \[S_0:=S, \quad S_{k+1}:=S_k\cup\{f^\mathfrak{A}_i(a_1,\ldots,a_{n_i}) \mid i\in I\land a_1,\ldots a_{n_i}\in S_k\},\quad S_\infty\footnote{Auch hier ist die Notation nur dann sinnvoll, wenn die Algebra $\mathfrak{A}$ im Kontext offensichtlich ist.}:=\bigcup_{k\geq 0}S_k.\]
 \end{definition}
 
 \begin{example}
@@ -126,7 +125,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra, $S\subseteq A$ und $X$ eine Menge mit $\vert X \vert \ge \min\{\vert S \vert, \aleph_0\}$. Dann gelten die beiden Identitäten:
     \begin{enumerate}
         \item $\langle S\rangle=S_\infty$
-        \item $\langle S\rangle=\{t^\mathfrak{A}(a_1,\ldots,a_n) \mid n \in \mathbb{N}, a_1,\ldots,a_n\in S, t \in T(X) \}$
+        \item $\langle S\rangle=\{t^\mathfrak{A}(a_1,\ldots,a_n) \mid n \in \mathbb{N}, a_1,\ldots,a_n\in S, t(x_1,\ldots,x_n) \in T(X) \}$
     \end{enumerate}
 \end{proposition}
 \begin{proof} In beiden Behauptungen wird die gegenseitige Inklusion von zwei Mengen gezeigt.
@@ -136,18 +135,11 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
         Für die andere Inklusion wird mittels Induktion gezeigt, dass für alle $k\in\mathbb{N}:S_k\subseteq \langle S\rangle$ gilt,
         woraus schließlich auch $S_\infty=\bigcup_{k\in\mathbb{N}}S_k\subseteq \langle S\rangle$ folgt.
 
-        Induktionsanfang $(k=0)$: Per Definitionem der erzeugten Algebra gilt $S_0=S\subseteq \langle S\rangle$. \\
-        Induktionsschritt $(k\to k+1)$: Sei nun $a\in S_{k+1}$ beliebig. Falls $a\in S_k$ ist, so folgt aus
-        der Induktionsvoraussetzung dass $a\in \langle S\rangle$ gilt. Andernfalls existieren ein $i\in I$ und
-        $a_1,\ldots,a_{n_i}\in S_{k}$, sodass $a=f_i^{\mathfrak{A}}(a_1,\ldots,a_{n_i})$. Auch hier kann die Induktionsvoraussetzung
-        angewandt werden, weshalb $a_1,\ldots,a_{n_i}\in \langle S\rangle$ ist. Da $(\langle S\rangle,(f_i^{\mathfrak{A}})_{i\in I})$ eine Unteralgebra
-        von $\mathfrak{A}$ ist, gilt auch $a=f_i^{\mathfrak{A}}(a_1\ldots,a_{n_i})\in\langle S\rangle$. Daraus folgt die gewünschte Mengeninklusion
-        $S_{k+1}\subseteq \langle S\rangle$.
+        Induktionsanfang $(k=0)$: Per definitionem der erzeugten Algebra gilt $S_0=S\subseteq \langle S\rangle$. \\
+        Induktionsschritt $(k\to k+1)$: Sei $a\in S_{k+1}$ beliebig. Falls $a\in S_k$ ist, so folgt aus der Induktionsvoraussetzung dass $a\in \langle S\rangle$ gilt. Andernfalls existieren ein $i\in I$ und $a_1,\ldots,a_{n_i}\in S_{k}$, sodass $a=f_i^{\mathfrak{A}}(a_1,\ldots,a_{n_i})$. Auch hier kann die Induktionsvoraussetzung angewandt werden, weshalb $a_1,\ldots,a_{n_i}\in \langle S\rangle$ ist. Da $(\langle S\rangle,(f_i^{\mathfrak{A}}\vert_{\langle A\rangle^{n_i}})_{i\in I})$ eine Unteralgebra von $\mathfrak{A}$ ist, gilt auch $a=f_i^{\mathfrak{A}}(a_1\ldots,a_{n_i})\in\langle S\rangle$. Daraus folgt die gewünschte Mengeninklusion $S_{k+1}\subseteq \langle S\rangle$.
 
-        \item Definiere $M:=\{t^\mathfrak{A}(a_1,\ldots,a_n)\vert a_1,\ldots,a_n\in S\land t\in T(X)\}$.
-        Es gilt $S\subseteq M$, da die Projektionen $\pi_j^{(n)}:A^n\to A, (a_1,\ldots,a_n)\mapsto a_j$ Termfunktionen sind.
-        Außerdem kann gezeigt werden, dass $(M,(f_i)_{i\in I})$ eine Unteralgebra von $\mathfrak{A}$ ist. Sei $i\in I$ beliebig
-        und seien $b_1,\ldots,b_{n_i}\in M$, dann können diese Elemente als $b_j=t_j^\mathfrak{A}(a_1^{(j)},\ldots,a_{m_j}^{(j)})$
+        \item Definiere $M:=\{t^\mathfrak{A}(a_1,\ldots,a_n) \mid n \in \mathbb{N}, a_1,\ldots,a_n\in S, t(x_1,\ldots,x_n) \in T(X) \}$. Es gilt $S\subseteq M$, da die Projektionen $\pi_j^{(n)}:A^n\to A, (a_1,\ldots,a_n)\mapsto a_j$ Termfunktionen sind.
+        Außerdem kann gezeigt werden, dass $(M,(f_i)_{i\in I})$ eine Unteralgebra von $\mathfrak{A}$ ist: Sei $i\in I$ beliebig und seien $b_1,\ldots,b_{n_i}\in M$, dann können diese Elemente als $b_j=t_j^\mathfrak{A}(a_1^{(j)},\ldots,a_{m_j}^{(j)})$
         mit $a_1^{(j)},\ldots,a_{m_j}^{(j)}\in S$ für $j\in \{1,\ldots,n_i\}$ dargestellt werden. Definiert man nun $a:=f^\mathfrak{A}_i(b_1,\ldots,b_{n_i})$
         und den Term $t:=f_i^\mathfrak{T}(t_1(x_1^{(1)},\ldots,x_{m_1}^{(1)}),\ldots,t_{n_i}(x_1^{(n_i)},\ldots,x_{m_{n_i}}^{(n_i)}))$,
         so erhält man eine passende Termfunktion, das heißt es gilt $t^\mathfrak{A}(a_1^{(1)},\ldots,a_{m_1}^{(1)},\ldots,a_1^{(n_i)},\ldots,a_{m_{n_i}}^{(n_i)})=a$,
@@ -166,7 +158,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \end{proof}
 
 \begin{corollary}
-    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra, $S=\{s_1,\ldots,s_n\}\subseteq A$ und $X$ eine beliebige Menge mit mindestens $n$-Elementen.
+    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra, $S=\{s_1,\ldots,s_n\}\subseteq A$ und $X$ eine beliebige Menge mit mindestens $n$ Elementen.
     Dann gilt für die von $S$ erzeugte Unteralgebra
     $$ \langle S\rangle=\{t^\mathfrak{A}(s_1,\ldots,s_n)\mid t(x_1,\ldots,x_n)\in T(X)\}. $$
 \end{corollary}
@@ -277,8 +269,8 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
 \begin{proof}
     Es ist hinreichend zu zeigen, dass $s^\mathfrak{A}=t^\mathfrak{A}$ gilt. Seien $\vec a^{(1)} = (a_j^{(1)})_{j \in J}, \ldots,\vec a^{(n)}\in A$ beliebig.
-    Dann gilt laut Voraussetzung für alle $j\in J:s^{\mathfrak{A}_j}(a^{(1)}_j,\ldots,a^{(n)}_j)) = t^{\mathfrak{A}_j}(a^{(1)}_j,\ldots,a^{(n)}_j))$.
-    Daher folgt $s^\mathfrak{A}(\vec a^{(1)},\ldots,\vec a^{(n)})_j=s^{\mathfrak{A}_j}(a^{(1)}_j,\ldots,a^{(n)}_j)) = t^{\mathfrak{A}_j}(a^{(1)}_j,\ldots,a^{(n)}_j))=t^\mathfrak{A}(\vec a^{(1)},\ldots,\vec a^{(n)})_j$
+    Dann gilt laut Voraussetzung für alle $j\in J:s^{\mathfrak{A}_j}(a^{(1)}_j,\ldots,a^{(n)}_j) = t^{\mathfrak{A}_j}(a^{(1)}_j,\ldots,a^{(n)}_j)$.
+    Daher folgt $s^\mathfrak{A}(\vec a^{(1)},\ldots,\vec a^{(n)})_j=s^{\mathfrak{A}_j}(a^{(1)}_j,\ldots,a^{(n)}_j) = t^{\mathfrak{A}_j}(a^{(1)}_j,\ldots,a^{(n)}_j)=t^\mathfrak{A}(\vec a^{(1)},\ldots,\vec a^{(n)})_j$
     für alle $j\in J$, also insbesondere $s^\mathfrak{A}(\vec a^{(1)},\ldots,\vec a^{(n)})=t^\mathfrak{A}(\vec a^{(1)},\ldots,\vec a^{(n)})$ und damit $s^\mathfrak{A}=t^\mathfrak{A}.$
 \end{proof}
 
@@ -300,7 +292,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra, $m\in\mathbb{N}$ und $R\subseteq A^m$ eine $m$-stellige
     Relation auf $A$. Dann heißt $R$ \emph{invariant unter $\mathfrak{A}$}\index{invariante Relation}\index{Relation!invariant}, wenn
     \begin{itemize}
-        \item $\forall i\in I:\forall r^{(1)},\ldots,r^{(n_i)}\in R:(f_i(r_1^{(1)},\ldots,r_1^{(n_i)}),\ldots,f_i(r_m^{(1)},\ldots,r_m^{(n_i)}))\in R$.
+        \item $\forall i\in I\,\forall r^{(1)},\ldots,r^{(n_i)}\in R\ (f_i(r_1^{(1)},\ldots,r_1^{(n_i)}),\ldots,f_i(r_m^{(1)},\ldots,r_m^{(n_i)}))\in R$.
     \end{itemize}
 \end{definition}
 
@@ -313,12 +305,12 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \begin{example}
     Sei $X$ eine Menge, $(f_i)_{i\in I}$ eine Signatur und $\mathfrak{T}=(T,(f^\mathfrak{T}_i)_{i\in I})$ die Termalgebra über $X$.
     Sei außerdem $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra in derselben Signatur. Dann ist durch
-    $t\sim s:\leftrightarrow t^\mathfrak{A}=s^\mathfrak{A}$ auf $\mathfrak{T}$ eine Kongruenzrelation gegeben.
+    $t\sim s:\Leftrightarrow t^\mathfrak{A}=s^\mathfrak{A}$ auf $\mathfrak{T}$ eine Kongruenzrelation gegeben.
 \end{example}
 
 \begin{example}
     Für jede beliebige Algebra $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ sind durch die beiden Relationen $\sim_1=A^2$ und $\sim_2=\{(a,a)\mid a\in A\}$
-    Kongruenzrelationen auf $\mathfrak{A}$ gegeben. Diese nennt man daher auch \emph{triviale Kongruenzrelationen}\index{Kongruenzrelation!trivial}.
+    Kongruenzrelationen auf $\mathfrak{A}$ gegeben. Diese nennt man auch \emph{triviale Kongruenzrelationen}\index{Kongruenzrelation!trivial}.
 \end{example}
 
 \begin{remark}
@@ -332,17 +324,16 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \end{definition}
 
 \begin{definition}
-    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und sei $\sim\subseteq A^2$ eine Kongruenzrelation.
-    Dann heißt $\mathfrak{A}/_\sim:=(A/_\sim,(f^{\mathfrak{A}/_\sim}_i)_{i\in I})$ \emph{Faktoralgebra}\index{Faktoralgebra} von $\mathfrak{A}$,
+    Sei $\mathfrak{A}=(A,(f^\mathfrak{A}_i)_{i\in I})$ eine Algebra und sei $\sim\subseteq A^2$ eine Kongruenzrelation. Dann heißt $\mathfrak{A}/_\sim:=(A/_\sim,(f^{\mathfrak{A}/_\sim}_i)_{i\in I})$ \emph{Faktoralgebra}\index{Faktoralgebra} von $\mathfrak{A}$,
     wobei $A/_\sim=\{[a]_\sim\mid a\in A\}$ die Menge der Äquivalenzklassen\footnote{Für die Äquivalenzklassen einer Äquivalenzrelation
     wird häufig $[a]$ statt $[a]_\sim$ geschrieben.} ist und die Funktionen definiert\footnote{Dass diese Funktionen tatsächlich wohldefiniert sind,
     folgt direkt aus der Definition der Invaranz einer Kongruenzrelation unter der Algebra.} sind durch
-    $f^{\mathfrak{A}/_\sim}([a_1]_\sim,\ldots,[a_{n_i}]_\sim):=[f_i(a_1,\ldots,a_{n_i})]_\sim.$
+    $f_i^{\mathfrak{A}/_\sim}([a_1]_\sim,\ldots,[a_{n_i}]_\sim):=[f_i(a_1,\ldots,a_{n_i})]_\sim.$
 \end{definition}
 
 \begin{example}
     Betrachten wir die Algebra $(\mathbb{Z},+,\cdot)$ und definieren darauf die Kongruenzrelation
-    $a\sim b:\leftrightarrow \exists k\in\mathbb{Z}(a-b=k\cdot m)$, so stellt $(\mathbb{Z}_m,+,\cdot)=(\mathbb{Z},+,\cdot)/_\sim$
+    $a\sim b:\Leftrightarrow \exists k\in\mathbb{Z}(a-b=k\cdot m)$, so stellt $(\mathbb{Z}_m,+,\cdot)=(\mathbb{Z},+,\cdot)/_\sim$
     eine Faktoralgebra dar. Man bemerke außerdem, dass in $(\mathbb{Z}_m,+,\cdot)$ beispielsweise das Gesetz
     $\forall x(\overbrace{x +\ldots + x}^{m+1\;\text{mal}}=x)$ gilt, während dieses in $(\mathbb{Z},+,\cdot)$ nicht gilt. Es können also in einer Faktoralgebra mehr Gesetze erfüllt sein, als in der ursprünglichen Algebra.
 \end{example}
@@ -387,8 +378,6 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \end{theorem}
 
 \begin{proof}
-    Für die Surjektivität von $\tilde{h}$ ist nichts zu zeigen. Der übrige Beweis ist in vier Schritte gegliedert.
-
     Eindeutigkeit: Seien $\tilde{h}$ und $\hat{h}$ zwei Homomorphismen von $\mathfrak{A}/_{\ker h}$ nach $\mathfrak{B}$ mit den geforderten Eigenschaften.
     Dann gilt für $a\in A$ beliebig $\hat{h}([a])=h(a)=\tilde{h}([a])$, also $\hat{h}=\tilde{h}$.
 
@@ -401,6 +390,8 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
     Injektivität: Seien $[a],[b]\in A/_{\ker h}$ beliebig mit $\tilde{h}([a])=\tilde{h}([b])$. Dann folgt laut Definition
     $h(a)=h(b)$, also $(a,b)\in\ker h$ und damit $[a]=[b]$.
+    
+    Für die Surjektivität von $\tilde{h}$ ist nichts zu zeigen.
 \end{proof}
 
 \begin{proposition}
@@ -425,13 +416,13 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
 \begin{samepage}    
 \begin{definition}
-    Sei $\mathcal{K}$ eine Klasse von Algebren. Dann definieren wir:
+    Sei $\mathcal{K}$ eine Klasse von Algebren. Dann definieren\footnote{Die Notationen \glqq S\grqq{} und \glqq{}P\grqq{} kommen von den Wörtern (beziehungsweise ihren englischen Übersetzungen) \glqq Subalgebra\grqq{} und \glqq Produktalgbra\grqq{}. Die Notation \glqq H\grqq{} hat ihre Abstammung von den \glqq homomorphen Bildern\grqq{}, was durch \cref{satz:homomorphiesatz} gerechtfertigt wird.} wir:
     \begin{itemize}
         \item $\mathrm{H}\mathcal{K}$ als die Klasse aller Algebren $\mathfrak{A /_\sim}$, wobei $\mathfrak{A} \in \mathcal{K}$ und $\sim$ eine Kongruenzrelation auf $\mathfrak{A}$ sind.
-        \item $\mathrm{S}\mathcal{K}$ als die Klasse aller Algebren $\mathfrak{A}'$, zu der es eine Algebra $\mathfrak{A} \in \mathcal{K}$ mit $\mathfrak{A}' \leq \mathfrak{A}$ gibt.
-        \item $\mathrm{P}\mathcal{K}$ als die Klasse aller Algebren $\prod_{j \in J} \mathfrak{A}_j$, wobei $J$ eine beliebige Indexmenge und $\mathfrak{A}_j \in \mathcal{K}$ sind.
+        \item $\mathrm{S}\mathcal{K}$ als die Klasse aller Algebren $\mathfrak{A}'$, zu denen es eine Algebra $\mathfrak{A} \in \mathcal{K}$ mit $\mathfrak{A}' \leq \mathfrak{A}$ gibt.
+        \item $\mathrm{P}\mathcal{K}$ als die Klasse aller Algebren $\prod_{j \in J} \mathfrak{A}_j$, wobei $J$ eine beliebige Indexmenge und alle $\mathfrak{A}_j \in \mathcal{K}$ sind.
     \end{itemize}
-    Wir sagen, dass $\mathcal{K}$ unter $\mathrm{HSP}$ abgeschlossen ist, wenn $\mathrm{H}\mathcal{K} = \mathcal{K}, \mathrm{S}\mathcal{K} = \mathcal{K}$ und $\mathrm{P}\mathcal{K} = \mathcal{K}$ gilt.
+    Wir sagen, dass $\mathcal{K}$ unter $\mathrm{HSP}$ abgeschlossen ist, wenn $\mathrm{HSP}\mathcal{K} = \mathcal{K}$ gilt. Ist $\mathcal{A}$ eine Algebra, so ist auch $H\mathfrak{A}:=H{\mathfrak{A}}$ eine Kurzschreibweise. Entsprechendes gilt auch für $S\mathfrak{A}$ und $P\mathfrak{A}$.
 \end{definition}
 \end{samepage}
 
@@ -452,16 +443,16 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     Ist $\mathcal{K}$ eine Varietät, so ist $\mathcal{K}$ laut \ref{corollary:sub-varietaeten}, \ref{corollary:prod-varietaeten} und
     \ref{corollary:fak-varietaeten} unter $\mathrm{HSP}$ abgeschlossen.
     Es bleibt die andere Implikation zu zeigen. Sei also $\mathcal{K}$ unter $\mathrm{HSP}$ abgeschlossen und definiere $\Sigma:=\Sigma(\mathcal{K})$ und $\mathcal{V}:=\mathcal{V}(\Sigma)$,
-    womit $\mathcal{V}=\mathcal{K}$ zu zeigen ist. Trivialerweise ist $\mathcal{V}\supseteq\mathcal{K}$ erfüllt. Für die andere
+    womit es hinreichend ist, $\mathcal{V}=\mathcal{K}$ zu zeigen. Trivialerweise ist $\mathcal{V}\supseteq\mathcal{K}$ erfüllt. Für die andere
     Inklusion sei $\mathfrak{A}\in\mathcal{V}$ beliebig, das heißt es gilt $\mathfrak{A}\in\mathcal{K}$ zu zeigen.
 
-     Für jedes Gesetz $s\approx t$, welches nicht in $\Sigma$ liegt, wähle eine Algebra $\mathfrak{A}_{s\approx t}\in\mathcal{K}$ mit
+    Für jedes Gesetz $s\approx t$, welches nicht in $\Sigma$ liegt, wähle eine Algebra $\mathfrak{A}_{s\approx t}\in\mathcal{K}$ mit
     $\mathfrak{A}_{s\approx t}\not\models s\approx t$.
     Es sei $\mathfrak{B}:=\prod_{s\approx t\not\in\Sigma}\mathfrak{A}_{s\approx t}$. Da $\mathcal{K}$ unter Produktbildung abgeschlossen ist,
     gilt $\mathfrak{B}\in\mathcal{K}$. Da eine Produktalgebra ein Gesetz genau dann erfüllt, wenn es komponentenweise erfüllt ist,
-    folgt $\Sigma(\mathfrak{B})=\Sigma\subseteq\Sigma(\mathfrak{A})$. Zu zeigen ist nun, dass $\mathfrak{A} \in \mathrm{HSP}\mathfrak{B}$.
+    folgt $\Sigma(\mathfrak{B})=\Sigma\subseteq\Sigma(\mathfrak{A})$. Es ist nun hinreichend zu zeigen, dass $\mathfrak{A} \in \mathrm{HSP}\mathfrak{B}$ gilt.
 
-    Bilde die Produktalgebra $\mathfrak{B}^{B^A}=\prod_{i\in B^A}\mathfrak{B}$ und betrachte für alle $a\in A$
+    Bilde die Produktalgebra $\mathfrak{B}^{B^A}:=\prod_{i\in B^A}\mathfrak{B}$ und betrachte für alle $a\in A$
     die Funktion $\pi_a:B^A\to B, \alpha\mapsto \alpha(a)$ sowie die erzeugte Unteralgebra $\mathfrak{S}:=\langle\{\pi_a\mid a\in A\}\rangle\le \mathfrak{B}^{B^A}$.
     Dann kann ein surjektiver Homomorphismus $\varphi:S\to A$ mit $\varphi(\pi_a)=a$ folgendermaßen definiert werden.
     Jedes Element aus $S$ besitzt eine Darstellung der Form $t^\mathfrak{S}(\pi_{a_1},\ldots,\pi_{a_n})$ mit $a_1\ldots,a_n\in A$.
@@ -485,7 +476,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 
     Homomorphismus: Es bleibt noch zu zeigen, dass $\varphi$ ein Homomorphismus ist.
     Sei $i\in I$ beliebig und seien $g_1,\ldots,g_{n_i}\in S$ beliebig. Zu zeigen ist $\varphi(f^\mathfrak{S}_i(g_1,\ldots,g_{n_i}))=f^\mathfrak{A}_i(\varphi(g_1),\ldots,\varphi(g_{n_i}))$.
-    Für jedes $j\in \{1,\ldots,n\}$ können ein Term $t_j$ sowie $a_1^{(j)},\ldots,a_{m_j}^{(j)}\in A$ gewählt werden,
+    Für jedes $j\in \{1,\ldots,n_i\}$ können ein Term $t_j$ sowie $a_1^{(j)},\ldots,a_{m_j}^{(j)}\in A$ gewählt werden,
     sodass $g_j=t^\mathfrak{S}_j(\pi_{a_1^{(j)}},\ldots,\pi_{a_{m_j}^{(j)}})$ gilt. Nun wird $t:=f^\mathfrak{T}_i(t_1,\ldots,t_{n_i})$ als neuer Term definiert und es folgt
     \begin{align*}
         \varphi(f^\mathfrak{S}_i(g_1,\ldots,g_{n_i}))&=\varphi(f^\mathfrak{S}_i(t^\mathfrak{S}_1(\pi_{a_1^{(1)}},\ldots,\pi_{a_{m_1}^{(1)}}),\ldots,t^\mathfrak{S}_{n_i}(\pi_{a_1^{(n_i)}},\ldots,\pi_{a_{m_{n_i}}^{(n_i)}})))=\\
@@ -494,7 +485,7 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
     \end{align*}
     An den Stellen die mit $(*)$ markiert sind, wurde die Definition von $\varphi$ verwendet.
 
-    Mit dem Homomorphiesatz erhalten wir damit einen Isomorphismus $\tilde{\varphi} : \mathfrak{S} /_{\ker \varphi} \to \mathfrak{A}$. Damit ist $\mathfrak{A}$ isomorph zu einer Faktoralgebra, welche durch $\mathrm{HSP}$ aus $\mathfrak{B}$ hervorgeht, was zu zeigen war.
+    Mit dem Homomorphiesatz erhalten wir damit einen Isomorphismus $\tilde{\varphi} : \mathfrak{S} /_{\ker \varphi} \to \mathfrak{A}$. Damit ist $\mathfrak{A}$ isomorph zu einer Faktoralgebra, welche durch $\mathrm{HSP}$ aus $\mathfrak{B}$ hervorgeht und somit $\mathfrak A\in \mathrm{HSP}\mathcal{K}$, was zu zeigen war.
 \end{proof}
 
 \begin{corollary}
@@ -503,5 +494,5 @@ In diesem Kapitel werden drei verschiedene Konstruktionen vorgestellt um aus ber
 \end{corollary}
 
 \begin{proof}
-    Die Implikation von rechts nach links ist trivialerweise erfüllt. Die Implikation von links nach rechts folgt aus der Tatsache, dass man, wie im Beweis des Satzes von Birkhoff, $\mathfrak{B}\in P(\mathcal{K})$ mit $\Sigma(\mathfrak{A})\supseteq\Sigma(\mathfrak{B})$ finden kann und auf $\mathfrak{A}\in \mathrm{HSP}\mathfrak{B}\subseteq \mathrm{HSP}\mathcal{K}$ schließt.
+    Die Implikation von rechts nach links ist trivialerweise erfüllt. Die Implikation von links nach rechts folgt aus der Tatsache, dass man, wie im Beweis des Satzes von Birkhoff, $\mathfrak{B}\in \mathrm{P}\mathcal{K}$ mit $\Sigma(\mathfrak{A})\supseteq\Sigma(\mathfrak{B})$ finden kann und auf $\mathfrak{A}\in \mathrm{HSP}\mathfrak{B}\subseteq \mathrm{HSP}\mathcal{K}$ schließt.
 \end{proof}

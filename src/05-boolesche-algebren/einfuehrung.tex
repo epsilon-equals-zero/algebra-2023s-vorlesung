@@ -29,7 +29,7 @@ Zuerst sei an die \cref{def:boolsche_algebra} einer \emph{Booleschen Algebra} er
 \begin{proof}{\ }
     Wir zeigen zunächst den ersten Punkt. Es gilt $\overbrace{(a\lor b)}^{=1}\land a'=a'$. Nach dem Distributivgesetz gilt aber auch $(a\lor b)\land a'=(a\land a')\lor (b\land a')=b\land a'$. Insgesamt folgt also $a'=b\land a'$ und daher in der induzierten Halbordnung gilt $a'\le b$. Analog zeigt man $b\leq a'$ und es folgt $a'=b$.
 
-    Wendet man das gezeigt auf $a'$ und $a$ an, so erhält man $a=a''$. Offensichtlich aus dem ersten Punkt auch sofort $0'=1$ und $1'=0$.
+    Wendet man das Gezeigte auf $a'$ und $a$ an, so erhält man $a=a''$. Offensichtlich folgt aus dem ersten Punkt auch sofort $0'=1$ und $1'=0$.
 
     Wegen $(a\lor b)\lor (a'\land b')=((a\lor b)\lor a') \land ((a\lor b)\lor b')=1\land 1=1$ und $(a\lor b)\land (a'\land b')=(a\land (a'\land b'))\lor (b\land(a'\land b))=0\lor 0=0$ folgt wieder aus dem ersten Punkt $(a\lor b)'=a'\land b'$. Das zweite Gesetz folgt aus diesem gemeinsam mit dem zweiten Punkt.
 \end{proof}
@@ -64,7 +64,7 @@ Zuerst sei an die \cref{def:boolsche_algebra} einer \emph{Booleschen Algebra} er
 
         \item Die durch die obigen Operationen beschriebenen Übersetzungen von Booleschen Ringen auf Boolesche Algebren und umgekehrt sind zueinander invers.
 
-        \item Die Homomorphismen auf den Strukturen übersetzen sich, das heißt eine Abbildung $\varphi$ von einer Booleschen Ring $R_1$ in einen Booleschen Ring $R_2$ ist genau dann ein Ring-Homomorphismus, wenn sie ein Homomorphismus bezüglich der zugehörigen Booleschen Algebren ist.
+        \item Die Homomorphismen auf den Strukturen übersetzen sich, das heißt eine Abbildung $\varphi$ von einem Booleschen Ring $R_1$ in einen Booleschen Ring $R_2$ ist genau dann ein Ring-Homomorphismus, wenn sie ein Homomorphismus bezüglich der zugehörigen Booleschen Algebren ist.
     \end{enumerate}
 \end{proposition}
 
