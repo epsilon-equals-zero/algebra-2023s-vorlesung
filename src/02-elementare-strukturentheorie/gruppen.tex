@@ -46,7 +46,7 @@
     \begin{enumerate}
         \item Die Menge $\{gU \mid g \in G\}$ aller Linksnebenklassen von $g$ nach $U$ bildet eine Partition von $G$.
         \item Es gilt $gU = g'U$ genau dann, wenn $g^{-1}g' \in U$.
-        \item Die Partition induziert eine Äquivalenzrelation $\sim$ auf $G$, wobei $x \sim y \Leftrightarrow \exists \tilde{g} \in G: x,y \in \tilde{g}U$.
+        \item Die Partition aus Punkt 1 induziert eine Äquivalenzrelation $\sim$ auf $G$, wobei $x \sim y \Leftrightarrow \exists \tilde{g} \in G: x,y \in \tilde{g}U$.
         \item Es gilt für diese Äquivalenzrelation $x \sim y \Leftrightarrow x^{-1}y \in U$.\label{item:lemma:euqivrel_linksnebenklassen_4}
         \item Es ist $U = [e]_{\sim}$.
     \end{enumerate}
@@ -62,8 +62,8 @@
         $$gU = g'U \;\Leftrightarrow\; \exists u, u' \in U: gu = g'u' \;\Leftrightarrow\; \exists u, u' \in U: u\left(u'\right)^{-1} = g^{-1}g' \;\Leftrightarrow\; g^{-1}g' \in U.$$
         \item Klarerweise wird durch eine Partition eine Äquivalenzrelation induziert. $\exists \tilde{g} \in G: x,y \in \tilde{g}U$ ist äquivalent dazu, dass $xU = yU$, was wiederum äquivalent dazu ist, dass $x, y$ die gleiche Äquivalenzklasse haben.
         \item \begin{itemize}[leftmargin=1cm]
-            \item[``$\Rightarrow$'':] Es gibt $u, u' \in U$, sodass $x = g u$ und $y = g u'$. Es ist also $x^{-1} y = u^{-1} g^{-1} \cdot g  u' = u^{-1} u' \in U$.
-            \item[``$\Leftarrow$'':] Es gilt $x^{-1}\cdot y = u$, also $y = x\cdot u$.  Es ist nun $x \in xU$ und auch  $y \in xU$, also $x \sim y$. 
+            \item[``$\Rightarrow$'':] Sei vorausgesetzt, dass $x\sim y$ gilt. Dann gibt es $g\in G$ und $u, u' \in U$, sodass $x = g u$ und $y = g u'$ gilt. Es ist also $x^{-1} y = u^{-1} g^{-1} \cdot g  u' = u^{-1} u' \in U$.
+            \item[``$\Leftarrow$'':] Es gibt $u\in U$ mit $x^{-1}\cdot y = u$, also $y = x\cdot u$.  Es ist nun $x \in xU$ und auch  $y \in xU$, also $x \sim y$. 
         \end{itemize}
         \item Es ist $a \in [e]_\sim \;\Leftrightarrow\; e \sim a \;\Leftrightarrow\; e^{-1} a = a \in U $.
     \end{enumerate}
@@ -81,7 +81,7 @@
 \end{proof}
 
 \begin{remark}\label{rem:nebenklassenzerlegung_endlich}
-    Ist $G$ eine endliche Gruppe, dann gilt $\vert G \vert = \vert \{gU \mid g \in G\} \vert \cdot \vert U \vert$, da alle Links-/Rechtsnebenklassen gleich mächtig sind. Durch umformen zu $\vert \{gU \mid g \in G\} \vert = \frac{\vert G \vert}{\vert U \vert}$ erhalten wir, dass es gleich viele Linksnebenklassen wie Rechtsnebenklassen gibt.
+    Ist $G$ eine endliche Gruppe, dann gilt $\vert G \vert = \vert \{gU \mid g \in G\} \vert \cdot \vert U \vert$, da alle Linksnebenklassen gleich mächtig sind. Durch umformen zu $\vert \{gU \mid g \in G\} \vert = \frac{\vert G \vert}{\vert U \vert}$  erhalten wir mit dem analogen Result für Rechtsnebenklassen, dass es gleich viele Linksnebenklassen wie Rechtsnebenklassen gibt.
 
     \begin{figure}[H]
         \centering
@@ -191,18 +191,18 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
         Zeigen wir zuerst die Eindeutigkeit: Sei angenommen es gibt eine Kongruenzrelation $\sim$ auf $G$ mit $N = [e]_\sim$. Für $x, y\in G$ gilt dann 
         \begin{itemize}
             \item $x \sim y \;\Rightarrow\; x^{-1}x \sim x^{-1}y \; \Leftrightarrow\; e \sim x^{-1}y \;\Leftrightarrow\; x^{-1}y \in [e]_\sim = N$ und
-            \item $x^{-1}y \in N = [e]_\sim \;\Leftrightarrow\; e \sim x^{-1}y \;\Leftrightarrow\; x = xe \sim x(x^{-1}y) = y$.
+            \item $x^{-1}y \in N = [e]_\sim \;\Leftrightarrow\; e \sim x^{-1}y \;\Rightarrow\; x = xe \sim x(x^{-1}y) = y$.
         \end{itemize}
         Es ist dann also $x \sim y \Leftrightarrow x^{-1}y \in N$. 
         
         Zeigen wir nun noch, dass dieses $\sim$ eine Kongruenzrelation auf $G$ ist. Nach \cref{lemma:euqivrel_linksnebenklassen} ist $\sim$ eine Äquivalenzrelation, bleibt also noch die Invarianz unter $G$ zu zeigen. 
         \begin{itemize}
             \item Zeigen wir für $x,x',y,y' \in G$ mit $x \sim y, x' \sim y'$, dass $xx'\sim yy'$. Es gilt 
-            $$ xx'\sim yy' \;\Leftrightarrow\; x'^{-1}\underbrace{x^{-1}y}_{=: n \in N} y' = \underbrace{x'^{-1} n}_{\in x'^{-1}N \subseteq Nx'^{-1}} y' \overset{(*)}{=} n'\underbrace{x'^{-1}y'}_{\in N} \in N, $$
-            wobei wir bei $(*)$ verwenden, dass nach \ref*{item:theorem:normalteiler_equiv_4'} ein $n' \in N$ existiert, sodass $x'{-1} n = n' x'{-1}$.
+            $$ xx'\sim yy' \;\Leftrightarrow\; x'^{-1}\underbrace{x^{-1}y}_{=: n \in N} y' \overset{(*)}{=} n'\underbrace{x'^{-1}y'}_{\in N} \in N, $$
+            wobei wir bei $(*)$ verwenden, dass nach \ref*{item:theorem:normalteiler_equiv_4'} ein $n' \in N$ existiert, sodass $x'^{-1} n = n' x'^{-1}$.
             \item Zeigen wir für $x,y \in G$ mit $x \sim y$, dass $x^{-1} \sim y^{-1}$. Es gilt
-            $$ x\sim y \;\Leftrightarrow\; x^{-1}x \sim x^{-1}y \;\Leftrightarrow\; e \sim x^{-1}y \;\Leftrightarrow\; ey^{-1} \sim x^{-1} y y^{-1} \;\Leftrightarrow\; y^{-1} \sim x^{-1}.$$ 
-            \item Klarerweise ist $e \sim e$, also ist $\sim$ invariant unter der 0-stelligen Operation $e$.
+            $$ x\sim y \;\Leftrightarrow\; e \sim x^{-1}y \;\Leftrightarrow\; ey^{-1} \sim x^{-1} y y^{-1} \;\Leftrightarrow\; y^{-1} \sim x^{-1}.$$ 
+            \item Klarerweise ist $e \sim e$, also ist $\sim$ auch invariant unter der 0-stelligen Operation $e$.
         \end{itemize}
     \end{itemize}
 \end{proof}
@@ -210,7 +210,9 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
 \begin{remark}
     \cref{theorem:normalteiler_equiv} beschreibt einige Eigenschaften von Normalteilern.
     \begin{itemize}
-        \item \ref*{item:theorem:normalteiler_equiv_1}, \ref*{item:theorem:normalteiler_equiv_1'} liefern den bijektiven Zusammenhang von Normalteilern und Kongruenzrelation. Betrachtet man die Verbände von Normalteilern bzw. Kongruenzrelationen, so stellt diese Bijektion einen Verbandsisomorphismus dar.
+        \item \ref*{item:theorem:normalteiler_equiv_1}, \ref*{item:theorem:normalteiler_equiv_1'} liefern den bijektiven Zusammenhang von Normalteilern und Kongruenzrelationen auf Gruppen. Betrachtet man die Menge $N$ aller Normalteiler einer Gruppe $G$ mit den Operationen $A\land_N B:=A\cap B$ und $A\lor_N B:=A\cdot B$ mit dem Komplexprodukt aus \cref{def:komplexprodukt}, so erhält man einen Verband. Weiters kann man die Menge aller Kongruenzrelationen auf $G$ betrachten, welche wir mit $\mathrm{Cong}(G)$ bezeichnen. Für $R,S\in \mathrm{Cong}(G)$ definiert man $R\land_\sim S:=R\cap S$. Weiters bezeichnen wir mit $\mathrm{cl}_G(\sim):=\bigcap\{R\in \mathrm{Cong}(G)\mid \sim\subseteq R\}$ die kleinste Kongruenzrelation, die $\sim$ enthält.
+        Dann ist mit $R\lor_\sim S:=\mathrm{cl}_G(R\cup S)$ durch $(\mathrm{Cong}(G),\land_\sim,\lor_\sim)$ ein Verband gegeben. Die beiden beschriebenen Verbände sind isomorph, wobei die genannte Bijektionen einen Verbandsisomorphismus darstellt.
+        
         \item \ref*{item:theorem:normalteiler_equiv_2}, \ref*{item:theorem:normalteiler_equiv_2'} beschreiben die Darstellung des Normalteilers über den Kern eines Homomorphismus $\varphi: G \to H$. Es ist $\ker \varphi = \{g \in G \mid \varphi(g) = e_H\} = \varphi^{-1}(\{e_H\}) = N$.
         \item \ref*{item:theorem:normalteiler_equiv_3}, \ref*{item:theorem:normalteiler_equiv_3'} liefern direkt, dass Normalteiler unter Abbildungen $\pi_x: G \to G, g \mapsto xgx^{-1}$ abgeschlossen sind. So eine Abbildung nennt man \emph{inneren Automorphismus}\index{innerer Automorphismus}.
         \item \ref*{item:theorem:normalteiler_equiv_4}, \ref*{item:theorem:normalteiler_equiv_4'} besagen, dass die Links- und Rechtsnebenklassen einer Untergruppe genau dann gleich sind, wenn die Untergruppe ein Normalteiler ist.
@@ -275,7 +277,7 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
     $$ G/_\sim \textrm{ kommutativ} \quad \Leftrightarrow \quad \forall a, b \in G: (ab)N = (aN) (bN) = (bN) (aN) = (ba)N. $$
     Letzteres können wir umschreiben als $a^{-1} b^{-1} a b N = N$, was genau dann der Fall ist, wenn für beliebiges $a, b$ gilt
     $$ [a, b] := a^{-1} b^{-1} a b \in N. $$
-    Wir nennen $[a, b]$ den \emph{Kommutator} \index{Kommutator} von $(a, b)$.
+    Wir nennen $[a, b]$ den \emph{Kommutator} \index{Kommutator} von $(a, b)$. Wir stellen fest, dass $G/_\sim$ genau dann kommtuativ ist, wenn die Menge aller Kommutatoren in $N$ enthalten ist (siehe dazu auch \cref{theorem:kommutatorgruppe}).
 \end{remark}
 
 \begin{definition}
@@ -293,7 +295,7 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
     $$ G' = \langle \{ a^{-1} b^{-1} a b \mid a, b \in G \} \rangle = \langle \{ a^{-1} b^{-1} b a \mid a, b \in G \} \rangle = \langle \{e\} \rangle = \{e\}. $$
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}\label{theorem:kommutatorgruppe}
     Sei $G$ eine Gruppe. Dann gilt:
     \begin{enumerate}
         \item $G' \vartriangleleft G$
@@ -314,12 +316,12 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
     $$ h_x : G \to G, g \mapsto xgx^{-1}, $$
     so ist $h_x$ ein Automorphismus\footnote{$h_x$ ist wie früher schon bemerkt ein \emph{innerer Automorphismus}.}. Also ist
     $$ x G' x^{-1} = h_x(G') \subseteq G', $$
-    womit $G' \vartriangleleft G$ folgt.
+    womit $G' \vartriangleleft G$ nach \cref{theorem:normalteiler_equiv} \cref{item:theorem:normalteiler_equiv_3'} folgt.
 \end{proof}
 
 \subsection{Innere direkte Produkte}
 
-\begin{definition}
+\begin{definition}\label{def:komplexprodukt}
     Sei $G$ eine Gruppe, $U_1, U_2 \subseteq G$, so definieren wir das \emph{Komplexprodukt}\index{Komplexprodukt}
     $$ U_1 \cdot U_2 = \{ u_1 \cdot u_2 \mid u_1 \in U_1, u_2 \in U_2 \}. $$
 \end{definition}
@@ -333,10 +335,9 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
 \begin{remark} \label{remark:inneres-direktes-produkt-notwendig}
     Wir sammeln nun notwendige Bedingungen dafür, dass $G$ ein inneres direktes Produkt ist.
     
-    Für $i \in \{ 1,\hdots,n \}$ definiere $V_i := U_1 \cdot \hdots \cdot U_{i-1} \cdot U_{i+1} \cdot \hdots \cdot U_n$, so muss gelten
-    $$ U_i \cap V_i = \{ e \}. $$
+    Für $i \in \{ 1,\hdots,n \}$ definiere $V_i := U_1 \cdot \hdots \cdot U_{i-1} \cdot U_{i+1} \cdot \hdots \cdot U_n$, so muss $U_i \cap V_i = \{ e \}$ gelten:
     Sonst gäbe es $(u_j)_{j=1}^n \in (U_j)_{j=1}^n, u_i \neq e$ mit
-    $$ \varphi(e, \hdots, e, \overbrace{u_i}^{\textrm{$i$-te Stelle}}, e, \hdots, e) = u_i \overset{!}{=} u_1 \cdot \hdots \cdot u_{i-1} \cdot u_{i+1} \cdot \hdots \cdot u_n = \varphi(u_1, \hdots, u_{i-1}, e, u_{i+1}, \hdots, u_n), $$
+    $$ \varphi(e, \hdots, e, \overbrace{u_i}^{\textrm{$i$-te Stelle}}, e, \hdots, e) = u_i = u_1 \cdot \hdots \cdot u_{i-1} \cdot u_{i+1} \cdot \hdots \cdot u_n = \varphi(u_1, \hdots, u_{i-1}, e, u_{i+1}, \hdots, u_n), $$
     womit $\varphi$ nicht injektiv wäre.
 
     Weiters muss $U_i \vartriangleleft G$ sein. Um dies einzusehen, betrachte die Abbildung
@@ -371,7 +372,7 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
         \varphi((u_1, \hdots, u_n) \cdot (v_1, \hdots, v_n)) &= \varphi(u_1 v_1, \hdots, u_n v_n) = u_1 v_1 \hdots u_n v_n = \\ &= u_1 \hdots u_n v_1 \hdots v_n = \varphi(u_1, \hdots, u_n) \varphi(v_1, \hdots, v_n).
     \end{align*}
 
-    Bleibt die Injektivität zu zeigen. Dazu reicht es nach \cref{remark:gruppe-injektiv-kern-trivial} zu zeigen, dass der Kern trivial ist. Sei also $\varphi(u_1, \hdots, u_n) = e$, so ist $(u_1, \hdots, u_n) = (e, \hdots, e)$ zu zeigen. Sei dazu indirekt angenommen es wäre nicht der Fall und sei $i$ minimal mit $u_i \neq e$, also
+    Bleibt die Injektivität von $\varphi$ zu zeigen. Dazu reicht es nach \cref{remark:gruppe-injektiv-kern-trivial} zu zeigen, dass der Kern von $\varphi$ trivial ist. Sei also $\varphi(u_1, \hdots, u_n) = e$, so ist $(u_1, \hdots, u_n) = (e, \hdots, e)$ zu zeigen. Sei dazu indirekt angenommen es wäre nicht der Fall und sei $i$ minimal mit $u_i \neq e$, also
     $$ e = \varphi(u_1, \hdots, u_n) = e \hdots e u_i \hdots u_n = u_i \hdots u_n, $$
     womit $u_i^{-1} = u_{i+1} ... u_n \in V_i$ folgt. Da jedoch auch $u_i^{-1} \in U_i$ und $U_i \cap V_i = \{ e \}$ folgt damit $u_i = e$, im Widerspruch.
 
@@ -397,15 +398,15 @@ Im Allgemeinen ist die durch Links-/Rechtsnebengruppen induzierte Äquivalenzrel
 Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
 
 \begin{example}
-    $\mathbb{Z} = \langle \{1\}\rangle$ und $\mathbb{Z}_m = \langle\{1\}\rangle$ sind zyklische Gruppen.
+    Für $m\in\mathbb{Z}$ sind $\mathbb{Z} = \langle \{1\}\rangle_{\mathbb{Z}}$ und $\mathbb{Z}_m = \langle\{1\}\rangle_{\mathbb{Z}_m}$ zyklische Gruppen.
 \end{example}
 
 \begin{proposition}\label{prop:zyklische_gruppen_1} Für eine Gruppe $G$ gilt:
     \begin{enumerate}
         \item $G\;\text{zyklisch} \Leftrightarrow \exists h: \mathbb{Z} \to G\;\text{surjektiver Homomorphismus}$
         \item $G\;\text{zyklisch} \Rightarrow G\;\text{abelsch}$
-        \item $G\;\text{zyklisch} \Rightarrow \forall F \in \textrm{H}(\{G\}): F\;\text{zyklisch}$
-        \item $G\;\text{zyklisch} \Rightarrow \forall F \in \textrm{S}(\{G\}): F\;\text{zyklisch}$
+        \item $G\;\text{zyklisch} \Rightarrow \forall F \in \mathrm{H}G: F\;\text{zyklisch}$
+        \item $G\;\text{zyklisch} \Rightarrow \forall F \in \mathrm{S}G: F\;\text{zyklisch}$
     \end{enumerate}
 \end{proposition}
 
@@ -416,11 +417,11 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
             \item[$\Rightarrow$:] Sei $g \in G$ so, dass $G = \{g^n \mid g \in \mathbb{Z}\} $. Definiere die Abbildung $h: \mathbb{Z} \to G, n \mapsto g^n$. Dafür gilt $h(0) = e_g$, $h(n)^{-1} = (g^{n})^{-1} = g^{-n} = h(-n)$ und $h(m+n) = g^{m+n} = g^m g^n = h(m)h(n)$, womit $h$ ein Homomorphismus ist. Aufgrund der Wahl von $g$ ist $h$ nun surjektiv.
         \end{itemize}
         \item Diese Aussage folgt direkt aus 1., da abelsche Gruppen eine Varietät bilden. Es ist $\mathbb{Z}$ abelsch, also auch dessen homomorphe Bilder, insbesondere $G$.
-        \item Sei $F \in \mathrm{H}(\{G\})$ beliebig, es gibt also einen surjektiven Homomorphismus $\varphi: G \to F$. Aus 1. erhalten wir außerdem, da $G$ zyklisch ist, die Existenz eines surjektiven Homomorphismus $h: \mathbb{Z} \to G$. Die Verkettung $\varphi \circ h: \mathbb{Z} \to F$ ist nun erneut ein surjektiver Homomorphismus, weshalb wir erneut aus 1. erhalten, dass $F$ zyklisch ist.
-        \item Sei $F \in \mathrm{S}(\{G\})$ beliebig, also $F \le G$. Weiter sei $h: \mathbb{Z} \to G$ ein nach 1. existierender surjektiver Homomorphismus.
+        \item Sei $F \in \mathrm{H}G$ beliebig, es gibt also einen surjektiven Homomorphismus $\varphi: G \to F$. Aus 1. erhalten wir außerdem, da $G$ zyklisch ist, die Existenz eines surjektiven Homomorphismus $h: \mathbb{Z} \to G$. Die Verkettung $\varphi \circ h: \mathbb{Z} \to F$ ist nun erneut ein surjektiver Homomorphismus, weshalb wir erneut aus 1. erhalten, dass $F$ zyklisch ist.
+        \item Sei $F \in \mathrm{S}G$ beliebig, also $F \le G$. Weiter sei $h: \mathbb{Z} \to G$ ein nach 1. existierender surjektiver Homomorphismus.
         Wir wählen nun $U := h^{-1}(F) \le \mathbb{Z}$ und $m := \min\{n > 0 \mid n \in U\}$ bzw. $0$, falls die Menge leer ist. 
         
-        Wir behaupten nun, dass $U = m \mathbb{Z}$. Sei zuerst $mk \in m\mathbb{Z}$, dann folgt, da $m \in U$ und $U$ als Untergruppe unter Addition und Inversenbildung abgeschlossen ist, induktiv auch $mk \in U$. Es gilt also $U \supseteq m\mathbb{Z}$. Sei nun $n \in U$ und \obda $n > 0$. Es gibt dann $k \in \mathbb{N}$ und $r \in \{0, \ldots, m-1\}$, sodass $n = mk+r$. Durch Umformen erhalten wir $r = n - mk \in U$. Aufgrund der Wahl von $m$ folgt nun, dass $r = 0$, da es sonst ein kleineres positives Element als $m$ in $G$ gäbe, im Widerspruch zur Minimalität von $m$. Es ist also $n = mk \in m\mathbb{Z}$, womit $U = m\mathbb{Z}$ folgt.
+        Wir behaupten nun, dass $U = m \mathbb{Z}$. Sei zuerst $mk \in m\mathbb{Z}$, dann folgt, da $m \in U$ und $U$ als Untergruppe unter Addition und Inversenbildung abgeschlossen ist, induktiv auch $mk \in U$. Es gilt also $U \supseteq m\mathbb{Z}$. Sei nun $n \in U$ und \obda $n > 0$. Es gibt dann $k \in \mathbb{N}$ und $r \in \{0, \ldots, m-1\}$, sodass $n = mk+r$. Durch Umformen erhalten wir $r = n - mk \in U$. Aufgrund der Wahl von $m$ folgt nun, dass $r = 0$, da es sonst ein kleineres positives Element als $m$ in $U$ gäbe, im Widerspruch zur Minimalität von $m$. Es ist also $n = mk \in m\mathbb{Z}$, womit $U = m\mathbb{Z}$ folgt.
 
         Betrachten wir nun den surjektiven Homomorphismus $h\vert_{m\mathbb{Z}}: m\mathbb{Z} \to F$. Da $m\mathbb{Z} = \langle\{m\}\rangle$ und $m\mathbb{Z}$ damit zyklisch ist, folgt aus 1., dass $F$ zyklisch ist.
     \end{enumerate}
@@ -438,9 +439,11 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
 \end{proof}
 
 \begin{definition}
-    Für $m\in\mathbb{N}\setminus\{0\}$ bezeichne mit $C_m$\footnote{Man verifiziert sofort, dass $C_m\cong\mathbb{Z}_m$ gilt, vermöge dem Isomorphismus $\varphi:C_m\to\mathbb{Z}_m,x\mapsto\{x+km\mid k\in\mathbb{Z}\}$.} die Gruppe $(\{0,\ldots,m-1\},+,0,-)$ wobei
+    Für $m\in\mathbb{N}\setminus\{0\}$ bezeichnen wir mit $C_m$ die Gruppe $(\{0,\ldots,m-1\},+,0,-)$ wobei
     $$a+b:=\min\{n\geq 0\mid a+b\equiv n \;\mathrm{mod}(m)\}.$$
 \end{definition}
+
+Man verifiziert sofort, dass $C_m\cong\mathbb{Z}_m$ gilt, vermöge dem Isomorphismus $\varphi:C_m\to\mathbb{Z}_m,x\mapsto\{x+km\mid k\in\mathbb{Z}\}$.
 
 \subsection{Symmetrische und Permutationsgruppen}
 
@@ -481,10 +484,10 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
 \end{definition}
 
 \begin{definition}
-    Eine \emph{Permutation}\index{Permutation} ist eine bijektive Abbildung $\pi: \{1, \ldots, n\} \to \{1, \ldots, n\}$. Eine Darstellung von Permutationen ist die sogenannte \emph{Zyklenschreibweise}\index{Zyklenschreibweise}. Es wird die Permutation dabei dargestellt als
+    Sei $n\in\mathbb{N}$ beliebig. Eine \emph{Permutation}\index{Permutation} ist eine bijektive Abbildung $\pi: \{1, \ldots, n\} \to \{1, \ldots, n\}$. Eine Darstellung von Permutationen ist die sogenannte \emph{Zyklenschreibweise}\index{Zyklenschreibweise}. Es wird die Permutation dabei dargestellt als
     $$ (a_1\; \pi(a_1)\; \pi^2(a_1)\; \ldots \; \pi^{\ell_{a_1} - 1}(a_1)) (a_2\; \pi(a_2)\; \ldots \; \pi^{\ell_{a_2} - 1}(a_2)) \ldots (a_n\; \pi(a_n)\; \ldots \; \pi^{\ell_{a_n} - 1}(a_n)),$$
-    wobei die einzelnen Klammern \emph{Zyklus (von $a_i$)} genannt werden und $\ell_{a_i}$ die kleinste natürliche Zahl ist, sodass $\pi^{\ell_{a_i}}(a_i) = a_i$ gilt. Zyklen mit $\ell_{a_i} = 1$ (Fixpunkte) können in der Zyklenschreibweise weggelassen werden.
-    Die Gruppe aller Permutationen für bestimmtes $n \in \mathbb{N}$ ist die \emph{symmetrische Gruppe}\index{symmetrische Gruppe} und wir schreiben auch $S_n := S_{\{1,\ldots, n\}}$.
+    wobei die einzelnen Klammerausdrücke \emph{Zyklus (von $a_i$)} genannt werden und $\ell_{a_i}$ die kleinste natürliche Zahl ist, sodass $\pi^{\ell_{a_i}}(a_i) = a_i$ gilt. Zyklen mit $\ell_{a_i} = 1$ (Fixpunkte) können in der Zyklenschreibweise weggelassen werden.
+    Die Gruppe aller Permutationen für bestimmtes $n \in \mathbb{N}$ ist die \emph{symmetrische Gruppe mit $n$ Elementen}\index{symmetrische Gruppe} und wir schreiben auch $S_n := S_{\{1,\ldots, n\}}$.
 
     Eine \emph{Transposition}\index{Transposition} ist eine Permutation der Form $(i\; j)$.
 \end{definition}
@@ -511,8 +514,8 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
         Induktionsschritt ($n \to n+1$): Sei $\pi \in S_{n+1}$. Falls $\pi(n+1) \not= n+1$ wählen wir die (selbstinverse) Transposition $\tau = (\pi(n+1)\; n+1)$. Wählen wir nun $\tilde{\pi} := \tau \circ \pi$ oder $\tilde{\pi} = \pi$ falls $\pi(n+1) = n+1$. Es ist dann $\tilde{\pi}\vert_{\{1,\ldots,n\}} \in S_n$, womit es nach der Induktionsvoraussetzung eine Darstellung als Produkt von Transpositionen gibt. Da $\pi = \tilde\pi$ oder $\pi = \tau\tilde\pi$ gibt es nun also auch für $\pi$ eine solche Darstellung.
 
         \item Sei $\pi \in S_n$ mit zwei Darstellungen $\pi = (i_1\; j_1) \hdots (i_k\; j_k) = (a_1\; b_1) \hdots (a_\ell\; b_\ell)$. Transpositionen sind selbstinvers, wir haben also
-        $$ (a\ell\; b_\ell) \hdots (a_1\; b_1) (i_1\; j_1) \hdots (i_k\; j_k) = \id_{\{1,\hdots,n\}}. $$
-        Es reicht also zu zeigen, dass die Identität keine ungerade Darstellung besitzt. Dazu bemerken wir, dass $S_n$ auf der Menge $M := \{ (i, j) \mid 1 \leq i, j \leq n, i \neq j \}$ als Gruppenaktion agiert, und zwar durch
+        $$ (a_\ell\; b_\ell) \hdots (a_1\; b_1) (i_1\; j_1) \hdots (i_k\; j_k) = \id_{\{1,\hdots,n\}}. $$
+        Es reicht also zu zeigen, dass die Identität keine ungerade Darstellung besitzt. Dazu bemerken wir, dass jedes Element von $S_n$ auf der Menge $M := \{ (i, j) \mid 1 \leq i, j \leq n, i \neq j \}$ als Gruppenaktion agiert, und zwar durch
         $$ \pi((i, j)) := (\pi(i), \pi(j)). $$
         Sei $(i, j) \in M, i < j$, dann nennen wir $(i,j)$ einen Fehlstand von $\pi$, wenn $\pi(i) > \pi(j)$. Sei $1 \leq a < b \leq n$ und betrachte die Transposition $\pi_{ab}$ von $a$ und $b$. Ein Fehlstand muss klarerweise immer $a$ oder $b$ enthalten. Dann hat $\pi_{ab}$ die Fehlstände $(a, b)$, $(a, j)$, wobei $a < j < b$ und $(j, b)$, wobei $a < j < b$. Insgesamt ist die Anzahl der Fehlstände also ungerade. Da eine ungerade Anzahl an Kompositionen an Transpositionen immer eine ungerade Anzahl an Fehlständen hat, die Identität jedoch eine gerade Anzahl hat (nämlich 0), kann die Identität also nicht aus einer ungeraden Anzahl von Permutationen erzeugt werden.
     \end{enumerate}
