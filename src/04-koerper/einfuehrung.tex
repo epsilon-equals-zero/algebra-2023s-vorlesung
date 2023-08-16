@@ -1,17 +1,17 @@
 \section{Einführung}
 
-\begin{definition}
-    Sei $L$ ein Körper. Wir nennen $K \subseteq L$ einen \emph{Unterköper}\index{Unterkörper}, wenn $1 \in K$ und $K$ ein Körper ist. Dafür schreiben wir auch $K \leq L$. In diesem Kontext heißt $L$ auch \emph{Oberkörper}\index{Oberkörper} von $K$.
+\begin{definition}\label{def:unterkoerper}
+    Sei $L$ ein Körper. Wir nennen $K \subseteq L$ einen \emph{Unterköper}\index{Unterkörper}, wenn $1 \in K$ und $K$ mit den von $L$ auf $K$ eingeschränkten Operationen ein Körper ist. Dafür schreiben wir auch $K \leq L$. In diesem Kontext heißt $L$ auch \emph{Oberkörper}\index{Oberkörper} von $K$.
 
-    Wir nennen
+    Durch
     $$ \bigcap \{ U \leq L \mid U \text{ Unterkörper von } L \} $$
-    den \emph{Primkörper}\index{Primkörper} von L.
+    ist ein Unterkörper von $L$ gegeben, welchen wir den \emph{Primkörper}\index{Primkörper} von L nennen.
 
     Sei $K \leq L, S \subseteq L$ so definieren wir die \emph{Körpererweiterung von $K$ um $S$}\index{Körpererweiterung} durch
     $$ K(S) := \bigcap \{ U \mid K \leq U \leq L, U \supseteq S \}. $$
     Ist $S = \{ \alpha_1, \hdots, \alpha_n \}$, so schreiben wir auch $K(\alpha_1, \hdots, \alpha_n)$.
     
-    Im Gegensatz dazu ist die \emph{Ringerweiterung von $K$ um $S$}\index{Ringerweiterung} definiert:
+    Analog ist die \emph{Ringerweiterung von $K$ um $S$}\index{Ringerweiterung} definiert:
     $$ K[S] := \bigcap \{ U \mid U \;\mathrm{Ring}\land K \subseteq U \subseteq L, U \supseteq S \}. $$
     Ist $S = \{ \alpha_1, \hdots, \alpha_n \}$, so schreiben wir auch $K[\alpha_1, \hdots, \alpha_n]$.
 \end{definition}
@@ -28,7 +28,11 @@
     Ein Körper $K$ heißt \emph{Primkörper}\index{Primkörper}\index{Köper!Prim-}, wenn $K$ keine echten Unterkörper hat.
 \end{definition}
 
-\begin{theorem}
+\begin{remark}
+    Sei $L$ ein Körper und $K$ der Primkörper von $L$. Dann ist $K$ ein Primkörper.
+\end{remark}
+
+\begin{theorem} \label{theorem:primkoerper}
     Sei $K$ ein Primkörper.
     \begin{itemize}
         \item Ist $\chara K = 0$, so ist $K \cong \mathbb{Q}$.
@@ -38,8 +42,8 @@
 
 \begin{proof}
     Wir weisen zunächst die erste Behauptung nach. Sei $K$ ein Körper mit Charakteristik $0$.
-    Dann definieren wir eine Abbildung $\varphi:\mathbb{Q}\to K$ durch $\varphi(\frac{a}{b})=\frac{\overbrace{1+\ldots+1}^{a}}{\underbrace{1+\ldots+1}_{b}}$,
-    mit $a\in \mathbb{Z}$, $b\in\mathbb{N}\setminus\{0\}$. Diese Abbildung ist wohldefiniert,
+    Dann definieren wir eine Abbildung $\varphi:\mathbb{Q}\to K$ durch $\varphi(\pm\frac{a}{b})=\pm\frac{\overbrace{1+\ldots+1}^{a}}{\underbrace{1+\ldots+1}_{b}}$,
+    mit $a\in \mathbb{N}$, $b\in\mathbb{N}\setminus\{0\}$. Diese Abbildung ist wohldefiniert,
     da der Nenner laut Voraussetzung niemals $0$ wird und sie unabhängig von der Wahl der Repräsentanten ist
     (kürzbare Ausdrücke in $\mathbb{Q}$ sind auch in $K$ kürzbar).
     Wie man leicht sieht, ist die Abbildung ein Homomorphismus. Und $\varphi$ ist außerdem injektiv, denn gilt

@@ -20,6 +20,9 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \begin{definition}
     Sei $K \leq L, \alpha \in L$. Dann nennen wir \emph{$\alpha$ algebraisch über $K$}\index{algebraisch} (kurz $\alpha \text{ alg.}/_K$), wenn
     $$ \exists f \in K[x] \setminus \{0\}: f(\alpha) = 0. $$
+    Ansonsten ist \emph{$\alpha$ transzendent über $K$}\index{transzendent} (kurz $\alpha \text { transz.}/_K$).
+
+    Außerdem heißt $L$ \emph{einfache algebraische Erweiterung von $K$}, wenn es ein über $K$ algebraisches Element $\alpha\in L$ mit $L=K(\alpha)$ gibt.
 \end{definition}
 
 \begin{example}
@@ -34,17 +37,19 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
     Betrachte $\mathbb{Q} \leq \mathbb{R}$. Dann ist $\sqrt{2} \in \mathbb{R}$ algebraisch$/_\mathbb{Q}$. Jedoch sind $\pi, e \in \mathbb{R}$ nicht algebraisch$/_\mathbb{Q}$.
 \end{example}
 
-\begin{definition}
-    Wir nennen \emph{$\alpha$ transzendent über $K$}\index{transzendent} (kurz $\alpha \text { transz.}/_K$) genau dann, wenn $\alpha$ nicht algebraisch über $K$ ist.
-\end{definition}
-
-\begin{remark}
+\begin{remark}\label{remark:existenz-minimalpolynom}
     Ist $\alpha$ algebraisch über $K$, so können wir das nichttriviale Ideal
     $$ I := \{ f \in K[x] \mid f(\alpha) = 0 \} \vartriangleleft K[x] $$
-    wählen. Nun gibt es ein $\mu_\alpha \in K[x]$ normiert, mit $I = (\mu_a)$, da $K[x]$ ein Hauptidealring ist. Diese Erzeuger sind eindeutig bis auf Assoziiertheit, denn ist $I = (\mu_\alpha) = (g)$, so gilt $\mu_\alpha \mid g$ und $g \mid \mu_\alpha$, womit $g \sim \mu_\alpha$. Insbesondere ist das normierte Polynom $\mu_\alpha$ mit dieser Eigenschaft eindeutig und wir nennen es das \emph{Minimalpolynom von $\alpha$ über $K$}\index{Minimalpolynom}. Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem Fall stimmen jedoch die jeweiligen Körpererweiterungen überein, wie wir in folgender Proposition sehen werden.
+    wählen. Nun gibt es ein $\mu_\alpha \in K[x]$ normiert, mit $I = (\mu_\alpha)$, da $K[x]$ ein Hauptidealring ist. Diese Erzeuger sind eindeutig bis auf Assoziiertheit, denn ist $I = (\mu_\alpha) = (g)$, so gilt $\mu_\alpha \mid g$ und $g \mid \mu_\alpha$, womit $g \sim \mu_\alpha$. Insbesondere ist das normierte Polynom $\mu_\alpha$ mit dieser Eigenschaft eindeutig bestimmt.
 \end{remark}
 
-\begin{proposition}
+\begin{definition}
+    Sei $K\le L$ und $\alpha\in L$ algebraisch$/_K$. Dann heißt das eindeutig bestimmte Polynom $\mu_\alpha$ aus \cref{remark:existenz-minimalpolynom} das \emph{Minimalpolynom von $\alpha$ über $K$}\index{Minimalpolynom}.
+\end{definition}
+
+Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem Fall stimmen jedoch die jeweiligen Körpererweiterungen überein, wie wir in folgender Proposition sehen werden.
+
+\begin{proposition} \label{prop:minimalpolynom_erweiterung}
     Sei $K \leq L, \alpha \in L$ algebraisch über $K$ und $\deg \mu_\alpha = k$. Dann gilt:
     \begin{enumerate}
         \item Die Abbildung $\varphi : K[x]/_{(\mu_\alpha)} \to K[\alpha], f + (\mu_\alpha) \mapsto f(\alpha)$ ist ein Ring-Isomorphismus.
@@ -60,11 +65,11 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
     \begin{enumerate}
         \item Folgt sofort aus dem Homomorphiesatz, angewandt auf den Einsetzungshomomorphismus.
         
-        \item Es ist $K[\alpha]$ ein Unterring von $L$ und damit ein Integritätsbereich. Nach (1) ist also auch $K[x]/_{(\mu_\alpha)}$ ein Integritätsbereich, womit $(\mu_\alpha)$ prim ist. Damit ist $\mu_\alpha$ prim, insbesondere irreduzibel. Wir behaupten nun, dass $(\mu_\alpha)$ ein maximales Ideal ist. Um dies einzusehen sei $J$ ein echtes Ideal von $K[x]$ mit $(\mu_\alpha) \subseteq J$. Dann gibt es ein $g \in K[x]$ mit $J = (g)$, also $(\mu_\alpha) \subseteq (g)$, womit $g \mid \mu_\alpha$ folgt. Da $\mu_\alpha$ irreduzibel ist folgt dadurch $g \sim \mu_\alpha$ und damit $J = (\mu_\alpha)$. Also ist $(\mu_\alpha)$ maximal. Damit ist jedoch $K[x]/_{(\mu_\alpha)}$ ein Körper und nach (1) isomorph zu $K[\alpha]$, womit $K[\alpha] = K(\alpha)$ folgt.
+        \item Es ist $K[\alpha]$ ein Unterring von $L$ und damit ein Integritätsbereich. Nach (1) ist also auch $K[x]/_{(\mu_\alpha)}$ ein Integritätsbereich, womit $(\mu_\alpha)$ prim ist. Damit ist $\mu_\alpha$ prim, insbesondere irreduzibel. Wir behaupten nun, dass $(\mu_\alpha)$ ein maximales Ideal ist. Um dies einzusehen sei $J$ ein echtes Ideal von $K[x]$ mit $(\mu_\alpha) \subseteq J$. Dann gibt es ein $g \in K[x]$ mit $J = (g)$, also $(\mu_\alpha) \subseteq (g)$, womit $g \mid \mu_\alpha$ folgt. Da $\mu_\alpha$ irreduzibel ist folgt dadurch $g \sim \mu_\alpha$ und damit $J = (\mu_\alpha)$. Also ist $(\mu_\alpha)$ maximal. Damit ist jedoch $K[x]/_{(\mu_\alpha)}$ nach \cref{prop:ringideale} ein Körper und nach (1) isomorph zu $K[\alpha]$, womit $K[\alpha] = K(\alpha)$ folgt.
         
         \item Existenz: Nach (1) und (2) gibt es ein $f \in K[x]$ mit $\varphi(f + (\mu_\alpha)) = f(\alpha) = \beta$. Nun ist $f = g \cdot \mu_\alpha + f'$ mit einem Polynom $f'$ mit Grad kleiner $k$. Damit ist $f'(\alpha) = f(\alpha) = \beta$.
         
-        Eindeutigkeit: Ist $f(\alpha) = \beta = g(\alpha)$, wobei der Grad von $f, g$ kleiner als $k$ ist, so folgt $(f-g)(\alpha) = 0$, womit $(f-g) \in (\mu_\alpha)$ liegt, also gilt $\mu_\alpha \mid (f-g)$, womit $f-g=0$ und damit $f=g$ ist.
+        Eindeutigkeit: Ist $f(\alpha) = \beta = g(\alpha)$, wobei der Grad von $f, g$ kleiner als $k$ ist, so folgt $(f-g)(\alpha) = 0$, womit $(f-g) \in (\mu_\alpha)$, also gilt $\mu_\alpha \mid (f-g)$, womit $f-g=0$ und damit $f=g$ ist.
 
         \item Folgt sofort aus (3).
         
@@ -126,7 +131,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \begin{proof}
     Existenz: Sei $\varphi : K[x] \to K[\alpha]$ der Einsetzungshomomorphismus, $\varphi(f(x)) = f(\alpha)$. Da $\alpha$ transzendent ist, ist $\ker \varphi$ trivial. Damit ist $\varphi$ ein Ringisomorphismus. Nun ist $K(x)$ der Quotientenkörper von $K[x]$, genauso ist $K(\alpha)$ der Quotientenkörper von $K[\alpha]$. Aufgrund der Eindeutigkeit des Quotientenkörpers existiert genau ein $\psi : K(x) \to K(\alpha)$ mit $\psi\vert_{K[x]} = \varphi$.
 
-    Eindeutigkeit: Sei $\widetilde{\psi}$ ein weiterer Isomorphismus mit denselben Eigenschaften. Damit folgt $\widetilde{\psi}\vert_{K[x]} = \varphi$. Nach der oben erwähnten Eindeutigkeit des Quotientenkörpers folgt dadurch bereits $\widetilde{\psi} = \psi$.
+    Eindeutigkeit: Sei $\widetilde{\psi}:K(x)\to K(\alpha)$ ein weiterer Isomorphismus mit $\widetilde{\psi}(x)=\alpha$ und $\widetilde{\psi}\vert_K=\id_K$. Damit folgt $\widetilde{\psi}\vert_{K[x]} = \varphi$. Nach der oben erwähnten Eindeutigkeit des Quotientenkörpers folgt dadurch bereits $\widetilde{\psi} = \psi$.
 \end{proof}
 
 \notedate{31.05.2023}
@@ -136,13 +141,13 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
     \begin{itemize}
         \item Sei $S \subseteq E$. Wir nennen $S$ \emph{algebraisch abhängig über $K$}\index{algebraisch abhängig}, wenn es $a_1,\hdots,a_n\in S$ paarweise verschieden und $ f(x_1, \hdots, x_n) \in K[x_1, \hdots, x_n], f \neq 0$ mit $f(a_1,\hdots,a_n)=0$ gibt.
         Sonst nennen wir $S$ \emph{algebraisch unabhängig}\index{algebraisch unabhängig}.
-        \item Wir nennen $E$ \emph{rein transzendent über $K$}\index{transzendent!rein}, wenn es eine algebraisch unabhängige Teilmenge $S \subseteq E$ gibt mit $E = K(S)$.
+        \item Wir nennen $E$ \emph{rein transzendent über $K$}\index{transzendent!rein}, wenn es eine algebraisch unabhängige Teilmenge $S \subseteq E$ gibt mit $E = K(S)$. Weiters heißt $E$ \emph{einfache transzendente Erweiterung von $K$}, wenn es ein über $K$ transzendentes Element $\alpha\in E$ mit $E=K(\alpha)$.
         \item Sei $S \subseteq E$. Wir nennen $S$ \emph{Transzendenzbasis von $E$ über $K$}\index{Transzendenzbasis}, wenn $S$ maximal algebraisch unabhängig ist.
     \end{itemize}
 \end{definition}
 
 \begin{remark}
-    Sei $S$ eine Transzendenzbasis von $E$ über $K$, so bedeutet das \emph{nicht} $E = K(S)$, wie wir gleich sehen werden.
+    Ist $S$ eine Transzendenzbasis von $E$ über $K$, so bedeutet das \emph{nicht} unbedingt $E = K(S)$, wie wir gleich sehen werden.
 \end{remark}
 
 \begin{proposition}
@@ -173,7 +178,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \begin{proof}
     Betrachte
     $$ \mathcal{S} := \{ S \subseteq E \mid S \text{ ist algebraisch unabhängig über } K \}. $$
-    Wegen $\emptyset\in\mathcal{S}$ ist $\mathcal{S}$ nicht leer und daher $(\mathcal{S}, \subseteq)$ eine Halbordnung. Ist $K \subseteq \mathcal{S}$ eine beliebige Kette, so ist $\bigcup K \in \mathcal{S}$. Nach dem Lemma von Zorn gibt es ein maximales Element, welches gerade unsere Transzendenzbasis darstellt.
+    Wegen $\emptyset\in\mathcal{S}$ ist $\mathcal{S}$ nicht leer und daher $(\mathcal{S}, \subseteq)$ eine Halbordnung. Ist $\mathcal{M} \subseteq \mathcal{S}$ eine beliebige Kette, so ist $\bigcup \mathcal{M} \in \mathcal{S}$. Nach dem Lemma von Zorn gibt es ein maximales Element, welches gerade unsere Transzendenzbasis darstellt.
 \end{proof}
 
 \begin{corollary}
@@ -199,7 +204,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \end{lemma}
 
 \begin{proof}
-    Sei $f \in K(A \cup \{b\})[x] \setminus \{0\}$ das entsprechende Polynom bezüglich $c$, \obda gelte $f \in K[A \cup \{b\}][x]$. Sei $g(x,y) \in K[A][x,y]$ mit $g(x,b) = f(x)$. Wähle $h(y) := g(c, y) \in K[A \cup \{c\}][y]$. Dann ist $\deg h(y) \geq 1$. Nun gilt $h(b) = g(c,b) = f(c) = 0$, womit $b$ algebraisch über $K(A \cup \{ c \})$ ist.
+    Sei $f \in K(A \cup \{b\})[x] \setminus \{0\}$ mit $f(c)=0$, \obda setzen wir $f \in K[A \cup \{b\}][x]$ voraus. Sei $g(x,y) \in K[A][x,y]$ mit $g(x,b) = f(x)$. Wähle $h(y) := g(c, y) \in K[A \cup \{c\}][y]$. Dann ist $\deg h(y) \geq 1$. Nun gilt $h(b) = g(c,b) = f(c) = 0$, womit $b$ algebraisch über $K(A \cup \{ c \})$ ist.
 \end{proof}
 
 \begin{corollary}
@@ -233,7 +238,9 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
     $|B|=|B_n|=|C|$.
 \end{proof}
 
-\begin{theorem}
+Für den folgenden Satz erwähnen wir einige relevante Eigenschaften über Kardinalitäten. Für zwei Mengen $B$ und $C$ schreiben wir $|B|=|C|$, wenn es eine Bijektion zwischen $B$ und $C$ gibt. Falls es eine injektive Abbildung von $B$ nach $C$ gibt, so schreiben wir $|B|\le|C|$, andernfalls schreiben wir $|B|>|C|$. Dieses \glqq$\leq$\grqq{} erfüllt alle Eigenschaften einer linearen Ordnung, sie ist also reflexiv, transitiv und antisymmetrisch. Ist $I$ eine beliebige Indexmenge und sind $M_i$ beliebige Mengen, so bezeichnet $\sum_{i\in I}|M_i|$ die Kardinalität der Menge $\bigcup_{i\in I}M_i\times \{i\}$. Im Beweis von \cref{theorem:transzendenz-grad} verwenden wir diese Tatsache: Ist $I$ unendlich und sind alle $M_i$ endlich, so gilt $\sum_{i\in I}|M_i|=|I|$.
+
+\begin{theorem} \label{theorem:transzendenz-grad}
     Seien $K \leq E$, $B, C$ Transzendenzbasen. Dann ist $\vert B \vert = \vert C \vert$.
 \end{theorem}
 
@@ -252,11 +259,11 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \end{lemma}
 
 \begin{proof}
-    Wir behaupten $f(a) = 0 \Leftrightarrow (x-a) \mid f$. Die Implikation von rechts nach links ist klar. Ist $a$ eine Nullstelle von $f$, so können wir mit dem Divisionsalgorithmus $f(x) = q \cdot (x-a) + r(x)$ mit $\deg r < 1$ schreiben. Dann ist $0 = f(a) = 0 + r(0)$, womit $r = 0$ folgt und die Aussage gezeigt ist.
+    Wir behaupten $f(a) = 0 \Leftrightarrow (x-a) \mid f$. Die Implikation von rechts nach links ist klar. Ist $a$ eine Nullstelle von $f$, so können wir mit dem Divisionsalgorithmus $f(x) = q(x) \cdot (x-a) + r(x)$ mit $\deg r < 1$ schreiben. Dann ist $0 = f(a) = 0 + r(0)$, womit $r = 0$ folgt und die Aussage gezeigt ist.
 \end{proof}
 
 \begin{example}
-    Betrachte $\mathbb{R} \leq \mathbb{C}$. Es ist $f(x) = x^2 + 1$ irreduzibel über $\mathbb{R}$. Wir wollen $i$ zu einer Nullstelle machen, dann gilt also $i^2 + 1 = 0$. Damit können wir auf $i^3 = i \cdot i^2 = i \cdot (-1)$ schließen, analog für $i^4, \hdots$. Wir können also das Verhalten von $i$ nur durch die Eigenschaft eine Nullstelle zu seien analysieren.
+    Betrachte $\mathbb{R} \leq \mathbb{C}$. Es ist $f(x) = x^2 + 1$ irreduzibel über $\mathbb{R}$. Wir wollen $i$ zu einer Nullstelle machen, dann gilt also $i^2 + 1 = 0$. Damit können wir auf $i^3 = i \cdot i^2 = i \cdot (-1)$ schließen, analog für $i^4, \hdots$. Wir können also das Verhalten von $i$ nur durch die Eigenschaft eine Nullstelle zu sein analysieren.
 \end{example}
 
 \begin{proposition}[Kronecker]
@@ -264,7 +271,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
     \begin{enumerate}
         \item $K[x] /_{(f)} =: L$ ist ein Körper.
         \item Die Abbildung $\varphi : K \to L, c \mapsto c + (f)$ ist eine Körpereinbettung.
-        \item Es gibt eine eindeutige Ringbettung $\overline{\varphi} : K[x] \to L[x]$ mit $\overline{\varphi} \vert_K = \varphi, \overline{\varphi}(x) = x$.
+        \item Es gibt eine eindeutige Ringeinbettung $\overline{\varphi} : K[x] \to L[x]$ mit $\overline{\varphi} \vert_K = \varphi, \overline{\varphi}(x) = x$.
         \item Identifiziert man $K[x]$ mit $\varphi(K[x])$ und $K$ mit $\varphi(K)$, so ist
         $x + (f) \in L$  eine Nullstelle von $f$ (formal von $\overline{\varphi}(f)$).
         \item $[L : K] = \deg f < \infty$, insbesondere ist $L$ algebraisch über $K$.
@@ -274,7 +281,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
  
 \begin{proof}{\ }
     \begin{enumerate}
-        \item Es ist nur zu zeigen, dass $f$ ein maximales Ideal ist, da dann bereits die Aussage aus \cref*{prop:ringideale} folgt. In Hauptidealringen sind die maximalen Ideale gerade die von den irreduziblen Elementen erzeugten Ideale -- da $K[x]$ ein Hauptidealring ist, folgt also das zu Zeigende.
+        \item Es ist nur zu zeigen, dass $(f)$ ein maximales Ideal ist, da dann bereits die Aussage aus \cref*{prop:ringideale} folgt. In Hauptidealringen sind die maximalen Ideale gerade die von den irreduziblen Elementen erzeugten Ideale -- da $K[x]$ ein Hauptidealring ist, folgt also das zu Zeigende.
         \item Klarerweise ist $\varphi$ ein Homomorphismus. Für die Injektivität betrachten wir $c + (f) = d + (f)$. Es ist also $c - d \in (f)$, also $f \mid c - d$, womit jedoch bereits $c = d$ folgt.
         \item Klarerweise ist $\overline{\varphi}$ ein Homomorphismus. Für die Injektivität betrachten wir $\overline{\varphi}(g) = \overline{\varphi}(h)$, wegen Koeffizientenvergleich müssen dann jedoch bereits die Polynome übereinstimmen, es gilt also $g = h$. Für die Eindeutigkeit bemerken wir, dass $K[x]$ von $K \cup \{ x \}$ erzeugt wird. Quasi ist $K[x]$ also frei erzeugt von $x$ über $K$.
         \item Es ist $f(x + (f)) = f(x) + (f) = 0 + (f) = 0_L$, da $f(x) \in (f)$.
@@ -286,7 +293,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
     Sei $K \leq E$ und $P \subseteq K[x]$.
     \begin{itemize}
         \item $E$ heißt \emph{Nullstellenkörper} von $P$ (über $K$), wenn jedes $f \in P$ über $E$ in Linearfaktoren zerfällt, das heißt es gibt $\alpha_1, \hdots, \alpha_n \in E, a \in K$ mit $f(x) = a(x - \alpha_1) \hdots (x - \alpha_n)$, wobei die Linearfaktoren nicht paarweise verschieden sein müssen.
-        \item Wenn $E$ minimal mit dieser Eigenschaft ist (das heißt, dass $E$ von $K$ und den Nullstellen von $f \in P$ erzeugt wird), dann heißt $E$ \emph{Zerfällungskörper} von $P$ (über $K$).
+        \item Wenn $E$ minimal mit dieser Eigenschaft ist (das heißt, dass $E$ von $K$ und den Nullstellen aller $f \in P$ erzeugt wird), dann heißt $E$ \emph{Zerfällungskörper} von $P$ (über $K$).
         \item $K$ heißt \emph{algebraisch abgeschlossen}, wenn jedes nichtkonstante Polynom in $K[x]$ über $K$ in Linearfaktoren zerfällt.
         \item Ein \emph{algebraischer Abschluss} von $K$ ist ein Erweiterungskörper $L$, sodass $K \leq L$ algebraisch und $L$ algebraisch abgeschlossen ist.
     \end{itemize}
@@ -332,11 +339,11 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \end{proof}
 
 \begin{proposition}\label{prop:alg_abschluss}
-    Sei $K$ ein Körper. Dann gibt es einen Zerfällungskörper von $K[x]$ über $K$. Dieser ist insbesondere algebraisch. Damit gibt es insbesondere einen algebraischen Abschluss von $K$.
+    Sei $K$ ein Körper. Dann gibt es einen Zerfällungskörper von $K[x]$ über $K$. Dieser ist insbesondere algebraisch über $K$. Damit gibt es insbesondere einen algebraischen Abschluss von $K$.
 \end{proposition}
 
 \begin{proof}
-    Wir geben einen Beweis an, welcher die Idee besonders gut widerspriegelt, allerdings technisch nicht korrekt ist, siehe dazu auch die nächste Bemerkung. Betrachte
+    Wir geben einen Beweis an, welcher die Idee besonders gut widerspiegelt, allerdings technisch nicht korrekt ist, siehe dazu die nächste Bemerkung. Betrachte
     $$ \mathcal{S} := \{ E \mid E \text{ ist Körper}, K \leq E \text{ algebraische Erweiterung } \}. $$
     Dann ist $(\mathcal{S}, \leq)$ eine Halbordnung. Klarerweise ist $\mathcal{S} \neq \emptyset$, da zumindest $K\in \mathcal{S}$ gilt, weiters sind alle Ketten beschränkt. Um dies einzusehen, sei $\mathcal{K} = \{ E_i \mid i \in I \}$ eine Kette in $\mathcal{S}$. Wir wollen ein $E \in \mathcal{S}$ finden mit $E_i \leq E$ für alle $i \in I$. Wähle dazu $E := \bigcup_{i \in I} E_i$. Wie man (aufgrund der Ketteneigenschaft) verifiziert, ist $E$ ein Oberkörper, wobei $x+y:=x+^{E_i}y$ mit einem $i\in I$ sodass $x,y\in E_i$ gilt definiert wird. Aufgrund der Ketteneigenschaft ist die Definition unabhängig von der Wahl von $i$, das heißt die Addition auf $E$ ist wohldefiniert, die anderen Operationen definiert man analog. Klarerweise gilt auch $K \leq E$. Da alle Elemente der Vereinigung algebraisch sind, ist auch $E$ algebraisch, womit tatsächlich $E \in \mathcal{S}$ folgt. Mit dem Lemma von Zorn erhalten wir also ein maximales $E \in \mathcal{S}$. Wir wollen zeigen, dass $E$ algebraisch abgeschlossen ist, da dann $E$ bereits der Zerfällungskörper ist. Sei dazu $f \in E[x]$ irreduzibel, wir wollen zeigen, dass $f$ eine Nullstelle in $E$ hat. Nach Kronecker gibt es ein $E_1 \in \mathcal{S}$ sodass $E \leq E_1$ eine algebraische Erweiterung ist und $f$ eine Nullstelle in $E_1$ hat. Da $E$ maximal ist folgt jedoch $E_1 = E$, womit das zu Zeigende folgt.
 \end{proof}
@@ -352,7 +359,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 
     Bleibt zu klären was $X$ sein soll. Wir wählen $X$ als eine beliebige Menge mit $\vert X \vert > \max(\vert K \vert, \vert \mathbb{N} \vert)$. Beispielsweise könnte man $X = K \cup \mathcal{P}(K) \cup \mathbb{R}$ wählen.
 
-    Weiters muss man noch darauf achten, dass $E_1$ hier nicht unbedingt in $\mathcal{S}$ sein muss. Da $E_1$ jedoch vergleichsweise ``klein'' ist, können wir $E_1$ problemlos in eine Menge $\widetilde{E_1} \in \mathcal{S}$ umbenennen.
+    Weiters muss man noch darauf achten, dass $E_1$ hier nicht unbedingt in $\mathcal{S}$ sein muss. Da $E_1$ jedoch vergleichsweise ``klein'' ist, können wir $E_1$ problemlos in eine Menge $\widetilde{E_1} \in \mathcal{S}$ umbenennen:
 \end{remark}
 
 \begin{proposition}
@@ -360,6 +367,10 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \end{proposition}
 
 \begin{proof}
+    Wir beweisen zuerst noch, dass $|K[x]|=\max(|K|,|\mathbb{N}|)$ gilt.
+
+    Offensichtlich gilt $|K[x]|\geq \max(|K|,|\mathbb{N}|)$, wenn man etwa die Polynome $c$ für $c\in K$ und $x^n$ für $n\in\mathbb{N}$ betrachtet. Definieren wir $M_n:=\{f\in K[x]:\deg f\le n\}$ für $n\in\mathbb{N}$, so gilt $$K[x]=\bigcup_{n\in\mathbb{N}}M_n.$$ Jede der Mengen $M_n$ hat $n\cdot |K|$ Elemente. Ist $K$ endlich, so sind also alle $M_n$ endlich und es folgt $|K[x]|=|\mathbb{N}|$. Andernfalls gilt $n\cdot |K|=|K|$ und damit $|K[x]|\le \sum_{n\in\mathbb{N}}|M_n|=\sum_{n\in\mathbb{N}}n\cdot |K|=\sum_{n\in\mathbb{N}}|K|=\max(|K|,|\mathbb{N}|)$. Also folgt in jedem Fall $|K[x]|=\max(|K|,|\mathbb{N}|)$.
+
     Sei $a \in L$, dann gibt es ein $f \in K[x] \setminus \{0\}$ mit $f(\alpha) = 0$. Nun ist
     $$ N_f := \{ \beta \in L \mid f(\beta) = 0 \} $$
     endlich. Weiters ist
@@ -372,12 +383,11 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \begin{theorem}\label{theorem:zerfaellungskoerper_existenz}
     Sei $K$ ein Köper, dann gilt:
     \begin{enumerate}
-        \item $\forall P \subseteq K[x] \exists Z_P \ge K \;\text{Zerfällungskörper}\;\land Z_P \;\text{alg.}/_K$
-        \item $Z := Z_{K[x]}$ ist algebraisch abgeschlossen.
+        \item $\forall P \subseteq K[x] \exists Z_P \ge K \;\text{Zerfällungskörper von }P\;\land Z_P \;\text{alg.}/_K$
     \end{enumerate}
 \end{theorem}
 \begin{proof}
-    Die zweite Behauptung wird in \cref{prop:alg_abschluss} gezeigt. Zeigen wir also noch die erste Aussage. Sei $P \subseteq K[x]$ beliebig und definieren wir $Z_P := K(S)$ mit $S := \{\alpha \in Z_{K[x]} \mid \exists f \in P\setminus\{0\}: f(\alpha) = 0 \}$. $Z_P$ ist ein Nullstellenkörper von P, da er um genau um die Nullstellen erweitert wird. Die Minimalität von $Z_P$ folgt aus der Konstruktion.
+    $Z_{K[x]}$ existiert nach \cref{prop:alg_abschluss}. Sei $P \subseteq K[x]$ beliebig und definieren wir $Z_P := K(S)$ mit $S := \{\alpha \in Z_{K[x]} \mid \exists f \in P\setminus\{0\}: f(\alpha) = 0 \}$. $Z_P$ ist ein Nullstellenkörper von P, da er um genau um die Nullstellen erweitert wird. Die Minimalität von $Z_P$ folgt aus der Konstruktion.
 \end{proof}
 
 \begin{theorem}\label{theorem:zerfaellungskoerper_isomorph}
@@ -393,7 +403,7 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \end{remark}
 
 \begin{proof}[Beweis von \cref{theorem:zerfaellungskoerper_isomorph}]
-    Betrachten wir $$\mathcal{S} := \{\widetilde{\varphi} \mid L\le \dom \widetilde\varphi \le Z_1, K\le \ran \widetilde\varphi \le Z_2, \widetilde\varphi\;\text{Isomorphismus}\;, \widetilde\varphi\vert_K = \id_K \},$$
+    Betrachten wir $$\mathcal{S} := \{\widetilde{\varphi} \mid K\le \dom \widetilde\varphi \le Z_1, K\le \ran \widetilde\varphi \le Z_2, \widetilde\varphi\;\text{Isomorphismus}\;, \widetilde\varphi\vert_K = \id_K \},$$
     so stellen wir fest, dass $(\mathcal{S}, \subseteq)$ eine Halbordnung ist, $\mathcal{S} \neq \emptyset$, da $\id_K \in \mathcal{S}$ und für jede Kette $K \subset \mathcal{S}$ auch $\bigcup K \in \mathcal{S}$ ist. Nach dem Lemma von Zorn folgt die Existenz eines maximalen Elements $\varphi$ in $\mathcal{S}$.
 
     Wir zeigen, dass für $\widetilde\varphi \in \mathcal{S}$ mit $\dom \widetilde\varphi \neq Z_1$ ein $\widehat\varphi \in \mathcal{S}$ existiert mit $\widehat\varphi \supsetneq \widetilde\varphi$.
@@ -412,11 +422,11 @@ Im Folgenden werden wir oft $K \leq L$ schreiben, dabei ist stets $K$ ein Körpe
 \end{proof}
 
 \begin{remark}
-    Die \cref{theorem:zerfaellungskoerper_existenz,theorem:zerfaellungskoerper_isomorph} liefern die Existenz und Eindeutigkeit bis auf Isomorphie von algebraischen Abschlüssen. Damit ist die folgende Definition sinnvoll.
+    \cref{prop:alg_abschluss} und die \cref{theorem:zerfaellungskoerper_existenz,theorem:zerfaellungskoerper_isomorph} liefern die Existenz und Eindeutigkeit bis auf Isomorphie von algebraischen Abschlüssen und Zerfällungskörpern. Damit ist die folgende Definition sinnvoll:
 \end{remark}
 
 \begin{definition}
-    Sei $K$ ein Körper, dann schreiben wir $\overline{K}$ für den algebraischen Abschluss.
+    Sei $K$ ein Körper, dann schreiben wir $\overline{K}$ für den algebraischen Abschluss. Ist $P\subseteq K[x]$, so schreiben wir $Z_P$ für den Zerfällungskörper von $P$ über $K$.
 \end{definition}
 
 \begin{remark}
@@ -429,7 +439,7 @@ Es stellt sich die Frage, wann ein irreduzibles $f \in K[x]$ in $\overline{K}$ m
 \begin{definition}
     Sei $p \in K[x]$ mit einer Darstellung
     $$ p(x) = q(x) \cdot \prod_{i=1}^n (x-\alpha_i)^{e_i} $$
-    mit paarweise verschiedenen $\alpha_i$, $e_i \in \mathbb{N}^+$ und $q \in K[x]$ ohne Nullstellen. Wir nennen $e_i$ die \emph{Vielfachheit}\index{Vielfachheit} der Nullstelle $\alpha_i$. Ist $e_i > 1$, so nennen wir $\alpha_i$ \emph{mehrfache Nullstelle}\index{mehrfache Nullstelle}.
+    mit $e_i \in \mathbb{N}^+$, $q \in K[x]$ ohne Nullstellen in $K$ und paarweise verschiedenen $\alpha_i$. Wir nennen $e_i$ die \emph{Vielfachheit}\index{Vielfachheit} der Nullstelle $\alpha_i$. Ist $e_i > 1$, so nennen wir $\alpha_i$ \emph{mehrfache Nullstelle}\index{mehrfache Nullstelle}.
 \end{definition}
 
 % TODO:
@@ -443,7 +453,7 @@ Es stellt sich die Frage, wann ein irreduzibles $f \in K[x]$ in $\overline{K}$ m
 
 \begin{definition}
     Sei $K$ ein Körper, $f(x) = \sum_{i=0}^n a_i x^i \in K[x]$, dann definieren wir die \emph{formale Ableitung}\index{formale Ableitung}
-    $$ f'(x) := \sum_{i=0}^n \underbrace{i\cdot a_i}_{\underbrace{a_i + \ldots + a_i}_{i-mal}} x^{i-1}. $$
+    $$ f'(x) := \sum_{i=1}^n \underbrace{i\cdot a_i}_{\underbrace{a_i + \ldots + a_i}_{i-mal}} x^{i-1}. $$
 \end{definition}
 \begin{remark}
     Die allgemein bekannten Rechenregeln für Ableitungen (wie zum Beispiel Linearität oder Produktregel) gelten auch für die formale Ableitung.
@@ -466,12 +476,12 @@ Es stellt sich die Frage, wann ein irreduzibles $f \in K[x]$ in $\overline{K}$ m
 \end{proof}
 
 \begin{lemma}
-    Seien $K$ ein Körper und $f \in K[x]$ irreduzibel. Dann hat $f$ genau dann eine mehrfache Nullstelle in $\overline{K}$, wenn $\chara{K} = p\in\mathbb{P}$ und $\exists g \in K[x]: f(x) = g(x^p)\footnote{Wir setzen hier $x^p$ für $x$ in $g$ ein.}$.
+    Seien $K$ ein Körper und $f \in K[x]$ irreduzibel. Dann hat $f$ genau dann eine mehrfache Nullstelle in $\overline{K}$, wenn $\chara{K} = p\in\mathbb{P}$ und\footnote{Wir setzen hier $x^p$ für $x$ in $g$ ein.} $\exists g \in K[x]: f(x) = g(x^p)$.
 \end{lemma}
 \begin{proof}{\ }
     \begin{enumerate}
-        \item[$\Rightarrow$:] Sei angenommen $f$ hat eine mehrfache Nullstelle in $\overline{K}$. $f$ ist irreduzibel, also wissen wir $\ggT(f,f') \in \{1,f\}$. Nach obigem Lemma hat $\ggT(f,f')$ eine Nullstelle womit wir $\ggT(f, f') = f$ erhalten. Es gilt daher $f \mid f'$ und wegen $\deg f' < \deg f$ gilt $f' = 0$. Wir erhalten daraus direkt, dass $\chara K = p \in \mathbb{P}$. Schreiben wir $f(x) = \sum_{i=0}^n a_i x^i$, dann ist $0 = f'(x) = \sum_{i=1}^n i a_i x^{i-1}$. Wir erhalten also, dass $i a_i=0$ gilt, womit also für $a_i \not= 0$ folgt, dass $p \mid i$. Das liefert die Darstellung $f = g(x^p)$.
-        \item[$\Leftarrow$:] Sei angenommen $f(x) = g(x^p)$ und $\chara K = p \in \mathbb{P}$. Es gilt dann $f' = 0$, da alle $p \mid i$ wenn $a_i \not= 0$. Daher ist $\ggT(f, f') = \ggT(f, 0) = f$. In $\overline{K}$ hat $f$ eine Nullstelle, womit $\ggT(f, f')$ eine Nullstelle hat und nach obigem Lemma $f$ damit eine mehrfache Nullstelle hat.
+        \item[$\Rightarrow$:] Sei angenommen $f$ hat eine mehrfache Nullstelle in $\overline{K}$. $f$ ist irreduzibel, also wissen wir $\ggT(f,f') \in \{1,f\}$. Nach obigem Lemma hat $\ggT(f,f')$ eine Nullstelle womit wir $\ggT(f, f') = f$ erhalten. Es gilt daher $f \mid f'$ und da $f\neq 0$ ist, muss $\deg f' < \deg f$ gelten. Gemeinsam impliziert das $f' = 0$. Da $f$ eine mehrfache Nullstelle in $\overline{K}$ hat, muss $\deg f\geq 2$ gelten. Aus der Definition der formalen Ableitung wird klar, dass $K$ endliche Charakteristik haben muss. Da die Charakteristik immer eine Primzahl sein muss, gibt es $p\in\mathbb{P}$ mit $\chara K = p$. Schreiben wir $f(x) = \sum_{i=0}^n a_i x^i$, dann ist $0 = f'(x) = \sum_{i=1}^n i a_i x^{i-1}$. Wir erhalten also, dass $i a_i=0$ gilt, womit also für alle $i\in\{1,\ldots,n\}$ gilt: Aus $a_i \not= 0$ folgt $p \mid i$. Das liefert die Darstellung $f = g(x^p)$.
+        \item[$\Leftarrow$:] Sei angenommen $\sum_{i=0}^na_iax^i=f(x) = g(x^p)$ und $\chara K = p \in \mathbb{P}$. Es gilt dann $f' = 0$, da $p \mid i$ wenn $a_i \not= 0$. Daher ist $\ggT(f, f') = \ggT(f, 0) = f$. In $\overline{K}$ hat $f$ eine Nullstelle, womit $\ggT(f, f')$ eine Nullstelle hat und nach obigem Lemma $f$ damit eine mehrfache Nullstelle hat.
     \end{enumerate}
 \end{proof}
 
@@ -490,14 +500,14 @@ Es stellt sich die Frage, wann ein irreduzibles $f \in K[x]$ in $\overline{K}$ m
 \end{theorem}
 
 \begin{proof}
-    Sei $L = K(u_1, \hdots, u_r)$ und $r$ entsprechend minimal. Wir zeigen die Aussage mittels Induktion nach $r$. Ist $r = 1$ so ist die Aussage trivial. Sonst ist $L = K(u_1, \hdots, u_{r+1}) = K(u_1, \hdots, u_r)(u_{r+1}) = K(\alpha)(u_{r+1})$. Nennen wir $\beta := u_{r+1}$. Wir müssen also nur die Existenz eines $\delta \in L$ zeigen mit $K(\delta) = K(\alpha, \beta)$. Betrachte in $\overline{K}[x]$:
+    Sei $L = K(u_1, \hdots, u_r)$ mit $r$ minimal. Wir zeigen die Aussage mittels Induktion nach $r$. Ist $r = 1$ so ist die Aussage trivial. Sonst ist $L = K(u_1, \hdots, u_{r+1}) = K(u_1, \hdots, u_r)(u_{r+1}) = K(\alpha)(u_{r+1})$. Nennen wir $\beta := u_{r+1}$. Wir müssen also nur die Existenz eines $\delta \in L$ zeigen mit $K(\delta) = K(\alpha, \beta)$. Betrachte in $\overline{K}[x]$:
     $$ \mu_\alpha = (x - \alpha_1) \hdots (x - \alpha_s) \quad \mathrm{und}\quad
-     \mu_\beta = (x - \beta_1) \hdots (x - \beta_t), $$ \obda sei $\alpha = \alpha_1, \beta = \beta_1$. Wegen $\chara K = 0$ sind alle obigen Nullstellen paarweise verschieden in den jeweiligen Polynomen. Betrachten wir nun Gleichungen der Form
+     \mu_\beta = (x - \beta_1) \hdots (x - \beta_t), $$ \obda sei $\alpha = \alpha_1, \beta = \beta_1$. Wegen $\chara K = 0$ gilt $i\neq \ell\Rightarrow\alpha_i\neq\alpha_\ell$ und $j\neq k\Rightarrow \beta_j\neq\beta_k$. Betrachten wir nun Gleichungen der Form
     $$ \alpha_i + x \beta_j = \alpha + x \beta, $$
-    wobei $i \geq 1, j \geq 2$. Jede dieser Gleichungen besitzt höchstens eine Lösung, da der Körper $K$ wegen $\chara K=0$ unendlich ist, existiert ein $c \in K$ sodass für alle solchen gilt $$ \alpha_i + c \beta_j \neq \alpha + c \beta. $$
+    wobei $i \geq 1, j \geq 2$. Jede dieser Gleichungen besitzt höchstens eine Lösung. Da der Körper $K$ wegen $\chara K=0$ unendlich ist, existiert ein $c \in K$ sodass für alle solchen Gleichungen gilt: $$ \alpha_i + c \beta_j \neq \alpha + c \beta. $$
     Definiere $\delta := \alpha + c \beta \in K(\alpha, \beta)$. Es bleibt $\alpha, \beta \in K(\delta)$ zu zeigen. Definiere
     $$ f(x) := \mu_\alpha (\delta - cx) \in K(\delta)[x]. $$
-    Dann ist $f(\beta) = \mu_\alpha(\delta - c \beta) = \mu_\alpha(\alpha) = 0$. Für $j \geq 2$ ist $f(\beta_j) = \mu_\alpha(\delta - c \beta_j) \neq 0$. Also gilt $(x - \beta) \mid f, (\mu_\beta)$, sowie für $j \geq 2$ $(x-\beta_j) \nmid f$ (aber $\mid \mu_\beta$), es folgt $\ggT(f,\mu_\beta)=(x-\beta)$ in $\overline{K}[x]$ und wegen dem letzten Lemma auch in $\overline{K}(\delta)[x]$. Damit muss $x-\beta\in K(\delta)[x]$ gelten, also $\beta\in K(\delta)$ und auch $\alpha=\delta-c\beta\in K(\delta)$.
+    Dann ist $f(\beta) = \mu_\alpha(\delta - c \beta) = \mu_\alpha(\alpha) = 0$. Für $j \geq 2$ ist $f(\beta_j) = \mu_\alpha(\delta - c \beta_j) \neq 0$. Also gilt $(x - \beta) \mid f, (\mu_\beta)$, sowie für $j \geq 2$ $(x-\beta_j) \nmid f$ (aber $\mid \mu_\beta$). Es folgt $\ggT(f,\mu_\beta)=(x-\beta)$ in $\overline{K}[x]$ und wegen dem letzten Lemma auch in $K(\delta)[x]$. Damit muss $x-\beta\in K(\delta)[x]$ gelten, also $\beta\in K(\delta)$ und auch $\alpha=\delta-c\beta\in K(\delta)$.
 \end{proof}
 
 \begin{remark}

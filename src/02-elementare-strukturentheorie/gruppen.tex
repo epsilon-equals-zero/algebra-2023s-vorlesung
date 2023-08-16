@@ -515,14 +515,16 @@ Man verifiziert sofort, dass $C_m\cong\mathbb{Z}_m$ gilt, vermöge dem Isomorphi
 
         \item Sei $\pi \in S_n$ mit zwei Darstellungen $\pi = (i_1\; j_1) \hdots (i_k\; j_k) = (a_1\; b_1) \hdots (a_\ell\; b_\ell)$. Transpositionen sind selbstinvers, wir haben also
         $$ (a_\ell\; b_\ell) \hdots (a_1\; b_1) (i_1\; j_1) \hdots (i_k\; j_k) = \id_{\{1,\hdots,n\}}. $$
-        Es reicht also zu zeigen, dass die Identität keine ungerade Darstellung besitzt. Dazu bemerken wir, dass jedes Element von $S_n$ auf der Menge $M := \{ (i, j) \mid 1 \leq i, j \leq n, i \neq j \}$ als Gruppenaktion agiert, und zwar durch
+        Es reicht also zu zeigen, dass die Identität keine ungerade Darstellung besitzt. Dazu definieren wir für jedes Element $\pi$ aus $S_n$ auf der Menge $M := \{ (i, j) \mid 1 \leq i, j \leq n, i \neq j \}$ die Abbildung
         $$ \pi((i, j)) := (\pi(i), \pi(j)). $$
-        Sei $(i, j) \in M, i < j$, dann nennen wir $(i,j)$ einen Fehlstand von $\pi$, wenn $\pi(i) > \pi(j)$. Sei $1 \leq a < b \leq n$ und betrachte die Transposition $\pi_{ab}$ von $a$ und $b$. Ein Fehlstand muss klarerweise immer $a$ oder $b$ enthalten. Dann hat $\pi_{ab}$ die Fehlstände $(a, b)$, $(a, j)$, wobei $a < j < b$ und $(j, b)$, wobei $a < j < b$. Insgesamt ist die Anzahl der Fehlstände also ungerade. Da eine ungerade Anzahl an Kompositionen an Transpositionen immer eine ungerade Anzahl an Fehlständen hat, die Identität jedoch eine gerade Anzahl hat (nämlich 0), kann die Identität also nicht aus einer ungeraden Anzahl von Permutationen erzeugt werden.
+        Sei $(i, j) \in M, i < j$, dann nennen wir $(i,j)$ einen Fehlstand von $\pi$, wenn $\pi(i) > \pi(j)$ und mit $f(\pi)$ bezeichnen wir die Anzahl der Fehlstände von $\pi$. Sei $1 \leq a < b \leq n$ und betrachte die Transposition $\pi_{ab}$ von $a$ und $b$. Ein Fehlstand von $\pi_{ab}$ muss klarerweise immer $a$ oder $b$ enthalten. Dann hat $\pi_{ab}$ die Fehlstände $(a, b)$, $(a, j)$, wobei $a < j < b$ und $(j, b)$, wobei $a < j < b$. Insgesamt ist die Anzahl der Fehlstände also ungerade. In der Übung wurde gezeigt: Wenn $\pi$ eine Permutation und $\tau$ eine Transposition, dann gilt $f(\tau\circ\pi)=f(\pi)+1\,(\mathrm{mod} 2)$
+        
+        Damit hat eine ungerade Anzahl an verketteten Transpositionen immer eine ungerade Anzahl an Fehlständen. Die Identität hat jedoch eine gerade Anzahl (nämlich 0), also kann die Identität nicht aus einer ungeraden Anzahl von Permutationen erzeugt werden.
     \end{enumerate}
 \end{proof}
 
 \begin{corollary}
-    Die Abbildung $$\sgn: S_n \to \{-1,1\}, \pi \mapsto \text{\# Transpositionen in der Darstellung von}\;\pi\;\text{mod}\; 2$$ ist ein Gruppenhomomorphismus.
+    Sei $n\in\mathbb{N}$ beliebig. Die Abbildung $$\sgn: S_n \to \{-1,1\}, \pi \mapsto (-1)^{\text{\# Transpositionen in der Darstellung von}\;\pi\;\text{mod}\; 2}$$ ist ein Gruppenhomomorphismus.
 \end{corollary}
 \begin{proof}
     Zuerst bemerken wir, dass die Abbildung aufgrund von \cref{prop:sym_gruppe} wohldefiniert ist. Zeigen wir nun die Verträglichkeit mit den Operationen. Es gilt klarerweise $\sgn(\id) = 1$. Seien nun $\pi, \pi' \in S_n$. Betrachten wir den Fall, dass $\pi$ und $\pi'$ Darstellungen durch eine gerade Anzahl an Permutationen haben, dann hat auch $\pi \circ \pi'$ eine Darstellung durch eine gerade Anzahl an Permutationen und es gilt $\sgn(\pi)\sgn(\pi') = \sgn(\pi \circ \pi')$. Die anderen drei Fälle sind analog. Zuletzt sei noch $\pi \in G$, dann ist $1 = \sgn(\id) = \sgn(\pi \circ \pi^{-1}) = \sgn(\pi) \sgn(\pi^{-1})$. Ist nun $\sgn(\pi) = 1$, so folgt $\sgn(\pi^{-1}) = 1 = \sgn(\pi)^{-1}$, der andere Fall ist analog.
@@ -537,16 +539,16 @@ Man verifiziert sofort, dass $C_m\cong\mathbb{Z}_m$ gilt, vermöge dem Isomorphi
 \subsection{Abelsche Gruppen}
 
 \begin{remark}
-    Sei $(G, \cdot, e, {}^{-1})$ eine abelsche Gruppe, so ist $G$ auch ein unitärer Modul über dem kommutativen 1-Ring $(\mathbb{Z}, +, 0, -, \ast, 1)$. Für $n \in \mathbb{Z}, g \in G$ definieren wir dazu $n \odot g := g^n$. Prüfen wir die Anforderungen an ein Modul. Seien $n, m \in \mathbb{Z}, g, h \in G$ beliebig. Dann ist
+    Sei $(G, \cdot, e, {}^{-1})$ eine abelsche Gruppe, so ist $G$ auch ein unitärer Modul über dem kommutativen 1-Ring $(\mathbb{Z}, +, 0, -, \ast, 1)$. Für $n \in \mathbb{Z}, g \in G$ definieren wir dazu $n \odot g := g^n$. Prüfen wir die Anforderungen an einen Modul. Seien $n, m \in \mathbb{Z}, g, h \in G$ beliebig. Dann ist
     $$ (n \ast m) \odot g = g^{n \ast m} = (g^m)^n = n \odot (m \odot g), $$
     $$ (n+m) \odot g = g^{n+m} = g^n \cdot g^m = (n \odot g) \cdot (m \odot g), $$
     $$ n \odot (g \cdot h) = (g \cdot h)^n = g^n \cdot h^n = (n \odot g) \cdot (n \odot h), $$
     $$1\odot g=g^1=g$$
     wobei wir bei der vorletzten Zeile verwenden, dass $G$ abelsch ist.
 
-    Es stellt sich die Frage ob $G$ auch ein Modul über einem anderen Ring ist. Sei angenommen es gäbe ein $m \in \mathbb{Z}$, sodass für alle $g \in G$ gilt $g^m = e$. Dann ist $G$ ein unitärer Modul über $(\mathbb{Z}_m, +, 0, -, \ast, 1)$. Indirekt angenommen es gäbe ein $g \in G$ mit $g^m \neq e$, so wäre $g^0 = e$ ein Widerspruch.
+    Es stellt sich die Frage ob $G$ auch ein Modul über einem anderen Ringen ist. Falls es ein $m \in \mathbb{Z}$ gibt, sodass für alle $g \in G$ gilt $g^m = e$, so ist $G$ ein unitärer Modul über $(\mathbb{Z}_m, +, 0, -, \ast, 1)$.
 
-    Im Folgenden wollen wir statt $\cdot, \ast, \odot$ stets nur $\cdot$ schreiben.
+    Im Folgenden wollen wir statt $\cdot, \ast$ stets nur $\cdot$ schreiben.
 \end{remark}
 
 \begin{definition}
@@ -562,7 +564,7 @@ Man verifiziert sofort, dass $C_m\cong\mathbb{Z}_m$ gilt, vermöge dem Isomorphi
 \begin{definition}
     Sei $G$ eine Gruppe, $g \in G, p \in \mathbb{P}$, so nennen wir $g$ ein \emph{$p$-Element}\index{Gruppe!$p$-Element}, wenn es ein $k \in \mathbb{N}$ mit $\ord(g) = p^k$ gibt. Weiters definieren wir den \emph{$p$-Anteil}\index{Gruppe!$p$-Anteil} von $G$ als
     $$ G_p := \{ g \in G \mid g \textrm{ ist $p$-Element } \}. $$
-    Hier sei daran erinnert, dass $g$ \emph{Torsionselement}\index{Gruppe!Torsionselement} heißt, wenn es ein $k \in \mathbb{Z} \setminus \{ 0 \}$ mit $g^k = e$ gibt. Wir definieren die \emph{Torsionsgruppe von $G$}\index{Gruppe!Torsionsgruppe}:
+    Ist $G=G_p$, so nennen wir $G$ eine \emph{$p$-Gruppe}\index{Gruppe!$p$-Gruppe}. Hier sei daran erinnert, dass $g$ \emph{Torsionselement}\index{Gruppe!Torsionselement} heißt, wenn es ein $k \in \mathbb{Z} \setminus \{ 0 \}$ mit $g^k = e$ gibt. Wir definieren die \emph{Torsionsgruppe von $G$}\index{Gruppe!Torsionsgruppe}:
     $$ G_t := \{ g \in G \mid g \textrm{ ist Torsionselement } \}. $$
 \end{definition}
 
@@ -589,12 +591,12 @@ Man verifiziert sofort, dass $C_m\cong\mathbb{Z}_m$ gilt, vermöge dem Isomorphi
     \end{enumerate}
 \end{proof}
 
-\begin{corollary}
-    Sei $G$ eine abelsche Gruppe mit $\exp(G) = m < \infty$. Dann gibt es ein $g \in G$, mit $\ord(g) = m$.
+\begin{corollary} \label{corollary:exponent_exist}
+    Sei $G$ eine abelsche Gruppe mit $\exp(G) = m < \infty$. Dann gibt es ein $g \in G$ mit $\ord(g) = m$.
 \end{corollary}
 
 \begin{proof}
-    Sei $h \in G$ beliebig, so gilt $h^m = e$ und damit $\ord(h) \mid m$. Damit ist $M := \{ \ord(h) \mid h \in G \}$ endlich, wir können also $M = \{ \ord(h_1), \hdots, \ord(h_n) \}$, mit $h_i \in G$, schreiben. Nach $\cref{lemma:abelsch-torsion-lemma}$ gibt es nun ein $g \in G$ mit $\ord(g) = \mathrm{kgV}(\ord(h_1), \hdots, \ord(h_n))$. Es gilt nun $h^{\ord(g)} = e$. Insgesamt folgt damit also $$m \overset{h^{\ord(g)} = e}{\leq} \ord(g) \overset{\exp(G) = m,\; g \in G}{\leq} m$$.
+    Für $h \in G$ beliebig, gilt $h^m = e$ und damit $\ord(h) \mid m$. Damit ist $M := \{ \ord(h) \mid h \in G \}$ endlich, wir können also $M = \{ \ord(h_1), \hdots, \ord(h_n) \}$, mit $h_i \in G$, schreiben. Nach $\cref{lemma:abelsch-torsion-lemma}$ gibt es nun ein $g \in G$ mit $\ord(g) = \mathrm{kgV}(\ord(h_1), \hdots, \ord(h_n))$. Insgesamt folgt damit $$m \overset{h^{\ord(g)} = e}{\leq} \ord(g) \overset{\exp(G) = m,\; g \in G}{\leq} m,$$ die erste Ungleichung gilt wegen $h^{\ord(g)}=e$ für alle $h\in G$ und die zweite wegen $\exp(G)=m$ und $g\in G$.
 \end{proof}
 
 \begin{lemma} \label{lemma:p-t-anteil-untergruppe}
@@ -622,7 +624,7 @@ Man verifiziert sofort, dass $C_m\cong\mathbb{Z}_m$ gilt, vermöge dem Isomorphi
 \end{proof}
 
 \begin{lemma} \label{lemma:zerlegung-p-anteile}
-    Sei $G$ eine abelsche Gruppe und sei $a \in G$ mit $\ord(a) = p_1^{e_1} \cdot \hdots \cdot p_n^{e_n}$, wobei $p_1, \hdots, p_n \in \mathbb{P}$ paarweise verschieden sind. Dann ist $a \in G_{p_1} \cdot \hdots \cdot G_{p_n}$.
+    Sei $G$ eine abelsche Gruppe und sei $a \in G$ mit $\ord(a) = p_1^{e_1} \cdot \hdots \cdot p_n^{e_n}$, wobei $p_1, \hdots, p_n \in \mathbb{P}$ paarweise verschieden und $e_1,\ldots,e_n\in\mathbb{N}_{\geq 1}$ sind. Dann ist $a \in G_{p_1} \cdot \hdots \cdot G_{p_n}$.
 \end{lemma}
 
 \begin{proof}
@@ -634,12 +636,12 @@ Man verifiziert sofort, dass $C_m\cong\mathbb{Z}_m$ gilt, vermöge dem Isomorphi
 
     Betrachte nun
     $$ a = a^1 = a^{\sum_{i=1}^n x_i t_i} = (a^{t_1})^{x_1} \cdot \hdots \cdot (a^{t_n})^{x_n}. $$
-    Es ist aber $\ord(a^{t_i}) = p_i^{e_i}$, womit wegen $((a^{t_i})^{p_i})^{e_i} = a^{\ord(a)} = e$ dann $a^{t_i} \in G_{p_i}$ folgt.
+    Es ist aber $\ord(a^{t_i}) = p_i^{e_i}$, womit $a^{t_i} \in G_{p_i}$ folgt.
 \end{proof}
 
 \notedate{27.04.2023}
 
-\begin{theorem}
+\begin{theorem}\label{theorem:p-produkt}
     Sei $G$ eine abelsche Torsionsgruppe. Dann ist $G = \stackrel{w}{\prod}_{p \in \mathbb{P}} G_p$.
 \end{theorem}
 
@@ -650,7 +652,7 @@ Man verifiziert sofort, dass $C_m\cong\mathbb{Z}_m$ gilt, vermöge dem Isomorphi
 \end{proof}
 
 \begin{lemma}\label{lemma:p-gruppe-max-ordnung}
-    Sei $G$ eine abelsche $p$-Gruppe und $a \in G$ mit maximaler Ordnung $p^n$. Dann gilt:
+    Sei $p\in\mathbb{P}$, $G$ eine abelsche $p$-Gruppe $a \in G$ mit maximaler Ordnung, also $\ord(a)=\max\{\ord(g)\mid g\in G\}=p^n$ für ein $n\in\mathbb{N}$. Dann gilt:
     \begin{enumerate}
         \item $\langle a \rangle \neq G \Rightarrow \exists b \in G \setminus \{ e \} : \langle b \rangle \cap \langle a \rangle = \{ e \}$\label{item:lemma:p-gruppe-max-ordnung:1}
         \item $\exists U \leq G: G = \langle a \rangle \odot U$
@@ -662,15 +664,15 @@ Man verifiziert sofort, dass $C_m\cong\mathbb{Z}_m$ gilt, vermöge dem Isomorphi
         \item Sei $\langle a \rangle \neq G$ angenommen und $c \in G \setminus \langle a \rangle$ beliebig. Wir wissen, dass $c^{(p^n)} = e \in \langle a \rangle$. Sei $j \geq 1$ minimal mit $c^{(p^j)} \in \langle a \rangle$, also ist
             $c^{(p^j)} = a^\ell$ für ein $\ell\in\mathbb{Z}$. Betrachte $b := c^{(p^{j-1})} \cdot a^{-\ell / p}$. Damit dies wohldefiniert ist müssen wir zunächst $p \mid \ell$ zeigen. Wäre dies nicht so, so wäre $\mathrm{ggT}(\ell, p^n) = 1$, also $\langle a \rangle = \langle a^\ell \rangle \subsetneq \langle c \rangle$, womit $\ord(c) > \ord(a)$ wäre, im Widerspruch dazu, dass $a$ maximale Ordnung hat.
             
-            Nun gilt $b^p = c^{(p^j)} \cdot a^{- \ell} = e$. Da $c^{(p^{j-1})} \not\in \langle a \rangle, a^{-\ell / p} \in \langle a \rangle$ folgt also $b \not\in \langle a \rangle$, insbesondere ist $b \neq e$. Damit erhalten wir $\ord(b) = p$ und damit $\langle b \rangle \cong \mathbb{Z}_p$. Sei indirekt angenommen es gäbe ein $x \in (\langle a \rangle \cap \langle b \rangle) \setminus \{e\}$, dann wäre $b \in \langle x \rangle$, damit $b \in \langle a \rangle$, im Widerspruch. Also folgt $\langle a \rangle \cap \langle b \rangle = \{e\}$.
+            Nun gilt $b^p = c^{(p^j)} \cdot a^{- \ell} = e$. Da $c^{(p^{j-1})} \not\in \langle a \rangle, a^{-\ell / p} \in \langle a \rangle$ folgt also $b \not\in \langle a \rangle$, insbesondere ist $b \neq e$. Deshalb muss $\ord(b) = p$ und damit $\langle b \rangle \cong \mathbb{Z}_p$ gelten. Sei indirekt angenommen es gäbe ein $x \in (\langle a \rangle \cap \langle b \rangle) \setminus \{e\}$, dann wäre $b \in \langle x \rangle$, damit $b \in \langle a \rangle$, im Widerspruch. Also folgt $\langle a \rangle \cap \langle b \rangle = \{e\}$.
 
         \item Sei $U \leq G$ maximal mit $U \cap \langle a \rangle = \{e\}$, vermöge Lemma von Zorn angewandt auf $(\{ U \leq G \mid U \cap \langle a \rangle = \{e\} \}, \subseteq)$.
-        
-        Zunächst gilt für alle $V \leq G/_U, V \neq \{ U \}$, dass $\langle aU \rangle \cap V \neq \{ U \}$. Sonst wäre $U' := \{ c \in G \mid \exists b U \in V: c \in bU \} \leq G$ eine echte Obermenge von $U$ mit $\langle a \rangle \cap U' = \{e\}$, im Widerspruch zur Maximalität von $U$. Um Letzteres einzusehen sei $b \in \langle a \rangle \cap U'$, dann ist $bU \in \langle aU \rangle \cap V$ und damit $b \in U$, also $b \in U \cap \langle a \rangle$, also $b = e$. 
-        
-        Damit gilt für alle $b \in G \setminus U$, dass $\langle bU \rangle \cap \langle aU \rangle \neq \{ U \}$. Falls nun die Ordnung von $aU$ maximal in $G/_U$ ist, so folgt mit \ref*{item:lemma:p-gruppe-max-ordnung:1}. $\langle a U \rangle = G/_U$. Tatsächlich gilt $\ord(aU) = p^n = \ord(a)$, denn ist $a^k U = (aU)^k = U$, so gilt $a^k \in U$, womit $a^k = e$ folgen würde, also $k = p^n$.
 
-        Nun existiert für alle $bU \in G/_U$ ein $n$ mit $(aU)^n = bU$, also $u_1, u_2 \in U$ mit $a^n u_1 = b u_2$, also $a^n u_1 u_2^{-1} = b$ und damit $G = \langle a \rangle \odot U$.
+        Zunächst gilt für alle $V \leq G/_U, V \neq \{ U \}$, dass $\langle aU \rangle \cap V \neq \{ U \}$: Angenommen es wäre $\langle aU\rangle\cap V\neq \{U\}$. Wir definieren $U':=\{c\in G\mid \exists bU\in V:c\in bU\}\le G$. Offensichtlich handelt sich dabei um eine echte Obermenge von $U$. Für $b\in\langle a\rangle\cap U'$ gilt $bU\in\langle aU\rangle\cap V$. Wegen der indirekten Annahme folgen $b\in U$, $b\in \langle a\rangle\cap U, b=e$ und schließlich $U'\cap\langle a\rangle=\{e\}$. Das ist ein Widerspruch, da $U$ maximal mit dieser Eigenschaft gewählt wurde.
+    
+        Damit gilt für alle $b \in G \setminus U$, dass $\langle bU \rangle \cap \langle aU \rangle \neq \{ U \}$. Falls nun die Ordnung von $aU$ maximal in $G/_U$ ist, so folgt mit \ref*{item:lemma:p-gruppe-max-ordnung:1}. $\langle a U \rangle = G/_U$. Tatsächlich gilt $\ord(aU) = p^n = \ord(a)$, denn ist $a^k U = (aU)^k = U$, so gilt $a^k \in U$, womit $a^k = e$ folgen würde, also $p^n \mid k$.
+
+        Nun existiert für alle $b \in G$ ein $n\in\mathbb{N}$ mit $(aU)^n = bU$, also existieren $u_1, u_2 \in U$ mit $a^n u_1 = b u_2$, also $a^n u_1 u_2^{-1} = b$ und damit $G = \langle a \rangle \odot U$.
     \end{enumerate}
 \end{proof}
 
@@ -681,7 +683,7 @@ Man verifiziert sofort, dass $C_m\cong\mathbb{Z}_m$ gilt, vermöge dem Isomorphi
 \end{theorem}
 
 \begin{proof} 
-    Zuerst wollen wir die Existenz zeigen: Es existieren $p_1, \hdots, p_\ell \in \mathbb{P}$ verschieden, sodass $G \cong G_{p_1} \times \hdots \times G_{p_\ell}$. Wir können also \obda annehmen, dass $G$ eine $p$-Gruppe ist ($p \in \mathbb{P}$).
+    Zuerst wollen wir die Existenz zeigen: Es existieren nach \cref{theorem:p-produkt} $p_1, \hdots, p_\ell \in \mathbb{P}$ verschieden, sodass $G \cong G_{p_1} \times \hdots \times G_{p_\ell}$. Wir können also \obda annehmen, dass $G$ eine $p$-Gruppe ist ($p \in \mathbb{P}$).
 
     Sei $a \in G$ mit maximaler Ordnung $p^{e_n}$, so wissen wir nach \cref{lemma:p-gruppe-max-ordnung} $G \cong \langle a \rangle \times U$, wobei $\langle a \rangle \cong C_{p^{e_n}}$. Dies wird induktiv mit $U$ wiederholt, wobei wir dies nur endlich oft machen müssen, da $G$ endlich ist.
 
@@ -690,6 +692,6 @@ Man verifiziert sofort, dass $C_m\cong\mathbb{Z}_m$ gilt, vermöge dem Isomorphi
     und $j\in\{1,\ldots,s\}$ mit $m=(p_i)^{e_i}=(q_j)^{f_j}$. Damit haben die beiden Darstellungen einen Faktor gemeinsam. Damit ist
     $G/(C_{m})$ eine Gruppe mit weniger Elementen als $G$, welche isomorph zu den beiden Gruppen
     $$\Bigl( C_{p_1^{e_1}} \Bigr)^{m_1} \times \hdots \times \Bigl( C_{p_i^{e_i}} \Bigr)^{m_i-1} \times \hdots \times \Bigl( C_{p_n^{e_n}} \Bigr)^{m_n} \quad\text{und}\quad \Bigl( C_{q_1^{f_1}} \Bigr)^{\ell_1} \times \hdots \times\Bigl( C_{q_j^{f_j}} \Bigr)^{\ell_j-1} \times \hdots\times \Bigl( C_{q_s^{f_s}} \Bigr)^{\ell_s}$$
-    ist. Induktives Verfahren liefert damit die Eindeutigkeit der Darstellung.
+    ist. Mit Induktion erhält man damit die Eindeutigkeit der Darstellung.
 \end{proof}
 
