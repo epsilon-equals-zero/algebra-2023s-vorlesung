@@ -1,15 +1,15 @@
 \section{Endliche Körper}
 
-\begin{theorem}{\ }
+\begin{theorem}{\ }\label{theorem:endliche_koerper_eindeutigkeit}
     \begin{enumerate}
-        \item Sei $K$ ein endlicher Körper mit $\chara K = p \in \mathbb{P}$, so gibt es ein $n \geq 1$ mit $\vert K \vert = p^n$.
-        \item Für alle $p \in \mathbb{P}$ und $n \geq 1$ gibt es einen eindeutigen Körper $K$ mit $\chara K = p$ und $\vert K \vert = p^n$.
+        \item Ist $K$ ein endlicher Körper mit $\chara K = p \in \mathbb{P}$, so gibt es ein $n \geq 1$ mit $\vert K \vert = p^n$.
+        \item Für alle $p \in \mathbb{P}$ und $n \geq 1$ gibt es einen bis auf Isomorphie eindeutigen Körper $K$ mit $\chara K = p$ und $\vert K \vert = p^n$.
     \end{enumerate}
 \end{theorem}
 
 \begin{proof}{\ }
     \begin{enumerate}
-        \item Sei $K \geq \mathbb{Z}_p$ und wähle $n := [K : \mathbb{Z}_p]$, so gilt klarerweise $\vert K \vert = p^n$.
+        \item Sei nach \cref{theorem:primkoerper} $K \geq \mathbb{Z}_p$ und wähle $n := [K : \mathbb{Z}_p]$. Es gilt klarerweise $\vert K \vert = p^n$.
         \item Betrachte
         $$ f(x) = x(x^{p^n - 1} - 1), $$
         so ist
@@ -23,7 +23,7 @@
 \end{proof}
 
 \begin{remark}
-    Für diesen eindeutigen Körper im obigen Satz schreiben wir auch $\mathrm{GF}(p^n)$. Tatächlich gilt der Satz von Wedderburn -- jeder endliche Schiefkörper ist ein Körper, also $\mathrm{GF}(p^n)$ für ein $p\in\mathbb{P}$ und $n\in\mathbb{N}$.
+    Für diesen bis auf Isomorphie eindeutigen Körper im obigen Satz schreiben wir auch $\mathrm{GF}(p^n)$. Tatächlich gilt der Satz von Wedderburn -- jeder endliche Schiefkörper ist ein Körper, also $\mathrm{GF}(p^n)$ für ein $p\in\mathbb{P}$ und $n\in\mathbb{N}$. Wir werden diesen Satz hier nicht beweisen. 
 \end{remark}
 
 \begin{lemma}
@@ -44,15 +44,15 @@
 \end{proof}
 
 \begin{lemma}
-    Seien $K_1, K_2 \leq L, \vert K_1 \vert = \vert K_2 \vert<\infty$. Dann gilt sogar $K_1 = K_2$.
+    Seien $K_1, K_2 \leq L, \vert K_1 \vert = \vert K_2 \vert<\infty$. Dann gilt $K_1 = K_2$.
 \end{lemma}
 
 \begin{proof}
-    Wähle $p^n := \vert K_1 \vert = \vert K_2 \vert$ mit $p \in \mathbb{P}, n \geq 1$, so ist $\mathbb{Z}_p \leq K_1, K_2$. Nun ist $K_1$ der Zerfällungskörper von $x^{p^n} - x$, ebenso $K_2$. Nun gilt für alle $\alpha \in K_{1,2}$, dass $\alpha$ eine Nullstelle des besagten Polynoms ist, womit bereits $K_1 = K_2$ folgt.
+    Wähle $p^n := \vert K_1 \vert = \vert K_2 \vert$ mit $p \in \mathbb{P}, n \geq 1$, so ist $\mathbb{Z}_p \leq K_1, K_2$. Nun ist $K_1$ der Zerfällungskörper von $x^{p^n} - x$, ebenso $K_2$. Nun gilt nach dem Beweis von \cref{theorem:endliche_koerper_eindeutigkeit}, dass $K_1$ und $K_2$ genau die Nullstellenmenge von $x^{p^n}-x$ sind, also folgt $K_1 = K_2$.
 \end{proof}
 
 \begin{proposition}
-    Seien $k, n \geq 1$ und $p \in \mathbb{P}$. Dann existiert ein $K \leq \mathrm{GF}(p^n), \vert K \vert = p^k$ genau dann wenn $k \mid n$.
+    Seien $k, n \geq 1$ und $p \in \mathbb{P}$. Dann existiert ein $K \leq \mathrm{GF}(p^n)$ mit $\vert K \vert = p^k$ genau dann wenn $k \mid n$.
 \end{proposition}
 
 \begin{proof}{\ } \\
@@ -81,7 +81,7 @@
     \begin{enumerate}
         \item \begin{enumerate}
             \item Es gilt $[Z_{\{f\}}(\mathbb{Z}_p) : \mathbb{Z}_p] = n$ und damit $Z_{\{f\}}(\mathbb{Z}_p) = \mathrm{GF}(p^n)$.
-            \item Sei $f(\alpha) = 0$. Da $f$ irreduzibel ist folgt $f = \mu_\alpha$. Dann bilden $\alpha^0, \alpha^, \hdots, \alpha^{n-1}$ eine Basis von $\mathrm{GF}(p^n)$ über $\mathbb{Z}_p$, also folgt bereits $\mathbb{Z}_p(\alpha) = \mathrm{GF}(p^n)$.
+            \item Sei $f(\alpha) = 0$. Da $f$ irreduzibel ist folgt $f = \mu_\alpha$. Dann bilden $\alpha^0, \alpha^1, \hdots, \alpha^{n-1}$ eine Basis von $\mathrm{GF}(p^n)$ über $\mathbb{Z}_p$, also folgt bereits $\mathbb{Z}_p(\alpha) = \mathrm{GF}(p^n)$.
             \item Sei $\alpha \in \mathrm{GF}(p^n), f(\alpha) = 0$, so gilt $f = \mu_\alpha$ und $\alpha^{p^n} - \alpha = 0$, also gilt $f \mid x^{p^n} - x$.
             \item Aus (c) erhalten wir $f \mid x^{p^n} - x$, wobei $x^{p^n} - x$ nur einfache Nullstellen hat, also hat auch $f$ nur einfache Nullstellen.
         \end{enumerate}
@@ -94,46 +94,47 @@
 \notedate{15.06.2023}
 
 \begin{definition}
-    Ein irreduzibles Polynom $f \in \mathbb{Z}_p[x]$, $\deg f =: n$ heißt \emph{primitiv}\index{Polynom!primitiv}, wenn 
-    $$\exists \alpha \in \mathrm{GF}(p^n): f(\alpha) \land \mathrm{GF}(p^n)\setminus\{0\} = \{\alpha^0, \alpha^1, \ldots \}. $$
+    Ein irreduzibles Polynom $f \in \mathbb{Z}_p[x]$ mit $\deg f = n$ heißt \emph{primitiv}\index{Polynom!primitiv}, wenn 
+    $$\exists \alpha \in \mathrm{GF}(p^n): f(\alpha)=0 \land \mathrm{GF}(p^n)\setminus\{0\} = \{\alpha^0, \alpha^1, \ldots \}. $$
 \end{definition}
 
 \begin{remark}
-    In der Tat ist die Forderung $\exists \alpha\in \mathrm{GF}(p^n):f(\alpha)=0\land \mathrm{GF}(p^n)\setminus\{0\}=\{\alpha^0,\alpha^1,\ldots\}$ in der Definition des primitiven Polynom äquivalent zu $\forall\alpha\in\mathrm{GF}(p^n):(f(\alpha)=0\Rightarrow GF(p^n)\setminus\{0\}=\{\alpha^0,\alpha^1,\ldots\})$. 
+    In der Tat ist die Forderung $\exists \alpha\in \mathrm{GF}(p^n):f(\alpha)=0\land \mathrm{GF}(p^n)\setminus\{0\}=\{\alpha^0,\alpha^1,\ldots\}$ in der Definition des primitiven Polynoms äquivalent zu $\forall\alpha\in\mathrm{GF}(p^n):(f(\alpha)=0\Rightarrow GF(p^n)\setminus\{0\}=\{\alpha^0,\alpha^1,\ldots\})$. 
 \end{remark}
 
 \begin{lemma}
-    Sei $K$ ein Körper, $G \le (K \setminus \{0\}, \cdot, 1, {}^{-1})$ eine endliche Untergruppe, dann ist $G$ zyklisch.
+    Ist $K$ ein Körper und $G \le (K \setminus \{0\}, \cdot, 1, {}^{-1})$ eine endliche Untergruppe, dann ist $G$ zyklisch.
 \end{lemma}
 \begin{proof}
-    Es gibt ein $g \in G$, dass für alle $h \in G$ gilt $\ord h \mid \ord g =: \ell \mid \vert G \vert$. Nun ist $h \in G$ eine Nullstelle von $x^\ell-1$ und da dieses nur $\ell$ Nullstellen haben kann, ist $\ell \geq \vert G\vert$. Es gilt daher $\ord g = \vert G \vert$, womit $G$ zyklisch ist.
+    Nach \cref{corollary:exponent_exist} gibt es ein $g \in G$, sodass für alle $h \in G$ gilt $\ord h \mid \ord g =: \ell \mid \vert G \vert$. Nun ist jedes $h \in G$ eine Nullstelle von $x^\ell-1$ und da dieses nur $\ell$ Nullstellen haben kann, ist $\ell \geq \vert G\vert$. Es gilt daher $\ord g = \vert G \vert$, womit $G$ zyklisch ist.
 \end{proof}
 
 \begin{corollary}
-    Für $n \in \mathbb{N}$ gibt es ein primitives Polynom in $f \in \mathbb{Z}_p[x]$ vom Grad $n$.
+    Für $n \in \mathbb{N}$ gibt es ein primitives Polynom in $\mathbb{Z}_p[x]$ vom Grad $n$.
 \end{corollary}
 \begin{proof}
-    Es ist $(\mathrm{GF}(p^n)\setminus\{0\}, \cdot, 1, {}^{-1})$ nach dem vorherigen Lemma zyklisch, womit es ein $\alpha$ gibt, mit $\mathrm{GF}(p^n)\setminus\{0\} = \{\alpha^0, \alpha^1, \ldots\}$. Dann ist $\mu_\alpha$ primitiv.
+    Es ist $(\mathrm{GF}(p^n)\setminus\{0\}, \cdot, 1, {}^{-1})$ nach dem vorherigen Lemma zyklisch, womit es ein $\alpha$ mit $\mathrm{GF}(p^n)\setminus\{0\} = \{\alpha^0, \alpha^1, \ldots\}$ gibt. Dann ist $\mu_\alpha$ primitiv.
 \end{proof}
 
 \begin{lemma}
     Sei $f \in \mathbb{Z}_p[x]$ irreduzibel, $n := \deg f$, $\alpha_1, \ldots, \alpha_n \in \mathrm{GF}(p^n)$ Nullstellen von $f$. Dann gilt
     \begin{enumerate}
-        \item $\forall \varphi \in \Aut(\mathrm{GF}(p^n)): \varphi\vert_{\{\alpha_1, \ldots, \alpha_n\}}$ ist eine Permutation von $\{\alpha_1, \ldots, \alpha_n\}$.
+        \item $\forall\varphi\in\Aut(\mathrm{GF}(p^n)): \varphi\vert_{\{\alpha_1, \ldots, \alpha_n\}}$ ist eine Permutation von $\{\alpha_1, \ldots, \alpha_n\}$.
         \item Für alle $i \in \{1, \ldots, n\}$ existiert ein eindeutiger Automorphismus $\varphi_i$ mit $\varphi_i(\alpha_1) = \alpha_i$.
     \end{enumerate}
 \end{lemma}
 \begin{proof}{\ }
     \begin{enumerate}
-        \item Es ist $\varphi \in \Aut(\mathrm{GF}(p^n))$, also gilt $\forall \alpha\in K: f(\alpha) = 0 \Rightarrow f(\varphi(\alpha)) = \varphi(f)(\varphi(\alpha)) = 0$. Da $\varphi\vert_K=\id_K$ gilt und $f$ ein Polynom mit Koeffizienten in $K$ ist, folgt $\varphi(f)=f$ und $\varphi$ bildet Nullstellen von $f$ auf Nullstellen ab.
+        \item Mit $\varphi(f)$ bezeichnen wir jenes Polynom, welches man erhält, wenn man $\varphi$ auf die Koeffizienten von $f$ anwendet. Da sich jedes Element von $\mathbb{Z}_p$ als Summe der $1$ darstellen lässt, gilt $\varphi\vert_{\mathbb{Z}_p}=\id_{\mathbb{Z}_p}$. Da $f$ ein Polynom mit Koeffizienten in $\mathbb{Z}_p$ ist, folgt $\varphi(f)=f$. Es ist $\varphi \in \Aut(\mathrm{GF}(p^n))$, also gilt $\forall\alpha\in \mathrm{GF}(p^n): f(\alpha) = 0 \Rightarrow f(\varphi(\alpha)) = \varphi(f)(\varphi(\alpha)) = 0$. Daher werden Nullstellen von $f$ durch $\varphi$ auf Nullstellen von $f$ abgebildet. 
         Da $\varphi\vert_{\{\alpha_1, \ldots, \alpha_n\}}$ injektiv ist und $\{\alpha_1, \ldots, \alpha_n\}$ endlich ist, ist $\varphi\vert_{\{\alpha_1, \ldots, \alpha_n\}}$ surjektiv und damit eine Permutation.
-        \item Es ist $f = \mu_{\alpha_1} = \mu_{\alpha_i}$, also gibt es einen eindeutigen Isomorphismus $\varphi_i: \mathbb{Z}_p(\alpha_1) \to \mathbb{Z}_p(\alpha_i)$ mit $\varphi_i\vert_{\mathbb{Z}_p} = \id_{\mathbb{Z}_p}$ und $\varphi_i(\alpha_1) = \alpha_i$. Da $\mathrm{GF}(p^n) = \mathbb{Z}_p(\alpha_1) = \mathbb{Z}_p(\alpha_i)$ folgt die Aussage.
+
+        \item Es ist $f = \mu_{\alpha_1} = \mu_{\alpha_i}$, also gibt es nach \cref{prop:minimalpolynom_erweiterung} einen eindeutigen Isomorphismus $\varphi_i: \mathbb{Z}_p(\alpha_1) \to \mathbb{Z}_p(\alpha_i)$ mit $\varphi_i\vert_{\mathbb{Z}_p} = \id_{\mathbb{Z}_p}$ und $\varphi_i(\alpha_1) = \alpha_i$. Da $\mathrm{GF}(p^n) = \mathbb{Z}_p(\alpha_1) = \mathbb{Z}_p(\alpha_i)$ folgt die Aussage.
      \end{enumerate}
 \end{proof}
 
 \begin{theorem}{\ }
     \begin{enumerate}
-        \item Für alle $k\in\mathbb{N}$ ist die Abbildung $\varphi_k: \mathrm{GF}(p^n) \to \mathrm{GF}(p^n), x \mapsto x^{p^n}$ ein Automorphismus (genannt \emph{Frobniusautomorphismus}). 
+        \item Für alle $k\in\mathbb{N}$ ist die Abbildung $\varphi_k: \mathrm{GF}(p^n) \to \mathrm{GF}(p^n), x \mapsto x^{p^k}$ ein Automorphismus (genannt \emph{Frobeniusautomorphismus}). 
         \item $\forall \varphi \in \Aut(\mathrm{GF}(p^n)) \exists k < n: \varphi = \varphi_k$.
     \end{enumerate}
 \end{theorem}
@@ -141,7 +142,7 @@
     \begin{enumerate}
         \item Es ist wegen \cref*{prop:frob_ringhomom} ein Ringhomomorphismus gegeben. Man sieht leicht, dass $\varphi_k$ sogar ein Körperhomomorphismus ist. Nach \cref*{corollary:koerperhomom_injektiv} ist $\varphi_k$ injektiv und da $\mathrm{GF}(p^n)$ endlich ist, ist die Abbildung surjektiv, also ein Körperautomorphismus.
         
-        \item Das vorherige Lemma liefert $\vert \Aut(\mathrm{GF}(p^n)) \vert = n$. Wir müssen nun noch zeigen, dass für $i, j < n$, $i \not= j$ auch $\varphi_i \not= \varphi_j$ gilt. Sei nun $f \in \mathbb{Z}_p[x]$ ein primitives Polynom vom Grad $n$ und $\alpha$ mit $f(\alpha) = 0$ und $\mathrm{GF}(p^n)\setminus\{0\} = \{\alpha^0, \alpha^1, \ldots\}$. Es ist nun $\alpha^{p^i} \not= \alpha^{p^j}$, womit $\varphi_i(\alpha) \not= \varphi_j(\alpha)$ ist.
+        \item Das vorherige Lemma liefert $\vert \Aut(\mathrm{GF}(p^n)) \vert = n$. Wir müssen nun noch zeigen, dass für $i, j < n$, $i \not= j$ auch $\varphi_i \not= \varphi_j$ gilt. Sei nun $f \in \mathbb{Z}_p[x]$ ein primitives Polynom vom Grad $n$ und $\alpha\in\mathrm{GF}(p^n)$ mit $f(\alpha) = 0$ und $\mathrm{GF}(p^n)\setminus\{0\} = \{\alpha^0, \alpha^1, \ldots\}$. Es ist nun $\alpha^{p^i} \not= \alpha^{p^j}$, womit $\varphi_i(\alpha) \not= \varphi_j(\alpha)$ ist.
     \end{enumerate}
 \end{proof}
 

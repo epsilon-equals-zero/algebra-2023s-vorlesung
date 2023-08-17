@@ -15,7 +15,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \end{example}
 
 \begin{remark}
-    Wie auch schon im Abschnitt über Gruppen werden wir im Folgenden für einen Ring $\mathfrak{R} = (R, +, 0, -, \cdot)$ mit Einselement $1$, falls dieses existiert nur $R$ schreiben, also den Ring mit der Trägermenge identifizieren.
+    Wie auch schon im Abschnitt über Gruppen werden wir im Folgenden für einen Ring $\mathfrak{R} = (R, +, 0, -, \cdot)$ nur $R$ schreiben, also den Ring mit der Trägermenge identifizieren.
 \end{remark}
 
 \begin{definition}
@@ -42,13 +42,13 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \begin{example}
     Es ist $m \mathbb{Z} \subseteq (\mathbb{Z}, +, 0, -, \cdot, 1)$ ein Ideal. Sei $P$ der Ring der reellen Polynomfunktionen. Dann ist $(x^2 + 1) \cdot P \vartriangleleft P$. Dies ist ein allgemeines Prinzip, wie wir später noch sehen werden.
 
-    Sei $M$ eine Menge und betrachte den Ring $(\mathcal{P}(M), \triangle, \emptyset, \id_{\mathcal{P}(M)}, \cap, M)$. Sei $A \subseteq M$ beliebig, so ist $\mathcal{P}(A) \vartriangleleft \mathcal{P}(M)$. Weiters kann $(\mathcal{P}(A), \triangle, \emptyset, \id_{\mathcal{P}(A)}, \cap, A)$ zu einem Ring mit 1 gemacht werden. Es handelt sich dabei um keinen Widerspruch zu \cref{remark:ideal-mit-1-trivial}, da hier ein anderes Einselement gefunden wird als im ursprünglichen Ring.
+    Sei $M$ eine Menge und betrachte den Ring $(\mathcal{P}(M), \triangle, \emptyset, \id_{\mathcal{P}(M)}, \cap, M)$. Sei $A \subseteq M$ beliebig, so ist $\mathcal{P}(A) \vartriangleleft \mathcal{P}(M)$. Weiters ist $(\mathcal{P}(A), \triangle, \emptyset, \id_{\mathcal{P}(A)}, \cap, A)$ ein Ring mit Einselement. Es handelt sich dabei um keinen Widerspruch zu \cref{remark:ideal-mit-1-trivial}, da hier ein anderes Einselement gefunden wird als im ursprünglichen Ring.
 \end{example}
 
 \begin{remark}\label{remark:ideal-congrel}
     Sei $(R, +, 0, -, \cdot)$ ein Ring und $\sim \subseteq R^2$ eine Kongruenzrelation auf $R$. Dann ist $\sim$ insbesondere eine Kongruenzrelation auf $(R, +, 0, -)$, womit $\sim$ eindeutig durch $[0]_{\sim}$ bestimmt ist.
 
-    Sind $x, y \in R$ beliebig, $x, y \in [0]_{\sim}$, so gilt $x + y \in [0]_{\sim}, (-x) \in [0]_{\sim}$, vergleiche die Theorie von Normalteilern von Gruppen. Sei $r \in R$ beliebig, so gilt $x \sim 0, r \sim r$, und da $\sim$ Kongruenzrelation ist damit $r \cdot x \sim 0 \cdot r = 0$, also folgt $[0]_{\sim} \vartriangleleft R$.
+    Sind $x, y \in [0]_{\sim}$, so gilt $x + y \in [0]_{\sim}, (-x) \in [0]_{\sim}$, vergleiche die Theorie von Normalteilern von Gruppen. Sei $r \in R$ beliebig, so gilt $x \sim 0, r \sim r$, und da $\sim$ Kongruenzrelation ist damit $r \cdot x \sim 0 \cdot r = 0$, also folgt $[0]_{\sim} \vartriangleleft R$.
 
     Umgekehrt sei $I \vartriangleleft R$ ein Ideal, wir wollen eine entsprechende Kongruenzrelation $\sim$ definieren. Für $x, y \in R$ definieren wir
     $$ x \sim y :\Leftrightarrow y - x \in I. $$
@@ -65,10 +65,10 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \end{definition}
 
 \begin{definition}
-    Sei $R$ eine Ring, $I \vartriangleleft R$ ein Ideal und $\sim$ die wie in \cref{remark:ideal-congrel} vom Ideal induzierte Kongruenzrelation. Wir definieren den \emph{Faktorring} \index{Ring!Faktor-}
+    Sei $R$ eine Ring, $I \vartriangleleft R$ ein Ideal und $\sim$ die wie in \cref{remark:ideal-congrel} vom Ideal $I$ induzierte Kongruenzrelation. Wir definieren den \emph{Faktorring} \index{Ring!Faktor-}
     $$ R/_I := R/_\sim = \{ a + I \mid a \in R\}.$$
     Dabei ist
-    $$ (a + I) + (b + I) := (a + b) + I \quad\text{und}\quad (a + I)\cdot(b+I) = (a\cdot b) + I. $$
+    $$ (a + I) + (b + I) := (a + b) + I \quad\text{und}\quad (a + I)\cdot(b+I) := (a\cdot b) + I. $$
 \end{definition}
 
 \begin{definition}
@@ -185,8 +185,8 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
         \end{itemize}
         \item Es gilt
         \begin{align*}
-            R/_I \text{ ist Integritätsbereich} &\Leftrightarrow \forall a, b \in R: (a + I)(b + I) = I \Rightarrow a + I = I \lor b + I = I \\
-            &\Leftrightarrow \forall a, b \in R: ab \in I \Rightarrow a \in I \lor b \in I \\
+            R/_I \text{ ist Integritätsbereich} &\Leftrightarrow (\forall a, b \in R: (a + I)(b + I) = I \Rightarrow a + I = I \lor b + I = I) \\
+            &\Leftrightarrow (\forall a, b \in R: ab \in I \Rightarrow a \in I \lor b \in I) \\
             &\Leftrightarrow I \text{ ist prim}.
         \end{align*}
         \item Folgt direkt aus (1) und (2).
@@ -211,7 +211,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \end{example}
 
 \begin{example}
-    Sei $P$ die Menge der Polynomfunktionen auf $\mathbb{R}$ und $(x^2+1) \cdot P \vartriangleleft P$, so ist dies ein Primideal, und $P/_{(x^2+1) \cdot P}$ sogar ein Integritätsbereich. Jedoch ist es kein Körper, da $(x^2+1) \cdot P$ nicht maximal ist -- betrachte dazu beispielsweise
+    Sei $P$ die Menge der Polynomfunktionen auf $\mathbb{R}$ und $(x^2+1) \cdot P \vartriangleleft P$, so ist dies ein Primideal, und $P/_{(x^2+1) \cdot P}$ ein Integritätsbereich. Jedoch ist es kein Körper, da $(x^2+1) \cdot P$ nicht maximal ist -- betrachte dazu beispielsweise
     $$ (x^2 + 1) \cdot P \subsetneq (x^2+1) \cdot P + x \cdot P \vartriangleleft P .$$
 
     Das Ideal $I := (x^2 - 1) \cdot P \vartriangleleft P$ ist kein Primideal, da $(x-1)\notin I, (x+1) \notin I$, aber $(x-1)(x+1) = x^2 - 1 \in I$.
@@ -233,7 +233,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \end{example}
 
 \begin{proposition}\label{prop:frob_ringhomom}
-    Sei $R$ ein kommutativer Ring mit 1, $\chara R = p \in \mathbb{P}$. Dann ist
+    Sei $R$ ein kommutativer Ring mit 1, $\chara R = p \in \mathbb{P}$ und $k\in\mathbb{N}$. Dann ist
     $$ \varphi : R \to R, x \mapsto x^{p^k} $$
     ein Homomorphismus.
 \end{proposition}
@@ -241,29 +241,29 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \begin{proof}
     Wir zeigen die Aussage mittels Induktion nach $k$.
 
-    Induktionsanfang ($k = 1$): Es gilt
-    $$ (a+b)^p = \sum_{i=0}^p {p \choose i} a^i b^{p-1}. $$
+    Induktionsanfang ($k = 1$): Für $a,b\in R$ gilt
+    $$ (a+b)^p = \sum_{i=0}^p {p \choose i} a^i b^{p-i}. $$
     Wir beobachten
     $$ {p \choose i} = \frac{p \cdot (p-1) \cdot \hdots \cdot (p-i+1)}{1\cdot \ldots \cdot i} \equiv 0 \text{ mod } p $$
-    für $i\neq 0,p$, daher folgt $(a+b)^p\equiv a^p+b^p\text{ mod }p$.
+    für $i\neq 0,p$, daher folgt $(a+b)^p= a^p+b^p$.
 
-    Induktionsschritt ($k\to k+1$): Es gilt unmittelbar
+    Induktionsschritt ($k\to k+1$): Es gilt in $R$ unmittelbar
     $$(a+b)^{p^{k+1}}=(a^{p^k}+b^{p^k})^p=a^{p^{k+1}}+b^{p^{k+1}}.$$
 \end{proof}
 
 \begin{remark}\label{rem:ring-koerper}
-    Sei $R$ ein kommutativer Ring mit 1, wir wollen $R$ in einen Körper einbetten. Es gelte \obda $0 \neq 1$ (da sonst für alle $x$ gilt $ x = 1\cdot x = 0 \cdot x = 0$). Wir sammeln nun notwendige Voraussetzungen.
+    Sei $R$ ein kommutativer Ring mit 1, wir wollen $R$ in einen Körper einbetten. Es gelte $0 \neq 1$ (da sonst für alle $x$ gilt $ x = 1\cdot x = 0 \cdot x = 0$). Wir sammeln nun notwendige Voraussetzungen.
 
-    Es muss $R$ ein Integritätsbereich sein, da $rs=0\Rightarrow r^{-1}rs=s=0$ für $r,s\in R$ folgen wird.
+    Es muss $R$ ein Integritätsbereich sein, da $rs=0\land r\neq 0\Rightarrow r^{-1}rs=s=0$ für $r,s\in R$ folgen wird.
 
     Nicht notwendig (da es aus der vorigen Bedingung folgt), aber interessant ist die Tatsache, dass wenn $R$ ein Integritätsbereich ist, jedes Element außer $0$ bereits kürzbar ist.
     Denn für $r,x,y\in R,r\neq 0$ gilt $rx=ry\Rightarrow r(x-y)=0\Rightarrow x-y=0\Rightarrow x=y$.
 
-    Es ist $R^\times := R \setminus \{0\}$ ein kommutatives Monoid mit der Operation $\cdot$. Definiere eine Äquivalenz\-relation $\sim \subseteq (R \times R^\times)^2, (a, b) \sim (c, d) :\Leftrightarrow ad = bc$. Wie man nachrechnet ist dies sogar eine Kongruenzrelation. Dann ist $((R \times R^\times)/_\sim, \cdot, [(1,1)]_\sim) =: M$ ein Monoid, wobei jedes $[(x,y)]_\sim$ mit $x \neq 0$ ein Inverses besitzt.
+    Es ist $R^\times := R \setminus \{0\}$ ein kommutatives Monoid mit der Operation $\cdot$. Definiere eine Äquivalenz\-relation $\sim \subseteq (R \times R^\times)^2, (a, b) \sim (c, d) :\Leftrightarrow ad = bc$. Wie man nachrechnet ist dies sogar eine Kongruenzrelation auf dem multiplikativen Monoid $R\times R^{\times}$. Dann ist $((R \times R^\times)/_\sim, \cdot, [(1,1)]_\sim) =: M$ ein Monoid, wobei jedes $[(x,y)]_\sim$ mit $x \neq 0$ ein Inverses besitzt.
     
     Dann ist
     $$ \varphi : R \to M, x \mapsto [(x, 1)]_\sim $$
-    eine homomorphe Einbettung von $R$ in $M$.
+    eine Einbettung von $R$ als multiplikatives Monoid in $M$.
 
     Für jedes multiplikative Monoid $N$ mit einer Einbettung $\psi : R \to N$ und der Eigenschaft
     $$\forall x\in R^\times\exists y\in N:y\psi(x)=\psi(x)y=1$$
@@ -305,13 +305,13 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 
     Nach Konstruktion ist $\varphi$ eine injektive Einbettung bezüglich $\cdot$. Allerdings gilt
     für $a,b\in R$, dass $\varphi(a+b)=[(a+b,1)]_\sim=[(1a+1b,1\cdot 1)]_\sim=[(a,1)]_\sim+[(b,1)]_\sim=\varphi(a)+\varphi(b)$.
-    Wegen $\varphi(0)=[(0,1)]_\sim\varphi(0)=0$ wird auch das neutrale Element von $\varphi$ erhalten,
-    woraus bereits die Verträglichkeit mit additiven Inversen folgt. Daher ist $\varphi$ sogar eine Einbettung bezüglich $+$.
+    Wegen $\varphi(0)=[(0,1)]_\sim=0$ wird auch das neutrale Element von $\varphi$ erhalten,
+    woraus bereits die Verträglichkeit mit additiven Inversen folgt. Daher ist $\varphi$ auch eine Einbettung bezüglich $+$.
 
     Sei $\psi : R \to L$ eine Einbettung in einen Körper $L$. Nach der Monoidkonstruktion gibt es eine Einbettung $\bar{\psi} : K \to L$ bezüglich $\cdot$ mit $\bar{\psi} \circ \varphi = \psi$.
     Wir verifizieren nun, dass $\bar{\psi}$ mit der Addition verträglich ist:
     \begin{align*}
-        \bar{\psi} ([(z_1, u_1)]_\sim + [(z_2, u_2)]_\sim) &= \bar{\psi} ([(z_1 u_2 + z_2 u_1, u_1 u_2)]_\sim) \\
+        \bar{\psi} ([(z_1, n_1)]_\sim + [(z_2, n_2)]_\sim) &= \bar{\psi} ([(z_1 n_2 + z_2 n_1, n_1 n_2)]_\sim) \\
         &= \bar{\psi}([(z_1n_2+z_2n_1,1)]_\sim)\cdot \bar{\psi}([(1,n_1n_2)]_\sim)\\
         &= \overbrace{\bar{\psi}\circ\varphi}^{=\psi}(z_1n_2+z_2n_1)\cdot \bar{\psi}([(1,n_1n_2)]_\sim)\\
         &= \big(\overbrace{\psi}^{\bar{\psi}\circ\varphi}(z_1n_2)+\overbrace{\psi}^{\bar{\psi}\circ\varphi}(z_2n_1)\big)\cdot \bar{\psi}([(1,n_1n_2)]_\sim)\\
@@ -321,17 +321,17 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \end{proof}
 
 \begin{proposition}
-    Sei $L$ ein Körper mit der obigen Eigenschaft (3) aus Satz \ref{theorem:Quotientenkoerper}, so gilt bereits $L \cong K$, wobei $K$ unser konstruierter Körper ist.
+    Sei $K'$ ein Körper mit Eigenschaft (3) aus \cref{theorem:Quotientenkoerper}, so gilt bereits $K' \cong K$, wobei $K$ unser konstruierter Körper aus \cref{theorem:Quotientenkoerper} (1) ist.
 \end{proposition}
 
 \begin{proof}
-    Gegeben sind also $\varphi:R\to K$ und $\varphi_0:R\to L$ jeweils mit Eigenschaft (3).
-    Daher existieren $\bar{\varphi}:L\to K$ mit $\bar{\varphi}\circ \varphi_0=\varphi$ und $\bar{\varphi_0}:K\to L$ mit $\bar{\varphi_0}\circ \varphi=\varphi_0$. Wir zeigen zuerst die folgenden Behauptung. Für jeden injektiven Homomorphismus
+    Gegeben sind also $\varphi:R\to K$ und $\varphi_0:R\to K'$ jeweils mit Eigenschaft (3). Für $K'$ bedeutet das: Für jeden Körper $L$ und jede Ringeinbettung $\psi:R\to L$ gibt es eine Körpereinbettung $\bar{\psi}:K'\to L$ mit $\bar{\psi}\circ\varphi_0=\psi$.
+    Daher existieren $\bar{\varphi}:K'\to K$ mit $\bar{\varphi}\circ \varphi_0=\varphi$ und $\bar{\varphi_0}:K\to K'$ mit $\bar{\varphi_0}\circ \varphi=\varphi_0$. Wir zeigen zuerst die folgende Behauptung: Für jeden injektiven Homomorphismus
     $\xi:K\to K$ mit $\xi|_{\varphi(R)}=\id_R$ folgt $\xi=\id$. Dies folgt aus der folgenden Rechnung:
     $$
         \xi([(a,b)]_\sim)=\xi([(a,1)]_\sim)\xi([1,b]_\sim)=[(a,1)]_\sim\cdot [(b,1)]_\sim^{-1}=[(a,b)]_\sim.
     $$
-    Insbesondere gilt daher $\bar{\varphi}\circ \bar{\varphi_0}=\id_K$, da $(\bar{\varphi}\circ\bar{\varphi_0}\circ\varphi)(a)=(\bar{\varphi}\circ\varphi_0)(a)=\varphi(a)$ gilt.
+    Insbesondere gilt daher $\bar{\varphi}\circ \bar{\varphi_0}=\mathrm{id}_K$, da $(\bar{\varphi}\circ\bar{\varphi_0}\circ\varphi)(a)=(\bar{\varphi}\circ\varphi_0)(a)=\varphi(a)$ gilt. Damit ist $\bar{\varphi}$ ein Isomorphismus von $K'$ nach $K$.
 \end{proof}
 
 \begin{definition}
@@ -346,7 +346,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \end{remark}
 
 \begin{definition}\label{def:polynomring}
-    Sei $R$ eine Ring mit $1$. Wir definieren den \emph{Polynomring über $R$}\index{Polynomring}
+    Sei $R$ ein Ring mit $1$. Wir definieren den \emph{Polynomring über $R$}\index{Polynomring}
     $$R[x]:=\left\{(x_n)_{n\in \mathbb{N}} \in R^\mathbb{N} \;\middle|\; \vert\{x_n\neq 0\mid n\in \mathbb{N}\}\vert<\infty\right\}$$
     mit den Operationen
     \begin{align*}
@@ -354,7 +354,12 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
         \cdot &: R[x] \times R[x] \to R[x], ((x_n)_{n\in \mathbb{N}}, (y_n)_{n\in\mathbb{N}}) \mapsto \left(\sum_{i=0}^n x_i y_{n-i}\right)_{n\in\mathbb{N}}
     \end{align*}
 
-    Elemente von $R[x]$ bezeichnen wir als \emph{Polynome}\index{Polynom}.
+    Elemente von $R[x]$ bezeichnen wir als \emph{Polynome}\index{Polynom} und die einzelnen Folgenglieder der Elemente als \emph{Koeffizienten}\index{Koeffizient}. Außerdem definieren wir für $(x_n)_{n\in\mathbb{N}}\in R[x]$ den \emph{Grad}\index{Grad}:
+    $$\deg ((x_n)_{n\in\mathbb{N}}):=
+    \begin{cases}
+        -\infty, & (x_n)_{n\in\mathbb{N}}=(0)_{n\in\mathbb{N}}\\
+        \max\{n\in\mathbb{N}:x_n\neq 0\}, & \text{sonst.}
+    \end{cases}$$
 
     Weiter definieren wir den Ring der \emph{formalen Potenzreihen}\index{formale Potenzreihe} 
     $$R[[x]]:=\left\{(x_n)_{n \in \mathbb{N}} \in R^\mathbb{N}\right\}$$
@@ -370,11 +375,13 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 
     Sei $R$ ein kommutativer Ring mit 1, $x$ eine Variable und definiere
     $$ R[x] := \{ t(x) \mid t \text{ Term über $x$ in Sprache } +, \cdot, (r)_{r \in R} \}/_\sim, $$
-    wobei $\sim$ die von Gesetzen der kommutativen Ringe mit 1 und Gesetzen in $R$ erzeugte Äquivalenz\-relation ist. In $R[x]$ gilt also beispielsweise
+    wobei $\sim$ die von Gesetzen der kommutativen Ringe mit 1 und Gesetzen in $R$\footnote{Gemeint sind hierbei Gesetze wie beispielsweise $r\cdot(s\cdot x)=(r\cdot s)\cdot x$ oder $(r\cdot x)+(s\cdot x)=(r+s)\cdot x$, also Gleichungen welche in $R$ gelten.} erzeugte Äquivalenz\-relation ist. In $R[x]$ gilt also beispielsweise
     $$ x + x \cdot x = x \cdot x + x, \quad r \cdot (s \cdot x) = (r \cdot s) \cdot x. $$
 
     Vorteil von \cref{def:polynomring} ist, dass analog auch die Verallgemeinerung der formalen Potenzreihen definiert werden kann, was mit diesem Ansatz nicht möglich ist.
 \end{remark}
+
+Folgende Punkte sind einfach nachzurechnen:
 
 \begin{proposition}\label{prop:polynomringe}
     Sei $R$ ein kommutativer Ring mit $1$. Dann gilt:
@@ -401,7 +408,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \end{remark}
 
 \begin{remark}
-    Als Verallgemeinerung des Polynomrings kann man auch den Polynomring in $n$-Variablen $x_1,\ldots,x_n$ rekursiv definieren
+    Als Verallgemeinerung des Polynomrings kann man auch den Polynomring in $n$ Variablen $x_1,\ldots,x_n$ rekursiv definieren
     durch $R[x_1,\ldots,x_n]:=R[x_1,\ldots,x_{n-1}][x_n]$. Auch für eine beliebige Variablenmenge $X$ kann eine Verallgemeinerung
     getroffen werden, indem man mit $R[x]$ die Terme über der Sprache $(+,0,-,\cdot,1,(x)_{x\in X},(m_r)_{r\in R})$ nach den Ringgesetzen
     und Gleichheiten in $R$ faktorisiert.
@@ -409,7 +416,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 
 \begin{definition}
     Sei $K$ ein Körper. Dann heißt $K$ \emph{algebraisch abgeschlossen}\index{Körper!algebraisch abgeschlossen}, wenn
-    $$\forall p(x)\in K[x]:p\not\in\footnote{Hier wird $K$ mittels der Einbettung aus \cref{prop:polynomringe} als Teilmenge betrachtet.} K\Rightarrow \exists a\in K:p(a)=0$$
+    $$\forall p(x)\in K[x]:p(x)\not\in\footnote{Hier wird $K$ mittels der Einbettung aus \cref{prop:polynomringe} als Teilmenge betrachtet.} K\Rightarrow \exists a\in K:p(a)\footnote{Der Ausdruck p(a) wird mithilfe des Einsetzungshomomorphismus definiert.}=0$$
     gilt.
 \end{definition}
 
@@ -427,7 +434,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \end{remark}
 
 \begin{proposition}
-    Sei $R$ ein kommutativer Ring mit $1$ und $X$ eine Variablenmenge. Dann gilt:
+    Sei $R$ ein kommutativer Ring mit $1$ und $X\neq\emptyset$ eine Variablenmenge. Dann gilt:
     \begin{enumerate}
         \item $R\leq R[X]$
         \item Für jeden Ring $S$ mit $R\leq S$ und jeden Homomorphismus $\varphi:X\to S$
@@ -436,7 +443,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 \end{proposition}
 
 \begin{proof}
-    Der Beweis verläuft analog wie bei den freien Algebren.
+    Der Beweis verläuft analog wie bei \cref{theorem:variablenmenge_frei}.
 \end{proof}
 
 
@@ -478,12 +485,14 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
     Dieses Element ist eindeutig modulo $I$ bestimmt, denn falls $r'$ und $r$ beide die gewünschte Eigenschaft haben,
     so folgt $r'-r\in I_i$ für alle $i$, also $r'-r\in\bigcap_{i=1}^nI_i=I$.
 
-    Schließlich ist die Abbildung $\varphi$ laut Definition wohldefiniert. Die Surjektivität ist die Existenz vonb $r$ im ersten Punkt,
+    Schließlich ist die Abbildung $\varphi$ laut Definition wohldefiniert. Die Surjektivität ist die Existenz von $r$ im ersten Punkt,
     die Injektivität ist die Eindeutigkeit modulo $I$. Für die Homomorphiebedingung rechnen wir exemplarisch nach, dass
     $\varphi$ mit der Addition verträglich ist:
-    $$\varphi(r+I+s+I)=\varphi((r+s)+I)=((r+s)+I_1,\ldots,(r+s)+I_n)=\varphi(r+I)+\varphi(s+I).$$
+    $$\varphi((r+I)+(s+I))=\varphi((r+s)+I)=((r+s)+I_1,\ldots,(r+s)+I_n)=\varphi(r+I)+\varphi(s+I).$$
     Die Multiplikation zeigt man analog.
 \end{proof}
+
+Aus dem obigen Satz folgt unmittelbar:
 
 \begin{corollary}[Chinesischer Restsatz, klassisch]\index{Chinesischer Restsatz!klassisch}
     Seien $m_1,\ldots,m_n\geq 2$ und $\forall i\neq j: m_i\mathbb{Z}+m_j\mathbb{Z}=\mathbb{Z}$

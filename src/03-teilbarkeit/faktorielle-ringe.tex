@@ -3,12 +3,12 @@
 \section{Faktorielle Ringe}
 
 \begin{definition}
-    Sei $R$ ein Integritätsbereich, so heißt $R$ \emph{faktorieller Ring}\index{Ring!faktorieller} (oder \emph{Gaußscher Ring}\index{Ring!Gaußscher}, oder auch \emph{ZPE-Ring}\index{Ring!ZPE-}) genau dann wenn
+    Sei $R$ ein Integritätsbereich, so heißt $R$ \emph{faktorieller Ring}\index{Ring!faktorieller} (oder \emph{Gaußscher Ring}\index{Ring!Gaußscher}, oder auch \emph{ZPE-Ring}\index{Ring!ZPE-}) genau dann, wenn
     $$ \forall r \in R\setminus [1]_\sim, r\neq 0: \exists r_1, \hdots, r_n \in R\text{ irreduzibel} : r = r_1 \cdot \hdots \cdot r_n, $$
     wobei die $r_i$ bis auf Reihenfolge und Assoziiertheit eindeutig bestimmt sind\footnote{Wir haben also zwei geforderte Eigenschaften für faktorielle Ringe, die Existenz und die Eindeutigkeit. In der Literatur werden oft Ringe mit der ersten Eigenschaft mit \emph{factorization domain (FD)} bezeichnet, Ringe wo zusätzlich die letztere gilt oft mit \emph{unique factorization domain (UFD)}.}.
 \end{definition}
 
-\begin{remark}
+\begin{remark} \label{remark:prim-eindeutig}
     Wir bemerken, dass eine Zerlegung in Primelemente \emph{immer} eindeutig ist (wieder bis auf Reihenfolge und Assoziiertheit).
 
     Um dies einzusehen sei $a \in R$ mit zwei Zerlegungen
@@ -17,14 +17,14 @@
     $$ p_2 \cdot \hdots \cdot p_u = q_1 \cdot \hdots \cdot q_{j-1} \cdot x \cdot q_{j+1} \cdot \hdots \cdot q_v. $$
     Induktiv folgt dadurch die Eindeutigkeit.
 
-    Tatsächlich haben wir hier nicht verwendet, dass die $q_i$ prim sind - wir haben also die stärkere Aussage gezeigt, dass es, sobald es eine Zerlegung in Primelemente gibt, diese bereits eindeutig ist (es gibt also keine andere Zerlegung in Nichtprimelemente, bis auf Reihenfolge und Assoziiertheit).
+    Tatsächlich haben wir hier nicht verwendet, dass die $q_i$ prim sind - wir haben also die stärkere Aussage gezeigt, dass es, sobald es eine Zerlegung in Primelemente gibt, es keine andere Zerlegung in irreduzible Elemente, bis auf die Reihenfolge und Assoziiertheit der Faktoren, gibt.
 \end{remark}
 
-\begin{proposition}
+\begin{proposition} \label{prop:faktorielle-equiv}
     Sei $R$ ein Integritätsbereich, dann sind äquivalent:
     \begin{enumerate}
         \item $R$ ist faktoriell.
-        \item $ \forall r \in R \setminus \{0\}, r \not\sim 1 \exists p_1, \hdots, p_s \in R \text{ prim}: r = p_1 \cdot \hdots \cdot p_s $
+        \item $ \forall r \in R \setminus \{0\}, r \not\sim 1: \exists p_1, \hdots, p_s \in R \text{ prim}: r = p_1 \cdot \hdots \cdot p_s $
         \item Für alle $ r \in R \setminus \{0\}, r \not\sim 1 $ gilt:
         \begin{enumerate}[label=\roman*.]
             \item $ \exists r_1, \hdots, r_t \in R \text{ irreduzibel}: r = r_1 \cdot \hdots \cdot r_t $
@@ -36,9 +36,9 @@
 
 \begin{proof}{\ }
     \begin{itemize}[leftmargin=2.5cm]
-        \item[$(1) \Rightarrow (3)$:] Die erste Aussage gilt nach Definition. Ist nun $r \in R$ irreduzibel, so wähle $a, b \in R$ mit $r \mid a \cdot b$, es gibt also ein $c$ mit $r \cdot c = a \cdot b$. Mit (1) erhalten wir eine Zerlegung $$ r \cdot (c_1 \cdot \hdots \cdot c_u) = (a_1 \cdot \hdots \cdot a_v) \cdot (b_1 \cdot \hdots \cdot b_w), $$ wobei die geklammerten Terme jeweils irreduzibel sind. Nach (1) gibt es nun noch $i$ mit $r \sim a_i$ oder $j$ mit  $r \sim b_j$, womit $r \mid a$ oder $r \mid b$ folgt und $r$ prim ist.
+        \item[$(1) \Rightarrow (3)$:] Die erste Aussage gilt nach Definition. Ist nun $r \in R$ irreduzibel, so wähle $a, b \in R$ mit $r \mid a \cdot b$, es gibt also ein $c$ mit $r \cdot c = a \cdot b$. Mit (1) erhalten wir eine Zerlegung $$ r \cdot c_1 \cdot \hdots \cdot c_u = a_1 \cdot \hdots \cdot a_v \cdot b_1 \cdot \hdots \cdot b_w, $$ wobei alle auftretenden Faktoren irreduzibel sind. Nach (1) gibt es nun noch $i$ mit $r \sim a_i$ oder $j$ mit  $r \sim b_j$, womit $r \mid a$ oder $r \mid b$ folgt und $r$ prim ist.
 
-        \item[$(3) \Rightarrow (1)$:] Wir haben oben bereits gezeigt dass Zerlegungen in Primelemente eindeutig sind, somit folgt sofort die Aussage.
+        \item[$(3) \Rightarrow (1)$:] Folgt aus \cref{remark:prim-eindeutig}.
         
         \item[$(3) \Rightarrow (2)$:] Trivial.
 
@@ -56,47 +56,69 @@
     wobei alle Faktoren rechts und links irreduzibel sind. Die Zerlegungen sind unterschiedlich, da $x \not\sim \sqrt{2} x, \frac{\sqrt{2}}{2} x$, da $\sqrt{2}, \frac{\sqrt{2}}{2} \notin R$.
 \end{example}
 
-\begin{proposition}
+Für den Beweis von \cref{prop:hir-ist-faktoriell} werden die folgenden Definitionen sowie \cref{lemma:koenigs-lemma} benötigt.
+
+
+\begin{definition}
+    Ein \emph{ungerichteter Graph} ist ein Paar $(V,E)$ bestehend aus einer Menge $V$ und einer beliebigen Menge $E\subseteq\{\{x,y\}\mid x,y\in V\}$. Die Elemente von $V$ heißen \emph{Knoten}, die Elemente von $E$ \emph{Kanten}. Zwei Elemente $x,y\in V$ heißen \emph{benachbart}, wenn $\{x,y\}\in E$. Ein \emph{Pfad} ist eine endliche Folge paarweise verschiedener Knoten $v_1,\ldots,v_n\in V$ mit $\{v_i,v_{i+1}\}\in E$.
+    Ein \emph{Zyklus} ist ein Pfad $v_1,\ldots,v_n$ mit $v_1=v_n$, wobei $n\geq 3$ gilt. Ein Graph heißt \emph{zusammenhängend}, wenn es für je zwei verschiedene Elemente $x,y\in V$ einen Pfad gibt, welcher $x$ mit $y$ verbindet. Ein \emph{Baum} ist ein zusammenhängender, zyklenfreier Graph. Für einen Knoten $v\in V$ ist der Grad von $v$ definiert als $|\{u\in V:\{u,v\}\in E\}|$.
+\end{definition}
+
+\begin{lemma} [König's Lemma] \label{lemma:koenigs-lemma}
+    Sei $G=(V,E)$ ein Baum bestehend aus unendlich vielen Knoten und jeder Knoten habe endlichen Grad. Dann besitzt $G$ einen unendlichen Pfad.
+\end{lemma}
+
+\begin{proof}
+    Sei $v_1\in V$ beliebig. Mit $v_1^{(1)},\ldots,v_1^{(n_1)}$ bezeichnen wir die benachbarten Element von $v_1$. Für jedes Element $w\in V\setminus\{v_1\}$ gibt es nun einen Pfad $\Gamma_w$, welcher in $v_1$ beginnt und in $w$ endet. Jeder dieser Pfade verbindet $v_1$ mit einem seiner benachbarten Elemente. Wegen
+    $$\{w\in V\setminus\{v_1\}\}=\bigcup_{j=1}^{n_1}\{w\in V\mid \{v_1,v_1^{(j)}\}\in\Gamma_w\}$$ und der Unendlichkeit von $V$ muss es ein $j\in\{1,\ldots,n_1\}$ geben, sodass  $\{w\in V\mid \{v_1,v_1^{(j)}\}\in \Gamma_w\}$ unendlich ist. Wir definieren $v_2:=v_1^{(j)}$. Induktiv finden wir so eine unendliche Folge, sodass für jedes $k\in \mathbb{N}$ die Menge $\{w\in V\mid \forall i\leq k: \{v_i,v_{i+1}\}\in \Gamma_w\}$ unendlich ist: Sind $v_1,\ldots,v_k$ bereits gewählt, so bezeichnen wir mit $v_k^{(1)},\ldots,v_k^{(n_k)}$ die benachbarten Elemente von $v_k$ ohne $v_{k-1}$. Wegen $$\{w\in V\mid \forall i\leq k-1:\{v_i,v_{i+1}\}\in \Gamma_w\}=\bigcup_{j=1}^{n_k}\{w\in V\mid \{v_i,v_{i+1}\}\in \Gamma_w \land \{v_k,v_k^{(j)}\}\in \Gamma_w\}$$ und der Unendlichkeit der linken Menge muss es ein $j\in\{1,\ldots,n_k\}$ geben, sodass auch 
+    $\{w\in V\mid \{v_i,v_{i+1}\}\in \Gamma_w \land \{v_k,v_k^{(j)}\}\in \Gamma_w\}$ unendlich ist. Dann definieren wir $v_{k+1}:=v_k^{(j)}$. Mit Hilfe des Auswahlaxioms ist daher die Wahl einer solchen Folge $v_1,v_2,\ldots$ möglich. Diese Folge bildet offensichtlich einen unendlichen Pfad.
+\end{proof}
+
+\begin{proposition}\label{prop:hir-ist-faktoriell}
     Jeder Hauptidealring ist ein faktorieller Ring.
 \end{proposition}
 
 \begin{proof}
-    Sei $r \in R$ irreduzibel, wir zeigen, dass $r$ prim ist. Wir bemerken, dass $ (r) \vartriangleleft R $ echt ist, womit es ein maximales, echtes Ideal gibt mit $(r) \subseteq I \vartriangleleft R$. Da $R$ ein Hauptidealring ist gibt es ein $c \in R$ mit $I = (c)$. $c$ ist prim, da $I$ maximal und damit prim ist. Nun gilt $r \in (c)$, womit $c \mid r$ folgt. Da $r$ irreduzibel und $c\not\sim 1$ ist, folgt $r \mid c$, also folgt $r \sim c$ und damit, dass $r$ prim ist.
+    Sei $r \in R$ irreduzibel, wir zeigen, dass $r$ prim ist. Wir bemerken, dass $ (r) \vartriangleleft R $ echt ist, womit es nach \cref{prop:ringideale} ein maximales Ideal $I$ gibt mit $(r) \subseteq I \vartriangleleft R$. Da $R$ ein Hauptidealring ist gibt es ein $c \in R$ mit $I = (c)$. $c$ ist prim, da $I$ maximal und nach \cref{prop:ringideale} damit prim ist. Nun gilt $r \in (c)$, womit $c \mid r$ folgt. Da $r$ irreduzibel und $c\not\sim 1$ ist, folgt $r \mid c$, also folgt $r \sim c$ und damit, dass $r$ prim ist.
 
-    Sei nun $r \in R \setminus \{0\}, r \not\sim 1$, wir suchen eine Zerlegung in irreduzible Elemente. Ist $r$ nicht irreduzibel, so können wir $r = r_0 \cdot r_1$ schreiben, wobei $r_0, r_1 \not\sim 1$. Entsprechend können wir, wenn $r_0$ beziehungsweise $r_1$ nicht irreduzibel sind $r_{00}, r_{01}$ finden. Induktiv zerlegen wir also
+    Sei nun $r \in R \setminus \{0\}, r \not\sim 1$, wir suchen eine Zerlegung in irreduzible Elemente. Ist $r$ nicht irreduzibel, so können wir $r = r_0 \cdot r_1$ schreiben, wobei $r_0, r_1 \not\sim 1$. Entsprechend können wir, etwa wenn $r_0$ nicht irreduzibel ist, $r_{00}, r_{01}$ mit $r_0=r_{00}\cdot r_{01}$ finden. Induktiv zerlegen wir also
     $$ r_{i_1 \hdots i_n} = r_{i_1 \hdots i_n 0} \cdot r_{i_1 \hdots i_n 1}. $$
-    Sei $T$ der Baum der $r_{i_1 \hdots i_n}$. Ist $T$ endlich, so haben wir eine gewünschte Zerlegung gefunden. Sei indirekt angenommen $T$ wäre unendlich, es gibt also einen unendlichen Ast (König's Lemma) -- \obda betrachten wir den Ast $r_0, r_{00}, r_{000}, \hdots$. Nun gilt
+    Sei $T$ der Baum der $r_{i_1 \hdots i_n}$. Ist $T$ endlich, so haben wir eine gewünschte Zerlegung gefunden. Sei indirekt angenommen $T$ wäre unendlich, es gibt also einen unendlichen Pfad (siehe \cref{lemma:koenigs-lemma}) -- \obda betrachten wir den Pfad $r_0, r_{00}, r_{000}, \hdots$. Nun gilt
     $$ (r) \subseteq (r_0) \subseteq (r_{00}) \subseteq \hdots $$
-    Sei indirekt angenommen $r_0 \sim r_{00}$, so gibt es ein $x$ mit $r_{00} = r_0 \cdot x = r_{00} \cdot r_{01} \cdot x$, also folgt $ 1 = r_{01} \cdot x$, also $r_{01} \sim 1$, im Widerspruch. Die obige Schachtelung ist also sogar echt, wir haben eine echt aufsteigende Kette von Idealen. Setze
+    Sei indirekt angenommen $r \sim r_0$, so gibt es ein $x$ mit $r_0 = r \cdot x = r_0 \cdot r_1 \cdot x$, also folgt $ 1 = r_1 \cdot x$, also $r_1 \sim 1$, im Widerspruch. Offensichtlich gilt diese Argumentation für alle Elemente des Astes. Die obige Schachtelung ist also sogar echt, wir haben eine echt aufsteigende Kette von Idealen. Setze
     $$ I := (r_0) \cup (r_{00}) \cup \hdots \vartriangleleft R. $$
-    Nun gibt es ein $c$ mit $I = (c)$, womit es ein $i$ gibt mit $c \in (r_{0 \hdots 0})$, wobei $0 \hdots 0$ $i$-mal, also folgt $c \sim r_{0 \hdots 0}$, also $I = (r_{0 \hdots 0})$, im Widerspruch dazu, dass unsere Kette echt aufsteigend war.
+    Nun gibt es ein $c$ mit $I = (c)$, womit es ein $i\in\mathbb{N}$ mit  $c \in (r\hspace*{-5pt}\underbrace{_{0 \hdots 0}}_{i\mathrm{-mal}})$ gint. Also folgt $c \sim r_{0 \hdots 0}$ und weiters $I = (r_{0 \hdots 0})$, im Widerspruch dazu, dass diese Kette echt aufsteigend war.
 \end{proof}
 
 \begin{example}
-    Betrachte $\mathbb{Z}[x]$. Sei $a \in \mathbb{Z}, a \not\sim 1, a \neq 0$. Betrachte $(\{a,x\}) \vartriangleleft \mathbb{Z}[x]$, was zwar echt aber kein Hauptideal ist. Wäre nämlich $(\{a,x\}) = (b)$, so würde wegen $a \in (b)$ direkt $\deg b = 0$ folgen. Wegen $x \in (b)$ folgt dadurch $b\sim1$, im Widerspruch.
+    Betrachte $\mathbb{Z}[x]$. Sei $a \in \mathbb{Z}, a \not\sim 1, a \neq 0$. Betrachte $(\{a,x\}) \vartriangleleft \mathbb{Z}[x]$, welches zwar echt, aber kein Hauptideal ist. Wäre nämlich $(\{a,x\}) = (b)$, so würde wegen $a \in (b)$ direkt $\deg b = 0$ folgen. Wegen $x \in (b)$ folgt dadurch $b\sim1$, im Widerspruch.
 
     Es ist aber $\mathbb{Z}[x]$ sehr wohl faktoriell, wie wir später noch sehen werden.
 \end{example}
 
 \begin{definition}
-    Sei $R$ ein kommutativer Ring mit 1, $A \subseteq R$ und $d \in R$. Dann ist $d$ ein \emph{größter gemeinsamer Teiler}\index{größter gemeinsamer Teiler} von $A$ (wir schreiben auch $d = \mathrm{ggT}(A)$, obwohl diese Gleichheit formal nicht korrekt ist), wenn
+    Sei $R$ ein kommutativer Ring mit 1, $A \subseteq R$ und $d \in R$. Dann ist $d$ ein \emph{größter gemeinsamer Teiler}\index{größter gemeinsamer Teiler} von $A$ (wir schreiben auch $d = \mathrm{ggT}(A)$, obwohl diese Gleichheit formal nicht korrekt ist, da der größte gemeinsame Teiler nicht eindeutig sein muss), wenn
     $$ (\forall a \in A: d \mid a ) \land ( \forall d' \in R : ( \forall b \in A: d' \mid b ) \Rightarrow d' \mid d  ). $$
-    Dieser größte gemeinsame Teiler ist eindeutig bis auf Assoziiertheit.
+    Im Fall der Existenz ist der größte gemeinsame Teiler eindeutig bis auf Assoziiertheit.
 
-    Entsprechend kann man auch das \emph{kleinste gemeinsame Vielfache}\index{kleinste gemeinsame Vielfache} einer Menge definieren.
+    Entsprechend kann man auch das \emph{kleinste gemeinsame Vielfache}\index{kleinste gemeinsame Vielfache} einer Menge $A$ definieren (wir schreiben  analog $v=\mathrm{kgV}(A)$, wobei diese Gleichheit mit derselben Begründung nicht formal korrekt ist).
 \end{definition}
+
+\begin{remark}
+    Ist $R$ ein faktorieller Ring, so gibt es zu je zwei Elementen $a,b\in R$ stets einen größten gemeinsamen Teiler: Falls eines der beiden Elemente $0$ ist, so ist das andere Element der größte gemeinsame Teiler. Ist eines der beiden Elemente die $1$, so ist auch $1$ der größte gemeinsame Teiler. Andernfalls können wir zwei Primfaktorenzerlegungen $a=a_1,\ldots,a_u$, $b=b_1,\ldots,b_v$ finden. Durch Umnummerierung können wir außerdem $r\le\min(u,v)$ maximal wählen, sodass $a_i\sim b_i$ für alle $i\leq r$ gilt. Man sieht leicht ein, dass $\prod_{i=1}^ra_i=\mathrm{ggT}(a,b)$ gilt.
+\end{remark}
 
 \notedate{17.05.2023}
 
 \begin{remark}
-    Sei $R$ ein Ring und Integritätsbereich und seien $a,b\in R$. Dann gilt die Äquivalenz
+    Sei $R$ ein Integritätsbereich und seien $a,b\in R$. Dann gilt die Äquivalenz
     $a\mid b\Leftrightarrow (b)\subseteq (a)$. Es ist daher die Struktur
     $(R/_\sim,\mid)$ ordnungstheoretisch isomorph zu der Menge aller Hauptideale mit Mengeninklusion,
-    vermöge der Abbildung $\psi([a]_\sim):= (a)$. Dabei ist $\sim$ die Assoziiertheit. Im Fall eines
+    vermöge der Abbildung $\psi([a]_\sim):= (a)$. Dabei ist $\sim$ die Assoziiertheitsrelation. Im Fall eines
     Hauptidealrings kann \glqq Menge der Hauptideale\grqq{} offensichtlich mit \glqq Menge der Ideale\grqq{}
     ersetzt werden. Für $A\subseteq R$ ist $\inf_{\vert}(A)=\mathrm{ggT}(A)$ und $\sup_{\vert}(A)=\mathrm{kgV}(A)$.
-    Aufgrund von dieser Tatsachen folgt nun, dass es in einem Hauptidealring $R$
-    zu $A\subseteq R$ eine Menge von Idealen $A'=\psi(A)$ gibt. Da $R$ ein Hauptidealring ist,
+    Aufgrund dieser Tatsachen folgt nun, dass es in einem Hauptidealring $R$
+    zu $A\subseteq R$ eine zugehörige Menge von Idealen $A'=\psi(A)$ gibt. Da $R$ ein Hauptidealring ist,
     existiert ein $d\in R$ mit $(A)=(d)$ und es folgt
     $$\mathrm{ggT}(A)=\inf{}_|(A)\widehat{=}\inf{}_{\supseteq}\{(a)\mid a\in A\}=\sup{}_\subseteq\{(a)\mid a\in A\}=(A)=(d).$$
 \end{remark}

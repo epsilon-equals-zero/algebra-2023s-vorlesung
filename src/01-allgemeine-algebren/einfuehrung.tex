@@ -5,7 +5,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 
 \begin{definition}\label{def:algebra}\label{def:allg_algebra}
     Seien $A$ eine beliebige Menge, $\tau = (n_i)_{i \in I}$ eine Familie aus $\mathbb{N}_0$ über einer beliebigen Indexmenge $I$ und $(f_i)_{i \in I}$ eine Familie von Funktionen, wobei $f_i: A^{n_i} \to A$ ist. 
-    Das Tupel $\mathfrak{A} = (A, (f_i)_{i \in I})$ heißt dann \emph{(allgemeine) Algebra}\index{Algebra!allgemeine} vom \emph{Typ}\index{Algebra!Typ} $\tau$. Die einzelnen Funktionen $f_i$ nennt man \emph{fundamentale Operationen}\index{fundamentale Operation} und haben \emph{Stelligkeit}\index{Stelligkeit} oder auch \emph{Arität}\index{Arität} $n_i$.
+    Das Tupel $\mathfrak{A} = (A, (f_i)_{i \in I})$ heißt dann \emph{(allgemeine) Algebra}\index{Algebra!allgemeine} vom \emph{Typ}\index{Algebra!Typ} $\tau$ oder auch \emph{$\tau$-Algebra}. Die einzelnen Funktionen $f_i$ nennt man \emph{fundamentale Operationen}\index{fundamentale Operation} und haben \emph{Stelligkeit}\index{Stelligkeit} oder auch \emph{Arität}\index{Arität} $n_i$. Die Gesamtheit der Funktionssymbole $(f_i)_{i\in I}$ nennen wir \emph{Signatur}\index{Signatur} oder \emph{Sprache}\index{Sprache}.
 \end{definition}
 
 \begin{remark}
@@ -40,7 +40,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
     $(\mathbb{R}, +, 0), (\mathbb{R}, \cdot, 1), (\mathbb{R}^{2\times 2}, \cdot, E_2), (\mathbb{N}, \cdot, 1)$ sind Monoide.
 \end{example}
 
-\begin{definition}\label{def:gruppe}
+\begin{definition}\label{def:gruppe1}
     Eine Algebra $\mathfrak{A} = (A, +, e, -)$ vom Typ $\tau = (2,0,1)$ heißt \emph{Gruppe}\index{Gruppe}, wenn
     \begin{itemize}
         \item $(A, +, e)$ ein Monoid ist und
@@ -61,7 +61,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
         \item $\forall x \in A \exists (-x) \in A: x + (-x) = (-x) + x = e$
     \end{itemize}
     gilt.
-    Bei der Definition von Unterstrukturen macht es allerdings einen Unterschied, welche der Definitionen verwendet wird, weshalb im Folgenden Gruppen im Sinne von \Cref{def:gruppe} zu verstehen sind.
+    Bei der Definition von Unterstrukturen (siehe \cref{definition:unterstruktur}) macht es allerdings einen Unterschied, welche der Definitionen verwendet wird, weshalb im Folgenden Gruppen im Sinne von \Cref{def:gruppe1} zu verstehen sind.
 \end{remark}
 
 \begin{definition}
@@ -97,7 +97,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
         \item $\cdot$ links- und rechtsdistributiv über $+$ ist.
     \end{itemize}
 
-    Gibt es eine weitere nullstellige Operation $1$, sodass $(A, \cdot, 1)$ ein (kommutatives) Monoid ist, so spricht man von einem \emph{(kommutativen) Ring mit 1}\index{Ring!mit 1}.
+    Gibt es eine weitere nullstellige Operation $1$, sodass $(A, \cdot, 1)$ ein (kommutatives) Monoid ist, so spricht man von einem \emph{(kommutativen) Ring mit 1}\index{Ring!mit 1} oder \emph{(kommutativen) 1-Ring}.
 \end{definition}
 
 \begin{example}
@@ -110,7 +110,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
     \begin{itemize}
         \item $\forall x \in A\backslash \{0\} \exists y \in A: x\cdot y = 1$
     \end{itemize}
-    Ist $\cdot$ nicht kommutativ, so nennen wir $\mathfrak{A}$ \emph{Schiefkörper}\index{Schiefkörper} oder \emph{Divisionsring}\index{Divisonsring}.
+    Verlangen wir von $\cdot$ keine Kommutativität, so nennen wir $\mathfrak{A}$ \emph{Schiefkörper}\index{Schiefkörper} oder \emph{Divisionsring}\index{Divisonsring}.
 \end{definition}
 \end{samepage}
 
@@ -178,7 +178,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
     $(\mathcal{P}(M), \cap, \cup)$ ist sogar ein distributiver Verband.
 
     \begin{minipage}{0.56\textwidth}
-        Betrachtet man die Abbildung rechts und definiert eine Ordnungsrelation, wobei die höher stehenden Elemente größer als die niedrigeren sind, und sei $\wedge, \vee$ das Supremum bzw. Infimum zweier Elemente, so ist $(\{0,1,2,3,4\}, \wedge, \vee)$ ein nicht distributiver Verband, da
+        Betrachtet man die Abbildung rechts und definiert eine Ordnungsrelation, wobei die höher stehenden Elemente größer als die niedrigeren sind, und sei $\wedge, \vee$ das Infimum bzw. Supremum zweier Elemente, so ist $(\{0,1,2,3,4\}, \wedge, \vee)$ ein nicht distributiver Verband\footnote{Nach diesem System kann jede endliche, partielle Ordnung mit einer solchen Abbildung identifiziert werden, letztere nennt man auch \emph{Hasse-Diagramm}}, da
         $$ 1 \wedge (2 \vee 3) = 1 \wedge 4 = 1 \neq 0 = (1 \wedge 2) \vee ( 1 \wedge 3). $$
     \end{minipage}
     \hspace{0.02\textwidth}
@@ -204,7 +204,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 \end{proof}
 
 \begin{definition}\label{def:boolsche_algebra}
-    Eine Algebra $\mathfrak{A} = (A, \wedge, \vee, 0, 1, \,')$ vom Typ $\tau = (2,2,0,0,1)$ heißt \emph{Boole'sche Algebra}\index{Boole'sche Algebra}, wenn
+    Eine Algebra $\mathfrak{A} = (A, \wedge, \vee, 0, 1, \,')$ vom Typ $\tau = (2,2,0,0,1)$ heißt \emph{Boolesche Algebra}\index{Boolesche Algebra}, wenn
     \begin{itemize}
         \item $(A, \wedge, \vee, 0, 1)$ ein beschränkter distributiver Verband ist,
         \item $\forall x \in A: x \wedge x' = 0$ und
@@ -214,11 +214,11 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 \end{definition}
 
 \begin{example}
-    Für eine Menge $M$ ist $(\mathcal{P}(M), \cap, \cup, \emptyset, M, ')$ mit $'(X) := M \setminus X$ eine Boole'sche Algebra.
+    Für eine Menge $M$ ist $(\mathcal{P}(M), \cap, \cup, \emptyset, M, ')$ mit $'(X) := M \setminus X$ eine Boolesche Algebra.
 \end{example}
 
 \begin{remark}
-    Alle Boole'schen Algebren werden durch den Darstellungssatz von Stone bis auf Isomorphie beschrieben.
+    Alle Booleschen Algebren werden durch den Darstellungssatz von Stone bis auf Isomorphie beschrieben.
 \end{remark}
 
 \begin{definition}
@@ -233,7 +233,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
 \end{definition}
 
 \begin{definition}
-    Zwei Algebren $\mathfrak{A} = (A, (f_i^\mathfrak{A})_{i \in I}), \mathfrak{B} = (B, (f_i^\mathfrak{B})_{i \in I})$ von selben Typ nennen wir \emph{isomorph}\index{isomorph}, wenn es einen Isomorphismus $\varphi: \mathfrak{A} \to \mathfrak{B}$ gibt. Wir schreiben auch $\mathfrak{A} \cong \mathfrak{B}$.
+    Zwei Algebren $\mathfrak{A} = (A, (f_i^\mathfrak{A})_{i \in I}), \mathfrak{B} = (B, (f_i^\mathfrak{B})_{i \in I})$ vom selben Typ nennen wir \emph{isomorph}\index{isomorph}, wenn es einen Isomorphismus $\varphi: \mathfrak{A} \to \mathfrak{B}$ gibt. Wir schreiben auch $\mathfrak{A} \cong \mathfrak{B}$.
 \end{definition}
 
 \begin{example}
@@ -241,7 +241,7 @@ Zu Beginn wird der Begriff einer allgemeinen (oder auch universellen) Algebra de
         \End(\mathfrak{A}) &:= \{f: A \to A \mid f\text{ ist Endomorphismus}\} \text{ und} \\ \Aut(\mathfrak{A}) &:= \{f: A \to A \mid f\text{ ist Automorphismus}\}.
     \end{align*}
 
-    $(\End(\mathfrak{A}), \circ, \id_A)$ ist dann ein Monoid, das \emph{Endomorphismenmonoid von $\mathfrak{A}$}\index{Endomorphismenmonoid}. Jedes Monoid ist isomorph zu einem Endomorphismenmonoid.
+    $(\End(\mathfrak{A}), \circ, \id_A)$ ist dann ein Monoid, das \emph{Endomorphismenmonoid von $\mathfrak{A}$}\index{Endomorphismenmonoid}. Wie wir in \cref{theorem:darstellungssatz-cayley-monoid} sehen werden, ist jedes Monoid isomorph zu einem Endomorphismenmonoid.
     
-    $(\Aut(\mathfrak{A}), \circ, \id_A, {}^{-1})$ ist eine Gruppe, die \emph{Automorphismengruppe von $\mathfrak{A}$}\index{Automorphismengruppe}. Nach dem Satz von Cayley ist jede endliche Gruppe isomorph zu einer Automorphismengruppe.
+    $(\Aut(\mathfrak{A}), \circ, \id_A, {}^{-1})$ ist eine Gruppe, die \emph{Automorphismengruppe von $\mathfrak{A}$}\index{Automorphismengruppe}. Eine Folgerung von \cref{satz:darstellungssatz-cayley-gruppen} ist, dass jede endliche Gruppe isomorph zu einer Automorphismengruppe ist.
 \end{example}
