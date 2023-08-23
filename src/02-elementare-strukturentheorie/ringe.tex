@@ -375,7 +375,7 @@ Zu Beginn dieses Abschnitts sei an \cref{def:ring} eines \emph{Rings} erinnert.
 
     Sei $R$ ein kommutativer Ring mit 1, $x$ eine Variable und definiere
     $$ R[x] := \{ t(x) \mid t \text{ Term über $x$ in Sprache } +, \cdot, (r)_{r \in R} \}/_\sim, $$
-    wobei $\sim$ die von Gesetzen der kommutativen Ringe mit 1 und Gesetzen in $R$\footnote{Gemeint sind hierbei Gesetze wie beispielsweise $r\cdot(s\cdot x)=(r\cdot s)\cdot x$ oder $(r\cdot x)+(s\cdot x)=(r+s)\cdot x$, also Gleichungen welche in $R$ gelten.} erzeugte Äquivalenz\-relation ist. In $R[x]$ gilt also beispielsweise
+    wobei $\sim$ die von Gesetzen der kommutativen Ringe mit 1 und in $R$ erfüllten Gesetzen\footnote{Gemeint sind hierbei Gesetze wie beispielsweise $(2\cdot 3)x=6x$ im Ring $(\mathbb{Z},+,0,-,\cdot)$.} erzeugte Äquivalenz\-relation ist. In $R[x]$ gilt also beispielsweise
     $$ x + x \cdot x = x \cdot x + x, \quad r \cdot (s \cdot x) = (r \cdot s) \cdot x. $$
 
     Vorteil von \cref{def:polynomring} ist, dass analog auch die Verallgemeinerung der formalen Potenzreihen definiert werden kann, was mit diesem Ansatz nicht möglich ist.
@@ -416,7 +416,7 @@ Folgende Punkte sind einfach nachzurechnen:
 
 \begin{definition}
     Sei $K$ ein Körper. Dann heißt $K$ \emph{algebraisch abgeschlossen}\index{Körper!algebraisch abgeschlossen}, wenn
-    $$\forall p(x)\in K[x]:p(x)\not\in\footnote{Hier wird $K$ mittels der Einbettung aus \cref{prop:polynomringe} als Teilmenge betrachtet.} K\Rightarrow \exists a\in K:p(a)\footnote{Der Ausdruck p(a) wird mithilfe des Einsetzungshomomorphismus definiert.}=0$$
+    $$\forall p(x)\in K[x]:p(x)\not\in\footnote{Hier wird $K$ mittels der Einbettung aus \cref{prop:polynomringe} als Teilmenge betrachtet.} K\Rightarrow \exists a\in K:p(a)\footnote{Der Ausdruck $p(a)$ wird mithilfe des Einsetzungshomomorphismus definiert.}=0$$
     gilt.
 \end{definition}
 

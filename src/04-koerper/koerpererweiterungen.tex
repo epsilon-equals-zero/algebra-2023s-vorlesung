@@ -114,7 +114,7 @@ Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem
         \begin{align*}
             [K(\alpha) : K] &\leq [K(\alpha, a_0, \hdots, a_n) : K] = \\
             &= [K(\alpha, a_0, \hdots, a_n) : K(a_0, \hdots, a_n)] \cdot [K(a_0, \hdots, a_n) : K] = \\
-            &= [K(\alpha, a_0, \hdots, a_n) : K(a_0, \hdots, a_n)] \cdot \hdots \cdot [K(a_n) : K] < \infty
+            &= [K(\alpha, a_0, \hdots, a_n) : K(a_0, \hdots, a_n)] \cdot [K(a_0,\hdots ,a_n):K(a_1,\hdots,a_n)] \cdot \hdots \\ &\;\;\cdot [K(a_{n-1},a_n):K(a_n)]\cdot  [K(a_n) : K] < \infty
         \end{align*}
         und nach (1) ist $K(\alpha)$ algebraisch über $K$, also insbesondere $\alpha$ über $K$.
 
@@ -204,7 +204,7 @@ Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem
 \end{lemma}
 
 \begin{proof}
-    Sei $f \in K(A \cup \{b\})[x] \setminus \{0\}$ mit $f(c)=0$, \obda setzen wir $f \in K[A \cup \{b\}][x]$ voraus. Sei $g(x,y) \in K[A][x,y]$ mit $g(x,b) = f(x)$. Wähle $h(y) := g(c, y) \in K[A \cup \{c\}][y]$. Dann ist $\deg h(y) \geq 1$. Nun gilt $h(b) = g(c,b) = f(c) = 0$, womit $b$ algebraisch über $K(A \cup \{ c \})$ ist.
+    Sei $f \in K(A \cup \{b\})[x] \setminus \{0\}$ mit $f(c)=0$, \obda setzen wir voraus, dass $f \in K[A \cup \{b\}][x]$ gilt, also $f$ ein Polynom über der Ringerweiterung von $K$ um $A\cup \{b\}$ ist. Sei $g(x,y) \in K[A][x,y]$ mit $g(x,b) = f(x)$. Wähle $h(y) := g(c, y) \in K[A \cup \{c\}][y]$. Dann ist $\deg h(y) \geq 1$. Nun gilt $h(b) = g(c,b) = f(c) = 0$, womit $b$ algebraisch über $K(A \cup \{ c \})$ ist.
 \end{proof}
 
 \begin{corollary}
@@ -234,7 +234,7 @@ Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem
 \end{lemma}
 
 \begin{proof}
-    Wir tauschen induktiv Basisvektoren aus. Dazu sei $B_0:=B=\{b_1,\ldots,b_n\}$. Wähle $c_0 \in C_0$, sodass $B_{1}:=B\setminus\{b_0\}\cup\{c_0\}$ eine Transzendenzbasis ist. Es ist $c_0\not\in B\setminus\{b_0\}$, da sonst $B$ keine Transzendenzbasis wäre. Fährt man induktiv fort, so erhält man nach $n$-Schritten, dass $B_n\subseteq C$ eine Transzendenzbasis ist, also folgt
+    Wir tauschen induktiv Basisvektoren aus. Dazu sei $B_0:=B=\{b_1,\ldots,b_n\}$. Wähle $c_0 \in C_0$, sodass $B_{1}:=B\setminus\{b_0\}\cup\{c_0\}$ eine Transzendenzbasis ist. Es ist $c_0\not\in B\setminus\{b_0\}$, da sonst $B$ keine Transzendenzbasis wäre. Fährt man induktiv fort, so erhält man nach $n$ Schritten, dass $B_n\subseteq C$ eine Transzendenzbasis ist, also folgt
     $|B|=|B_n|=|C|$.
 \end{proof}
 
@@ -345,7 +345,7 @@ Für den folgenden Satz erwähnen wir einige relevante Eigenschaften über Kardi
 \begin{proof}
     Wir geben einen Beweis an, welcher die Idee besonders gut widerspiegelt, allerdings technisch nicht korrekt ist, siehe dazu die nächste Bemerkung. Betrachte
     $$ \mathcal{S} := \{ E \mid E \text{ ist Körper}, K \leq E \text{ algebraische Erweiterung } \}. $$
-    Dann ist $(\mathcal{S}, \leq)$ eine Halbordnung. Klarerweise ist $\mathcal{S} \neq \emptyset$, da zumindest $K\in \mathcal{S}$ gilt, weiters sind alle Ketten beschränkt. Um dies einzusehen, sei $\mathcal{K} = \{ E_i \mid i \in I \}$ eine Kette in $\mathcal{S}$. Wir wollen ein $E \in \mathcal{S}$ finden mit $E_i \leq E$ für alle $i \in I$. Wähle dazu $E := \bigcup_{i \in I} E_i$. Wie man (aufgrund der Ketteneigenschaft) verifiziert, ist $E$ ein Oberkörper, wobei $x+y:=x+^{E_i}y$ mit einem $i\in I$ sodass $x,y\in E_i$ gilt definiert wird. Aufgrund der Ketteneigenschaft ist die Definition unabhängig von der Wahl von $i$, das heißt die Addition auf $E$ ist wohldefiniert, die anderen Operationen definiert man analog. Klarerweise gilt auch $K \leq E$. Da alle Elemente der Vereinigung algebraisch sind, ist auch $E$ algebraisch, womit tatsächlich $E \in \mathcal{S}$ folgt. Mit dem Lemma von Zorn erhalten wir also ein maximales $E \in \mathcal{S}$. Wir wollen zeigen, dass $E$ algebraisch abgeschlossen ist, da dann $E$ bereits der Zerfällungskörper ist. Sei dazu $f \in E[x]$ irreduzibel, wir wollen zeigen, dass $f$ eine Nullstelle in $E$ hat. Nach Kronecker gibt es ein $E_1 \in \mathcal{S}$ sodass $E \leq E_1$ eine algebraische Erweiterung ist und $f$ eine Nullstelle in $E_1$ hat. Da $E$ maximal ist folgt jedoch $E_1 = E$, womit das zu Zeigende folgt.
+    Dann ist $(\mathcal{S}, \leq)$ eine Halbordnung. Klarerweise ist $\mathcal{S} \neq \emptyset$, da zumindest $K\in \mathcal{S}$ gilt, weiters sind alle Ketten beschränkt. Um dies einzusehen, sei $\mathcal{K} = \{ E_i \mid i \in I \}$ eine Kette in $\mathcal{S}$. Wir wollen ein $E \in \mathcal{S}$ finden mit $E_i \leq E$ für alle $i \in I$: Wähle dazu $E := \bigcup_{i \in I} E_i$. Wie man (aufgrund der Ketteneigenschaft) verifiziert, ist $E$ ein Oberkörper, wobei $x+y:=x+^{E_i}y$ mit einem $i\in I$ sodass $x,y\in E_i$ gilt definiert wird. Aufgrund der Ketteneigenschaft ist die Definition unabhängig von der Wahl von $i$, das heißt die Addition auf $E$ ist wohldefiniert, die anderen Operationen definiert man analog. Klarerweise gilt auch $K \leq E$. Da alle Elemente der Vereinigung algebraisch sind, ist auch $E$ algebraisch, womit tatsächlich $E \in \mathcal{S}$ folgt. Mit dem Lemma von Zorn erhalten wir also ein maximales $E \in \mathcal{S}$. Wir wollen zeigen, dass $E$ algebraisch abgeschlossen ist, da dann $E$ bereits der Zerfällungskörper ist. Sei dazu $f \in E[x]$ irreduzibel, wir wollen zeigen, dass $f$ eine Nullstelle in $E$ hat. Nach Kronecker gibt es ein $E_1 \in \mathcal{S}$ sodass $E \leq E_1$ eine algebraische Erweiterung ist und $f$ eine Nullstelle in $E_1$ hat. Da $E$ maximal ist folgt jedoch $E_1 = E$, womit das zu Zeigende folgt.
 \end{proof}
 
 \begin{remark}
