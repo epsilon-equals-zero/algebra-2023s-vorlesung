@@ -414,7 +414,7 @@ Es sei an die Definition einer zyklischen Gruppe in \cref{def:gruppe} erinnert.
     \begin{enumerate}
         \item \begin{itemize}
             \item[$\Leftarrow$:] Es gilt $\mathbb{Z}=\langle \{1\} \rangle$ und damit folgt $G=\langle \{h(1)\} \rangle$.
-            \item[$\Rightarrow$:] Sei $g \in G$ so, dass $G = \{g^n \mid g \in \mathbb{Z}\} $. Definiere die Abbildung $h: \mathbb{Z} \to G, n \mapsto g^n$. Dafür gilt $h(0) = e_g$, $h(n)^{-1} = (g^{n})^{-1} = g^{-n} = h(-n)$ und $h(m+n) = g^{m+n} = g^m g^n = h(m)h(n)$, womit $h$ ein Homomorphismus ist. Aufgrund der Wahl von $g$ ist $h$ nun surjektiv.
+            \item[$\Rightarrow$:] Sei $g \in G$ so, dass $G = \{g^n \mid n \in \mathbb{Z}\} $. Definiere die Abbildung $h: \mathbb{Z} \to G, n \mapsto g^n$. Dafür gilt $h(0) = e_g$, $h(n)^{-1} = (g^{n})^{-1} = g^{-n} = h(-n)$ und $h(m+n) = g^{m+n} = g^m g^n = h(m)h(n)$, womit $h$ ein Homomorphismus ist. Aufgrund der Wahl von $g$ ist $h$ nun surjektiv.
         \end{itemize}
         \item Diese Aussage folgt direkt aus 1., da abelsche Gruppen eine Varietät bilden. Es ist $\mathbb{Z}$ abelsch, also auch dessen homomorphe Bilder, insbesondere $G$.
         \item Sei $F \in \mathrm{H}G$ beliebig, es gibt also einen surjektiven Homomorphismus $\varphi: G \to F$. Aus 1. erhalten wir außerdem, da $G$ zyklisch ist, die Existenz eines surjektiven Homomorphismus $h: \mathbb{Z} \to G$. Die Verkettung $\varphi \circ h: \mathbb{Z} \to F$ ist nun erneut ein surjektiver Homomorphismus, weshalb wir erneut aus 1. erhalten, dass $F$ zyklisch ist.
