@@ -204,7 +204,7 @@ Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem
 \end{lemma}
 
 \begin{proof}
-    Sei $f \in K(A \cup \{b\})[x] \setminus \{0\}$ mit $f(c)=0$, \obda setzen wir voraus, dass $f \in K[A \cup \{b\}][x]$ gilt, also $f$ ein Polynom über der Ringerweiterung von $K$ um $A\cup \{b\}$ ist. Sei $g(x,y) \in K[A][x,y]$ mit $g(x,b) = f(x)$. Wähle $h(y) := g(c, y) \in K[A \cup \{c\}][y]$. Dann ist $\deg h(y) \geq 1$. Nun gilt $h(b) = g(c,b) = f(c) = 0$, womit $b$ algebraisch über $K(A \cup \{ c \})$ ist.
+    Sei $f \in K(A \cup \{b\})[x] \setminus \{0\}$ mit $f(c)=0$, \obda setzen wir voraus, dass $f \in K[A \cup \{b\}][x]$ gilt, also $f$ ein Polynom über der Ringerweiterung\footnote{Da $K(A\cup \{b\})$ isomorph zum Quotientenkörper von $K[A\cup \{b\}]$ ist, ist diese Wahl von $f$ wegen \cref{lemma:poly_in_quotientenkoerper} möglich.} von $K$ um $A\cup \{b\}$ ist. Sei $g(x,y) \in K[A][x,y]$ mit\footnote{An dieser Stelle geht die Voraussetzung $f\in K[A\cup\{b\}][x]$ ein. Die Koeffizienten $a_i\in K[A\cup \{b\}]$ von $f$ sind von der Form $q_i(b)$, wobei die $q_i\in K[A][y]$ ebenfalls Polynome sind.} $g(x,b) = f(x)$. Wähle $h(y) := g(c, y) \in K[A \cup \{c\}][y]$. Dann ist $\deg h(y) \geq 1$. Nun gilt $h(b) = g(c,b) = f(c) = 0$, womit $b$ algebraisch über $K(A \cup \{ c \})$ ist.
 \end{proof}
 
 \begin{corollary}
@@ -238,7 +238,7 @@ Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem
     $|B|=|B_n|=|C|$.
 \end{proof}
 
-Für den folgenden Satz erwähnen wir einige relevante Eigenschaften über Kardinalitäten. Für zwei Mengen $B$ und $C$ schreiben wir $|B|=|C|$, wenn es eine Bijektion zwischen $B$ und $C$ gibt. Falls es eine injektive Abbildung von $B$ nach $C$ gibt, so schreiben wir $|B|\le|C|$, andernfalls schreiben wir $|B|>|C|$. Dieses \glqq$\leq$\grqq{} erfüllt alle Eigenschaften einer linearen Ordnung, sie ist also reflexiv, transitiv und antisymmetrisch. Ist $I$ eine beliebige Indexmenge und sind $M_i$ beliebige Mengen, so bezeichnet $\sum_{i\in I}|M_i|$ die Kardinalität der Menge $\bigcup_{i\in I}M_i\times \{i\}$. Im Beweis von \cref{theorem:transzendenz-grad} verwenden wir diese Tatsache: Ist $I$ unendlich und sind alle $M_i$ endlich, so gilt $\sum_{i\in I}|M_i|=|I|$.
+Für den folgenden Satz sowie \cref{prop:maechtigkeit_koerpeerweiterung} erwähnen wir einige relevante Eigenschaften über Kardinalitäten. Für zwei Mengen $B$ und $C$ schreiben wir $|B|=|C|$, wenn es eine Bijektion zwischen $B$ und $C$ gibt. Falls es eine injektive Abbildung von $B$ nach $C$ gibt, so schreiben wir $|B|\le|C|$, andernfalls schreiben wir $|B|>|C|$. Dieses \glqq$\leq$\grqq{} erfüllt alle Eigenschaften einer linearen Ordnung, sie ist also reflexiv, transitiv und antisymmetrisch. Ist $I$ eine beliebige Indexmenge und sind $M_i$ beliebige Mengen, so bezeichnet $\sum_{i\in I}|M_i|$ die Kardinalität der Menge $\bigcup_{i\in I}M_i\times \{i\}$. Für beliebige Mengen $M$ und $I$ ist das mengentheoretische Produkt definiert als $M^I:=\{f\mid f:I\to M\text{ ist Funktion}\}$. Außerdem definieren wir $|M|^{|I|}:=|M^I|$. Im Beweis von \cref{theorem:transzendenz-grad} verwenden wir diese Tatsache: Ist $I$ unendlich und sind alle $M_i$ endlich, so gilt $\sum_{i\in I}|M_i|=|I|$. Für den Beweis von \cref{prop:maechtigkeit_koerpeerweiterung} verwenden wir das folgende Resultat der Mengenlehre: Ist $M$ unendlich und $I\neq\emptyset$ endlich, so gilt $|M|^{|I|}=|M|$.
 
 \begin{theorem} \label{theorem:transzendenz-grad}
     Seien $K \leq E$, $B, C$ Transzendenzbasen. Dann ist $\vert B \vert = \vert C \vert$.
@@ -362,14 +362,14 @@ Für den folgenden Satz erwähnen wir einige relevante Eigenschaften über Kardi
     Weiters muss man noch darauf achten, dass $E_1$ hier nicht unbedingt in $\mathcal{S}$ sein muss. Da $E_1$ jedoch vergleichsweise ``klein'' ist, können wir $E_1$ problemlos in eine Menge $\widetilde{E_1} \in \mathcal{S}$ umbenennen:
 \end{remark}
 
-\begin{proposition}
+\begin{proposition}\label{prop:maechtigkeit_koerpeerweiterung}
     Sei $K \leq L$ algebraisch. Dann gilt $\vert L \vert \leq \max(\vert K \vert, \vert \mathbb{N} \vert)$.
 \end{proposition}
 
 \begin{proof}
     Wir beweisen zuerst noch, dass $|K[x]|=\max(|K|,|\mathbb{N}|)$ gilt.
 
-    Offensichtlich gilt $|K[x]|\geq \max(|K|,|\mathbb{N}|)$, wenn man etwa die Polynome $c$ für $c\in K$ und $x^n$ für $n\in\mathbb{N}$ betrachtet. Definieren wir $M_n:=\{f\in K[x]:\deg f\le n\}$ für $n\in\mathbb{N}$, so gilt $$K[x]=\bigcup_{n\in\mathbb{N}}M_n.$$ Jede der Mengen $M_n$ hat $n\cdot |K|$ Elemente. Ist $K$ endlich, so sind also alle $M_n$ endlich und es folgt $|K[x]|=|\mathbb{N}|$. Andernfalls gilt $n\cdot |K|=|K|$ und damit $|K[x]|\le \sum_{n\in\mathbb{N}}|M_n|=\sum_{n\in\mathbb{N}}n\cdot |K|=\sum_{n\in\mathbb{N}}|K|=\max(|K|,|\mathbb{N}|)$. Also folgt in jedem Fall $|K[x]|=\max(|K|,|\mathbb{N}|)$.
+    Offensichtlich gilt $|K[x]|\geq \max(|K|,|\mathbb{N}|)$, wenn man etwa die Polynome $c$ für $c\in K$ und $x^n$ für $n\in\mathbb{N}$ betrachtet. Definieren wir $M_n:=\{f\in K[x]:\deg f\le n\}$ für $n\in\mathbb{N}$, so gilt $$K[x]=\bigcup_{n\in\mathbb{N}}M_n.$$ Jede der Mengen $M_n$ hat $|K|^n$ Elemente. Ist $K$ endlich, so sind also alle $M_n$ endlich und es folgt $|K[x]|=|\mathbb{N}|$. Andernfalls gilt $|K|^n=|K|$ und damit $|K[x]|\le \sum_{n\in\mathbb{N}}|M_n|=\sum_{n\in\mathbb{N}}|K|^n=\sum_{n\in\mathbb{N}}|K|=\max(|K|,|\mathbb{N}|)$. Also folgt in jedem Fall $|K[x]|=\max(|K|,|\mathbb{N}|)$.
 
     Sei $a \in L$, dann gibt es ein $f \in K[x] \setminus \{0\}$ mit $f(\alpha) = 0$. Nun ist
     $$ N_f := \{ \beta \in L \mid f(\beta) = 0 \} $$
