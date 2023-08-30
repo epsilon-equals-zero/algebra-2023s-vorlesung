@@ -238,7 +238,7 @@ Verschiedene $\alpha, \beta$ können dasselbe Minimalpolynom besitzen. In diesem
     $|B|=|B_n|=|C|$.
 \end{proof}
 
-Für den folgenden Satz sowie \cref{prop:maechtigkeit_koerpeerweiterung} erwähnen wir einige relevante Eigenschaften über Kardinalitäten. Für zwei Mengen $B$ und $C$ schreiben wir $|B|=|C|$, wenn es eine Bijektion zwischen $B$ und $C$ gibt. Falls es eine injektive Abbildung von $B$ nach $C$ gibt, so schreiben wir $|B|\le|C|$, andernfalls schreiben wir $|B|>|C|$. Dieses \glqq$\leq$\grqq{} erfüllt alle Eigenschaften einer linearen Ordnung, sie ist also reflexiv, transitiv und antisymmetrisch. Ist $I$ eine beliebige Indexmenge und sind $M_i$ beliebige Mengen, so bezeichnet $\sum_{i\in I}|M_i|$ die Kardinalität der Menge $\bigcup_{i\in I}M_i\times \{i\}$. Für beliebige Mengen $M$ und $I$ ist das mengentheoretische Produkt definiert als $M^I:=\{f\mid f:I\to M\text{ ist Funktion}\}$. Außerdem definieren wir $|M|^{|I|}:=|M^I|$. Im Beweis von \cref{theorem:transzendenz-grad} verwenden wir diese Tatsache: Ist $I$ unendlich und sind alle $M_i$ endlich, so gilt $\sum_{i\in I}|M_i|=|I|$. Für den Beweis von \cref{prop:maechtigkeit_koerpeerweiterung} verwenden wir das folgende Resultat der Mengenlehre: Ist $M$ unendlich und $I\neq\emptyset$ endlich, so gilt $|M|^{|I|}=|M|$.
+Für den folgenden Satz sowie \cref{prop:maechtigkeit_koerpeerweiterung} erwähnen wir einige relevante Eigenschaften über Kardinalitäten. Für zwei Mengen $B$ und $C$ schreiben wir $|B|=|C|$, wenn es eine Bijektion zwischen $B$ und $C$ gibt. Falls es eine injektive Abbildung von $B$ nach $C$ gibt, so schreiben wir $|B|\le|C|$, andernfalls schreiben wir $|B|>|C|$. Dieses \glqq$\leq$\grqq{} erfüllt alle Eigenschaften einer linearen Ordnung, sie ist also reflexiv, transitiv und antisymmetrisch. Ist $I$ eine beliebige Indexmenge und sind $M_i$ beliebige Mengen, so bezeichnet $\sum_{i\in I}|M_i|$ die Kardinalität der Menge $\bigcup_{i\in I}M_i\times \{i\}$. Für beliebige Mengen $M$ und $I$ definieren wir $M^I:=\{f\mid f:I\to M\text{ ist Funktion}\}$ und $|M|^{|I|}:=|M^I|$. Im Beweis von \cref{theorem:transzendenz-grad} verwenden wir diese Tatsache: Ist $I$ unendlich und sind alle $M_i$ endlich, so gilt $\sum_{i\in I}|M_i|=|I|$. Für den Beweis von \cref{prop:maechtigkeit_koerpeerweiterung} verwenden wir das folgende Resultat der Mengenlehre: Ist $M$ unendlich und $I\neq\emptyset$ endlich, so gilt $|M|^{|I|}=|M|$.
 
 \begin{theorem} \label{theorem:transzendenz-grad}
     Seien $K \leq E$, $B, C$ Transzendenzbasen. Dann ist $\vert B \vert = \vert C \vert$.
@@ -272,7 +272,7 @@ Für den folgenden Satz sowie \cref{prop:maechtigkeit_koerpeerweiterung} erwähn
         \item $K[x] /_{(f)} =: L$ ist ein Körper.
         \item Die Abbildung $\varphi : K \to L, c \mapsto c + (f)$ ist eine Körpereinbettung.
         \item Es gibt eine eindeutige Ringeinbettung $\overline{\varphi} : K[x] \to L[x]$ mit $\overline{\varphi} \vert_K = \varphi, \overline{\varphi}(x) = x$.
-        \item Identifiziert man $K[x]$ mit $\varphi(K[x])$ und $K$ mit $\varphi(K)$, so ist
+        \item Identifiziert man $K[x]$ mit $\overline{\varphi}(K[x])$ und $K$ mit $\varphi(K)$, so ist
         $x + (f) \in L$  eine Nullstelle von $f$ (formal von $\overline{\varphi}(f)$).
         \item $[L : K] = \deg f < \infty$, insbesondere ist $L$ algebraisch über $K$.
     \end{enumerate}
